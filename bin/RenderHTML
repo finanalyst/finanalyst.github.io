@@ -39,7 +39,7 @@ sub render-files (@to-be-rendered, $dir, :$to) {
             path => $_.dirname,
         )), :pre-finalised);
         $short = $_ with $to;
-        $short .= subst( / \/ /, '%3a%3a', :g);
+        $short .= subst( / \/ /, '_', :g);
         "$short.html".IO.spurt($rdp.finalise);
         %file-data{$short} = %(
             title => $processed.title,
