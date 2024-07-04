@@ -1,0 +1,13 @@
+=begin rakudoc
+=TITLE Using RakuAST to render RakuDoc to HTML
+=SUBTITLE The next upgrade of the Rakudo Raku compiler uses RakuAST to parse programs.
+This has a major implication for RakuDoc sources, which can be manipulated after
+being parsed, but before being compiled. RakuDoc itself has been upgraded.
+=for AUTHOR :hidden
+Richard Hainsworth, aka finanalyst
+=for VERSION :hidden
+v0.1.0
+=head Overview
+
+The C<RakuAST::RakuDoc::Render> distribution contains several renderers, including
+two for HTML. All the HTML files in this repository were rendered using C<RakuDoc::To::HTML-Extra>.
