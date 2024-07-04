@@ -35,7 +35,7 @@ crossorigin=""
 
 <div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading"><a href="#" title="go to top of document">SYNOPSIS</a></h2>
 <p id="b177450">To render a RakuDoc source, eg. <span class="important">some-docs.rakudoc</span>, into <span class="important">some-docs.md</span>, either use the terminal command </p>
-<pre class="code-block">RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc > some-docs.md
+<pre class="code-block">RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc &gt; some-docs.md
 </pre>
 <p id="f06d654">or (see <a href="#RenderDocs_utility">below for more detail</a>) </p>
 <pre class="code-block">bin/RenderDocs some-docs
@@ -53,11 +53,11 @@ crossorigin=""
 <div class="id-target" id=""></div><h2 id="Customising_templates" class="heading "><a href="#" title="go to top of document">Customising templates</a></h2>
 <p id="2729c40">All output from <span class="important">Rakuast::RakuDoc::Render</span> modules is generated through templates. These templates can be added to, without overriding the previous templates, (<a href="Templates.html">see Templates for detail</a>). </p>
 <p id="4a33edb">If a file exists in the local directory called <span class="important">new-temp.raku</span> and conforms to the requirements described in <a href="Templates.html">Templates</a>, then the templates in it will be added to the generic Markdown templates as follows: </p>
-<pre class="code-block">MORE_MARKDOWN=new-temp.raku RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc > store.md
+<pre class="code-block">MORE_MARKDOWN=new-temp.raku RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc &gt; store.md
 </pre>
 <p id="1f0e4a3">For instance if the contents of <span class="important">new-temp.raku</span> is </p>
 <pre class="code-block">%(
-        final => -> %prm, $tmpl { "# Customisation message\n\n" ~ $tmpl.prev }
+        final =&gt; -&gt; %prm, $tmpl { "# Customisation message\n\n" ~ $tmpl.prev }
     )
 </pre>
 <p id="1e4a7a3">Then after running the command above, <span class="basis">store.md</span> will contain a new title at the top, followed by the remainder of the Markdown as rendered before the new template was added. </p>
@@ -100,7 +100,7 @@ v0.4.0
     
 <div class="footer">
     Rendered from <span class="footer-field">docs/RakuDoc-To-Markdown</span>
-<span class="footer-field"> at 19:11 UTC on 2024-07-04</span>
+<span class="footer-field"> at 19:27 UTC on 2024-07-04</span>
 <span class="footer-line">Source last modified at 09:54 UTC on 2024-06-30</span>
 
 </div>

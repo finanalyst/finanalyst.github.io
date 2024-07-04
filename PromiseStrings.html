@@ -83,18 +83,18 @@ sink '&lt;bold&gt;' ~ $p
 </a></h4>
 <p id="480295c">These two methods of a <span class="important">PStr</span> object return any of the <span class="basis">leading</span> or <span class="basis">tailing</span> (respectively) <span class="important">Str</span> elements of the <span class="important">PStr</span>. The elements are removed, and so should be concatenated back on after processing. </p>
 <p id="aa45553">For simplicity above, examples were given of pre- and post-processing templates, and treating the contents of <span class="code">%prm</span> as <span class="important">Str</span>. Since some parameters may contain <span class="important">PStr</span>, more care is needed. For example, the post-processing should be done as follows: </p>
-<pre class="code-block">table => -> %prm, $tmpl {
+<pre class="code-block">table =&gt; -&gt; %prm, $tmpl {
     my $rv = $tmpl.prev;
     if $rv ~~ PStr {
         # get leading text
         my $lead = $rv.lead;
         # process the string, if it exists
-        $lead.subst( / '<table' \s+ 'class="pod-table' /, '<table class="table is-centered');
+        $lead.subst( / '&lt;table' \s+ 'class="pod-table' /, '&lt;table class="table is-centered');
         # left concatenate onto the PStr
         $lead ~ $rv
         # concatenating to a PStr results in a PStr, which is the return object
     }
-    else { $rv.subst( / '<table' \s+ 'class="pod-table' /, '<table class="table is-centered') }
+    else { $rv.subst( / '&lt;table' \s+ 'class="pod-table' /, '&lt;table class="table is-centered') }
 }
 </pre>
 
@@ -124,7 +124,7 @@ v0.2.1
     
 <div class="footer">
     Rendered from <span class="footer-field">docs/PromiseStrings</span>
-<span class="footer-field"> at 19:11 UTC on 2024-07-04</span>
+<span class="footer-field"> at 19:27 UTC on 2024-07-04</span>
 <span class="footer-line">Source last modified at 15:57 UTC on 2024-07-04</span>
 
 </div>

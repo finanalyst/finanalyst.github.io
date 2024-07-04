@@ -38,14 +38,14 @@ crossorigin=""
 <p id="63e7876">The following digraph comes from the <span class="code">dot</span> documentation. The following Rakudoc </p>
 <pre class="code-block">=begin Graphviz :headlevel(2) :caption&lt;Simple example&gt;
     digraph G {
-        main -> parse -> execute;
-        main -> init;
-        main -> cleanup;
-        execute -> make_string;
-        execute -> printf
-        init -> make_string;
-        main -> printf;
-        execute -> compare;
+        main -&gt; parse -&gt; execute;
+        main -&gt; init;
+        main -&gt; cleanup;
+        execute -&gt; make_string;
+        execute -&gt; printf
+        init -&gt; make_string;
+        main -&gt; printf;
+        execute -&gt; compare;
     }
 =end Graphviz
 </pre>
@@ -186,7 +186,7 @@ v0.1.0
     
 <div class="footer">
     Rendered from <span class="footer-field">docs/plugins/plugins/Graphviz</span>
-<span class="footer-field"> at 19:11 UTC on 2024-07-04</span>
+<span class="footer-field"> at 19:27 UTC on 2024-07-04</span>
 <span class="footer-line">Source last modified at 15:57 UTC on 2024-07-04</span>
 
 </div>

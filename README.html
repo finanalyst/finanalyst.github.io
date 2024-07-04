@@ -61,7 +61,7 @@ crossorigin=""
 <tr><td class="">HTML-Extra</td><td class="">in development</td><td class="">HTML output using Bulma CSS, Graphviz, Leaflet-Maps, Latex, assumes internet</td></tr></table>
 <p id="385bc98">This is software using bleeding edge Rakudo, so look <a href="#Troubleshooting">at troubleshooting below</a>. </p>
 <p id="c686f12">Using the <span class="important">Generic</span> renderer, the <span class="basis">canonical method</span> for generating rendered text is possible (which sends output to STDOUT, so pipe to a file), namely </p>
-<pre class="code-block">RAKUDO_RAKUAST=1 raku --rakudoc=Generic rakudociem-ipsum.rakudoc > store-output
+<pre class="code-block">RAKUDO_RAKUAST=1 raku --rakudoc=Generic rakudociem-ipsum.rakudoc &gt; store-output
 </pre>
 <p id="58b8f3d">Some <a href="#Wrapping">naive wrapping and width modification</a> is possible using environment variables. </p>
 <p id="4f9cdd1">The file <a href="https://github.com/Raku/RakuDoc-GAMMA/blob/main/rakudociem-ipsum.rakudoc">rakudociem-ipsum.rakudoc</a> is the file for testing RakuDoc v2 compliance. It can be obtained with: </p>
@@ -115,13 +115,13 @@ crossorigin=""
 
 <div class="id-target" id=""></div><h2 id="Wrapping" class="heading "><a href="#" title="go to top of document">Wrapping</a></h2>
 <p id="1860541">The text output will be naively wrapped (the algorithm is still being developed), either by setting the environment variable POSTPROCESSING=1 or using RenderTextify. For example, </p>
-<pre class="code-block">POSTPROCESSING=1 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc > store-output
+<pre class="code-block">POSTPROCESSING=1 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc &gt; store-output
 </pre>
 <p id="7fa2f84">or </p>
 <pre class="code-block">bin/RenderTextify --post-processing doc
 </pre>
 <p id="96f3270">If the environment variable WIDTH (--width) is also set, the text output will be wrapped to the value. WIDTH by default is set at 80 chars. To set at 70, use: </p>
-<pre class="code-block">POSTPROCESSING=1 WIDTH=70 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc > store-output
+<pre class="code-block">POSTPROCESSING=1 WIDTH=70 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc &gt; store-output
 </pre>
 <p id="7fa2f84">or </p>
 <pre class="code-block">bin/RenderTextify --post-processing --width=70 doc
@@ -134,14 +134,14 @@ crossorigin=""
     This element has not been resolved. Type: RakuAST::Type::Simple
 </pre>
 <p id="347a187">then try </p>
-<pre class="code-block">RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=Generic rakudociem-ipsum.rakudoc > store-output
+<pre class="code-block">RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=Generic rakudociem-ipsum.rakudoc &gt; store-output
 </pre>
 <p id="4c23d02">The command above may also generate an error, such as </p>
 <pre class="code-block">    ===SORRY!=== Error while compiling ..... (OO::Monitors)
     Variable '$cond' is not declared.  Perhaps you forgot a 'sub' if this
     was intended to be part of a signature?
     at ....
-    ------> macro wait-condition(⏏$cond) is export {
+    ------&gt; macro wait-condition(⏏$cond) is export {
 because the RakuAST compiler does not yet handle macros, and (OO::Monitors) uses them.
 </pre>
 <p id="87645ef">The first step is to re-run the test files, eg., </p>
@@ -169,7 +169,7 @@ v0.3.1
     
 <div class="footer">
     Rendered from <span class="footer-field">docs/README</span>
-<span class="footer-field"> at 19:11 UTC on 2024-07-04</span>
+<span class="footer-field"> at 19:27 UTC on 2024-07-04</span>
 <span class="footer-line">Source last modified at 09:54 UTC on 2024-06-30</span>
 
 </div>

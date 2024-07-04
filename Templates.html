@@ -48,9 +48,9 @@ crossorigin=""
 <p id="3a66272">A <span class="important">Template-directory</span> object is an extended Hash structure. </p>
 <p id="4b68c2d">Templates are specified as a list of Pairs of the form </p>
 <pre class="code-block">    # psuedocode
-    &lt;key&gt; => -> &lt;Hash&gt;, &lt;Template object&gt; &lt;Block&gt;
+    &lt;key&gt; =&gt; -&gt; &lt;Hash&gt;, &lt;Template object&gt; &lt;Block&gt;
     # or as an example
-    head => -> %prm, $tmpl { ... }
+    head =&gt; -&gt; %prm, $tmpl { ... }
 </pre>
 <p id="0bef7be">where </p>
 
@@ -69,13 +69,13 @@ crossorigin=""
 <li class="item" data-bullet="▹" style="--level:1;"> <p id="dc0abb4">If the Raku program in the block is more easily written using a <span class="code">return</span> statement, then a <span class="code">sub</span> form should be used, eg. </p>
 </li>
 </ul>
-<pre class="code-block">key => sub ( %prm, $tmpl ) { ... }
+<pre class="code-block">key =&gt; sub ( %prm, $tmpl ) { ... }
 </pre>
 
 <div class="id-target" id=""></div><h2 id="Custom_data" class="heading "><a href="#" title="go to top of document">Custom data</a></h2>
 <p id="cf29437">A <span class="important">Template-directory</span> object also has a <span class="code"> %.data </span> structure, which is intended for use by plugins that need to make extra data available for templates. </p>
 <p id="ebf1501">For example, suppose a custom block is written to include data about all the documents in a website, and the information is collected into a structure called <span class="code">%files</span>, which is to be available to the template <span class="code">listfiles</span>, then we could have </p>
-<pre class="code-block">    my %temp-dir is Target-directory = listfile => -> %prm, $tmpl {
+<pre class="code-block">    my %temp-dir is Target-directory = listfile =&gt; -&gt; %prm, $tmpl {
         my %file-data = $tmpl.globals.data&lt;listfiles&gt;
         # code to create the output string using the data
     }
@@ -95,14 +95,14 @@ crossorigin=""
 </a></h3>
 <p id="87631bf">This calls the previously defined block of the template with the same name, with the same parameters provided to current block. The use case is to allow some pre- and (limited) post- processing of the parameters while keeping the previous template. </p>
 <p id="aead65e"><span class="basis">Pre-processing</span> Suppose a new template is required that merely adds the word 'Chapter' to the contents of a <span class="code">=Chapter</span> block. So the parameter needs to be preprocessed and the previous template called. Assuming %prm<contents> is a Str. </p>
-<pre class="code-block">chapter => -> %prm, $tmpl {
+<pre class="code-block">chapter =&gt; -&gt; %prm, $tmpl {
     %prm&lt;contents&gt; = 'Chapter ' ~ %prm&lt;contents&gt;;
     $tmpl.prev( %prm ); # pass the new value of contents
 }
 </pre>
 <p id="cfe4d47"><span class="basis">Post-processing</span> For example, suppose a template 'table' has been defined, but a new template is needed that substitutes the HTML class, then some post-processing of the old template is sufficient, eg., </p>
-<pre class="code-block">table => -> %prm, $tmpl {
-    ($tmpl.prev).subst( / '<table' \s+ 'class="pod-table' /, '<table class="table is-centered')
+<pre class="code-block">table =&gt; -&gt; %prm, $tmpl {
+    ($tmpl.prev).subst( / '&lt;table' \s+ 'class="pod-table' /, '&lt;table class="table is-centered')
 }
 </pre>
 <p id="aa2d5ac">This assumes that the return object from both templates <span class="important">chapter</span> and <span class="important">table</span> is a Str, which it could be. But generically, it is best not to assume this. A fuller example is given below. </p>
@@ -118,7 +118,7 @@ crossorigin=""
 <div class="id-target" id=""></div><h3 id="Calling_another_defined_template" class="heading "><a href="#" title="go to top of document">Calling another defined template</a></h3>
 <p id="5b159ef">The block registered with key <span class="code">aaa</span> can be called inside another template block, with or without parameters. </p>
 <p id="13ebb18"><span class="important">Without parameters</span>, eg <span class="code">$tmpl<aaa></span> or <span class="basis">$tmpl('aaa')</span> the other template block is called with the same parameters, eg </p>
-<pre class="code-block">page => -> %prm, $tmpl {
+<pre class="code-block">page =&gt; -&gt; %prm, $tmpl {
     $tmpl&lt;header&gt; ~ $tmpl&lt;body&gt; ~ $tmpl&lt;footer&gt;
 }
 </pre>
@@ -151,8 +151,8 @@ crossorigin=""
 <div class="id-target" id=""></div><h3 id="Verbose_output_of_one_template" class="heading "><a href="#" title="go to top of document">Verbose output of one template</a></h3>
 <p id="e8ecdfc">The <span class="code">Template-directory</span> class has a <span class="code">.verbose</span> attribute. When set to a string corresponding to the name of a template, eg. </p>
 <pre class="code-block">my Template-directory %template-dir = %(
-    one => -> %prm, $tml { 'Hello world' },
-    two => -> %prm, $tml { 'Not again' },
+    one =&gt; -&gt; %prm, $tml { 'Hello world' },
+    two =&gt; -&gt; %prm, $tml { 'Not again' },
 );
 # later ...
 %template-dir.verbose = 'one';
@@ -166,10 +166,10 @@ crossorigin=""
 <pre class="code-block">my Template-directory %template-dir;
 # assign some templates to %template-dir
 %template-dir = %(
-    aaa => -> %prm, $tmpl {
+    aaa =&gt; -&gt; %prm, $tmpl {
         'orig: ' ~ %prm&lt;contents&gt;;
     },
-    ggg =. -> %prm, $tmpl {
+    ggg =. -&gt; %prm, $tmpl {
         %prm&lt;contents&gt; = 'Chapter ' ~ %prm&lt;contents&gt;
     }
 );
@@ -181,7 +181,7 @@ crossorigin=""
 <p id="ebaae42">For example, the result of calling the templates defined above, with <span class="code">test=True</span>, where the output from one template is contained in another, will be: </p>
 <pre class="code-block">say %template-dir&lt;aaa&gt;(%(
     :contents&lt;something&gt;,
-    ggg => %template-dir&lt;ggg&gt;(%(:contents&lt;more stiff&gt;,)),
+    ggg =&gt; %template-dir&lt;ggg&gt;(%(:contents&lt;more stiff&gt;,)),
 ));
 # output
 &lt;aaa&gt;
@@ -200,10 +200,10 @@ contents: ｢more stiff｣
 <pre class="code-block">my Template-directory %template-dir;
 # assign some templates to %template-dir
 %template-dir = %(
-    aaa => -> %prm, $tmpl {
+    aaa =&gt; -&gt; %prm, $tmpl {
         'orig: ' ~ %prm&lt;contents&gt;;
     },
-    ggg =. -> %prm, $tmpl {
+    ggg =. -&gt; %prm, $tmpl {
         %prm&lt;contents&gt; = 'Chapter ' ~ %prm&lt;contents&gt;
     }
 );
@@ -213,8 +213,8 @@ contents: ｢more stiff｣
 <p id="c976c61">For example, </p>
 <pre class="code-block">say %template-dir&lt;aaa&gt;(%(
     :contents&lt;something&gt;,
-    array => &lt;one two three four&gt;,
-    hash => ( &lt;eight nine ten&gt; Z=> 1..* ).hash,
+    array =&gt; &lt;one two three four&gt;,
+    hash =&gt; ( &lt;eight nine ten&gt; Z=&gt; 1..* ).hash,
 ));
 # output produced
 &lt;aaa&gt;
@@ -252,7 +252,7 @@ v0.2.1
     
 <div class="footer">
     Rendered from <span class="footer-field">docs/Templates</span>
-<span class="footer-field"> at 19:11 UTC on 2024-07-04</span>
+<span class="footer-field"> at 19:27 UTC on 2024-07-04</span>
 <span class="footer-line">Source last modified at 19:00 UTC on 2024-07-04</span>
 
 </div>
