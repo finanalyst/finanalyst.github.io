@@ -7,3 +7,4 @@ lib/.precomp
 
 /.raku-version
 /wget-log
+/docs/*

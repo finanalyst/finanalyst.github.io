@@ -76,14 +76,14 @@ crossorigin=""
 <p id="cf29437">A <span class="important">Template-directory</span> object also has a <span class="code"> %.data </span> structure, which is intended for use by plugins that need to make extra data available for templates. </p>
 <p id="ebf1501">For example, suppose a custom block is written to include data about all the documents in a website, and the information is collected into a structure called <span class="code">%files</span>, which is to be available to the template <span class="code">listfiles</span>, then we could have </p>
 <pre class="code-block">    my %temp-dir is Target-directory = listfile => -> %prm, $tmpl {
-        my %file-data = $tmpl.globals.data<listfiles>
+        my %file-data = $tmpl.globals.data&lt;listfiles&gt;
         # code to create the output string using the data
     }
 
     # somewhere later
-    %temp-dir.data<listfiles> = %files;
+    %temp-dir.data&lt;listfiles&gt; = %files;
     # use the template
-    my $rv = %temp-dir<listfile>;
+    my $rv = %temp-dir&lt;listfile&gt;;
 </pre>
 <p id="ca1657d">The <span class="code">%temp-dir</span> object, which is an instance of the <span class="important">Template-directory</span> class, provides access to the data through the <span class="code">.globals</span> attribute of the <span class="important">Template</span> object. </p>
 
@@ -119,7 +119,7 @@ crossorigin=""
 <p id="5b159ef">The block registered with key <span class="code">aaa</span> can be called inside another template block, with or without parameters. </p>
 <p id="13ebb18"><span class="important">Without parameters</span>, eg <span class="code">$tmpl<aaa></span> or <span class="basis">$tmpl('aaa')</span> the other template block is called with the same parameters, eg </p>
 <pre class="code-block">page => -> %prm, $tmpl {
-    $tmpl<header> ~ $tmpl&lt;body&gt; ~ $tmpl&lt;footer&gt;
+    $tmpl&lt;header&gt; ~ $tmpl&lt;body&gt; ~ $tmpl&lt;footer&gt;
 }
 </pre>
 <p id="3d89892">where <span class="code">header</span>, <span class="code">body</span>, and <span class="code">footer</span> are all registered in the <span class="important">RR</span> processor. </p>
@@ -251,9 +251,9 @@ v0.2.1
 
     
 <div class="footer">
-    Rendered from <span class="footer-field">sources/Templates</span>
-<span class="footer-field"> at 16:04 UTC on 2024-07-04</span>
-<span class="footer-line">Source last modified at 09:54 UTC on 2024-06-30</span>
+    Rendered from <span class="footer-field">docs/Templates</span>
+<span class="footer-field"> at 19:11 UTC on 2024-07-04</span>
+<span class="footer-line">Source last modified at 19:00 UTC on 2024-07-04</span>
 
 </div>
 

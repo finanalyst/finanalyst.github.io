@@ -3,7 +3,7 @@ use experimental :rakuast;
 use RakuDoc::To::HTML-Extra;
 
 my $rdp;
-multi sub MAIN(:$docs = 'sources') {
+multi sub MAIN(:$docs = 'docs') {
 #    my %docs = $docs.IO.dir(test => *.ends-with('.rakudoc')).map({ .extension('').basename => .modified });
 #    my %rendered = dir(test => *.ends-with('.html')).map({ .extension('').basename => .modified });
 #    my @to-be-rendered = %docs.pairs.grep({
