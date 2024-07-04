@@ -23,7 +23,8 @@ multi sub MAIN(:$docs = 'sources') {
 }
 multi sub MAIN(Str:D $file, :$to) {
     exit note "｢$file.rakudoc｣ does not exist" unless "$file.rakudoc".IO ~~ :e & :f;
-    render-files([$file,], '.', :$to)
+    $rdp = RakuDoc::To::HTML-Extra.new.rdp;
+    render-files(["$file.rakudoc".IO,], '.', :$to)
 }
 sub render-files (@to-be-rendered, $dir, :$to) {
     my %file-data;
