@@ -1,0 +1,61 @@
+use v6.d;
+use Test;
+use Test::Deeply::Relaxed;
+use RakuDoc::ScopedData;
+use Test::Output;
+
+my RakuDoc::ScopedData $sc;
+
+plan 24;
+lives-ok { $sc .= new }, 'ScopedData instantiates';
+is $sc.last-title, 'No starter yet', 'zeroth title';
+is $sc.last-starter, 'original level', 'zeroth starter';
+nok $sc.verbatim, 'not verbatim at start';
+is $sc.verbatim(:called-by), 'None', 'starter is initial string';
+
+$sc.config( { foo => 'bar'} );
+is-deeply-relaxed $sc.config, { :foo('bar')}, 'current scope correct';
+$sc.start-scope(:starter<foo>);
+is-deeply-relaxed $sc.config, { :foo('bar')}, 'new current scope correct';
+$sc.config( {:1foo, :2xxx});
+is-deeply-relaxed $sc.config, {:1foo, :2xxx }, 'new current scope updated';
+like $sc.diagnostic, /
+    'Scope levels' .+ 1
+    .+ 'ters:' \s 'foo' \s+ $
+/, 'diagnostic data as expected';
+is $sc.last-title, 'Block # 1', 'title  of first starter';
+$sc.debug = True;
+output-like { $sc.start-scope(:starter<testing>) }, /
+    'Scope levels' .+ 2
+    .+ 'ters:' \s 'foo' \s+ 'testing'
+/, 'diagnostic data output with debug';
+like $sc.diagnostic, /
+    'Scope levels' .+ 2
+    .+ 'ters:' \s 'foo' \s+ 'testing'
+/, 'diagnostic data as expected';
+is $sc.last-starter, 'testing', 'only last starter context';
+lives-ok { $sc.last-title('Test') }, 'accepts title';
+is $sc.last-title, 'Test', 'title  of last starter';
+output-like { $sc.end-scope }, /
+    'Scope levels' .+ 1
+    .+ 'ters:' \s 'foo' \s+ $
+/, 'diagnostic data output with debug';
+like $sc.diagnostic, /
+    'Scope levels' .+ 1
+    .+ 'ters:' \s 'foo' \s+ $
+/, 'diagnostic data as expected';
+$sc.debug = False;
+$sc.end-scope;
+my %conf = $sc.config;
+is-deeply-relaxed %conf, { :foo('bar')}, 'old scope restored';
+nok %conf<xxx>:exists, 'new attribute not remembered';
+$sc.start-scope(:starter<input>, :verbatim);
+ok $sc.verbatim, 'verbatim is now true';
+is $sc.verbatim(:called-by), 'input', 'got caller';
+$sc.start-scope(:starter<para>);
+ok $sc.verbatim, 'changing scope does not change verbatim';
+is $sc.verbatim(:called-by), 'input', 'verbatim caller stays the same';
+$sc.end-scope;
+$sc.end-scope;
+nok $sc.verbatim, 'back to not space-saving';
+done-testing;
