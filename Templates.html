@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class="theme-light" >
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Templates for RakuDoc-Render</title>
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""
+/>
+<link rel="stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""
+></script>
+<script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
+></script>
+
+
+    </head>
+    <body>
+    <section class="section">
+  <div class="container">
+<div id="Templates_for_RakuDoc-Render"></div><h1 class="title">Templates for RakuDoc-Render</h1>
+
+<p class="subtitle">Snippets to customise RakuDoc blocks</p>
+  </div>
+</section>
+
+    <section class="section">
+  <div class="container">
+
+<div class="id-target" id=""></div><h2 id="Overview" class="heading "><a href="#" title="go to top of document">Overview</a></h2>
+<p id="17cb3e9">RakuDoc-Render (RR) uses <span class="important">plugins</span> to customise blocks. A plugin will add custom data and templates to an instance of an RR <span class="basis">processor</span>. </p>
+<p id="88a1fe3">The templates are added to an instance of the <span class="basis">Template-directory</span> class held within the <span class="important">processor</span>. </p>
+<p id="3339168">The custom data is also added to the <span class="important">processor</span>'s <span class="basis">Template-directory</span> object. </p>
+<p id="e20df3f">Helper callables that can be used inside a template can also be added to the <span class="important">processor</span>'s <span class="basis">Template-directory</span> object. </p>
+<p id="ebb993f">Within a template, all the registered templates, the custom data of the <span class="important">processor</span>, and the helper callables can be accessed. See <a href="#Calling_a_helper_callable">helper callables</a> for more information. </p>
+<p id="edab17f">When a template is added to a <span class="important">Template-directory</span> and the template name already exists, the old value is pushed onto a stack, and can be accessed. </p>
+<p id="9b51c08">A generic RakuDoc::Processor will populate the <span class="important">Template-directory</span> with text templates that then served as the generic defaults. </p>
+<p id="c226cee">When a template is added to the directory, the <span class="code">source</span> attribute on the <span class="basis">Template-directory</span> is set, and copied into each template. In this way, the origin of a template can be traced. </p>
+<p id="3bd93ca">When the <span class="code">debug</span> attribute on the <span class="basis">Template-directory</span> is True, the name and origin of each Template is reported whenever a Template is called. </p>
+
+<div class="id-target" id=""></div><h2 id="Templates" class="heading "><a href="#" title="go to top of document">Templates</a></h2>
+<p id="3a66272">A <span class="important">Template-directory</span> object is an extended Hash structure. </p>
+<p id="4b68c2d">Templates are specified as a list of Pairs of the form </p>
+<pre class="code-block">    # psuedocode
+    &lt;key&gt; => -> &lt;Hash&gt;, &lt;Template object&gt; &lt;Block&gt;
+    # or as an example
+    head => -> %prm, $tmpl { ... }
+</pre>
+<p id="0bef7be">where </p>
+
+<ul><li class="item" data-bullet="•" style="--level:0;"> key is a string and serves as the name of the template</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="aec6e10"><span class="code">%prm</span> is an ordinary Hash of the parameters that are accessed inside the block </p>
+</li>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="2647916">In order to access 'contents', the code inside the block would be <span class="code"> %prm<contents> </span> </p>
+</li>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="a07bd10">The name of the Hash parameter is arbitrary, but conventionally is called <span class="code">%prm</span>. </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="0c0bcc0"><span class="code">$tmpl</span> is a <span class="important">Template</span> object, see below, and conventionally is called <span class="code">$tmpl</span>. </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> The contents of the block is a normal Raku program and should return a Str or PStr (see below).</li>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="f5fc985">The block shown above is the <span class="important">pointy</span> form, so the object returned is the value of the last statement </p>
+</li>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="dc0abb4">If the Raku program in the block is more easily written using a <span class="code">return</span> statement, then a <span class="code">sub</span> form should be used, eg. </p>
+</li>
+</ul>
+<pre class="code-block">key => sub ( %prm, $tmpl ) { ... }
+</pre>
+
+<div class="id-target" id=""></div><h2 id="Custom_data" class="heading "><a href="#" title="go to top of document">Custom data</a></h2>
+<p id="cf29437">A <span class="important">Template-directory</span> object also has a <span class="code"> %.data </span> structure, which is intended for use by plugins that need to make extra data available for templates. </p>
+<p id="ebf1501">For example, suppose a custom block is written to include data about all the documents in a website, and the information is collected into a structure called <span class="code">%files</span>, which is to be available to the template <span class="code">listfiles</span>, then we could have </p>
+<pre class="code-block">    my %temp-dir is Target-directory = listfile => -> %prm, $tmpl {
+        my %file-data = $tmpl.globals.data<listfiles>
+        # code to create the output string using the data
+    }
+
+    # somewhere later
+    %temp-dir.data<listfiles> = %files;
+    # use the template
+    my $rv = %temp-dir<listfile>;
+</pre>
+<p id="ca1657d">The <span class="code">%temp-dir</span> object, which is an instance of the <span class="important">Template-directory</span> class, provides access to the data through the <span class="code">.globals</span> attribute of the <span class="important">Template</span> object. </p>
+
+<div class="id-target" id=""></div><h2 id="Template_object" class="heading "><a href="#" title="go to top of document">Template object</a></h2>
+<p id="7392f1d">The Template object contains a reference to the Template-directory object, so all the templates registered with the RakuDoc processor, and all the data attached to it, can be accessed. </p>
+<p id="dff0e6d">Inside the Raku block of a new template, the following methods can be used on the <span class="code">$tmpl</span> object. </p>
+
+<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;93e6470&quot;&gt;method_&lt;span_class=&quot;basis&quot;&gt;$tmpl.prev&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="93e6470">method <span class="basis">$tmpl.prev</span> </p>
+</a></h3>
+<p id="87631bf">This calls the previously defined block of the template with the same name, with the same parameters provided to current block. The use case is to allow some pre- and (limited) post- processing of the parameters while keeping the previous template. </p>
+<p id="aead65e"><span class="basis">Pre-processing</span> Suppose a new template is required that merely adds the word 'Chapter' to the contents of a <span class="code">=Chapter</span> block. So the parameter needs to be preprocessed and the previous template called. Assuming %prm<contents> is a Str. </p>
+<pre class="code-block">chapter => -> %prm, $tmpl {
+    %prm&lt;contents&gt; = 'Chapter ' ~ %prm&lt;contents&gt;;
+    $tmpl.prev( %prm ); # pass the new value of contents
+}
+</pre>
+<p id="cfe4d47"><span class="basis">Post-processing</span> For example, suppose a template 'table' has been defined, but a new template is needed that substitutes the HTML class, then some post-processing of the old template is sufficient, eg., </p>
+<pre class="code-block">table => -> %prm, $tmpl {
+    ($tmpl.prev).subst( / '<table' \s+ 'class="pod-table' /, '<table class="table is-centered')
+}
+</pre>
+<p id="aa2d5ac">This assumes that the return object from both templates <span class="important">chapter</span> and <span class="important">table</span> is a Str, which it could be. But generically, it is best not to assume this. A fuller example is given below. </p>
+
+<div class="id-target" id=""></div><h3 id="Calling_a_helper_callable" class="heading "><a href="#" title="go to top of document">Calling a helper callable</a></h3>
+<p id="4b3a0a2">Suppose a template generates objects that need to be added to the Table of Contents (ToC). The ToC structure is collected by the Renderer leaf by leaf, and the order of the leaf data is constructed because the order of the ToC is important. </p>
+<p id="e30c0a1">So the code in the template block can call </p>
+<pre class="code-block">$tmpl.globals.helper&lt;add-to-toc&gt;(
+    :caption&lt;...&gt;, :target&lt;...&gt;, :level(1)
+)
+</pre>
+
+<div class="id-target" id=""></div><h3 id="Calling_another_defined_template" class="heading "><a href="#" title="go to top of document">Calling another defined template</a></h3>
+<p id="5b159ef">The block registered with key <span class="code">aaa</span> can be called inside another template block, with or without parameters. </p>
+<p id="13ebb18"><span class="important">Without parameters</span>, eg <span class="code">$tmpl<aaa></span> or <span class="basis">$tmpl('aaa')</span> the other template block is called with the same parameters, eg </p>
+<pre class="code-block">page => -> %prm, $tmpl {
+    $tmpl<header> ~ $tmpl&lt;body&gt; ~ $tmpl&lt;footer&gt;
+}
+</pre>
+<p id="3d89892">where <span class="code">header</span>, <span class="code">body</span>, and <span class="code">footer</span> are all registered in the <span class="important">RR</span> processor. </p>
+<p id="8fb22ee"><span class="important">With parameters</span>, eg. <span class="code">$tmpl('aaa', %( :attr(1), :new-attr<some string> ) )</span>, the block registered with the key <span class="code">aaa</span> is called with the new set of parameters specified in the Hash. It can be used to provide a subset of parameters, or to rename the parameters for a different template. </p>
+
+<div class="id-target" id=""></div><h2 id="Template_information_and_debugging" class="heading "><a href="#" title="go to top of document">Template information and debugging</a></h2>
+<p id="f816244">Four attributes can be set on a <span class="code">Template-directory</span> object to aid with debugging templates, especially when templates have content that is derived from other templates: </p>
+
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="4c173e7"><span class="basis">debug</span> </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="20b1233"><span class="basis">verbose</span> </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="38ac0a3"><span class="basis">test</span> </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="f8787de"><span class="basis">pretty</span> </p>
+</li>
+</ul>
+
+<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;3aff712&quot;&gt;&lt;span_class=&quot;code&quot;&gt;.debug&lt;/span&gt;_attribute_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="3aff712"><span class="code">.debug</span> attribute </p>
+</a></h3>
+<p id="6df5498">When set to True, eg </p>
+<pre class="code-block">my Template-directory %template-dir;
+# assign some templates to %template-dir
+%template-dir.debug = True;
+</pre>
+<p id="efbe98c">information about the name of the template being used, and the source of the template is sent to STDOUT via <span class="code">say</span>. This is used by the <span class="code">debug(Templates)</span> command in a <span class="code">Rakudoc::Processor</span> object. </p>
+<p id="d22fa87">The information generated is for the registered template, not to be confused with the <span class="code">.test</span> or <span class="code">.pretty</span> attributes. </p>
+
+<div class="id-target" id=""></div><h3 id="Verbose_output_of_one_template" class="heading "><a href="#" title="go to top of document">Verbose output of one template</a></h3>
+<p id="e8ecdfc">The <span class="code">Template-directory</span> class has a <span class="code">.verbose</span> attribute. When set to a string corresponding to the name of a template, eg. </p>
+<pre class="code-block">my Template-directory %template-dir = %(
+    one => -> %prm, $tml { 'Hello world' },
+    two => -> %prm, $tml { 'Not again' },
+);
+# later ...
+%template-dir.verbose = 'one';
+</pre>
+<p id="be138da">the verbose result of that template (eg. 'one') will be sent to STDOUT via <span class="code">say</span>. </p>
+<p id="7467f30">The output of only one template at a time is supported at the moment. </p>
+
+<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;acfc2db&quot;&gt;The_&lt;span_class=&quot;code&quot;&gt;.test&lt;/span&gt;_attribute_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="acfc2db">The <span class="code">.test</span> attribute </p>
+</a></h3>
+<p id="7428fee">When this attribute is set for the Template-directory object, eg. </p>
+<pre class="code-block">my Template-directory %template-dir;
+# assign some templates to %template-dir
+%template-dir = %(
+    aaa => -> %prm, $tmpl {
+        'orig: ' ~ %prm&lt;contents&gt;;
+    },
+    ggg =. -> %prm, $tmpl {
+        %prm&lt;contents&gt; = 'Chapter ' ~ %prm&lt;contents&gt;
+    }
+);
+%template-dir.test = True;
+</pre>
+<p id="24396e2">In order to test the template with a set of unit tests, it is important for the results of the template to be uniform and predictable. </p>
+<p id="0c06ccf">Also the renderer will call the template with options defined at run time, eg., because of a <span class="code">=config</span> directive. </p>
+<p id="d2e37e1">The output from a template when <span class="code">test</span> is True does not depend on the block registered with the template. Instead, all the options (which may include the output from other templates) are returned in alphabetical order. </p>
+<p id="ebaae42">For example, the result of calling the templates defined above, with <span class="code">test=True</span>, where the output from one template is contained in another, will be: </p>
+<pre class="code-block">say %template-dir&lt;aaa&gt;(%(
+    :contents&lt;something&gt;,
+    ggg => %template-dir&lt;ggg&gt;(%(:contents&lt;more stiff&gt;,)),
+));
+# output
+&lt;aaa&gt;
+contents: ｢something｣
+ggg: ｢&lt;ggg&gt;
+contents: ｢more stiff｣
+&lt;/ggg&gt;
+｣
+&lt;/aaa&gt;
+</pre>
+<p id="2db3738">It does not matter <span class="important">how</span> the templates were defined, but it does matter that they <span class="basis">were</span> defined. Calling a template that is not registered in the <span class="basis">Templated-directory</span> object will cause an error. </p>
+
+<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;31c5b22&quot;&gt;The_&lt;span_class=&quot;code&quot;&gt;.pretty&lt;/span&gt;_attribute_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="31c5b22">The <span class="code">.pretty</span> attribute </p>
+</a></h3>
+<p id="7428fee">When this attribute is set for the Template-directory object, eg. </p>
+<pre class="code-block">my Template-directory %template-dir;
+# assign some templates to %template-dir
+%template-dir = %(
+    aaa => -> %prm, $tmpl {
+        'orig: ' ~ %prm&lt;contents&gt;;
+    },
+    ggg =. -> %prm, $tmpl {
+        %prm&lt;contents&gt; = 'Chapter ' ~ %prm&lt;contents&gt;
+    }
+);
+%template-dir.pretty = True;
+</pre>
+<p id="76b7153">the output is similar to the <span class="code">.test</span> attribute, which it overrides, but white space is added to make the content structure clearer. </p>
+<p id="c976c61">For example, </p>
+<pre class="code-block">say %template-dir&lt;aaa&gt;(%(
+    :contents&lt;something&gt;,
+    array => &lt;one two three four&gt;,
+    hash => ( &lt;eight nine ten&gt; Z=> 1..* ).hash,
+));
+# output produced
+&lt;aaa&gt;
+  array: ｢List=(
+        "one",
+        "two",
+        "three",
+        "four"
+  )｣
+  contents: ｢something｣
+  hash: ｢Hash={
+        :eight(1),
+        :nine(2),
+        :ten(3)
+  }｣
+&lt;/aaa&gt;
+</pre>
+
+<div id="Credits"> </div>
+<div class="id-target" id=""></div><h2 id="AUTHOR" class="heading"><a href="#" title="go to top of document">AUTHOR</a></h2>
+Richard Hainsworth aka finanalyst
+
+
+
+
+<div id="Placement"> </div>
+<div class="id-target" id=""></div><h2 id="VERSION" class="heading"><a href="#" title="go to top of document">VERSION</a></h2>
+v0.2.1
+
+
+
+  </div>
+</section>
+
+    
+<div class="footer">
+    Rendered from <span class="footer-field">sources/Templates</span>
+<span class="footer-field"> at 15:16 UTC on 2024-07-04</span>
+<span class="footer-line">Source last modified at 09:54 UTC on 2024-06-30</span>
+
+</div>
+
+</body>
+</html>

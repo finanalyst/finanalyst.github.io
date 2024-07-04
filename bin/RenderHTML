@@ -1,14 +1,24 @@
 #!/usr/bin/env raku
 use experimental :rakuast;
-my RakuDoc::To::HTML-Extra $rdp;
+use RakuDoc::To::HTML-Extra;
+
+my $rdp;
 multi sub MAIN(:$docs = 'sources') {
-    my %docs = $docs.IO.dir(test => *.ends-with('.rakudoc')).map({ .extension('').basename => .modified });
-    my %rendered = dir(test => *.ends-with('.html')).map({ .extension('').basename => .modified });
-    my @to-be-rendered = %docs.pairs.grep({
-        %rendered{.key}:exists.not ||(%rendered{.key} < .value)
-    })>>.key;
+#    my %docs = $docs.IO.dir(test => *.ends-with('.rakudoc')).map({ .extension('').basename => .modified });
+#    my %rendered = dir(test => *.ends-with('.html')).map({ .extension('').basename => .modified });
+#    my @to-be-rendered = %docs.pairs.grep({
+#        %rendered{.key}:exists.not ||(%rendered{.key} < .value)
+#    })>>.key;
+    my @to-be-rendered;
+    my @todo = $docs.IO;
+    while @todo {
+        for @todo.pop.dir -> $path {
+            @to-be-rendered.push: $path unless $path.d;
+            @todo.push: $path if $path.d;
+        }
+    }
     exit note "No sources found in ｢$docs｣" unless +@to-be-rendered;
-    $rdp .= new;
+    $rdp = RakuDoc::To::HTML-Extra.new.rdp;
     render-files(@to-be-rendered, $docs)
 }
 multi sub MAIN(Str:D $file, :$to) {
@@ -18,21 +28,22 @@ multi sub MAIN(Str:D $file, :$to) {
 sub render-files (@to-be-rendered, $dir, :$to) {
     my %file-data;
     for @to-be-rendered.sort {
-        my $dest = $_;
-        $dest = $_ with $to;
+        say "rendering: $_";
+        my $short = $_.relative($dir).IO.extension('');
         #topic of with not for
-        my $fn = "$dir/$_".IO;
-        my $ast = $fn.slurp.AST;
+        my $ast = $_.slurp.AST;
         my $processed = $rdp.render($ast, :source-data(%(
-            name => $_,
-            modified => $fn.modified,
-            path => $fn.dirname,
+            name => $short,
+            modified => $_.modified,
+            path => $_.dirname,
         )), :pre-finalised);
-        "$dest.html".IO.spurt($rdp.finalise);
-        %file-data{$_} =
+        $short = $_ with $to;
+        $short .= subst( / \/ /, '::', :g);
+        "$short.html".IO.spurt($rdp.finalise);
+        %file-data{$short} = %(
             title => $processed.title,
-            subtitle => $processed.subtitle // 'No description',
-        ;
+            subtitle => $processed.subtitle ?? $processed.subtitle !! 'No description',
+        );
     }
     create-index(%file-data);
 }
@@ -49,17 +60,16 @@ sub create-index( %file-data ) {
         $table ~= qq:to/ROW/;
             =row
             =cell { %data<title> }
-            =cell { %data<subtitle> }
-            =cell L<$fn|{ $fn }.html>
+            =cell { %data<subtitle>:exists ?? %data<subtitle> !! 'No description' }
+            =cell L<$fn| $fn >
             ROW
     }
-    my $ast = ('index.start'.IO.slurp ~
+    my $index = ('index.start'.IO.slurp ~
         $table ~
-        q:to/END/ ~ 'index.end'.IO.slurp ).AST;
+        q:to/END/ ~ 'index.end'.IO.slurp );
         =end table
-        =end rakudoc
         END
-    'index.html'.IO.spurt: $rdp.render($ast, :source-data(%(
+    'index.html'.IO.spurt: $rdp.render($index.AST, :source-data(%(
         name => 'index',
         modified => now,
         path => 'generated',

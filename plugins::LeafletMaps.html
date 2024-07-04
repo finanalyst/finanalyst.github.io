@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="theme-light" >
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NO_TITLE</title>
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""
+/>
+<link rel="stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""
+></script>
+<script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
+></script>
+
+
+    </head>
+    <body>
+    <section class="section">
+  <div class="container">
+<div id="___top"></div><h1 class="title">NO_TITLE</h1>
+
+  </div>
+</section>
+
+    <section class="section">
+  <div class="container">
+
+<div class="id-target" id=""></div><h2 id="LeafletMap" class="heading "><a href="#" title="go to top of document">LeafletMap</a></h2>
+<p id="b546869">The leafletmap plugin inserts a map as defined by a custom RakuDoc v2 block called <span class="code">=LeafletMap</span>. The plugin uses the fabulous <a href="https://leafletjs.com">Leaflet JS library</a>. The map MUST have a fixed height, so this is specified in the config attribute. </p>
+<p id="dba22e5">By default, the map will point at Cardiff Castle in Cardiff, Wales with a 200px height and 16 unit magnification, using OpenStreetMap as the tile provider. So </p>
+<pre class="code-block">=LeafletMap
+</pre>
+<p id="3387465">produces: </p>
+<div id="html-extra-leaflet-map"
+style="height: 200px; "
+>
+</div>
+<script>
+    var vhtml_extra_leaflet_map = L.map('html-extra-leaflet-map').setView([51.4816, -3.1807], 16);
+      L.tileLayer.provider('OpenStreetMap' ).addTo(vhtml_extra_leaflet_map);
+</script>
+<p id="4638a8f">The simplest customisation is to centre the map by specifying the lattitude and longitude, and to change the starting zoom level (smaller numbers are larger views). It is also possible to change the height of the map. Each map on a page must have its own id. Additionally, when developing a page, not setting a width is tiresome. Note another very underutilised feature of Rakudoc, the ability to spread meta-data accross lines. The first virtual column must start in a <span class="code">=</span> and there must be at least one horizontal whitespace character. Thus </p>
+<pre class="code-block">=for LeafletMap
+=  :lat&lt;55.948595&gt; :long&lt;-3.199913&gt;
+=  :zoom(13) :height&lt;300px&gt;
+=  :map-id&lt;new-map&gt;
+=  :headlevel(2)
+=  :width&lt;50vw&gt;
+Edinburgh Castle
+</pre>
+<p id="fe333e1">will produce </p>
+<div id="new-map"
+style="height: 300px; width: 50vw;"
+>
+</div>
+<script>
+    var vnew_map = L.map('new-map').setView([55.948595, -3.199913], 13);
+      L.tileLayer.provider('OpenStreetMap' ).addTo(vnew_map);
+</script>
+<p id="fc22346">Maps are generated from tiles and the information can be rendered in many ways. There are multiple tile providers, collected in a github resource <a href="https://github.com/leaflet-extras/leaflet-providers">leaflet-extras</a>. "Leaflet-providers provides tile layers from different providers, including OpenStreetMap, Stamen, Esri and OpenWeatherMap. The full listing of free to use layers can be previewed." (from README of leaflet-providers) </p>
+<p id="3f5b22a">Some providers have map types that do not need registration, most types need registration. <a href="http://leaflet-extras.github.io/leaflet-providers/preview/index.html">Here are all</a> the providers and variants. </p>
+<p id="5e7d725">For example, this is a map with the Esri.WorldImagery provider[.variant] string. </p>
+<pre class="code-block">=for LeafletMap :provider&lt;Esri.WorldImagery&gt; :map-id&lt;third-map&gt; :width&lt;50vw&gt;
+</pre>
+<div id="third-map"
+style="height: 200px; width: 50vw;"
+>
+</div>
+<script>
+    var vthird_map = L.map('third-map').setView([51.4816, -3.1807], 16);
+      L.tileLayer.provider('Esri.WorldImagery' ).addTo(vthird_map);
+</script>
+<p id="6a206e2">Registration offers more variety and more complex maps, but goes beyond this simple RakuDoc::Plugin. However, the Plugin can itself be subclassed and more data included in the config attribute. </p>
+<p id="ae8ea04">Another common need is to put markers on a map. This can be done using <span class="code">=LeafMarker</span> blocks. The map-id of the map the markers are to be associated with has to be supplied if there are more than one maps on a page, otherwise the default map id is used. </p>
+<p id="5f5dd35"><span class="code">:popup<text></span> associated the <span class="important">text</span> with the marker but the user needs to click in it to see. </p>
+<p id="10c9999"><span class="code">:title<text></span> allows for the <span class="important">text</span> to be visible with a mouseover. </p>
+<p id="ebf5eb3"><span class="code">:fa-icon</span> will work if the <span class="code">FontAwesome</span> plugin has been configured for rendering (see above for detail on extra commands). </p>
+<p id="ca50b52"><span class="code">:headlevel(0)</span> is set so that the Table of Contents is not affected. </p>
+<pre class="code-block">=for LeafletMap :map-id&lt;map-four&gt; :height&lt;600px&gt; :zoom(12) :width&lt;50vw&gt;
+
+=for LeafMarker
+=    :map-id&lt;map-four&gt; :name&lt;mk1&gt;
+=    :lat&lt;51.48160&gt; :long&lt;-3.18070&gt;
+=    :headlevel(0)
+=    :title&lt;Cardiff Castle&gt;
+
+=for LeafMarker
+=    :map-id&lt;map-four&gt;
+=    :lat&lt;51.529269&gt; :long&lt;-3.188109&gt;
+=    :fa-icon&lt;fas fa-cutlery fa-spin fa-3x fa-fw&gt;
+=    :headlevel(0)
+=    :title&lt;Fintans Fish & Chip Co&gt;
+
+=for LeafMarker
+=    :map-id&lt;map-four&gt;
+=    :lat&lt;51.502576&gt; :long&lt;-3.190222&gt;
+=    :fa-icon&lt;fas fa-cutlery&gt;
+=    :headlevel(0)
+=    :popup&lt;Yan’s Fish Bar&gt;
+</pre>
+<p id="70bd7ad">Thus for two chippies judged the best in Cardiff at the time of writing: </p>
+<div id="map-four"
+style="height: 600px; width: 50vw;"
+>
+</div>
+<script>
+    var vmap_four = L.map('map-four').setView([51.4816, -3.1807], 12);
+      L.tileLayer.provider('OpenStreetMap' ).addTo(vmap_four);
+</script>
+<script>
+
+
+L.marker([51.4816, -3.1807], { title: 'Cardiff Castle' }).addTo(vmap_four)
+
+</script>
+<script>
+const jfcnobter = L.divIcon({
+    html: '<span class="fa fa-solid fa-utensils fa-spin fa-3x fa-fw"></span>',
+    iconSize: [20, 20],
+    className: 'myDivIcon'
+});
+
+
+L.marker([51.529269, -3.188109], { icon: jfcnobter,title: 'Fintans Fish & Chip Co, Llanishen' }).addTo(vmap_four)
+
+</script>
+<script>
+const ajdewbnkz = L.divIcon({
+    html: '<span class="fa fa-solid fa-utensils"></span>',
+    iconSize: [20, 20],
+    className: 'myDivIcon'
+});
+
+
+L.marker([51.502576, -3.190222], { icon: ajdewbnkz }).addTo(vmap_four)
+.bindPopup('Yan’s Fish Bar')
+</script>
+
+  </div>
+</section>
+
+    
+<div class="footer">
+    Rendered from <span class="footer-field">sources/plugins/plugins/LeafletMaps</span>
+<span class="footer-field"> at 15:16 UTC on 2024-07-04</span>
+<span class="footer-line">Source last modified at 16:48 UTC on 2024-07-03</span>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="theme-light" >
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LatexFormula</title>
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""
+/>
+<link rel="stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""
+></script>
+<script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
+></script>
+
+
+    </head>
+    <body>
+    <section class="section">
+  <div class="container">
+<div id="LatexFormula"></div><h1 class="title">LatexFormula</h1>
+
+<p class="subtitle">RakuDoc::Plugin::Latex</p>
+  </div>
+</section>
+
+    <section class="section">
+  <div class="container">
+
+<div class="id-target" id=""></div><h2 id="Introduction" class="heading "><a href="#" title="go to top of document">Introduction</a></h2>
+<p id="004fa05">This plugin block sends the Latex-style markup to the CodeCogs online equation editor. For example, </p>
+<pre class="code-block">=for LatexFormula :headlevel(2) :caption&lt;Simple formula&gt;
+\begin{align*}
+\sum_{i=1}^{k+1} i^{3}
+&= \biggl(\sum_{i=1}^{n} i^{3}\biggr) +  i^3\\
+&= \frac{k^{2}(k+1)^{2}}{4} + (k+1)^3 \\
+&= \frac{k^{2}(k+1)^{2} + 4(k+1)^3}{4}\\
+&= \frac{(k+1)^{2}(k^{2} + 4k + 4)}{4}\\
+&= \frac{(k+1)^{2}(k+2)^{2}}{4}
+\end{align*}
+</pre>
+<div class="latex-render">
+<img src="https://latex.codecogs.com/svg.image?\begin{align*}
+\sum_{i=1}^{k+1} i^{3}
+&= \biggl(\sum_{i=1}^{n} i^{3}\biggr) +  i^3\\
+&= \frac{k^{2}(k+1)^{2}}{4} + (k+1)^3 \\
+&= \frac{k^{2}(k+1)^{2} + 4(k+1)^3}{4}\\
+&= \frac{(k+1)^{2}(k^{2} + 4k + 4)}{4}\\
+&= \frac{(k+1)^{2}(k+2)^{2}}{4}
+\end{align*}
+
+" />
+<img class="logo" src="https://www.codecogs.com/images/poweredbycodecogs.png" border="0" alt="CodeCogs - An Open Source Scientific Library"></a>
+</div>
+
+<div class="id-target" id=""></div><h2 id="RakuDoc_v2" class="heading "><a href="#" title="go to top of document">RakuDoc v2</a></h2>
+<p id="2b5b8d5">The RakuDoc v2 specification has a builtin block <span class="code">=formula</span> and the recommended formula markup is Latex. This plugin overrides the formula template, effectively aliasing it to LatexFormula. So the following will work too: </p>
+<pre class="code-block">    =for formula :caption&lt;Fabulous identity&gt;
+    e^{i\pi}+1=0
+</pre>
+
+<div class="id-target" id=""></div><h2 id="Formula_cannot_be_rendered" class="heading"><a href="#" title="go to top of document">Fabulous identity</a></h2>
+<div class="formula"><div class="latex-render">
+<img src="https://latex.codecogs.com/svg.image?e^{i\pi}+1=0
+
+" />
+<img class="logo" src="https://www.codecogs.com/images/poweredbycodecogs.png" border="0" alt="CodeCogs - An Open Source Scientific Library"></a>
+</div>
+</div>
+
+  </div>
+</section>
+
+    
+<div class="footer">
+    Rendered from <span class="footer-field">sources/plugins/plugins/Latex</span>
+<span class="footer-field"> at 15:16 UTC on 2024-07-04</span>
+<span class="footer-line">Source last modified at 18:09 UTC on 2024-07-03</span>
+
+</div>
+
+</body>
+</html>
