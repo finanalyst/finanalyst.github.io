@@ -85,4 +85,8 @@ All the elements of %.config are transferred to the RakuDoc::Processor object, a
 be accessed in a template or callable, as C<$tmpl.globals.data<plugin-name-space> > (assuming
 that the plugin's config has C<namespace => plugin-name-space>).
 
+
+=place semantic:AUTHOR :caption<Credits>
+
+=place semantic:VERSION :!toc
 =end rakudoc

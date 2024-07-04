@@ -26,10 +26,7 @@ crossorigin=""
   <div class="container">
 <div id="PromiseStrings_for_templates"></div><h1 class="title">PromiseStrings for templates</h1>
 
-<p class="subtitle"><p id="b69419c">How RakuAsT-RakuDoc-Render handles forward references or placement material that has not yet been rendered </p>
-<p id="1ca421e">When <span class="code">=place toc:*</span> is given in a RakuDoc source (eg at the top of a source), typically the source has not yet been completely rendered. </p>
-<p id="6fd957a">The renderer actually renders a source into <span class="code">PStr</span> or <span class="basis">PromiseStrings</span> rather than <span class="code">Str</span>. As forward references become known, they are included in the text. </p>
-</p>
+<p class="subtitle">How RakuAsT-RakuDoc-Render handles forward references or placement material that has not yet been rendered.</p>
   </div>
 </section>
 
@@ -38,6 +35,8 @@ crossorigin=""
 
 <div class="id-target" id=""></div><h2 id="PCell_and_PStr_classes" class="heading "><a href="#" title="go to top of document">PCell and PStr classes</a></h2>
 <p id="64dc8b9">RakuDoc statements that make references to structures or data that have not been completely rendered embed the references in <span class="basis">PCells</span>, which will interpolate the rendering once known. </p>
+<p id="1df43c5">For instance, when <span class="code">=place toc:*</span> is given in a RakuDoc source (eg at the top of a source), typically the source has not yet been completely rendered. </p>
+<p id="6fd957a">The renderer actually renders a source into <span class="code">PStr</span> or <span class="basis">PromiseStrings</span> rather than <span class="code">Str</span>. As forward references become known, they are included in the text. </p>
 <p id="efa7434">Consequently, parameters to a template may contain a mixture of Raku <span class="important">Str</span> and <span class="important">PCells</span>, in an object of type called <span class="basis">PStr</span>. </p>
 <p id="3f9e5eb"><span class="important">PCells</span> should not be visible to the template user. </p>
 <p id="6951b3b">If a <span class="important">PStr</span> or <span class="important">PCell</span> is stringified before the data has been rendered, its internal <span class="important">id</span> and <span class="important">UNAVAILABLE</span> will be the rendered result. </p>
@@ -125,8 +124,8 @@ v0.2.1
     
 <div class="footer">
     Rendered from <span class="footer-field">sources/PromiseStrings</span>
-<span class="footer-field"> at 15:46 UTC on 2024-07-04</span>
-<span class="footer-line">Source last modified at 09:54 UTC on 2024-06-30</span>
+<span class="footer-field"> at 16:01 UTC on 2024-07-04</span>
+<span class="footer-line">Source last modified at 15:57 UTC on 2024-07-04</span>
 
 </div>
 
