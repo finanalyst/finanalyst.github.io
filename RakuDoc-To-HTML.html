@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rendering RakuDoc v2 to HTML</title>
+<link rel="icon" href="https://irclogs.raku.org/favicon.ico">
 <style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -20,20 +21,60 @@ crossorigin=""
 ></script>
 
 
+    <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
     </head>
     <body>
-    <section class="section">
+      <div id="navMenu" class="navbar-menu">
+    <div class="navbar-start">
+        <img src="https://irclogs.raku.org/camelia.png" style="width:28%; vspace:2%; hspace:2%; align:left;">
+    </div>
+    <div class="navbar-item">
+        <button id="changeTheme" class="button">Change theme</button>
+    </div>
+  </div>
+<section class="section">
   <div class="container">
-<div id="Rendering_RakuDoc_v2_to_HTML"></div><h1 class="title">Rendering RakuDoc v2 to HTML</h1>
+<div id="Rendering_RakuDoc_v2_to_HTML"></div><h1 class="title is-centered">Rendering RakuDoc v2 to HTML</h1>
 
 <p class="subtitle"><p id="f76afd4">RakuDoc v2 is rendered to minimal HTML. <span class="code">RakuAST::RakuDoc::Render</span> on which this module is based uses the RakuAST parser. A rendering of the <a href="#Compliance_testing">compliance</a> document can be <a href="https://htmlpreview.github.io/?https://github.com/finanalyst/rakuast-rakudoc-render/blob/main/resources/compliance-rendering/rakudociem-ipsum.html">found online</a>. </p>
 </p>
   </div>
 </section>
 
-    <section class="section">
-  <div class="container">
+    <div class="columns">
+    <div id="TOC" class="column is-one-quarter">
+            <div class="container px-4">
+        <div class="tabs" id="tabs">
+            <ul>
+                <li class="is-active" id="toc-tab">
+                    <a>Table of Contents</a>
+                </li>
+                <li id="index-tab">
+                    <a>Index</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <aside id="toc-menu" class="menu">
+            <div class="toc"><h2 class="toc-caption">Table of Contents</h2>
+                <ul class="toc-list">
 
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#Vanilla_HTML_and_CSS">Vanilla HTML and CSS</a></li>
+<li><a href="#Credits">Credits</a></li>
+</ul>
+</div>
+            </aside>
+            <aside id="index-menu" class="menu is-hidden">
+            <p>No Index for this page</p>
+            </aside>
+        </div>
+    </div>
+
+    </div>
+    <div class="column">
+        <div class="container px-4">
+        
 <div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading"><a href="#" title="go to top of document">SYNOPSIS</a></h2>
 
 
@@ -94,23 +135,36 @@ v0.1.0
 
 
 
-  </div>
-</section>
+        </div>
+        <div class="container px-4">
+        
+        </div>
+    </div>
+</div>
 
-    
-<div class="footer">
-    Rendered from <span class="footer-field">docs/RakuDoc-To-HTML</span>
-<span class="footer-field"> at 12:04 UTC on 2024-07-05</span>
-<span class="footer-line">Source last modified at 09:54 UTC on 2024-06-30</span>
-<div class="warnings">    <div class="warnings">
+    <footer class="footer main-footer">
+    <div class="container px-4">
+        <nav class="level">
+            <div class="level-item">
+                Rendered from <span class="footer-field">docs/RakuDoc-To-HTML</span>
+            </div>
+            <div class="level-item">
+                Rendered at 12:07 UTC on 2024-07-05</span>
+            </div>
+            <div class="level-item">
+                Source last modified at 09:54 UTC on 2024-06-30</span>
+            </div>
+        </nav>
+    </div>
+    <div class="section"><div class="container px-4 warnings">    <div class="warnings">
     <h2 class="warnings-caption">Warnings</h2>
         <ol>
         <li>Still waiting for ｢semantic-schema_AUTHOR｣ to be expanded.</li>
 
         </ol>
     </div>
-</div>
-</div>
+</div></div>
+</footer>
 
 </body>
 </html>
