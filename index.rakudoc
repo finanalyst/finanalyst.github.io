@@ -1,0 +1,29 @@
+=begin rakudoc
+=TITLE RakuAST::RakuDoc::Render
+=SUBTITLE Documentation for all the modules in this distribution
+=for AUTHOR :hidden
+Richard Hainsworth aka finanalyst
+=for VERSION :hidden
+v0.3.0
+
+The RakuAST::RakuDoc::Render distribution contains a number of modules, each of
+which has been documented. They can be grouped as follows:
+=for ListFiles :select<type=fundamental> :caption<Fundamental>
+Sources containing key concepts and information
+
+=for ListFiles :select<type=renderer> :caption<Renderers in distibution>
+Descriptions of the Renderer classes
+
+=for ListFiles :select<type=plugins> :caption<Plugins for HTML-Extra>
+Classes that add templates and data to HTML-Extra
+
+=for ListFiles :select<type=minor> :caption<Minimal documentation>
+Small modules with much going on
+
+=for ListFiles :select<type=!> :caption<Files without type options>
+File from other sources or automatically generated
+
+
+=place semantic:AUTHOR :caption<Credits>
+=place semantic:VERSION :!toc
+=end rakudoc
