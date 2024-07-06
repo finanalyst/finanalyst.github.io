@@ -4,6 +4,11 @@ use RakuDoc::To::HTML-Extra;
 
 my $rdp;
 multi sub MAIN(:$docs = 'docs') {
+#    my %docs = $docs.IO.dir(test => *.ends-with('.rakudoc')).map({ .extension('').basename => .modified });
+#    my %rendered = dir(test => *.ends-with('.html')).map({ .extension('').basename => .modified });
+#    my @to-be-rendered = %docs.pairs.grep({
+#        %rendered{.key}:exists.not ||(%rendered{.key} < .value)
+#    })>>.key;
     my @to-be-rendered;
     my @todo = $docs.IO;
     while @todo {
@@ -16,32 +21,58 @@ multi sub MAIN(:$docs = 'docs') {
     $rdp = RakuDoc::To::HTML-Extra.new.rdp;
     render-files(@to-be-rendered, $docs)
 }
-sub render-files (@to-be-rendered, $dir) {
+multi sub MAIN(Str:D $file, :$to) {
+    exit note "｢$file.rakudoc｣ does not exist" unless "$file.rakudoc".IO ~~ :e & :f;
+    $rdp = RakuDoc::To::HTML-Extra.new.rdp;
+    render-files(["$file.rakudoc".IO,], '.', :$to)
+}
+sub render-files (@to-be-rendered, $dir, :$to) {
     my %file-data;
     for @to-be-rendered.sort {
         say "rendering: $_";
-        my $short = .relative($dir).IO.extension('');
+        my $short = $_.relative($dir).IO.extension('');
         #topic of with not for
-        my $ast = .slurp.AST;
+        my $ast = $_.slurp.AST;
         my $processed = $rdp.render($ast, :source-data(%(
             name => $short,
-            modified => .modified,
-            path => .dirname,
+            modified => $_.modified,
+            path => $_.dirname,
         )), :pre-finalised);
+        $short = $_ with $to;
         $short .= subst( / \/ /, '_', :g);
         "$short.html".IO.spurt($rdp.finalise);
         %file-data{$short} = %(
             title => $processed.title,
             subtitle => $processed.subtitle ?? $processed.subtitle !! 'No description',
-            config => $processed.source-data<rakudoc-config>,
         );
     }
-    my %listf := $rdp.templates.data<listfiles>;
-    %listf<meta> = %file-data;
-    my $ind = 'index.rakudoc'.IO;
-    'index.html'.IO.spurt: $rdp.render($ind.slurp.AST, :source-data(%(
+    create-index(%file-data);
+}
+sub create-index( %file-data ) {
+    my $table = q:to/HEAD/;
+        =begin table :!toc
+        =row :header
+        =cell Title
+        =cell Description
+        =cell Link
+        HEAD
+
+    for %file-data.kv -> $fn, %data {
+        $table ~= qq:to/ROW/;
+            =row
+            =cell { %data<title> }
+            =cell { %data<subtitle>:exists ?? %data<subtitle> !! 'No description' }
+            =cell L<$fn| $fn >
+            ROW
+    }
+    my $index = ('index.start'.IO.slurp ~
+        $table ~
+        q:to/END/ ~ 'index.end'.IO.slurp );
+        =end table
+        END
+    'index.html'.IO.spurt: $rdp.render($index.AST, :source-data(%(
         name => 'index',
-        modified => $ind.modified,
-        path => $ind.dirname,
+        modified => now,
+        path => 'generated',
     )));
 }

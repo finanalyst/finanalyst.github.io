@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // set up functions needing document variables.
     var matchTocState = function ( state ) {
         if ( state ) {
-            document.getElementById("TOC").classList.remove('is-hidden');
-            persist_tocState( 'open');
-        }
-        else {
             document.getElementById("TOC").classList.add('is-hidden');
             persist_tocState( 'closed' );
+        }
+        else {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            persist_tocState( 'open');
         }
     }
     var setTocState = function ( state ) {
@@ -53,19 +53,19 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("navbar-toc-toggle").checked = true;
         }
     };
-    // initialise if localStorage is set
+    // initialise if localStorage not set
     let theme = persisted_theme();
-    if ( theme ) {
+    if (! (theme && change_theme(theme) ) ) {
         theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         change_theme(theme);
         persist_theme(theme);
     }
     let tocState = persisted_tocState();
-    if ( tocState ) {
-        setTocState( tocState );
+    if ( tocState == null ) {
+        tocState = 'closed';
         persist_tocState( tocState );
     }
-
+    setTocState( tocState );
     // Add listeners
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -444,10 +444,10 @@ v0.2.1
                 Rendered from <span class="footer-field">docs/Templates</span>
             </div>
             <div class="level-item">
-                Rendered at 21:33 UTC on 2024-07-06</span>
+                Rendered at 17:31 UTC on 2024-07-06</span>
             </div>
             <div class="level-item">
-                Source last modified at 20:48 UTC on 2024-07-06</span>
+                Source last modified at 19:00 UTC on 2024-07-04</span>
             </div>
         </nav>
     </div>

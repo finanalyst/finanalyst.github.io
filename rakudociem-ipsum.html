@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // set up functions needing document variables.
     var matchTocState = function ( state ) {
         if ( state ) {
-            document.getElementById("TOC").classList.remove('is-hidden');
-            persist_tocState( 'open');
-        }
-        else {
             document.getElementById("TOC").classList.add('is-hidden');
             persist_tocState( 'closed' );
+        }
+        else {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            persist_tocState( 'open');
         }
     }
     var setTocState = function ( state ) {
@@ -53,19 +53,19 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("navbar-toc-toggle").checked = true;
         }
     };
-    // initialise if localStorage is set
+    // initialise if localStorage not set
     let theme = persisted_theme();
-    if ( theme ) {
+    if (! (theme && change_theme(theme) ) ) {
         theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         change_theme(theme);
         persist_theme(theme);
     }
     let tocState = persisted_tocState();
-    if ( tocState ) {
-        setTocState( tocState );
+    if ( tocState == null ) {
+        tocState = 'closed';
         persist_tocState( tocState );
     }
-
+    setTocState( tocState );
     // Add listeners
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -420,11 +420,7 @@ function swap_toc_index(activate) {
 <p id="19ff975">We can also make an inline <span class="basis">definition</span>. This whole paragraph will be referenced later. </p>
 <p id="61a4a09">A developer note <span class="developer-text">v1.2.3 ^.. v2.0.0<span class="developer-version">can be attached</span></span> to text. A renderer may show the text or only show it for contexts compliant with the version. </p>
 <p id="3f70975">But a note without meta no versioning here is ignored and a warning generated. </p>
-<p id="8d264c7">When we want a formula <span class="code"><div class="latex-render">
-<img src="https://latex.codecogs.com/svg.image?\sum \frac{1}{n^{2}} = \frac{\pi^{2}}{6}" />
-<img class="logo" src="https://www.codecogs.com/images/poweredbycodecogs.png" border="0" alt="CodeCogs - An Open Source Scientific Library"></a>
-</div>
-</span> use F&lt;&gt; markup. </p>
+<p id="2613d38">When we want a formula <span class="code">\sum \frac{1}{n^{2}} = \frac{\pi^{2}}{6}</span> use F&lt;&gt; markup. </p>
 <p id="bf10a46">Links can be made internally <a href="#This_is_a_first_heading">say to the first heading</a> or externally <a href="https://docs.raku.org">say to the raku documentation site</a>. </p>
 <p id="1551c4d">A renderer should provide the opportunity to customise text using M&lt;...|..,..;...&gt; markup. The renderer <span class="code">should not recognise this functionality</span> and issue a warning. </p>
 <p id="da3d4cb">A note <a id="N<such_as_this_one>" href="#fn_target_N<such_as_this_one>"><span class="footnote">[ 1 ]</span></a> will not itself be rendered inline, but the text will be rendered in a footnote or popup. A marker or number will be rendered to point to the text. </p>
@@ -675,7 +671,7 @@ v0.1.2
                 Rendered from <span class="footer-field">docs/rakudociem-ipsum</span>
             </div>
             <div class="level-item">
-                Rendered at 21:33 UTC on 2024-07-06</span>
+                Rendered at 17:31 UTC on 2024-07-06</span>
             </div>
             <div class="level-item">
                 Source last modified at 21:31 UTC on 2024-06-18</span>
