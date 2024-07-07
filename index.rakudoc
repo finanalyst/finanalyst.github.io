@@ -14,7 +14,7 @@ Sources containing key concepts and information
 =for ListFiles :select<type=renderer> :caption<Renderers in distibution>
 Descriptions of the Renderer classes
 
-=for ListFiles :select<type=plugins> :caption<Plugins for HTML-Extra>
+=for ListFiles :select<type=plugin> :caption<Plugins for HTML-Extra>
 Classes that add templates and data to HTML-Extra
 
 =for ListFiles :select<type=minor> :caption<Minimal documentation>
