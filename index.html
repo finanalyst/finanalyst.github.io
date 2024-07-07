@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="theme-light" >
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RakuAST::RakuDoc::Render</title>
+<link rel="icon" href="https://irclogs.raku.org/favicon.ico">
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""
+/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""
+></script>
+<script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
+></script>
+
+<script>// BulmaHelper.js
+var change_theme = function (theme) {
+    document.querySelector('html').className = '';
+    document.querySelector('html').classList.add('theme-' + theme);
+};
+var persisted_theme = function () { return localStorage.getItem('theme') };
+var persist_theme = function (theme) { localStorage.setItem('theme', theme) };
+
+var persisted_tocState = function () { return localStorage.getItem('tocOpen') };
+var persist_tocState = function (tocState) { localStorage.setItem('tocOpen', tocState ) };
+
+document.addEventListener('DOMContentLoaded', function () {
+    // set up functions needing document variables.
+    var matchTocState = function ( state ) {
+        if ( state ) {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            persist_tocState( 'open');
+        }
+        else {
+            document.getElementById("TOC").classList.add('is-hidden');
+            persist_tocState( 'closed' );
+        }
+    }
+    var setTocState = function ( state ) {
+        if ( state === 'closed') {
+            document.getElementById("TOC").classList.add('is-hidden');
+            document.getElementById("navbar-toc-toggle").checked = false;
+        }
+        else {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            document.getElementById("navbar-toc-toggle").checked = true;
+        }
+    };
+    // initialise if localStorage is set
+    let theme = persisted_theme();
+    if ( theme ) {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        change_theme(theme);
+        persist_theme(theme);
+    }
+    let tocState = persisted_tocState();
+    if ( tocState ) {
+        setTocState( tocState );
+        persist_tocState( tocState );
+    }
+
+    // Add listeners
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    };
+    // initialise window state
+    document.getElementById('changeTheme').addEventListener('click', function () {
+        let theme = persisted_theme() === 'light' ? 'dark' : 'light';
+        change_theme(theme);
+        persist_theme(theme);
+    });
+    document.getElementById("navbar-toc-toggle").addEventListener('change', function() {
+        matchTocState( this.checked )
+    });
+    document.getElementById('toc-tab').addEventListener('click', function () { swap_toc_index('toc') });
+    document.getElementById('index-tab').addEventListener('click', function () { swap_toc_index('index') });
+    // copy code block to clipboard adapted from solution at
+    // https://stackoverflow.com/questions/34191780/javascript-copy-string-to-clipboard-as-text-html
+    // if behaviour problems with different browsers add stylesheet code from that solution.
+//    $('.copy-code').click( function() {
+//        var codeElement = $(this).next().next(); // skip the label and get the div
+//        var container = document.createElement('div');
+//        container.innerHTML = codeElement.html();
+//        container.style.position = 'fixed';
+//        container.style.pointerEvents = 'none';
+//        container.style.opacity = 0;
+//        document.body.appendChild(container);
+//        window.getSelection().removeAllRanges();
+//        var range = document.createRange();
+//        range.selectNode(container);
+//        window.getSelection().addRange(range);
+//        document.execCommand("copy", false);
+//        document.body.removeChild(container);
+//    });
+});
+function swap_toc_index(activate) {
+    let disactivate = (activate == 'toc') ? 'index' : 'toc';
+    document.getElementById( activate + '-tab').classList.add('is-active');
+    document.getElementById( disactivate + '-menu').classList.add('is-hidden');
+    document.getElementById( disactivate + '-tab').classList.remove('is-active');
+    document.getElementById( activate + '-menu').classList.remove('is-hidden');
+}
+</script>
+
+
+    <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
+    </head>
+    <body class="has-navbar-fixed-top">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+<div class="navbar-brand">
+    <figure class="navbar-item is-128x128">
+        <a href="/index.html">
+        <img class="is-rounded" src="https://avatars.githubusercontent.com/u/58170775">
+        </a>
+    </figure>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pageNavigation">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+</div>
+<div id="pageNavigation" class="navbar-menu">
+    <div class="navbar-start">
+        <label class="checkbox">
+          <input id="navbar-toc-toggle" type="checkbox" />
+          Show contents
+        </label>
+    </div>
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <button id="changeTheme" class="button">Change theme</button>
+        </div>
+    </div>
+</nav>
+<section class="section">
+  <div class="container">
+<div id="RakuAST::RakuDoc::Render"></div><h1 class="title is-centered">RakuAST::RakuDoc::Render</h1>
+
+<p class="subtitle">Documentation for all the modules in this distribution</p>
+  </div>
+</section>
+
+    <div class="columns">
+    <div id="TOC" class="column is-one-quarter">
+            <div class="container px-4">
+        <div class="tabs" id="tabs">
+            <ul>
+                <li class="is-active" id="toc-tab">
+                    <a>Table of Contents</a>
+                </li>
+                <li id="index-tab">
+                    <a>Index</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <aside id="toc-menu" class="menu">
+            <div class="toc"><h2 class="toc-caption">Table of Contents</h2>
+                <ul class="toc-list">
+
+<li><a href="#Fundamental">Fundamental</a></li>
+<li><a href="#Renderers_in_distibution">Renderers in distibution</a></li>
+<li><a href="#Plugins_for_HTML-Extra">Plugins for HTML-Extra</a></li>
+<li><a href="#Minimal_documentation">Minimal documentation</a></li>
+<li><a href="#Files_without_type_options">Files without type options</a></li>
+<li><a href="#Credits">Credits</a></li>
+</ul>
+</div>
+            </aside>
+            <aside id="index-menu" class="menu is-hidden">
+            <p>No Index for this page</p>
+            </aside>
+        </div>
+    </div>
+
+    </div>
+    <div class="column">
+        <div class="container px-4">
+        <p id="9faf89a">The RakuAST::RakuDoc::Render distribution contains a number of modules, each of which has been documented. They can be grouped as follows: </p>
+<div class="listf-container" id="Fundamental">
+<div class="listf-file">
+<p class="listf-caption">Sources containing key concepts and information</p>
+
+<a class="listf-link" href="Render">Minimal documentation of RakuDoc::Render Module</a>
+Overview of rendering engine.</div>
+<div class="listf-file">
+
+<a class="listf-link" href="Processed">ProcessState and RakuDoc::Processed</a>
+Collecting data to be used for rendering</div>
+<div class="listf-file">
+
+<a class="listf-link" href="PromiseStrings">PromiseStrings for templates</a>
+How RakuAsT-RakuDoc-Render handles forward references or placement material that has not yet been rendered.</div>
+<div class="listf-file">
+
+<a class="listf-link" href="README">RakuDoc renderer</a>
+Renders RakuDoc sources into an output format dependent on templates</div>
+<div class="listf-file">
+
+<a class="listf-link" href="Templates">Templates for RakuDoc-Render</a>
+Snippets to customise RakuDoc blocks</div>
+<div class="listf-file">
+
+<a class="listf-link" href="ScopedData">The ScopeData module</a>
+Handling RakuDoc v2 block scope concept.</div>
+</div><div class="listf-container" id="Renderers_in_distibution">
+<div class="listf-file">
+<p class="listf-caption">Descriptions of the Renderer classes</p>
+
+<a class="listf-link" href="RakuDoc-To-HTML">Rendering RakuDoc v2 to HTML</a>
+<p id="f76afd4">RakuDoc v2 is rendered to minimal HTML. <span class="code">RakuAST::RakuDoc::Render</span> on which this module is based uses the RakuAST parser. A rendering of the <a href="#Compliance_testing">compliance</a> document can be <a href="https://htmlpreview.github.io/?https://github.com/finanalyst/rakuast-rakudoc-render/blob/main/resources/compliance-rendering/rakudociem-ipsum.html">found online</a>. </p>
+</div>
+<div class="listf-file">
+
+<a class="listf-link" href="RakuDoc-To-Markdown">Rendering RakuDoc v2 to MarkDown</a>
+Simple and customisable module for rendering RakuDoc v2 to Markdown.</div>
+<div class="listf-file">
+
+<a class="listf-link" href="RakuDoc-To-HTML-Extra">The RakuDoc to HTML-Extra renderer</a>
+Based on RakuAST-RakuDoc-Render engine, HTML with plugins and Bulma CSS</div>
+</div><div class="listf-container" id="Plugins_for_HTML-Extra">
+<div class="listf-file">
+<p class="listf-caption">Classes that add templates and data to HTML-Extra</p>
+
+No files meet the criteria: {:type("plugins")}
+</div>
+</div><div class="listf-container" id="Minimal_documentation">
+<div class="listf-file">
+<p class="listf-caption">Small modules with much going on</p>
+
+<a class="listf-link" href="MarkUpMeta">MarkUpMeta module</a>
+Short grammar</div>
+<div class="listf-file">
+
+<a class="listf-link" href="Numeration">Numeration module</a>
+Creating standard numeration</div>
+</div><div class="listf-container" id="Files_without_type_options">
+<div class="listf-file">
+<p class="listf-caption">File from other sources or automatically generated</p>
+
+<a class="listf-link" href="default-text-templates"><p id="bfa6e20">Templates in <span class="code">default-text-templates</span> </p>
+</a>
+<p id="438785c">Auto generated from <span class="code">lib/RakuDoc/Render.rakumod</span> </p>
+</div>
+<div class="listf-file">
+
+<a class="listf-link" href="rakudociem-ipsum">Proving a renderer</a>
+A file with many RakuDoc components and some idea about what is expected.</div>
+</div>
+<div id="Credits"> </div>
+<div class="id-target" id=""></div><h2 id="AUTHOR" class="heading"><a href="#" title="go to top of document">AUTHOR</a></h2>
+Richard Hainsworth aka finanalyst
+
+
+
+
+<div id="Placement"> </div>
+<div class="id-target" id=""></div><h2 id="VERSION" class="heading"><a href="#" title="go to top of document">VERSION</a></h2>
+v0.3.0
+
+
+
+        </div>
+        <div class="container px-4">
+        
+        </div>
+    </div>
+</div>
+
+    <footer class="footer main-footer">
+    <div class="container px-4">
+        <nav class="level">
+            <div class="level-item">
+                Rendered from <span class="footer-field">./index</span>
+            </div>
+            <div class="level-item">
+                Rendered at 10:43 UTC on 2024-07-07</span>
+            </div>
+            <div class="level-item">
+                Source last modified at 22:20 UTC on 2024-07-06</span>
+            </div>
+        </nav>
+    </div>
+    
+</footer>
+
+</body>
+</html>

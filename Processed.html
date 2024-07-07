@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html class="theme-light" >
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ProcessState and RakuDoc::Processed</title>
+<link rel="icon" href="https://irclogs.raku.org/favicon.ico">
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""
+/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""
+></script>
+<script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
+></script>
+
+<script>// BulmaHelper.js
+var change_theme = function (theme) {
+    document.querySelector('html').className = '';
+    document.querySelector('html').classList.add('theme-' + theme);
+};
+var persisted_theme = function () { return localStorage.getItem('theme') };
+var persist_theme = function (theme) { localStorage.setItem('theme', theme) };
+
+var persisted_tocState = function () { return localStorage.getItem('tocOpen') };
+var persist_tocState = function (tocState) { localStorage.setItem('tocOpen', tocState ) };
+
+document.addEventListener('DOMContentLoaded', function () {
+    // set up functions needing document variables.
+    var matchTocState = function ( state ) {
+        if ( state ) {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            persist_tocState( 'open');
+        }
+        else {
+            document.getElementById("TOC").classList.add('is-hidden');
+            persist_tocState( 'closed' );
+        }
+    }
+    var setTocState = function ( state ) {
+        if ( state === 'closed') {
+            document.getElementById("TOC").classList.add('is-hidden');
+            document.getElementById("navbar-toc-toggle").checked = false;
+        }
+        else {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            document.getElementById("navbar-toc-toggle").checked = true;
+        }
+    };
+    // initialise if localStorage is set
+    let theme = persisted_theme();
+    if ( theme ) {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        change_theme(theme);
+        persist_theme(theme);
+    }
+    let tocState = persisted_tocState();
+    if ( tocState ) {
+        setTocState( tocState );
+        persist_tocState( tocState );
+    }
+
+    // Add listeners
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    };
+    // initialise window state
+    document.getElementById('changeTheme').addEventListener('click', function () {
+        let theme = persisted_theme() === 'light' ? 'dark' : 'light';
+        change_theme(theme);
+        persist_theme(theme);
+    });
+    document.getElementById("navbar-toc-toggle").addEventListener('change', function() {
+        matchTocState( this.checked )
+    });
+    document.getElementById('toc-tab').addEventListener('click', function () { swap_toc_index('toc') });
+    document.getElementById('index-tab').addEventListener('click', function () { swap_toc_index('index') });
+    // copy code block to clipboard adapted from solution at
+    // https://stackoverflow.com/questions/34191780/javascript-copy-string-to-clipboard-as-text-html
+    // if behaviour problems with different browsers add stylesheet code from that solution.
+//    $('.copy-code').click( function() {
+//        var codeElement = $(this).next().next(); // skip the label and get the div
+//        var container = document.createElement('div');
+//        container.innerHTML = codeElement.html();
+//        container.style.position = 'fixed';
+//        container.style.pointerEvents = 'none';
+//        container.style.opacity = 0;
+//        document.body.appendChild(container);
+//        window.getSelection().removeAllRanges();
+//        var range = document.createRange();
+//        range.selectNode(container);
+//        window.getSelection().addRange(range);
+//        document.execCommand("copy", false);
+//        document.body.removeChild(container);
+//    });
+});
+function swap_toc_index(activate) {
+    let disactivate = (activate == 'toc') ? 'index' : 'toc';
+    document.getElementById( activate + '-tab').classList.add('is-active');
+    document.getElementById( disactivate + '-menu').classList.add('is-hidden');
+    document.getElementById( disactivate + '-tab').classList.remove('is-active');
+    document.getElementById( activate + '-menu').classList.remove('is-hidden');
+}
+</script>
+
+
+    <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
+    </head>
+    <body class="has-navbar-fixed-top">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+<div class="navbar-brand">
+    <figure class="navbar-item is-128x128">
+        <a href="/index.html">
+        <img class="is-rounded" src="https://avatars.githubusercontent.com/u/58170775">
+        </a>
+    </figure>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pageNavigation">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+</div>
+<div id="pageNavigation" class="navbar-menu">
+    <div class="navbar-start">
+        <label class="checkbox">
+          <input id="navbar-toc-toggle" type="checkbox" />
+          Show contents
+        </label>
+    </div>
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <button id="changeTheme" class="button">Change theme</button>
+        </div>
+    </div>
+</nav>
+<section class="section">
+  <div class="container">
+<div id="ProcessState_and_RakuDoc::Processed"></div><h1 class="title is-centered">ProcessState and RakuDoc::Processed</h1>
+
+<p class="subtitle">Collecting data to be used for rendering</p>
+  </div>
+</section>
+
+    <div class="columns">
+    <div id="TOC" class="column is-one-quarter">
+            <div class="container px-4">
+        <div class="tabs" id="tabs">
+            <ul>
+                <li class="is-active" id="toc-tab">
+                    <a>Table of Contents</a>
+                </li>
+                <li id="index-tab">
+                    <a>Index</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <aside id="toc-menu" class="menu">
+            <div class="toc"><h2 class="toc-caption">Table of Contents</h2>
+                <ul class="toc-list">
+
+<li><a href="#Purpose">Purpose</a></li>
+<ul>
+
+<li><a href="#Attributes_of_ProcessedState_object">Attributes of ProcessedState object</a></li>
+<ul>
+
+<li><a href="#&lt;p_id=&quot;4fc77d5&quot;&gt;&lt;span_class=&quot;code&quot;&gt;PStr_$.body_is_rw_&lt;/span&gt;_&lt;/p&gt;"><p id="4fc77d5"><span class="code">PStr $.body is rw </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;ed447a4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Hash_@.toc_&lt;/span&gt;_&lt;/p&gt;"><p id="ed447a4"><span class="code">Hash @.toc </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;fa68a2b&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_@.head-numbering_&lt;/span&gt;_&lt;/p&gt;"><p id="fa68a2b"><span class="code">Array @.head-numbering </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;31e98a9&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.index_&lt;/span&gt;_&lt;/p&gt;"><p id="31e98a9"><span class="code">%.index </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;39d0efa&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.footnotes_&lt;/span&gt;_&lt;/p&gt;"><p id="39d0efa"><span class="code">@.footnotes </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;c8f0741&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_%.semantics_&lt;/span&gt;_&lt;/p&gt;"><p id="c8f0741"><span class="code">Array %.semantics </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;183a407&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.warnings_&lt;/span&gt;_&lt;/p&gt;"><p id="183a407"><span class="code">@.warnings </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;cb74584&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.items_&lt;/span&gt;_&lt;/p&gt;"><p id="cb74584"><span class="code">@.items </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;f5230bd&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.defns_&lt;/span&gt;_&lt;/p&gt;"><p id="f5230bd"><span class="code">@.defns </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;848f240&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numitems_&lt;/span&gt;_&lt;/p&gt;"><p id="848f240"><span class="code">@.numitems </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;200b196&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numdefns_&lt;/span&gt;_&lt;/p&gt;"><p id="200b196"><span class="code">@.numdefns </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;a3990c6&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.definitions_&lt;/span&gt;_&lt;/p&gt;"><p id="a3990c6"><span class="code">%.definitions </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;a256195&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.inline-defns_&lt;/span&gt;_&lt;/p&gt;"><p id="a256195"><span class="code">@.inline-defns </span> </p>
+</a></li>
+</ul>
+
+<li><a href="#Attributes_of_RakuDoc::Processed">Attributes of RakuDoc::Processed</a></li>
+<ul>
+
+<li><a href="#&lt;p_id=&quot;83f512a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_%.source-data_&lt;/span&gt;_&lt;/p&gt;"><p id="83f512a"><span class="code"> %.source-data </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;8ec13ee&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_$!output-format_=_'txt'_&lt;/span&gt;_&lt;/p&gt;"><p id="8ec13ee"><span class="code"> $!output-format = 'txt' </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;13f8909&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.front-matter_is_rw_=_'preface'_&lt;/span&gt;_&lt;/p&gt;"><p id="13f8909"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;7a7260a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.name_is_rw_&lt;/span&gt;_&lt;/p&gt;"><p id="7a7260a"><span class="code"> Str $.name is rw </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;1cc966d&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title_is_rw_=_'NO_TITLE'_&lt;/span&gt;_&lt;/p&gt;"><p id="1cc966d"><span class="code"> Str $.title is rw = 'NO_TITLE' </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;3bab138&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title-target_is_rw_=_'___top'_&lt;/span&gt;_&lt;/p&gt;"><p id="3bab138"><span class="code"> Str $.title-target is rw = '___top' </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;70b27ab&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.subtitle_is_rw_=_''_&lt;/span&gt;_&lt;/p&gt;"><p id="70b27ab"><span class="code"> Str $.subtitle is rw = '' </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;d5a3b20&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&lt;/span&gt;_&lt;/p&gt;"><p id="d5a3b20"><span class="code"> Str $.modified is rw = now.DateTime.utc.truncated-to('seconds').Str </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;9a72100&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_SetHash_$.targets_&lt;/span&gt;_&lt;/p&gt;"><p id="9a72100"><span class="code"> SetHash $.targets </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;ac2662c&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Hash_%.links_&lt;/span&gt;_&lt;/p&gt;"><p id="ac2662c"><span class="code"> Hash %.links </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;05e7424&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-toc_is_rw_&lt;/span&gt;_&lt;/p&gt;"><p id="05e7424"><span class="code"> Str $.rendered-toc is rw </span> </p>
+</a></li>
+<li><a href="#&lt;p_id=&quot;5124fa1&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-index_is_rw_&lt;/span&gt;_&lt;/p&gt;"><p id="5124fa1"><span class="code"> Str $.rendered-index is rw </span> </p>
+</a></li>
+</ul>
+
+</ul>
+
+<li><a href="#Credits">Credits</a></li>
+</ul>
+</div>
+            </aside>
+            <aside id="index-menu" class="menu is-hidden">
+            <div class="index">
+            <h2 class="index-caption">Index</h2>
+            <div class="index-section" data-index-level="0"><span class="index-entry">:  </span><a class="index-ref" href="#index-entry-">Block # 2</a><span>Block # 2</span>, <a class="index-ref" href="#index-entry-_0"><p id="13f8909"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
+</a><span><p id="13f8909"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
+</span>
+
+</div>
+            </div>
+
+            </aside>
+        </div>
+    </div>
+
+    </div>
+    <div class="column">
+        <div class="container px-4">
+        
+<div class="id-target" id=""></div><h2 id="Purpose" class="heading "><a href="#" title="go to top of document">Purpose</a></h2>
+<p id="7dd26db">When a RakuDoc source is being processed, data is collected about numerous items, such as the Table of Contents, the Index, list and definition entries. </p>
+<p id="caf8c99">Many RakuDoc blocks allow for recursion, with blocks being embedded within each other. A ProcessState object is therefore created to contain all the intermediary data. </p>
+<p id="0a3e7a9">One ProcessState object can be added to another, and so once one block has been processed, it can be 'added' to the ProcessState object of the containing block. </p>
+<p id="1427915">Finally, when an entire RakuDoc source has been fully rendered, it is useful to retain all the intermediary data structures as well. </p>
+<p id="7c3ecf8">The overall RakuDoc::Processed object contains data related to the source as well as the rendered data. </p>
+<p id="228a2c4">By keeping track of the timestamps of the source file and the rendering, it will be possible to determine whether to render a source again, or not. </p>
+
+<div class="id-target" id=""></div><h3 id="Attributes_of_ProcessedState_object" class="heading "><a href="#" title="go to top of document">Attributes of ProcessedState object</a></h3>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;4fc77d5&quot;&gt;&lt;span_class=&quot;code&quot;&gt;PStr_$.body_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="4fc77d5"><span class="code">PStr $.body is rw </span> </p>
+</a></h4>
+<p id="58c42ef">String of rendered source, may contain Promises during rendering </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;ed447a4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Hash_@.toc_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="ed447a4"><span class="code">Hash @.toc </span> </p>
+</a></h4>
+<pre class="code-block">Table of Contents data
+Ordered array of { :level, :text, :target, :is-heading }
+level - in heading hierarchy, text - to be shown in TOC
+target - of item in text, is-heading - used for Index placing
+</pre>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;fa68a2b&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_@.head-numbering_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="fa68a2b"><span class="code">Array @.head-numbering </span> </p>
+</a></h4>
+<pre class="code-block">heading numbering data
+Ordered array of [ $id, $level ]
+$id is the PCell id of where the numeration structure is to be placed
+level - in heading hierarchy
+</pre>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;31e98a9&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.index_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="31e98a9"><span class="code">%.index </span> </p>
+</a></h4>
+<pre class="code-block">Index (from X&lt;&gt; markup)
+Hash entry =&gt; Hash of :refs, :sub-index
+ :sub-index (maybe empty) is Hash of sub-entry =&gt; :refs, :sub-index
+ :refs is Array of (Hash :target, :place, :is-header)
+ :target is for link, :place is section name
+ :is-header because &lt;span id="index-entry-"&gt;&lt;span class="indexed"&gt;&lt;/span&gt;&lt;/span&gt; in headings treated differently to ordinary text
+</pre>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;39d0efa&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.footnotes_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="39d0efa"><span class="code">@.footnotes </span> </p>
+</a></h4>
+<pre class="code-block">Footnotes (from N&lt;&gt; markup)
+Ordered Array of :$text, :$retTarget, :$fnNumber, :$fnTarget
+text is content of footnote, fnNumber is footNote number
+fnTarget is link to rendered footnote
+retTarget is link to where footnote is defined to link back form footnote
+</pre>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;c8f0741&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_%.semantics_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="c8f0741"><span class="code">Array %.semantics </span> </p>
+</a></h4>
+<p id="3ffaa5d">Semantic blocks (which includes TITLE & SUBTITLE) can be hidden Hash of SEMANTIC => [ PStr | Str ] </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;183a407&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.warnings_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="183a407"><span class="code">@.warnings </span> </p>
+</a></h4>
+<p id="4960b15">An array of warnings is generated and then rendered by the warnings template The warning template, by default is called by the wrap-source template RakuDoc warnings are generated as specified in the RakuDoc v2 document. </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;cb74584&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.items_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="cb74584"><span class="code">@.items </span> </p>
+</a></h4>
+<p id="a5b5846">An array of accumulated rendered items, added to body when next non-item block encountered </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;f5230bd&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.defns_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="f5230bd"><span class="code">@.defns </span> </p>
+</a></h4>
+<p id="943df73">An array of accumulated rendered definitions, added to body when next non-defn block encountered </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;848f240&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numitems_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="848f240"><span class="code">@.numitems </span> </p>
+</a></h4>
+<p id="877174c">An array of accumulated rendered numbered items, added to body when next non-item block encountered </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;200b196&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numdefns_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="200b196"><span class="code">@.numdefns </span> </p>
+</a></h4>
+<p id="7b0e777">An array of accumulated rendered numbered definitions, added to body when next non-defn block encountered </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;a3990c6&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.definitions_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="a3990c6"><span class="code">%.definitions </span> </p>
+</a></h4>
+<p id="19cd8a1">Hash of definition => rendered value for definitions </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;a256195&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.inline-defns_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="a256195"><span class="code">@.inline-defns </span> </p>
+</a></h4>
+<p id="9e0ecf0">Array to signal when one or more inline defn are made in a Paragraph </p>
+
+<div class="id-target" id=""></div><h3 id="Attributes_of_RakuDoc::Processed" class="heading "><a href="#" title="go to top of document">Attributes of RakuDoc::Processed</a></h3>
+<p id="a1a36bd">All of the ProcessState attributes, and the following. </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;83f512a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_%.source-data_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="83f512a"><span class="code"> %.source-data </span> </p>
+</a></h4>
+<p id="e3abda9">Information about the RakuDoc source, eg file name, path, modified, language </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;8ec13ee&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_$!output-format_=_'txt'_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="8ec13ee"><span class="code"> $!output-format = 'txt' </span> </p>
+</a></h4>
+<p id="c077417">The output format that the source has been rendered into </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;13f8909&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.front-matter_is_rw_=_'preface'_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="13f8909"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
+</a></h4>
+<p id="aa2271a">Text between =TITLE and first header, used for <span id="index-entry-_0"><span class="indexed"></span></span> place before first header </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;7a7260a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.name_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="7a7260a"><span class="code"> Str $.name is rw </span> </p>
+</a></h4>
+<pre class="code-block">Name to be used in titles and files
+name can be modified after creation of Object
+name can be set when creating object
+if name is not set, then it is taken from source name + format
+</pre>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;1cc966d&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title_is_rw_=_'NO_TITLE'_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="1cc966d"><span class="code"> Str $.title is rw = 'NO_TITLE' </span> </p>
+</a></h4>
+<p id="b207d5d">String value of TITLE. </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;3bab138&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title-target_is_rw_=_'___top'_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="3bab138"><span class="code"> Str $.title-target is rw = '___top' </span> </p>
+</a></h4>
+<p id="77bfcf9">Target of Title Line </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;70b27ab&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.subtitle_is_rw_=_''_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="70b27ab"><span class="code"> Str $.subtitle is rw = '' </span> </p>
+</a></h4>
+<p id="52a4608">String value of SUBTITLE, provides description of file </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;d5a3b20&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="d5a3b20"><span class="code"> Str $.modified is rw = now.DateTime.utc.truncated-to('seconds').Str </span> </p>
+</a></h4>
+<p id="deb5920">When RakuDoc Processed Object modified (source-data<modified> should be earlier than RPO.modified) </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;9a72100&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_SetHash_$.targets_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="9a72100"><span class="code"> SetHash $.targets </span> </p>
+</a></h4>
+<p id="51e7f52">target data generated from block names and :id metadata A set of unique targets inside the file, new targets must be unique </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;ac2662c&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Hash_%.links_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="ac2662c"><span class="code"> Hash %.links </span> </p>
+</a></h4>
+<p id="b4f6e00">Links (from <a href="destination.html">link-label</a> markup) Hash of destination => :target, :type, :place, :link-label target = computed URL (for local files), place = anchor inside file type has following values: </p>
+
+<ul><li class="item" data-bullet="•" style="--level:0;"> Internal are of the form '#this is a heading' and refer to anchors inside the file</li>
+<li class="item" data-bullet="•" style="--level:0;"> Local are of the form 'some-type#a heading there', where 'some-type' is a file name in the same directory</li>
+<li class="item" data-bullet="•" style="--level:0;"> External is a fully qualified URL</li>
+</ul>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;05e7424&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-toc_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="05e7424"><span class="code"> Str $.rendered-toc is rw </span> </p>
+</a></h4>
+<p id="e064804">Rendered version of the ToC </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;5124fa1&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-index_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="5124fa1"><span class="code"> Str $.rendered-index is rw </span> </p>
+</a></h4>
+<p id="10f5945">Rendered version of the Index </p>
+
+<div id="Credits"> </div>
+<div class="id-target" id=""></div><h2 id="AUTHOR" class="heading"><a href="#" title="go to top of document">AUTHOR</a></h2>
+Richard Hainsworth aka finanalyst
+
+
+
+
+<div id="Placement"> </div>
+<div class="id-target" id=""></div><h2 id="VERSION" class="heading"><a href="#" title="go to top of document">VERSION</a></h2>
+v0.2.1
+
+
+
+        </div>
+        <div class="container px-4">
+        
+        </div>
+    </div>
+</div>
+
+    <footer class="footer main-footer">
+    <div class="container px-4">
+        <nav class="level">
+            <div class="level-item">
+                Rendered from <span class="footer-field">docs/Processed</span>
+            </div>
+            <div class="level-item">
+                Rendered at 10:43 UTC on 2024-07-07</span>
+            </div>
+            <div class="level-item">
+                Source last modified at 20:48 UTC on 2024-07-06</span>
+            </div>
+        </nav>
+    </div>
+    
+</footer>
+
+</body>
+</html>

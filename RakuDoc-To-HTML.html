@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="theme-light" >
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rendering RakuDoc v2 to HTML</title>
+<link rel="icon" href="https://irclogs.raku.org/favicon.ico">
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""
+/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""
+></script>
+<script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
+></script>
+
+<script>// BulmaHelper.js
+var change_theme = function (theme) {
+    document.querySelector('html').className = '';
+    document.querySelector('html').classList.add('theme-' + theme);
+};
+var persisted_theme = function () { return localStorage.getItem('theme') };
+var persist_theme = function (theme) { localStorage.setItem('theme', theme) };
+
+var persisted_tocState = function () { return localStorage.getItem('tocOpen') };
+var persist_tocState = function (tocState) { localStorage.setItem('tocOpen', tocState ) };
+
+document.addEventListener('DOMContentLoaded', function () {
+    // set up functions needing document variables.
+    var matchTocState = function ( state ) {
+        if ( state ) {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            persist_tocState( 'open');
+        }
+        else {
+            document.getElementById("TOC").classList.add('is-hidden');
+            persist_tocState( 'closed' );
+        }
+    }
+    var setTocState = function ( state ) {
+        if ( state === 'closed') {
+            document.getElementById("TOC").classList.add('is-hidden');
+            document.getElementById("navbar-toc-toggle").checked = false;
+        }
+        else {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            document.getElementById("navbar-toc-toggle").checked = true;
+        }
+    };
+    // initialise if localStorage is set
+    let theme = persisted_theme();
+    if ( theme ) {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        change_theme(theme);
+        persist_theme(theme);
+    }
+    let tocState = persisted_tocState();
+    if ( tocState ) {
+        setTocState( tocState );
+        persist_tocState( tocState );
+    }
+
+    // Add listeners
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    };
+    // initialise window state
+    document.getElementById('changeTheme').addEventListener('click', function () {
+        let theme = persisted_theme() === 'light' ? 'dark' : 'light';
+        change_theme(theme);
+        persist_theme(theme);
+    });
+    document.getElementById("navbar-toc-toggle").addEventListener('change', function() {
+        matchTocState( this.checked )
+    });
+    document.getElementById('toc-tab').addEventListener('click', function () { swap_toc_index('toc') });
+    document.getElementById('index-tab').addEventListener('click', function () { swap_toc_index('index') });
+    // copy code block to clipboard adapted from solution at
+    // https://stackoverflow.com/questions/34191780/javascript-copy-string-to-clipboard-as-text-html
+    // if behaviour problems with different browsers add stylesheet code from that solution.
+//    $('.copy-code').click( function() {
+//        var codeElement = $(this).next().next(); // skip the label and get the div
+//        var container = document.createElement('div');
+//        container.innerHTML = codeElement.html();
+//        container.style.position = 'fixed';
+//        container.style.pointerEvents = 'none';
+//        container.style.opacity = 0;
+//        document.body.appendChild(container);
+//        window.getSelection().removeAllRanges();
+//        var range = document.createRange();
+//        range.selectNode(container);
+//        window.getSelection().addRange(range);
+//        document.execCommand("copy", false);
+//        document.body.removeChild(container);
+//    });
+});
+function swap_toc_index(activate) {
+    let disactivate = (activate == 'toc') ? 'index' : 'toc';
+    document.getElementById( activate + '-tab').classList.add('is-active');
+    document.getElementById( disactivate + '-menu').classList.add('is-hidden');
+    document.getElementById( disactivate + '-tab').classList.remove('is-active');
+    document.getElementById( activate + '-menu').classList.remove('is-hidden');
+}
+</script>
+
+
+    <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
+    </head>
+    <body class="has-navbar-fixed-top">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+<div class="navbar-brand">
+    <figure class="navbar-item is-128x128">
+        <a href="/index.html">
+        <img class="is-rounded" src="https://avatars.githubusercontent.com/u/58170775">
+        </a>
+    </figure>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pageNavigation">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+</div>
+<div id="pageNavigation" class="navbar-menu">
+    <div class="navbar-start">
+        <label class="checkbox">
+          <input id="navbar-toc-toggle" type="checkbox" />
+          Show contents
+        </label>
+    </div>
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <button id="changeTheme" class="button">Change theme</button>
+        </div>
+    </div>
+</nav>
+<section class="section">
+  <div class="container">
+<div id="Rendering_RakuDoc_v2_to_HTML"></div><h1 class="title is-centered">Rendering RakuDoc v2 to HTML</h1>
+
+<p class="subtitle"><p id="f76afd4">RakuDoc v2 is rendered to minimal HTML. <span class="code">RakuAST::RakuDoc::Render</span> on which this module is based uses the RakuAST parser. A rendering of the <a href="#Compliance_testing">compliance</a> document can be <a href="https://htmlpreview.github.io/?https://github.com/finanalyst/rakuast-rakudoc-render/blob/main/resources/compliance-rendering/rakudociem-ipsum.html">found online</a>. </p>
+</p>
+  </div>
+</section>
+
+    <div class="columns">
+    <div id="TOC" class="column is-one-quarter">
+            <div class="container px-4">
+        <div class="tabs" id="tabs">
+            <ul>
+                <li class="is-active" id="toc-tab">
+                    <a>Table of Contents</a>
+                </li>
+                <li id="index-tab">
+                    <a>Index</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <aside id="toc-menu" class="menu">
+            <div class="toc"><h2 class="toc-caption">Table of Contents</h2>
+                <ul class="toc-list">
+
+<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#Vanilla_HTML_and_CSS">Vanilla HTML and CSS</a></li>
+<li><a href="#Credits">Credits</a></li>
+</ul>
+</div>
+            </aside>
+            <aside id="index-menu" class="menu is-hidden">
+            <p>No Index for this page</p>
+            </aside>
+        </div>
+    </div>
+
+    </div>
+    <div class="column">
+        <div class="container px-4">
+        
+<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading"><a href="#" title="go to top of document">SYNOPSIS</a></h2>
+
+
+<p id="de4213b">Currently, the module is difficult to install using <span class="important">zef</span>, so the instructions below are relative to local repo of <a href="https://github.com/finanalyst/rakuast-rakudoc-render.git">RakuDoc::Render repo</a>. </p>
+<p id="21df361">Use the utility <span class="basis">force-recompile</span> with the current working directory being the root of the <span class="code">RakuDoc::Render</span> repo bin/force-recompile </p>
+<p id="915319d">Assuming (the assumptions are for clarity and can be changed): </p>
+
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="17b880e">there is a RakuDoc source <span class="code">new-doc.rakudoc</span> in the current working directory, </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="9b8b17e">the current working directory is the root directory of the repo, <span class="code">/home/me/rakuast-rakudoc-render</span> </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="e2b475c">the distribution has been tested on Ubuntu <span class="basis">6.5.0-35-generic #35~22.04.1-Ubuntu</span> </p>
+</li>
+<li class="item" data-bullet="▹" style="--level:1;"> [feedback of testing on other OS, and tweaks to improve, would be appreciated !]</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="b5ea7de">a recent Rakudo build is needed; <span class="basis">v2024.05-34-g5dd0ad6f5</span> works. </p>
+</li>
+</ul>
+<p id="54f7ea1">Then: RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html </p>
+<p id="1eed893">generates <span class="basis">new-doc.html</span> in the current working directory. </p>
+
+<div class="id-target" id=""></div><h2 id="Vanilla_HTML_and_CSS" class="heading "><a href="#" title="go to top of document">Vanilla HTML and CSS</a></h2>
+<p id="e3abb4f">The aim of <span class="code">RakuDoc::To::HTML</span> is to produce a minimal HTML output with minimal styling, and that the file can be directly viewed in a modern browser with the URL <span class="code">file:///home/me/rakuast-rakudoc-render/new-doc.html</span>. </p>
+<div class="nested">Unfortunately some systems for opening HTML files in a browser will HTML-escape Unicode characters used for delimiting texts. So, just open the file in a browser.</div>
+<p id="8d60446">The styling is generated from <span class="code">resources/scss/vanilla.scss</span> to produce <span class="code">resources/css/vanilla.css</span>, which is slurped into the HTML output file (eg. new-doc.html). </p>
+<p id="9f20708">By the design of the <span class="code">RakuDoc::Render</span> module, all output is generated using templates. The module <span class="code">RakuDoc::To::HTML</span> attaches a minimum set of templates. It is possible to override any or all of the templates by adding the <span class="code">MORE_HTML</span> environment variable. Assuming the file <span class="code">my_new_html.raku</span> exists in the current working directory, and the file follows the <a href="Templates.html">Template specification</a>, then MORE_HTML=my_new_html.raku RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html </p>
+<p id="350ae20">will utilise the new templates. An example can be seen in <span class="code">xt/600-R-2-HTML.rakutest</span>. The intention of each template can be found in the comments within <span class="code">lib.RakuDoc/To/HTML.rakumod</span>. </p>
+<p id="4638f6f">To tweak the styling: </p>
+
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="c9e7291">install <a href="https://sass-lang.com/guide/">sass is available</a> </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="08f2a80">copy the file <span class="code">/home/me/rakuast-rakudoc-render/resources/scss/vanilla.scss</span> to a new file, eg. <span class="code">~/tweaks/strawberry.scss</span> </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> tweak the styling (many classes used in the HTML output have zero styling)</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="684d9ac">run <span class="code">sass ~/tweaks/strawberry.scss</span> to generate <span class="code">~/tweaks/strawberry.css</span> </p>
+</li>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="acfacf1">the <span class="code">sass</span> command is usefully run as <span class="code">--update -s compressed ~/tweaks/strawberry.scss</span> </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="9f973e9">use the <span class="code">ALT_CSS</span> environment variable to load the new CSS. </p>
+</li>
+</ul>
+<pre class="code-block">ALT_CSS=~/tweaks/strawberry.sss RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc &gt; new-doc.html
+</pre>
+<p id="1384e9c">Both <span class="code">ALT_CSS</span> and <span class="code">MORE_HTML</span> can be used, adding new HTML tags, or changing class names, then including CSS definitions in the file accessed by <span class="code">ALT_CSS</span>. </p>
+<p id="818d78b">Note that there is a difference between how the CSS and Template files are used. </p>
+
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="57c1a0e">By design, new Raku closure templates, eg, those defined in files given to <span class="code">MORE_HTML</span>, are placed at the head of a chain of templates, and so are <span class="important">in addition</span> to those previously defined. </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="5c1ebaf">The alternate CSS file (eg ~/tweaks/strawberry.css) is used <span class="basis">instead</span> of the default <span class="code">vanilla.css</span>. </p>
+</li>
+</ul>
+
+<div id="Credits"> </div>｢semantic-schema_AUTHOR UNAVAILABLE｣
+
+
+<div id="Placement"> </div>
+<div class="id-target" id=""></div><h2 id="VERSION" class="heading"><a href="#" title="go to top of document">VERSION</a></h2>
+v0.1.0
+
+
+
+        </div>
+        <div class="container px-4">
+        
+        </div>
+    </div>
+</div>
+
+    <footer class="footer main-footer">
+    <div class="container px-4">
+        <nav class="level">
+            <div class="level-item">
+                Rendered from <span class="footer-field">docs/RakuDoc-To-HTML</span>
+            </div>
+            <div class="level-item">
+                Rendered at 10:43 UTC on 2024-07-07</span>
+            </div>
+            <div class="level-item">
+                Source last modified at 20:48 UTC on 2024-07-06</span>
+            </div>
+        </nav>
+    </div>
+    <div class="section"><div class="container px-4 warnings">    <div class="warnings">
+    <h2 class="warnings-caption">Warnings</h2>
+        <ol>
+        <li>Still waiting for ｢semantic-schema_AUTHOR｣ to be expanded.</li>
+
+        </ol>
+    </div>
+</div></div>
+</footer>
+
+</body>
+</html>
