@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The RakuDoc to HTML-Extra renderer</title>
+    <title>FontAwesome</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
 <style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
 </style>
@@ -239,9 +239,10 @@ function swap_toc_index(activate) {
 </nav>
 <section class="section">
   <div class="container">
-<div id="The_RakuDoc_to_HTML-Extra_renderer"></div><h1 class="title is-centered">The RakuDoc to HTML-Extra renderer</h1>
+<div id="FontAwesome"></div><h1 class="title is-centered">FontAwesome</h1>
 
-<p class="subtitle">Based on RakuAST-RakuDoc-Render engine, HTML with plugins and Bulma CSS</p>
+<p class="subtitle"><p id="976e0ce">Adds the fonts and utilities for FontAwesom v5.15.4. Includes ℱ&lt;&gt; markup code. </p>
+</p>
   </div>
 </section>
 
@@ -263,14 +264,7 @@ function swap_toc_index(activate) {
             <div class="toc"><h2 class="toc-caption">Table of Contents</h2>
                 <ul class="toc-list">
 
-<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#Overview">Overview</a></li>
-<ul>
-
-<li><a href="#Plugins_and_their_sources">Plugins and their sources</a></li>
-</ul>
-
-<li><a href="#RakuDoc::Render_plugins">RakuDoc::Render plugins</a></li>
 <li><a href="#Credits">Credits</a></li>
 </ul>
 </div>
@@ -285,58 +279,43 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading"><a href="#" title="go to top of document">SYNOPSIS</a></h2>
-<p id="1b25e2a">In a <span class="important">clean</span> directory containing only a RakuDoc source, eg <span class="code">wp.rakudoc</span> use the terminal command </p>
-<pre class="code-block">RAKUDO_RAKUAST=1 raku -MRakuDoc::Render -MRakuDoc::To::HTML --rakudoc=HTML-Extra wp.rakudoc &gt; wp.html
-</pre>
-<p id="9b4c66d">Easier (once the distribution has been installed, see <a href="README.html">README</a>) </p>
-<pre class="code-block">RakuDoc wp
-</pre>
-<p id="ed2f944">Both will cause the file <span class="code">wp.html</span> to be generated in the current working directory, together with a new subdirectory <span class="important">assets/</span> in which other CSS and Javascript files will be placed. </p>
-<p id="7789dff">To view this file, see <a href="#Small_Cro_app">small Cro app</a>. </p>
-
-
-
 <div class="id-target" id=""></div><h2 id="Overview" class="heading "><a href="#" title="go to top of document">Overview</a></h2>
-<p id="93f53d9">This renderer allows for more customisability than the <a href="RakuDoc-To-HMTL.html">minimal HTML renderer</a> in this distribution. </p>
-<p id="5480c83">By default, the following plugins are provided, and more can be added by the user (see <a href="Extra-HTML-Plugins.html">Plugins</a>). </p>
+<p id="30de26d">This plugin provides the CDN link for FontAwesome v5-15-4. See the <a href="https://docs.fontawesome.com/v5/web/setup/get-started/">official documentation</a>. </p>
+<p id="160d1ca">The templates also provides for ℱ&lt;>, where ℱ is U+2131. </p>
+<p id="9bfac1e">The code only uses the free icons. See <a href="https://fontawesome.com/icons">font search page</a>. Make sure to filter for the free icons. </p>
+<pre class="code-block">Some FontAwesome icons
 
-<div class="id-target" id=""></div><h3 id="Plugins_and_their_sources" class="heading"><a href="#" title="go to top of document">Plugins and their sources</a></h3>
-<table class="table">
-<tr><th class="">Plugin</th><th class="">Source</th><th class="">Use</th><th class="">License</th></tr>
-<tr><td class="">Bulma CSS</td><td class=""><p id="22db035"><a href="https://bulma.io">Bulma Home</a> </p>
-</td><td class="">The output page is styled into panels, is responsive, has themes</td><td class="">MIT</td></tr>
-<tr><td class="">Leaflet Maps</td><td class=""><p id="b67d91a"><a href="https://leafletjs.com/">Home page</a> </p>
-</td><td class="">Puts a map in a web page, with tiles from multiple providers</td><td class="">2-clause BSD</td></tr>
-<tr><td class="">Leaflet providers</td><td class=""><p id="6d5b0b0"><a href="https://github.com/leaflet-extras/leaflet-providers">Github repo</a> </p>
-</td><td class="">Easy way to access tile providers</td><td class="">2-clause BSD</td></tr></table>
+ℱ&lt;fas fa-ambulance&gt; Example of ambulance
 
-<div class="id-target" id=""></div><h2 id="RakuDoc::Render_plugins" class="heading "><a href="#" title="go to top of document">RakuDoc::Render plugins</a></h2>
-<p id="0bcd561">Customisation is provided by plugins. These are essentially classes of the form <span class="code">RakuDoc::Plugins::XXX</span>, where <span class="basis">XXX</span> is the name of a plugin. </p>
-<p id="dbf106c">The plugin class <span class="basis">does</span> the <span class="important">RakuDoc::Plugin</span> role. </p>
-<p id="27ee1ea">Each RP class must have a <span class="code">%.config</span> attribute containing the information needed for the plugin. These are divided into mandatory keys, which will be tested for, and plugin-specific. </p>
-<p id="ab374e8">The mandatory key-value Pairs are: </p>
+ℱ&lt;fas fa-car&gt; Example of automobile
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="f810a1b"><span class="basis">license</span>, typically Artistic-2.0 (same as Raku), but may need to change if the plugin relies on software that has another license. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="d626e20"><span class="basis">credits</span>, a source for the software, and the license its developers use. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="20e1ee3"><span class="basis">version</span>, a version number for the plugin. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="54aee4c"><span class="basis">authors</span>, the author(s) of the plugin. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="1ff4e57"><span class="basis">name-space</span>, the name of the plugin's name-space within the RakuDoc-Processor instance. </p>
-</li>
-</ul>
-<p id="55397fa">Some typical config fields are </p>
+ℱ&lt;fas fa-bicycle&gt; Example of bicycle
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> block-name, the custom block that activates the plugin (a plugin may need only replace existing templates)</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="39468d3">js-link, a list of <span class="code">Str, Int $order</span> arrays. The string is placed in script tag in the head container of the web-page, the order is to ensure that when one js library must appear before another, that relation is created. Libraries with the same order appear in alphabetic order. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="0997ea4">css-link, a list of <span class="code">Str, Int $order</span> arrays. As above, but for CSS. Typically, CSS files must appear before the JS files they are associated with. All CSS files appear in head before JS files. </p>
-</li>
-</ul>
-<p id="6bf1569">All the elements of %.config are transferred to the RakuDoc::Processor object, and can be accessed in a template or callable, as <span class="code">$tmpl.globals.data<plugin-name-space> </span> (assuming that the plugin's config has <span class="code">namespace =</span> plugin-name-space>). </p>
+ℱ&lt;fas fa-bus&gt; Example of bus
+
+ℱ&lt;fas fa-truck&gt; Example of truck
+
+ℱ&lt;fas fa-wheelchair&gt; Example of wheelchair
+
+ℱ&lt;fas fab-accessible-icon&gt; Example of accessible-icon (was wheelchair-alt in fontawesom v4)
+</pre>
+<p id="e42b959">Generates Some FontAwesome icons </p>
+<p id="9fe1998"><span class="fa fas fa-ambulance"></span> Example of ambulance </p>
+<p id="6e14039"><span class="fa fas fa-car"></span> Example of automobile </p>
+<p id="54f7fba"><span class="fa fas fa-bicycle"></span> Example of bicycle </p>
+<p id="ec093e8"><span class="fa fas fa-bus"></span> Example of bus </p>
+<p id="4adf070"><span class="fa fas fa-truck"></span> Example of truck </p>
+<p id="508dd83"><span class="fa fas fa-wheelchair"></span> Example of wheelchair </p>
+<p id="d030235"><span class="fa fab fa-accessible-icon"></span> Example of accessible-icon (was wheelchair-alt in fontawesome v4) </p>
+<p id="b2349ae">FontAwesome has some other options. </p>
+<pre class="code-block">Train normal size ℱ&lt;fas fa-train&gt; Triple size train ℱ&lt;fas fa-train fa-3x&gt;
+
+An animated spinner ℱ&lt;fas fa-sync fa-spin fa-3x fa-fw&gt;
+</pre>
+<p id="66ee97f">Generates </p>
+<p id="baebbac">Train normal size <span class="fa fas fa-train"></span> Triple size train <span class="fa fas fa-train fa-3x"></span> </p>
+<p id="547ad8b">An animated spinner <span class="fa fas fa-sync fa-spin fa-3x fa-fw"></span> </p>
+<p id="25d0bf5">The FontAwesome plugin leverages the RakuDoc v2 specification that any Unicode character with the property <span class="important">upper</span> may be a custom markup code. </p>
 
 <div id="Credits"> </div>
 <div class="id-target" id=""></div><h2 id="AUTHOR" class="heading"><a href="#" title="go to top of document">AUTHOR</a></h2>
@@ -362,13 +341,13 @@ v0.1.0
     <div class="container px-4">
         <nav class="level">
             <div class="level-item">
-                Rendered from <span class="footer-field">docs/RakuDoc-To-HTML-Extra</span>
+                Rendered from <span class="footer-field">docs/plugins/plugins/FontAwesome</span>
             </div>
             <div class="level-item">
                 Rendered at 21:54 UTC on 2024-07-09</span>
             </div>
             <div class="level-item">
-                Source last modified at 20:48 UTC on 2024-07-06</span>
+                Source last modified at 21:51 UTC on 2024-07-09</span>
             </div>
         </nav>
     </div>

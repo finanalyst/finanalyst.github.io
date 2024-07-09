@@ -53,6 +53,42 @@
   font-size: xlarge;
 }
 </style>
+<style>// Chyron Toggle checkbox
+label.chyronToggle input#navbar-toc-toggle {
+opacity: 0;
+height: 0;
+width: 0;
+}
+label.chyronToggle span.checkmark {
+top: 1rem;
+position: relative;
+cursor: pointer;
+}
+label.chyronToggle input[type="checkbox"]{
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+label.chyronToggle span.checkmark::before {
+content: '[\21e8';
+color: grey;
+font-weight: 800;
+line-height: 0.5rem;
+font-size: 1.75rem;
+margin-right: 0.25rem;
+}
+label.chyronToggle:hover span.checkmark::before {
+content: '[ \21e8';
+}
+label.chyronToggle input[type="checkbox"]:checked + .checkmark::before {
+content: '[ \21e6';
+}
+label.chyronToggle:hover input[type="checkbox"]:checked + .checkmark::before {
+content: '[\21e6';
+}
+</style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -190,9 +226,9 @@ function swap_toc_index(activate) {
 </div>
 <div id="pageNavigation" class="navbar-menu">
     <div class="navbar-start">
-        <label class="checkbox">
+        <label class="chyronToggle">
           <input id="navbar-toc-toggle" type="checkbox" />
-          Show contents
+          <span class="checkmark"> </span>
         </label>
     </div>
     <div class="navbar-end">
@@ -408,7 +444,7 @@ v0.1.0
                 Rendered from <span class="footer-field">docs/plugins/plugins/Graphviz</span>
             </div>
             <div class="level-item">
-                Rendered at 18:18 UTC on 2024-07-08</span>
+                Rendered at 21:54 UTC on 2024-07-09</span>
             </div>
             <div class="level-item">
                 Source last modified at 20:48 UTC on 2024-07-06</span>
