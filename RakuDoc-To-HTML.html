@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rendering RakuDoc v2 to HTML</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
-<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
 </style>
 <style>.listf-container {
   display: flex;
@@ -261,14 +261,13 @@ function swap_toc_index(activate) {
         </div>
         <div class="container">
             <aside id="toc-menu" class="menu">
-            <div class="toc"><h2 class="toc-caption">Table of Contents</h2>
-                <ul class="toc-list">
-
-<li><a href="#SYNOPSIS">SYNOPSIS</a></li>
-<li><a href="#Vanilla_HTML_and_CSS">Vanilla HTML and CSS</a></li>
-<li><a href="#Credits">Credits</a></li>
-</ul>
+            <div class="toc">
+<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#SYNOPSIS">SYNOPSIS</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Vanilla_HTML_and_CSS">Vanilla HTML and CSS</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Debug_options">Debug options</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
+
             </aside>
             <aside id="index-menu" class="menu is-hidden">
             <p>No Index for this page</p>
@@ -280,7 +279,7 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading"><a href="#" title="go to top of document">SYNOPSIS</a></h2>
+<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading "><a href="#" title="go to top of document">SYNOPSIS</a></h2>
 
 
 <p id="de4213b">Currently, the module is difficult to install using <span class="important">zef</span>, so the instructions below are relative to local repo of <a href="https://github.com/finanalyst/rakuast-rakudoc-render.git">RakuDoc::Render repo</a>. </p>
@@ -304,7 +303,7 @@ function swap_toc_index(activate) {
 <p id="e3abb4f">The aim of <span class="code">RakuDoc::To::HTML</span> is to produce a minimal HTML output with minimal styling, and that the file can be directly viewed in a modern browser with the URL <span class="code">file:///home/me/rakuast-rakudoc-render/new-doc.html</span>. </p>
 <div class="nested">Unfortunately some systems for opening HTML files in a browser will HTML-escape Unicode characters used for delimiting texts. So, just open the file in a browser.</div>
 <p id="8d60446">The styling is generated from <span class="code">resources/scss/vanilla.scss</span> to produce <span class="code">resources/css/vanilla.css</span>, which is slurped into the HTML output file (eg. new-doc.html). </p>
-<p id="9f20708">By the design of the <span class="code">RakuDoc::Render</span> module, all output is generated using templates. The module <span class="code">RakuDoc::To::HTML</span> attaches a minimum set of templates. It is possible to override any or all of the templates by adding the <span class="code">MORE_HTML</span> environment variable. Assuming the file <span class="code">my_new_html.raku</span> exists in the current working directory, and the file follows the <a href="Templates.html">Template specification</a>, then MORE_HTML=my_new_html.raku RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html </p>
+<p id="81dcdbe">By the design of the <span class="code">RakuDoc::Render</span> module, all output is generated using templates. The module <span class="code">RakuDoc::To::HTML</span> attaches a minimum set of templates. It is possible to override any or all of the templates by adding the <span class="code">MORE_HTML</span> environment variable. Assuming the file <span class="code">my_new_html.raku</span> exists in the current working directory, and the file follows the <a href="Templates">Template specification</a>, then MORE_HTML=my_new_html.raku RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html </p>
 <p id="350ae20">will utilise the new templates. An example can be seen in <span class="code">xt/600-R-2-HTML.rakutest</span>. The intention of each template can be found in the comments within <span class="code">lib.RakuDoc/To/HTML.rakumod</span>. </p>
 <p id="4638f6f">To tweak the styling: </p>
 
@@ -331,11 +330,16 @@ function swap_toc_index(activate) {
 </li>
 </ul>
 
-<div id="Credits"> </div>｢semantic-schema_AUTHOR UNAVAILABLE｣
+<div class="id-target" id=""></div><h2 id="Debug_options" class="heading "><a href="#" title="go to top of document">Debug options</a></h2>
+<p id="5cd84d1">The debug options described in <a href="Render">Render</a> can be invoked using , eg., </p>
+<pre class="code-block">RAKURENDEROPTS='Templates BlockType' RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc &gt; new-doc.html
+</pre>
+
+<div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
+｢semantic_AUTHOR UNAVAILABLE｣
 
 
-<div id="Placement"> </div>
-<div class="id-target" id=""></div><h2 id="VERSION" class="heading"><a href="#" title="go to top of document">VERSION</a></h2>
+<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
 v0.1.0
 
 
@@ -354,17 +358,18 @@ v0.1.0
                 Rendered from <span class="footer-field">docs/RakuDoc-To-HTML</span>
             </div>
             <div class="level-item">
-                Rendered at 21:54 UTC on 2024-07-09</span>
+                Rendered at 20:08 UTC on 2024-07-28</span>
             </div>
             <div class="level-item">
-                Source last modified at 20:48 UTC on 2024-07-06</span>
+                Source last modified at 20:37 UTC on 2024-07-24</span>
             </div>
         </nav>
     </div>
     <div class="section"><div class="container px-4 warnings">    <div class="warnings">
     <h2 class="warnings-caption">Warnings</h2>
         <ol>
-        <li>Still waiting for ｢semantic-schema_AUTHOR｣ to be expanded.</li>
+        <li>Placement of undefined semantic block AUTHOR</li>
+<li>〘 PCell, Waiting for: semantic_AUTHOR 〙</li>
 
         </ol>
     </div>
