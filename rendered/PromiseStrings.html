@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FontAwesome</title>
+    <title>PromiseStrings for templates</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
 <style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
 </style>
@@ -239,10 +239,9 @@ function swap_toc_index(activate) {
 </nav>
 <section class="section">
   <div class="container">
-<div id="FontAwesome"></div><h1 class="title is-centered">FontAwesome</h1>
+<div id="PromiseStrings_for_templates"></div><h1 class="title is-centered">PromiseStrings for templates</h1>
 
-<p class="subtitle"><p id="976e0ce">Adds the fonts and utilities for FontAwesom v5.15.4. Includes ℱ&lt;&gt; markup code. </p>
-</p>
+<p class="subtitle">How RakuAsT-RakuDoc-Render handles forward references or placement material that has not yet been rendered.</p>
   </div>
 </section>
 
@@ -262,7 +261,7 @@ function swap_toc_index(activate) {
         <div class="container">
             <aside id="toc-menu" class="menu">
             <div class="toc">
-<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
+<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#PCell_and_PStr_classes">PCell and PStr classes</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
 
@@ -277,52 +276,86 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="Overview" class="heading "><a href="#" title="go to top of document">Overview</a></h2>
-<p id="30de26d">This plugin provides the CDN link for FontAwesome v5-15-4. See the <a href="https://docs.fontawesome.com/v5/web/setup/get-started/">official documentation</a>. </p>
-<p id="160d1ca">The templates also provides for ℱ&lt;>, where ℱ is U+2131. </p>
-<p id="9bfac1e">The code only uses the free icons. See <a href="https://fontawesome.com/icons">font search page</a>. Make sure to filter for the free icons. </p>
-<pre class="code-block">Some FontAwesome icons
+<div class="id-target" id=""></div><h2 id="PCell_and_PStr_classes" class="heading "><a href="#" title="go to top of document">PCell and PStr classes</a></h2>
+<p id="64dc8b9">RakuDoc statements that make references to structures or data that have not been completely rendered embed the references in <span class="basis">PCells</span>, which will interpolate the rendering once known. </p>
+<p id="1df43c5">For instance, when <span class="code">=place toc:*</span> is given in a RakuDoc source (eg at the top of a source), typically the source has not yet been completely rendered. </p>
+<p id="6fd957a">The renderer actually renders a source into <span class="code">PStr</span> or <span class="basis">PromiseStrings</span> rather than <span class="code">Str</span>. As forward references become known, they are included in the text. </p>
+<p id="efa7434">Consequently, parameters to a template may contain a mixture of Raku <span class="important">Str</span> and <span class="important">PCells</span>, in an object of type called <span class="basis">PStr</span>. </p>
+<p id="3f9e5eb"><span class="important">PCells</span> should not be visible to the template user. </p>
+<p id="6951b3b">If a <span class="important">PStr</span> or <span class="important">PCell</span> is stringified before the data has been rendered, its internal <span class="important">id</span> and <span class="important">UNAVAILABLE</span> will be the rendered result. </p>
+<p id="bef1394">Since the embedded content of a <span class="important">PStr</span> may ony be available after a template has rendered, care must be taken not be stringify any of the parameters prematurely. </p>
+<p id="c8344f0">Consequently, the return object from a template should be built from the parameter values using the concatenation operator <span class="code">~</span>. </p>
 
-ℱ&lt;fas fa-ambulance&gt; Example of ambulance
+<div class="id-target" id=""></div><h3 id="Concatenation_to_PStr" class="heading "><a href="#" title="go to top of document">Concatenation to PStr</a></h3>
+<p id="ed12c32">A PStr is built up by concatenating using the infix operator <span class="code">~</span>. Assignment does not add to a PStr. Concatenation can be on the left or the right of the PStr and the result will depend on the type. </p>
 
-ℱ&lt;fas fa-car&gt; Example of automobile
-
-ℱ&lt;fas fa-bicycle&gt; Example of bicycle
-
-ℱ&lt;fas fa-bus&gt; Example of bus
-
-ℱ&lt;fas fa-truck&gt; Example of truck
-
-ℱ&lt;fas fa-wheelchair&gt; Example of wheelchair
-
-ℱ&lt;fas fab-accessible-icon&gt; Example of accessible-icon (was wheelchair-alt in fontawesom v4)
+<ul><li class="item" data-bullet="•" style="--level:0;"> A PCell on the left or right is added to the start or end, respectively, of the PStr</li>
+<li class="item" data-bullet="•" style="--level:0;"> Concatentating two PStr adds the right hand one to the left hand one, and returns the left hand one</li>
+<li class="item" data-bullet="•" style="--level:0;"> Any other type on the left or right is coerced to a Str and added to the start/end of the PStr</li>
+</ul>
+<p id="f906456">Since left concatenation has an effect on the PStr on the right, use <span class="code">sink</span> to discard the return value, unless of course the return value is the last line of a block, in which case it is returned as the value of the block, eg., </p>
+<pre class="code-block">my PStr $p;
+$p ~= PCell.new( :s($a-supplier.Supply), :id&lt;AAA&gt; );
+sink '&lt;bold&gt;' ~ $p
 </pre>
-<p id="e42b959">Generates Some FontAwesome icons </p>
-<p id="9fe1998"><span class="fa fas fa-ambulance"></span> Example of ambulance </p>
-<p id="6e14039"><span class="fa fas fa-car"></span> Example of automobile </p>
-<p id="54f7fba"><span class="fa fas fa-bicycle"></span> Example of bicycle </p>
-<p id="ec093e8"><span class="fa fas fa-bus"></span> Example of bus </p>
-<p id="4adf070"><span class="fa fas fa-truck"></span> Example of truck </p>
-<p id="508dd83"><span class="fa fas fa-wheelchair"></span> Example of wheelchair </p>
-<p id="d030235"><span class="fa fab fa-accessible-icon"></span> Example of accessible-icon (was wheelchair-alt in fontawesome v4) </p>
-<p id="b2349ae">FontAwesome has some other options. </p>
-<pre class="code-block">Train normal size ℱ&lt;fas fa-train&gt; Triple size train ℱ&lt;fas fa-train fa-3x&gt;
 
-An animated spinner ℱ&lt;fas fa-sync fa-spin fa-3x fa-fw&gt;
+<div class="id-target" id=""></div><h3 id="PStr_methods" class="heading "><a href="#" title="go to top of document">PStr methods</a></h3>
+<p id="f690ca5">The following methods are defined for <span class="basis">PStr</span>. Unless specified, they result in a <span class="basis">PStr</span> allowing for chaining. </p>
+
+<div class="id-target" id=""></div><h4 id="new()_and_new(_*@string_)" class="heading "><a href="#" title="go to top of document">new() and new( *@string )</a></h4>
+<p id="95edfd4">Creates a new <span class="basis">PStr</span> either with no parameters, or a sequence of strings. </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;f42f66f&quot;&gt;debug_Calling_debug_on_a_&lt;span_class=&quot;basis&quot;&gt;PStr&lt;/span&gt;_will_stringify_the_object_together_with_information_about_any_&lt;span_class=&quot;basis&quot;&gt;PCells&lt;/span&gt;_inside_the_object._&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="f42f66f">debug Calling debug on a <span class="basis">PStr</span> will stringify the object together with information about any <span class="basis">PCells</span> inside the object. </p>
+</a></h4>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;9d5b7aa&quot;&gt;Method_strip_Goes_through_a_&lt;span_class=&quot;basis&quot;&gt;PStr&lt;/span&gt;_and_substitutes_any_expanded_&lt;span_class=&quot;basis&quot;&gt;PCell&lt;/span&gt;_with_its_Str_equivalent._All_Str_are_then_concatenated._&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="9d5b7aa">Method strip Goes through a <span class="basis">PStr</span> and substitutes any expanded <span class="basis">PCell</span> with its Str equivalent. All Str are then concatenated. </p>
+</a></h4>
+
+<div class="id-target" id=""></div><h4 id="Method_trim-trailing,_trim-leading,_trim" class="heading "><a href="#" title="go to top of document">Method trim-trailing, trim-leading, trim</a></h4>
+<p id="d39f1dc"><span class="code">strip</span> is first called, then trailing or leading space, respectively, are removed from final, initial strings in the <span class="basis">PStr</span>. <span class="code">trim</span> calls both trim-trailing and trim-leading. </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;e4dd623&quot;&gt;Method_&lt;span_class=&quot;code&quot;&gt;_has-PCells(_--&gt;_Bool_)_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="e4dd623">Method <span class="code"> has-PCells( --> Bool ) </span> </p>
+</a></h4>
+<p id="1e62eca">Determines whether there are any unexpanded <span class="basis">PCell</span> in a <span class="basis">PStr</span>. </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;e621643&quot;&gt;Method_&lt;span_class=&quot;code&quot;&gt;_segments(_--&gt;_Int_)_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="e621643">Method <span class="code"> segments( --> Int ) </span> </p>
+</a></h4>
+<p id="b7c33c2">Returns the number of segments (strings or <span class="basis">PCells</span>) in a <span class="basis">PStr</span> </p>
+
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;dec8576&quot;&gt;Methods_&lt;span_class=&quot;code&quot;&gt;_lead(_--&gt;Str_)_&lt;/span&gt;_and_&lt;span_class=&quot;code&quot;&gt;_tail(_--&gt;_Str_)_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="dec8576">Methods <span class="code"> lead( -->Str ) </span> and <span class="code"> tail( --> Str ) </span> </p>
+</a></h4>
+<p id="480295c">These two methods of a <span class="important">PStr</span> object return any of the <span class="basis">leading</span> or <span class="basis">tailing</span> (respectively) <span class="important">Str</span> elements of the <span class="important">PStr</span>. The elements are removed, and so should be concatenated back on after processing. </p>
+<p id="aa45553">For simplicity above, examples were given of pre- and post-processing templates, and treating the contents of <span class="code">%prm</span> as <span class="important">Str</span>. Since some parameters may contain <span class="important">PStr</span>, more care is needed. For example, the post-processing should be done as follows: </p>
+<pre class="code-block">table =&gt; -&gt; %prm, $tmpl {
+    my $rv = $tmpl.prev;
+    if $rv ~~ PStr {
+        # get leading text
+        my $lead = $rv.lead;
+        # process the string, if it exists
+        $lead.subst( / '&lt;table' \s+ 'class="pod-table' /, '&lt;table class="table is-centered');
+        # left concatenate onto the PStr
+        $lead ~ $rv
+        # concatenating to a PStr results in a PStr, which is the return object
+    }
+    else { $rv.subst( / '&lt;table' \s+ 'class="pod-table' /, '&lt;table class="table is-centered') }
+}
 </pre>
-<p id="66ee97f">Generates </p>
-<p id="baebbac">Train normal size <span class="fa fas fa-train"></span> Triple size train <span class="fa fas fa-train fa-3x"></span> </p>
-<p id="547ad8b">An animated spinner <span class="fa fas fa-sync fa-spin fa-3x fa-fw"></span> </p>
-<p id="25d0bf5">The FontAwesome plugin leverages the RakuDoc v2 specification that any Unicode character with the property <span class="important">upper</span> may be a custom markup code. </p>
+
+<div class="id-target" id=""></div><h3 id="PCell_methods" class="heading "><a href="#" title="go to top of document">PCell methods</a></h3>
+<p id="67e8a02"><span class="basis">PCells</span> should be invisible to the end user. However, if references are made that are not expanded, then a PCell will become visible. </p>
+<p id="8a63624">Typically, <span class="basis">PCell</span> instances are converted to Str once a future block has provided the payload needed for the cell. </p>
+
+<div class="id-target" id=""></div><h4 id="debug" class="heading "><a href="#" title="go to top of document">debug</a></h4>
+<p id="9b2645c">Provides information about a <span class="basis">PCell</span>. </p>
 
 <div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
-Richard Hainsworth, aka finanalyst
+Richard Hainsworth aka finanalyst
 
 
 
 
 <div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
-v0.1.0
+v0.2.1
 
 
 
@@ -337,13 +370,13 @@ v0.1.0
     <div class="container px-4">
         <nav class="level">
             <div class="level-item">
-                Rendered from <span class="footer-field">docs/plugins/plugins/FontAwesome</span>
+                Rendered from <span class="footer-field">docs/PromiseStrings</span>
             </div>
             <div class="level-item">
-                Rendered at 20:08 UTC on 2024-07-28</span>
+                Rendered at 21:16 UTC on 2024-07-28</span>
             </div>
             <div class="level-item">
-                Source last modified at 21:51 UTC on 2024-07-09</span>
+                Source last modified at 21:19 UTC on 2024-07-21</span>
             </div>
         </nav>
     </div>

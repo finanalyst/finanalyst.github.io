@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Grouping files in an index</title>
+    <title>RakuAST::RakuDoc::Render</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
 <style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
 </style>
@@ -239,9 +239,9 @@ function swap_toc_index(activate) {
 </nav>
 <section class="section">
   <div class="container">
-<div id="Grouping_files_in_an_index"></div><h1 class="title is-centered">Grouping files in an index</h1>
+<div id="RakuAST::RakuDoc::Render"></div><h1 class="title is-centered">RakuAST::RakuDoc::Render</h1>
 
-<p class="subtitle">The plugin takes data collected from other Rakudoc files, selects them according to criteria, and outputs the filename and descriptions.</p>
+<p class="subtitle">Documentation for all the modules in this distribution</p>
   </div>
 </section>
 
@@ -261,8 +261,11 @@ function swap_toc_index(activate) {
         <div class="container">
             <aside id="toc-menu" class="menu">
             <div class="toc">
-<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Selectors">Selectors</a></div>
+<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Fundamental">Fundamental</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Renderers_in_distibution">Renderers in distibution</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Plugins_for_HTML-Extra">Plugins for HTML-Extra</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Minimal_documentation">Minimal documentation</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Files_without_type_options">Files without type options</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
 
@@ -276,41 +279,103 @@ function swap_toc_index(activate) {
     </div>
     <div class="column">
         <div class="container px-4">
-        
-<div class="id-target" id=""></div><h2 id="Overview" class="heading "><a href="#" title="go to top of document">Overview</a></h2>
-<p id="99c1f37">When a group of Rakudoc files are rendered using a <span class="code">RakuDoc::Processor</span> object (RPO), the data from the processing can be collected before the final output is stored. </p>
-<p id="7ba2c85">If this processed file meta data is injected back into the RPO before a RakuDoc source with a <span class="code">=ListFiles</span> block, then the block will output the files in the meta data cache according to selector criteria. </p>
+        <p id="9faf89a">The RakuAST::RakuDoc::Render distribution contains a number of modules, each of which has been documented. They can be grouped as follows: </p>
+<div class="listf-container" id="Fundamental">
+<div class="listf-file">
+<p class="listf-caption">Sources containing key concepts and information</p>
 
-<div class="id-target" id=""></div><h2 id="Selectors" class="heading "><a href="#" title="go to top of document">Selectors</a></h2>
-<p id="5bd0169">At the start of a RakuDoc source is a <span class="code">=begin rakudoc</span> instruction. It can be given metadata options, which describe the file. </p>
-<p id="ec804db">For example, the documentation files for the <span class="code">RakuAST::RakuDoc::Render</span> distribution all contain the option <span class="code">:type</span>, eg. </p>
-<pre class="code-block">    =begin rakudoc :type&lt;plugin&gt;
-</pre>
-<p id="d68a441">In the distribution, the <span class="important">type</span> option is given the values: <span class="basis">plugin</span>, <span class="basis">renderer</span>, <span class="basis">fundamental</span>, and <span class="basis">minor</span>. </p>
-<p id="52f6f89">Using the <span class="code">ListFiles</span> block, an index source can be written so that the files are sorted according to the type values, eg. </p>
-<pre class="code-block">The documentation can be split as follows:
-=for ListFiles :select&lt;type=fundamental&gt; :caption&lt;Fundamental&gt;
-Sources containing key concepts and information
+<a class="listf-link" href="Render">Minimal documentation of RakuDoc::Render Module</a>
+Overview of rendering engine.</div>
+<div class="listf-file">
 
-=for ListFiles :select&lt;type=renderer&gt; :caption&lt;Renderers in distribution&gt;
-Descriptions of the Renderer classes
+<a class="listf-link" href="Processed">ProcessState and RakuDoc::Processed</a>
+Collecting data to be used for rendering</div>
+<div class="listf-file">
 
-...
+<a class="listf-link" href="PromiseStrings">PromiseStrings for templates</a>
+How RakuAsT-RakuDoc-Render handles forward references or placement material that has not yet been rendered.</div>
+<div class="listf-file">
 
-=for ListFiles :select&lt;type=!&gt; :caption&lt;Files without type options&gt;
-File from other sources or automatically generated
-</pre>
-<p id="a946455">The last example shows how to capture files that do not have a type option. A file not matching any of the select criteria are not listed, so having a catchall syntax ensures all the RakuDoc source files in a collection are listed. </p>
-<p id="75c2cf3">When more meta options are available, for example the Raku documentation suite, with about 700 source files, has three metadata options for each file. </p>
+<a class="listf-link" href="README">RakuDoc renderer</a>
+Renders RakuDoc sources into an output format dependent on templates</div>
+<div class="listf-file">
 
+<a class="listf-link" href="Templates">Templates for RakuDoc-Render</a>
+Snippets to customise RakuDoc blocks</div>
+<div class="listf-file">
+
+<a class="listf-link" href="ScopedData">The ScopeData module</a>
+Handling RakuDoc v2 block scope concept.</div>
+</div><div class="listf-container" id="Renderers_in_distibution">
+<div class="listf-file">
+<p class="listf-caption">Descriptions of the Renderer classes</p>
+
+<a class="listf-link" href="RakuDoc-To-HTML">Rendering RakuDoc v2 to HTML</a>
+<p id="f76afd4">RakuDoc v2 is rendered to minimal HTML. <span class="code">RakuAST::RakuDoc::Render</span> on which this module is based uses the RakuAST parser. A rendering of the <a href="#Compliance_testing">compliance</a> document can be <a href="https://htmlpreview.github.io/?https://github.com/finanalyst/rakuast-rakudoc-render/blob/main/resources/compliance-rendering/rakudociem-ipsum.html">found online</a>. </p>
+</div>
+<div class="listf-file">
+
+<a class="listf-link" href="RakuDoc-To-Markdown">Rendering RakuDoc v2 to MarkDown</a>
+Simple and customisable module for rendering RakuDoc v2 to Markdown.</div>
+<div class="listf-file">
+
+<a class="listf-link" href="RakuDoc-To-HTML-Extra">The RakuDoc to HTML-Extra renderer</a>
+Based on RakuAST-RakuDoc-Render engine, HTML with plugins and Bulma CSS</div>
+</div><div class="listf-container" id="Plugins_for_HTML-Extra">
+<div class="listf-file">
+<p class="listf-caption">Classes that add templates and data to HTML-Extra</p>
+
+<a class="listf-link" href="plugins_Bulma">Bulma CSS</a>
+Use the Bulma CSS framework for styling HTML output. This file only describes utilisation.</div>
+<div class="listf-file">
+
+<a class="listf-link" href="plugins_FontAwesome">FontAwesome</a>
+<p id="976e0ce">Adds the fonts and utilities for FontAwesom v5.15.4. Includes ℱ&lt;&gt; markup code. </p>
+</div>
+<div class="listf-file">
+
+<a class="listf-link" href="plugins_Graphviz">GraphViz</a>
+RakuDoc::Plugin::Graphviz</div>
+<div class="listf-file">
+
+<a class="listf-link" href="plugins_ListFiles">Grouping files in an index</a>
+The plugin takes data collected from other Rakudoc files, selects them according to criteria, and outputs the filename and descriptions.</div>
+<div class="listf-file">
+
+<a class="listf-link" href="plugins_Latex">LatexFormula</a>
+Using CodeCogs editor to process Latex formula markup</div>
+<div class="listf-file">
+
+<a class="listf-link" href="plugins_LeafletMaps">LeafletMap</a>
+<p id="39d6a23">The leafletmap plugin inserts a map in place of a custom <span class="code">=LeafletMap</span>. </p>
+</div>
+</div><div class="listf-container" id="Minimal_documentation">
+<div class="listf-file">
+<p class="listf-caption">Small modules with much going on</p>
+
+<a class="listf-link" href="MarkUpMeta">MarkUpMeta module</a>
+Short grammar</div>
+<div class="listf-file">
+
+<a class="listf-link" href="Numeration">Numeration module</a>
+Creating standard numeration</div>
+</div><div class="listf-container" id="Files_without_type_options">
+<div class="listf-file">
+<p class="listf-caption">File from other sources or automatically generated</p>
+
+<a class="listf-link" href="default-text-templates"><p id="bfa6e20">Templates in <span class="code">default-text-templates</span> </p>
+</a>
+<p id="438785c">Auto generated from <span class="code">lib/RakuDoc/Render.rakumod</span> </p>
+</div>
+</div>
 <div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
-Richard Hainsworth, aka finanalyst
+Richard Hainsworth aka finanalyst
 
 
 
 
 <div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
-v0.1.0
+v0.3.0
 
 
 
@@ -325,13 +390,13 @@ v0.1.0
     <div class="container px-4">
         <nav class="level">
             <div class="level-item">
-                Rendered from <span class="footer-field">docs/plugins/plugins/ListFiles</span>
+                Rendered from <span class="footer-field">./index</span>
             </div>
             <div class="level-item">
-                Rendered at 20:08 UTC on 2024-07-28</span>
+                Rendered at 21:16 UTC on 2024-07-28</span>
             </div>
             <div class="level-item">
-                Source last modified at 20:48 UTC on 2024-07-06</span>
+                Source last modified at 11:38 UTC on 2024-07-07</span>
             </div>
         </nav>
     </div>

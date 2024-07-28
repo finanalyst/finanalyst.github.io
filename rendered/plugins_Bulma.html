@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The RakuDoc to HTML-Extra renderer</title>
+    <title>Bulma CSS</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
 <style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
 </style>
@@ -239,9 +239,9 @@ function swap_toc_index(activate) {
 </nav>
 <section class="section">
   <div class="container">
-<div id="The_RakuDoc_to_HTML-Extra_renderer"></div><h1 class="title is-centered">The RakuDoc to HTML-Extra renderer</h1>
+<div id="Bulma_CSS"></div><h1 class="title is-centered">Bulma CSS</h1>
 
-<p class="subtitle">Based on RakuAST-RakuDoc-Render engine, HTML with plugins and Bulma CSS</p>
+<p class="subtitle">Use the Bulma CSS framework for styling HTML output. This file only describes utilisation.</p>
   </div>
 </section>
 
@@ -261,10 +261,7 @@ function swap_toc_index(activate) {
         <div class="container">
             <aside id="toc-menu" class="menu">
             <div class="toc">
-<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#SYNOPSIS">SYNOPSIS</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Plugins_and_their_sources">Plugins and their sources</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#RakuDoc::Render_plugins">RakuDoc::Render plugins</a></div>
+<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
 
@@ -279,58 +276,10 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading "><a href="#" title="go to top of document">SYNOPSIS</a></h2>
-<p id="1b25e2a">In a <span class="important">clean</span> directory containing only a RakuDoc source, eg <span class="code">wp.rakudoc</span> use the terminal command </p>
-<pre class="code-block">RAKUDO_RAKUAST=1 raku -MRakuDoc::Render -MRakuDoc::To::HTML --rakudoc=HTML-Extra wp.rakudoc &gt; wp.html
-</pre>
-<p id="797439a">Easier (once the distribution has been installed, see <a href="README">README</a>) </p>
-<pre class="code-block">RakuDoc wp
-</pre>
-<p id="ed2f944">Both will cause the file <span class="code">wp.html</span> to be generated in the current working directory, together with a new subdirectory <span class="important">assets/</span> in which other CSS and Javascript files will be placed. </p>
-<p id="7789dff">To view this file, see <a href="#Small_Cro_app">small Cro app</a>. </p>
-
-
-
 <div class="id-target" id=""></div><h2 id="Overview" class="heading "><a href="#" title="go to top of document">Overview</a></h2>
-<p id="9591399">This renderer allows for more customisability than the <a href="RakuDoc-To-HMTL">minimal HTML renderer</a> in this distribution. </p>
-<p id="fca51f7">By default, the following plugins are provided, and more can be added by the user (see <a href="Extra-HTML-Plugins">Plugins</a>). </p>
-
-<div class="id-target" id=""></div><h3 id="Plugins_and_their_sources" class="heading"><a href="#" title="go to top of document">Plugins and their sources</a></h3>
-<table class="table">
-<tr><th class="">Plugin</th><th class="">Source</th><th class="">Use</th><th class="">License</th></tr>
-<tr><td class="">Bulma CSS</td><td class=""><p id="22db035"><a href="https://bulma.io">Bulma Home</a> </p>
-</td><td class="">The output page is styled into panels, is responsive, has themes</td><td class="">MIT</td></tr>
-<tr><td class="">Leaflet Maps</td><td class=""><p id="b67d91a"><a href="https://leafletjs.com/">Home page</a> </p>
-</td><td class="">Puts a map in a web page, with tiles from multiple providers</td><td class="">2-clause BSD</td></tr>
-<tr><td class="">Leaflet providers</td><td class=""><p id="6d5b0b0"><a href="https://github.com/leaflet-extras/leaflet-providers">Github repo</a> </p>
-</td><td class="">Easy way to access tile providers</td><td class="">2-clause BSD</td></tr></table>
-
-<div class="id-target" id=""></div><h2 id="RakuDoc::Render_plugins" class="heading "><a href="#" title="go to top of document">RakuDoc::Render plugins</a></h2>
-<p id="0bcd561">Customisation is provided by plugins. These are essentially classes of the form <span class="code">RakuDoc::Plugins::XXX</span>, where <span class="basis">XXX</span> is the name of a plugin. </p>
-<p id="dbf106c">The plugin class <span class="basis">does</span> the <span class="important">RakuDoc::Plugin</span> role. </p>
-<p id="27ee1ea">Each RP class must have a <span class="code">%.config</span> attribute containing the information needed for the plugin. These are divided into mandatory keys, which will be tested for, and plugin-specific. </p>
-<p id="ab374e8">The mandatory key-value Pairs are: </p>
-
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="f810a1b"><span class="basis">license</span>, typically Artistic-2.0 (same as Raku), but may need to change if the plugin relies on software that has another license. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="d626e20"><span class="basis">credits</span>, a source for the software, and the license its developers use. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="20e1ee3"><span class="basis">version</span>, a version number for the plugin. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="54aee4c"><span class="basis">authors</span>, the author(s) of the plugin. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="1ff4e57"><span class="basis">name-space</span>, the name of the plugin's name-space within the RakuDoc-Processor instance. </p>
-</li>
-</ul>
-<p id="55397fa">Some typical config fields are </p>
-
-<ul><li class="item" data-bullet="•" style="--level:0;"> block-name, the custom block that activates the plugin (a plugin may need only replace existing templates)</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="39468d3">js-link, a list of <span class="code">Str, Int $order</span> arrays. The string is placed in script tag in the head container of the web-page, the order is to ensure that when one js library must appear before another, that relation is created. Libraries with the same order appear in alphabetic order. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="0997ea4">css-link, a list of <span class="code">Str, Int $order</span> arrays. As above, but for CSS. Typically, CSS files must appear before the JS files they are associated with. All CSS files appear in head before JS files. </p>
-</li>
-</ul>
-<p id="6bf1569">All the elements of %.config are transferred to the RakuDoc::Processor object, and can be accessed in a template or callable, as <span class="code">$tmpl.globals.data<plugin-name-space> </span> (assuming that the plugin's config has <span class="code">namespace =</span> plugin-name-space>). </p>
+<p id="42f2012">The <a href="https://bulma.io">Bulma CSS framework</a> allows for easy styling of HTML files and has built-in support for themes, with dark and light themes included by default. </p>
+<p id="210bbbd">This plugin also injects a JS script aid in the selection of panels, and switch themes. </p>
+<p id="a3ca1ed">The plugin mostly modifies the <span class="code">final</span> template, introducing the classes for styling the page. </p>
 
 <div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth, aka finanalyst
@@ -354,13 +303,13 @@ v0.1.0
     <div class="container px-4">
         <nav class="level">
             <div class="level-item">
-                Rendered from <span class="footer-field">docs/RakuDoc-To-HTML-Extra</span>
+                Rendered from <span class="footer-field">docs/plugins/plugins/Bulma</span>
             </div>
             <div class="level-item">
-                Rendered at 20:08 UTC on 2024-07-28</span>
+                Rendered at 21:16 UTC on 2024-07-28</span>
             </div>
             <div class="level-item">
-                Source last modified at 20:48 UTC on 2024-07-06</span>
+                Source last modified at 21:02 UTC on 2024-07-07</span>
             </div>
         </nav>
     </div>

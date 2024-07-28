@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bulma CSS</title>
+    <title>GraphViz</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
 <style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
 </style>
@@ -239,9 +239,9 @@ function swap_toc_index(activate) {
 </nav>
 <section class="section">
   <div class="container">
-<div id="Bulma_CSS"></div><h1 class="title is-centered">Bulma CSS</h1>
+<div id="GraphViz"></div><h1 class="title is-centered">GraphViz</h1>
 
-<p class="subtitle">Use the Bulma CSS framework for styling HTML output. This file only describes utilisation.</p>
+<p class="subtitle">RakuDoc::Plugin::Graphviz</p>
   </div>
 </section>
 
@@ -261,7 +261,8 @@ function swap_toc_index(activate) {
         <div class="container">
             <aside id="toc-menu" class="menu">
             <div class="toc">
-<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
+<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Introduction">Introduction</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Simple_example">Simple example</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
 
@@ -276,13 +277,142 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="Overview" class="heading "><a href="#" title="go to top of document">Overview</a></h2>
-<p id="42f2012">The <a href="https://bulma.io">Bulma CSS framework</a> allows for easy styling of HTML files and has built-in support for themes, with dark and light themes included by default. </p>
-<p id="210bbbd">This plugin also injects a JS script aid in the selection of panels, and switch themes. </p>
-<p id="a3ca1ed">The plugin mostly modifies the <span class="code">final</span> template, introducing the classes for styling the page. </p>
+<div class="id-target" id=""></div><h2 id="Introduction" class="heading "><a href="#" title="go to top of document">Introduction</a></h2>
+<p id="d9cc137">The GraphViz block introduces a directed graph in the dot language. It is rendered into HTML as an svg using the dot program. Since a graph data is require, only the delimited form of the block (starting with =begin/=end) will be used. </p>
+<p id="63e7876">The following digraph comes from the <span class="code">dot</span> documentation. The following Rakudoc </p>
+<pre class="code-block">=begin Graphviz :headlevel(2) :caption&lt;Simple example&gt;
+    digraph G {
+        main -&gt; parse -&gt; execute;
+        main -&gt; init;
+        main -&gt; cleanup;
+        execute -&gt; make_string;
+        execute -&gt; printf
+        init -&gt; make_string;
+        main -&gt; printf;
+        execute -&gt; compare;
+    }
+=end Graphviz
+</pre>
+<p id="b28eadc">produces </p>
 
+<div class="graphviz"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="355pt" height="260pt"
+ viewBox="0.00 0.00 354.64 260.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 350.64,-256 350.64,4 -4,4"/>
+<!-- main -->
+<g id="node1" class="node">
+<title>main</title>
+<ellipse fill="none" stroke="black" cx="183.59" cy="-234" rx="33.6" ry="18"/>
+<text text-anchor="middle" x="183.59" y="-230.3" font-family="Times,serif" font-size="14.00">main</text>
+</g>
+<!-- parse -->
+<g id="node2" class="node">
+<title>parse</title>
+<ellipse fill="none" stroke="black" cx="133.59" cy="-162" rx="36.29" ry="18"/>
+<text text-anchor="middle" x="133.59" y="-158.3" font-family="Times,serif" font-size="14.00">parse</text>
+</g>
+<!-- main&#45;&gt;parse -->
+<g id="edge1" class="edge">
+<title>main&#45;&gt;parse</title>
+<path fill="none" stroke="black" d="M172,-216.76C165.75,-208.02 157.92,-197.05 150.96,-187.31"/>
+<polygon fill="black" stroke="black" points="153.79,-185.25 145.13,-179.15 148.09,-189.32 153.79,-185.25"/>
+</g>
+<!-- init -->
+<g id="node4" class="node">
+<title>init</title>
+<ellipse fill="none" stroke="black" cx="67.59" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="67.59" y="-86.3" font-family="Times,serif" font-size="14.00">init</text>
+</g>
+<!-- main&#45;&gt;init -->
+<g id="edge3" class="edge">
+<title>main&#45;&gt;init</title>
+<path fill="none" stroke="black" d="M154.81,-224.07C133.38,-215.95 105.1,-201.85 88.59,-180 75.18,-162.23 70.16,-137.22 68.36,-118.23"/>
+<polygon fill="black" stroke="black" points="71.84,-117.85 67.65,-108.12 64.86,-118.34 71.84,-117.85"/>
+</g>
+<!-- cleanup -->
+<g id="node5" class="node">
+<title>cleanup</title>
+<ellipse fill="none" stroke="black" cx="234.59" cy="-162" rx="46.59" ry="18"/>
+<text text-anchor="middle" x="234.59" y="-158.3" font-family="Times,serif" font-size="14.00">cleanup</text>
+</g>
+<!-- main&#45;&gt;cleanup -->
+<g id="edge4" class="edge">
+<title>main&#45;&gt;cleanup</title>
+<path fill="none" stroke="black" d="M195.42,-216.76C201.7,-208.14 209.56,-197.36 216.58,-187.73"/>
+<polygon fill="black" stroke="black" points="219.42,-189.78 222.48,-179.63 213.76,-185.65 219.42,-189.78"/>
+</g>
+<!-- printf -->
+<g id="node7" class="node">
+<title>printf</title>
+<ellipse fill="none" stroke="black" cx="309.59" cy="-18" rx="37.09" ry="18"/>
+<text text-anchor="middle" x="309.59" y="-14.3" font-family="Times,serif" font-size="14.00">printf</text>
+</g>
+<!-- main&#45;&gt;printf -->
+<g id="edge8" class="edge">
+<title>main&#45;&gt;printf</title>
+<path fill="none" stroke="black" d="M214.22,-226.34C239.02,-219.24 272.67,-205.41 290.59,-180 318.62,-140.25 317.47,-80.81 313.76,-46.37"/>
+<polygon fill="black" stroke="black" points="317.19,-45.62 312.5,-36.12 310.25,-46.47 317.19,-45.62"/>
+</g>
+<!-- execute -->
+<g id="node3" class="node">
+<title>execute</title>
+<ellipse fill="none" stroke="black" cx="181.59" cy="-90" rx="46.59" ry="18"/>
+<text text-anchor="middle" x="181.59" y="-86.3" font-family="Times,serif" font-size="14.00">execute</text>
+</g>
+<!-- parse&#45;&gt;execute -->
+<g id="edge2" class="edge">
+<title>parse&#45;&gt;execute</title>
+<path fill="none" stroke="black" d="M144.73,-144.76C150.58,-136.23 157.88,-125.58 164.44,-116.02"/>
+<polygon fill="black" stroke="black" points="167.42,-117.86 170.19,-107.63 161.65,-113.9 167.42,-117.86"/>
+</g>
+<!-- make_string -->
+<g id="node6" class="node">
+<title>make_string</title>
+<ellipse fill="none" stroke="black" cx="67.59" cy="-18" rx="67.69" ry="18"/>
+<text text-anchor="middle" x="67.59" y="-14.3" font-family="Times,serif" font-size="14.00">make_string</text>
+</g>
+<!-- execute&#45;&gt;make_string -->
+<g id="edge5" class="edge">
+<title>execute&#45;&gt;make_string</title>
+<path fill="none" stroke="black" d="M157.7,-74.33C141.68,-64.49 120.34,-51.39 102.44,-40.4"/>
+<polygon fill="black" stroke="black" points="103.8,-37.12 93.44,-34.87 100.13,-43.09 103.8,-37.12"/>
+</g>
+<!-- execute&#45;&gt;printf -->
+<g id="edge6" class="edge">
+<title>execute&#45;&gt;printf</title>
+<path fill="none" stroke="black" d="M207.5,-74.83C227.57,-63.86 255.5,-48.58 277.07,-36.79"/>
+<polygon fill="black" stroke="black" points="278.79,-39.83 285.89,-31.96 275.44,-33.69 278.79,-39.83"/>
+</g>
+<!-- compare -->
+<g id="node8" class="node">
+<title>compare</title>
+<ellipse fill="none" stroke="black" cx="203.59" cy="-18" rx="50.89" ry="18"/>
+<text text-anchor="middle" x="203.59" y="-14.3" font-family="Times,serif" font-size="14.00">compare</text>
+</g>
+<!-- execute&#45;&gt;compare -->
+<g id="edge9" class="edge">
+<title>execute&#45;&gt;compare</title>
+<path fill="none" stroke="black" d="M186.92,-72.05C189.37,-64.26 192.34,-54.82 195.08,-46.08"/>
+<polygon fill="black" stroke="black" points="198.51,-46.86 198.16,-36.28 191.83,-44.77 198.51,-46.86"/>
+</g>
+<!-- init&#45;&gt;make_string -->
+<g id="edge7" class="edge">
+<title>init&#45;&gt;make_string</title>
+<path fill="none" stroke="black" d="M67.59,-71.7C67.59,-63.98 67.59,-54.71 67.59,-46.11"/>
+<polygon fill="black" stroke="black" points="71.09,-46.1 67.59,-36.1 64.09,-46.1 71.09,-46.1"/>
+</g>
+</g>
+</svg>
+</div>
 <div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
-Richard Hainsworth, aka finanalyst
+Richard Hainsworth aka finanalyst
 
 
 
@@ -303,13 +433,13 @@ v0.1.0
     <div class="container px-4">
         <nav class="level">
             <div class="level-item">
-                Rendered from <span class="footer-field">docs/plugins/plugins/Bulma</span>
+                Rendered from <span class="footer-field">docs/plugins/plugins/Graphviz</span>
             </div>
             <div class="level-item">
-                Rendered at 20:08 UTC on 2024-07-28</span>
+                Rendered at 21:16 UTC on 2024-07-28</span>
             </div>
             <div class="level-item">
-                Source last modified at 21:02 UTC on 2024-07-07</span>
+                Source last modified at 20:48 UTC on 2024-07-06</span>
             </div>
         </nav>
     </div>

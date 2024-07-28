@@ -4,7 +4,7 @@
 # precompiled files
 .precomp
 lib/.precomp
-
 /.raku-version
 /wget-log
 /docs/*
+/docs/

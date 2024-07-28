@@ -1,9 +1,10 @@
 #!/usr/bin/env raku
 use experimental :rakuast;
 use RakuDoc::To::HTML-Extra;
+use File::Directory::Tree;
 
 my $rdp;
-multi sub MAIN(:$docs = 'docs') {
+multi sub MAIN(:$docs = 'docs', :$to = 'rendered') {
     my @to-be-rendered;
     my @todo = $docs.IO;
     while @todo {
@@ -13,14 +14,16 @@ multi sub MAIN(:$docs = 'docs') {
         }
     }
     exit note "No sources found in ｢$docs｣" unless +@to-be-rendered;
+    rmtree $to if $to.IO ~~ :e & :d;
+    mktree $to;
     $rdp = RakuDoc::To::HTML-Extra.new.rdp;
-    render-files(@to-be-rendered, $docs)
+    render-files(@to-be-rendered, $docs, $to)
 }
-sub render-files (@to-be-rendered, $dir) {
+sub render-files (@to-be-rendered, $dir, $to ) {
     my %file-data;
-    for @to-be-rendered.sort {
-        say "rendering: $_";
+    for @to-be-rendered {
         my $short = .relative($dir).IO.extension('');
+        say "rendering $_ to $to/$short";
         #topic of with not for
         my $ast = .slurp.AST;
         my $processed = $rdp.render($ast, :source-data(%(
@@ -29,7 +32,7 @@ sub render-files (@to-be-rendered, $dir) {
             path => .dirname,
         )), :pre-finalised);
         $short .= subst( / \/ /, '_', :g);
-        "$short.html".IO.spurt($rdp.finalise);
+        "$to/$short.html".IO.spurt($rdp.finalise);
         %file-data{$short} = %(
             title => $processed.title,
             subtitle => $processed.subtitle ?? $processed.subtitle !! 'No description',
@@ -39,7 +42,7 @@ sub render-files (@to-be-rendered, $dir) {
     my %listf := $rdp.templates.data<listfiles>;
     %listf<meta> = %file-data;
     my $ind = 'index.rakudoc'.IO;
-    'index.html'.IO.spurt: $rdp.render($ind.slurp.AST, :source-data(%(
+    "$to/index.html".IO.spurt: $rdp.render($ind.slurp.AST, :source-data(%(
         name => 'index',
         modified => $ind.modified,
         path => $ind.dirname,
