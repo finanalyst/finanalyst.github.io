@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-light" >
+<html class="theme-light" style="scroll-padding-top:var(--bulma-navbar-height)" >
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -279,61 +279,61 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading "><a href="#" title="go to top of document">SYNOPSIS</a></h2>
-<p id="b177450">To render a RakuDoc source, eg. <span class="important">some-docs.rakudoc</span>, into <span class="important">some-docs.md</span>, either use the terminal command </p>
-<pre class="code-block">RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc &gt; some-docs.md
+<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading  py-4"><a href="#" title="go to top of document">SYNOPSIS</a></h2>
+<p id="b177450"class="py-4">To render a RakuDoc source, eg. <span class="important">some-docs.rakudoc</span>, into <span class="important">some-docs.md</span>, either use the terminal command </p>
+<pre class="code-block">RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc > some-docs.md
 </pre>
-<p id="f06d654">or (see <a href="#RenderDocs_utility">below for more detail</a>) </p>
+<p id="f06d654"class="py-4">or (see <a href="#RenderDocs_utility">below for more detail</a>) </p>
 <pre class="code-block">bin/RenderDocs some-docs
 </pre>
-<p id="1c6d680">There is a section on Troubleshooting in the <a href="README">general README file</a> if this fails. </p>
+<p id="1c6d680"class="py-4">There is a section on Troubleshooting in the <a href="README">general README file</a> if this fails. </p>
 
 
 
-<div class="id-target" id=""></div><h2 id="Overview" class="heading "><a href="#" title="go to top of document">Overview</a></h2>
-<p id="5324901">Markdown representation of documentation is widespread, so a simple conversion (rendering) of the RakuDoc v2 into Markdown is useful, even though Markdown is intended to be viewed as HTML. </p>
-<p id="695990d">The module can be customised by setting an Environment variable to a template file. <a href="Customising templates">More detail on customising</a>. </p>
-<p id="6e9a0eb">The general <a href="README">README file should be read first</a>. </p>
-<p id="e80f229">For this description, it is assumed that the <span class="important">RakuAST::RakuDoc::Render</span> distribution is <span class="basis">NOT</span> installed using zef, although it can be. Consequently, all commands are assumed to be inside the repo directory root. </p>
+<div class="id-target" id=""></div><h2 id="Overview" class="heading  py-4"><a href="#" title="go to top of document">Overview</a></h2>
+<p id="5324901"class="py-4">Markdown representation of documentation is widespread, so a simple conversion (rendering) of the RakuDoc v2 into Markdown is useful, even though Markdown is intended to be viewed as HTML. </p>
+<p id="695990d"class="py-4">The module can be customised by setting an Environment variable to a template file. <a href="Customising templates">More detail on customising</a>. </p>
+<p id="6e9a0eb"class="py-4">The general <a href="README">README file should be read first</a>. </p>
+<p id="e80f229"class="py-4">For this description, it is assumed that the <span class="important">RakuAST::RakuDoc::Render</span> distribution is <span class="basis">NOT</span> installed using zef, although it can be. Consequently, all commands are assumed to be inside the repo directory root. </p>
 
-<div class="id-target" id=""></div><h2 id="Customising_templates" class="heading "><a href="#" title="go to top of document">Customising templates</a></h2>
-<p id="3a797bf">All output from <span class="important">Rakuast::RakuDoc::Render</span> modules is generated through templates. These templates can be added to, without overriding the previous templates, (<a href="Templates">see Templates for detail</a>). </p>
-<p id="42cfe59">If a file exists in the local directory called <span class="important">new-temp.raku</span> and conforms to the requirements described in <a href="Templates">Templates</a>, then the templates in it will be added to the generic Markdown templates as follows: </p>
-<pre class="code-block">MORE_MARKDOWN=new-temp.raku RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc &gt; store.md
+<div class="id-target" id=""></div><h2 id="Customising_templates" class="heading  py-4"><a href="#" title="go to top of document">Customising templates</a></h2>
+<p id="3a797bf"class="py-4">All output from <span class="important">Rakuast::RakuDoc::Render</span> modules is generated through templates. These templates can be added to, without overriding the previous templates, (<a href="Templates">see Templates for detail</a>). </p>
+<p id="42cfe59"class="py-4">If a file exists in the local directory called <span class="important">new-temp.raku</span> and conforms to the requirements described in <a href="Templates">Templates</a>, then the templates in it will be added to the generic Markdown templates as follows: </p>
+<pre class="code-block">MORE_MARKDOWN=new-temp.raku RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc > store.md
 </pre>
-<p id="1f0e4a3">For instance if the contents of <span class="important">new-temp.raku</span> is </p>
+<p id="1f0e4a3"class="py-4">For instance if the contents of <span class="important">new-temp.raku</span> is </p>
 <pre class="code-block">%(
-        final =&gt; -&gt; %prm, $tmpl { "# Customisation message\n\n" ~ $tmpl.prev }
+        final => -> %prm, $tmpl { "# Customisation message\n\n" ~ $tmpl.prev }
     )
 </pre>
-<p id="1e4a7a3">Then after running the command above, <span class="basis">store.md</span> will contain a new title at the top, followed by the remainder of the Markdown as rendered before the new template was added. </p>
-<p id="d4da3b3">Some notes: </p>
+<p id="1e4a7a3"class="py-4">Then after running the command above, <span class="basis">store.md</span> will contain a new title at the top, followed by the remainder of the Markdown as rendered before the new template was added. </p>
+<p id="d4da3b3"class="py-4">Some notes: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="62232db">The template <span class="code">final</span> is the last one that <span class="important">glues</span> all the documentation together into a string. </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="62232db"class="py-4">The template <span class="code">final</span> is the last one that <span class="important">glues</span> all the documentation together into a string. </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="bec43d4"><span class="code">$tmpl.prev</span> is call to the previous version of <span class="code">final</span> with all the parameters passed on. </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="bec43d4"class="py-4"><span class="code">$tmpl.prev</span> is call to the previous version of <span class="code">final</span> with all the parameters passed on. </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="6a4c4dc">All the generic templates are <a href="default-text-templates">tabulated with comments</a>. </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="6a4c4dc"class="py-4">All the generic templates are <a href="default-text-templates">tabulated with comments</a>. </p>
 </li>
 </ul>
 
-<div class="id-target" id=""></div><h2 id="RenderDocs_utility" class="heading "><a href="#" title="go to top of document">RenderDocs utility</a></h2>
-<p id="a5ca521">A utility called <span class="basis">RenderDocs</span> accompanies the distribution. It is assumed that documentation sources in RakuDoc are contained in the sub-directory <span class="code">docs/</span> and that Markdown versions are required in the working directory. If any RakuDoc source has a modified date later than the current version of the Markdown output, then the Markdown file is updated. </p>
-<p id="773bcc7">Usage </p>
+<div class="id-target" id=""></div><h2 id="RenderDocs_utility" class="heading  py-4"><a href="#" title="go to top of document">RenderDocs utility</a></h2>
+<p id="a5ca521"class="py-4">A utility called <span class="basis">RenderDocs</span> accompanies the distribution. It is assumed that documentation sources in RakuDoc are contained in the sub-directory <span class="code">docs/</span> and that Markdown versions are required in the working directory. If any RakuDoc source has a modified date later than the current version of the Markdown output, then the Markdown file is updated. </p>
+<p id="773bcc7"class="py-4">Usage </p>
 <pre class="code-block">bin/RenderDocs
 </pre>
-<p id="0e0a1f3">More granularity can be obtained by specifying a single file and a <span class="important">to</span> destination, eg. </p>
+<p id="0e0a1f3"class="py-4">More granularity can be obtained by specifying a single file and a <span class="important">to</span> destination, eg. </p>
 <pre class="code-block">bin/RenderDocs --to=README docs/README
 </pre>
-<p id="80dc67c">Here, there must be a file <span class="code">docs/README.rakudoc</span>, which is rendered to the current working directory as <span class="important">README.md</span>. </p>
+<p id="80dc67c"class="py-4">Here, there must be a file <span class="code">docs/README.rakudoc</span>, which is rendered to the current working directory as <span class="important">README.md</span>. </p>
 
-<div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
+<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-4"><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth, aka finanalyst
 
 
 
 
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
+<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-4"><a href="#" title="go to top of document">VERSION</a></h2>
 v0.4.0
 
 
@@ -352,7 +352,7 @@ v0.4.0
                 Rendered from <span class="footer-field">docs/RakuDoc-To-Markdown</span>
             </div>
             <div class="level-item">
-                Rendered at 21:16 UTC on 2024-07-28</span>
+                Rendered at 07:33 UTC on 2024-08-02</span>
             </div>
             <div class="level-item">
                 Source last modified at 20:48 UTC on 2024-07-06</span>

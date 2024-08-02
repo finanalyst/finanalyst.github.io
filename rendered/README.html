@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-light" >
+<html class="theme-light" style="scroll-padding-top:var(--bulma-navbar-height)" >
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -282,139 +282,139 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading "><a href="#" title="go to top of document">SYNOPSIS</a></h2>
+<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading  py-4"><a href="#" title="go to top of document">SYNOPSIS</a></h2>
 <ul><li class="item" data-bullet="•" style="--level:0;"> Clone the repository and submodule</li>
-<li class="item" data-bullet="▹" style="--level:1;"> <p id="a8e7250"><span class="code">git clone https://github.com/finanalyst/rakuast-rakudoc-render.git rrr</span> </p>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="a8e7250"class="py-4"><span class="code">git clone https://github.com/finanalyst/rakuast-rakudoc-render.git rrr</span> </p>
 </li>
-<li class="item" data-bullet="▹" style="--level:1;"> <p id="f4f4936"><span class="code">cd rrr && git submodule init</span> </p>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="f4f4936"class="py-4"><span class="code">cd rrr && git submodule init</span> </p>
 </li>
-<li class="item" data-bullet="▹" style="--level:1;"> <p id="4f9600a"><span class="code">git submodule update</span> </p>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="4f9600a"class="py-4"><span class="code">git submodule update</span> </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> Install using zef as follows (flag is important)</li>
-<li class="item" data-bullet="▹" style="--level:1;"> <p id="c544948"><span class="code">zef install . -/precompile-install</span> </p>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="c544948"class="py-4"><span class="code">zef install . -/precompile-install</span> </p>
 </li>
 </ul>
-<p id="66c0161">Note that <span class="code">zef</span> runs the tests in <span class="code">t/</span>, and those cause compilation of the modules in the distribution. </p>
+<p id="66c0161"class="py-4">Note that <span class="code">zef</span> runs the tests in <span class="code">t/</span>, and those cause compilation of the modules in the distribution. </p>
 
 
 
-<div class="id-target" id=""></div><h2 id="Overview" class="heading "><a href="#" title="go to top of document">Overview</a></h2>
-<p id="887ec44">This distribution is intended to provide several renderers from RakuDoc v2 into commonly used output formats. </p>
-<p id="fed50d3">The basic render engine is <span class="code">RakuDoc::Render</span>, which renders into Text. It is designed to be extended to other output formats by subclassing. </p>
-<p id="da74a31">Currently, the other renderers in this distribution are: </p>
+<div class="id-target" id=""></div><h2 id="Overview" class="heading  py-4"><a href="#" title="go to top of document">Overview</a></h2>
+<p id="887ec44"class="py-4">This distribution is intended to provide several renderers from RakuDoc v2 into commonly used output formats. </p>
+<p id="fed50d3"class="py-4">The basic render engine is <span class="code">RakuDoc::Render</span>, which renders into Text. It is designed to be extended to other output formats by subclassing. </p>
+<p id="da74a31"class="py-4">Currently, the other renderers in this distribution are: </p>
 
-<div class="id-target" id=""></div><h3 id="Table_of_outputs_and_renderers" class="heading"><a href="#" title="go to top of document">Table of outputs and renderers</a></h3>
+<div class="id-target" id=""></div><h3 id="Table_of_outputs_and_renderers" class="heading  py-4"><a href="#" title="go to top of document">Table of outputs and renderers</a></h3>
 <table class="table">
 <tr><th class="">Output</th><th class="">Renderer</th><th class="">Documentation</th></tr>
-<tr><td class="">Text</td><td class=""><p id="7cf4d1f"><span class="code">RakuDoc::To::Generic</span> </p>
-</td><td class=""><p id="23977bd"><a href="Render">a wrapper for <span class="important">RakuDoc::Render</span></a> </p>
+<tr><td class="">Text</td><td class=""><p id="7cf4d1f"class="py-4"><span class="code">RakuDoc::To::Generic</span> </p>
+</td><td class=""><p id="23977bd"class="py-4"><a href="Render">a wrapper for <span class="important">RakuDoc::Render</span></a> </p>
 </td></tr>
-<tr><td class="">Markdown</td><td class=""><p id="1108ad6"><span class="code">RakuDoc::To::Markdown</span> </p>
-</td><td class=""><p id="075e020"><a href="RakuDoc-To-Markdown">Markdown</a> </p>
+<tr><td class="">Markdown</td><td class=""><p id="1108ad6"class="py-4"><span class="code">RakuDoc::To::Markdown</span> </p>
+</td><td class=""><p id="075e020"class="py-4"><a href="RakuDoc-To-Markdown">Markdown</a> </p>
 </td></tr>
-<tr><td class="">HTML</td><td class=""><p id="108de6e"><span class="code">RakuDoc::To::HTML</span> </p>
-</td><td class=""><p id="8bd7222"><a href="RakuDoc-To-HTML">A minimal, single file, 'all in' HTML</a> </p>
+<tr><td class="">HTML</td><td class=""><p id="108de6e"class="py-4"><span class="code">RakuDoc::To::HTML</span> </p>
+</td><td class=""><p id="8bd7222"class="py-4"><a href="RakuDoc-To-HTML">A minimal, single file, 'all in' HTML</a> </p>
 </td></tr>
 <tr><td class="">HTML-Extra</td><td class="">in development</td><td class="">HTML output using Bulma CSS, Graphviz, Leaflet-Maps, Latex, assumes internet</td></tr></table>
-<p id="385bc98">This is software using bleeding edge Rakudo, so look <a href="#Troubleshooting">at troubleshooting below</a>. </p>
-<p id="c686f12">Using the <span class="important">Generic</span> renderer, the <span class="basis">canonical method</span> for generating rendered text is possible (which sends output to STDOUT, so pipe to a file), namely </p>
-<pre class="code-block">RAKUDO_RAKUAST=1 raku --rakudoc=Generic rakudociem-ipsum.rakudoc &gt; store-output
+<p id="385bc98"class="py-4">This is software using bleeding edge Rakudo, so look <a href="#Troubleshooting">at troubleshooting below</a>. </p>
+<p id="c686f12"class="py-4">Using the <span class="important">Generic</span> renderer, the <span class="basis">canonical method</span> for generating rendered text is possible (which sends output to STDOUT, so pipe to a file), namely </p>
+<pre class="code-block">RAKUDO_RAKUAST=1 raku --rakudoc=Generic rakudociem-ipsum.rakudoc > store-output
 </pre>
-<p id="58b8f3d">Some <a href="#Wrapping">naive wrapping and width modification</a> is possible using environment variables. </p>
-<p id="4f9cdd1">The file <a href="https://github.com/Raku/RakuDoc-GAMMA/blob/main/rakudociem-ipsum.rakudoc">rakudociem-ipsum.rakudoc</a> is the file for testing RakuDoc v2 compliance. It can be obtained with: </p>
+<p id="58b8f3d"class="py-4">Some <a href="#Wrapping">naive wrapping and width modification</a> is possible using environment variables. </p>
+<p id="4f9cdd1"class="py-4">The file <a href="https://github.com/Raku/RakuDoc-GAMMA/blob/main/rakudociem-ipsum.rakudoc">rakudociem-ipsum.rakudoc</a> is the file for testing RakuDoc v2 compliance. It can be obtained with: </p>
 <pre class="code-block">bin/get-compliance-document
 </pre>
-<p id="bece221"><span class="code">rakudociem-ipsum.rakudoc</span> is contained in the submodule <span class="code">rakudoc-compliance</span> with a link in <span class="code">resources/compliance</span>. </p>
-<p id="e6059ff">In order to avoid environment variables, eg for Windows, a RakuDoc file can be rendered to Text using the <a href="#RenderTextify_utility">RenderTextify</a>. It avoids some installation problems, stores the output and offers some other output options, eg. </p>
+<p id="bece221"class="py-4"><span class="code">rakudociem-ipsum.rakudoc</span> is contained in the submodule <span class="code">rakudoc-compliance</span> with a link in <span class="code">resources/compliance</span>. </p>
+<p id="e6059ff"class="py-4">In order to avoid environment variables, eg for Windows, a RakuDoc file can be rendered to Text using the <a href="#RenderTextify_utility">RenderTextify</a>. It avoids some installation problems, stores the output and offers some other output options, eg. </p>
 <pre class="code-block">bin/RenderTextify rakudociem-ipsum
 </pre>
-<p id="416d7d2">(the .rakudoc extension may be omitted if desired) </p>
+<p id="416d7d2"class="py-4">(the .rakudoc extension may be omitted if desired) </p>
 
-<div class="id-target" id=""></div><h2 id="Documentation" class="heading "><a href="#" title="go to top of document">Documentation</a></h2>
-<p id="9ae1d19">The two main documentation sources are: </p>
+<div class="id-target" id=""></div><h2 id="Documentation" class="heading  py-4"><a href="#" title="go to top of document">Documentation</a></h2>
+<p id="9ae1d19"class="py-4">The two main documentation sources are: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="641e025"><a href="Render">An overview of the generic renderer</a> </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="641e025"class="py-4"><a href="Render">An overview of the generic renderer</a> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="7e13acb"><a href="Templates">The templating system</a> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="7e13acb"class="py-4"><a href="Templates">The templating system</a> </p>
 </li>
 </ul>
-<p id="525d438">Other modules are also documented: </p>
+<p id="525d438"class="py-4">Other modules are also documented: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="7558bb1"><a href="Processed">Processed - objects to keep track of intermediate state</a> </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="7558bb1"class="py-4"><a href="Processed">Processed - objects to keep track of intermediate state</a> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="81cb740"><a href="PromiseStrings">PStr - Strings containing forward references</a> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="81cb740"class="py-4"><a href="PromiseStrings">PStr - Strings containing forward references</a> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="aaba484"><a href="ScopedData">ScopedData - an object to keep track of data valid for a block scope</a> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="aaba484"class="py-4"><a href="ScopedData">ScopedData - an object to keep track of data valid for a block scope</a> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="34cc89f"><a href="default-text-templates">a table of the minimum set of templates to render any RakuDoc source</a> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="34cc89f"class="py-4"><a href="default-text-templates">a table of the minimum set of templates to render any RakuDoc source</a> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="a58c902"><a href="MarkUpMeta">a grammar for parsing the meta data of a Markup code</a> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="a58c902"class="py-4"><a href="MarkUpMeta">a grammar for parsing the meta data of a Markup code</a> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="97e6f87"><a href="Numeration">an object for numerating items headings</a> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="97e6f87"class="py-4"><a href="Numeration">an object for numerating items headings</a> </p>
 </li>
 </ul>
 
-<div class="id-target" id=""></div><h2 id="RenderTextify_utility" class="heading "><a href="#" title="go to top of document">RenderTextify utility</a></h2>
-<p id="422ea35">The utility <span class="code">bin/RenderTexify</span> can be called with a RakuDoc source and it saves the result directly to a file, rather than to STDOUT. </p>
-<p id="c976c61">For example, </p>
+<div class="id-target" id=""></div><h2 id="RenderTextify_utility" class="heading  py-4"><a href="#" title="go to top of document">RenderTextify utility</a></h2>
+<p id="422ea35"class="py-4">The utility <span class="code">bin/RenderTexify</span> can be called with a RakuDoc source and it saves the result directly to a file, rather than to STDOUT. </p>
+<p id="c976c61"class="py-4">For example, </p>
 <pre class="code-block">bin/RenderTextify rakudociem-ipsum
 </pre>
-<p id="6d462ae">will produce the file </p>
+<p id="6d462ae"class="py-4">will produce the file </p>
 <pre class="code-block">rakudociem-ipsum.rakudoc.text
 </pre>
-<p id="a1f873a">The executable <span class="code">bin/RenderTexify</span> can also be called with the flags <span class="code">test</span> and <span class="code">pretty</span> and the name of a file to render. The use case of these options is to see what templates receive from the rendering engine when developing new templates. </p>
-<p id="7bcda11">The file is output to text files with the flag and <span class="code">.text</span> appended to the name. The file format <span class="code">.rakudoc</span> is assumed, and added if missing. </p>
-<p id="c976c61">For example, </p>
+<p id="a1f873a"class="py-4">The executable <span class="code">bin/RenderTexify</span> can also be called with the flags <span class="code">test</span> and <span class="code">pretty</span> and the name of a file to render. The use case of these options is to see what templates receive from the rendering engine when developing new templates. </p>
+<p id="7bcda11"class="py-4">The file is output to text files with the flag and <span class="code">.text</span> appended to the name. The file format <span class="code">.rakudoc</span> is assumed, and added if missing. </p>
+<p id="c976c61"class="py-4">For example, </p>
 <pre class="code-block">bin/RenderTextify --pretty rakudociem-ipsum
 </pre>
-<p id="6d462ae">will produce the file </p>
+<p id="6d462ae"class="py-4">will produce the file </p>
 <pre class="code-block">rakudociem-ipsum.rakudoc.pretty.text
 </pre>
 
-<div class="id-target" id=""></div><h2 id="Wrapping" class="heading "><a href="#" title="go to top of document">Wrapping</a></h2>
-<p id="1860541">The text output will be naively wrapped (the algorithm is still being developed), either by setting the environment variable POSTPROCESSING=1 or using RenderTextify. For example, </p>
-<pre class="code-block">POSTPROCESSING=1 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc &gt; store-output
+<div class="id-target" id=""></div><h2 id="Wrapping" class="heading  py-4"><a href="#" title="go to top of document">Wrapping</a></h2>
+<p id="1860541"class="py-4">The text output will be naively wrapped (the algorithm is still being developed), either by setting the environment variable POSTPROCESSING=1 or using RenderTextify. For example, </p>
+<pre class="code-block">POSTPROCESSING=1 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc > store-output
 </pre>
-<p id="7fa2f84">or </p>
+<p id="7fa2f84"class="py-4">or </p>
 <pre class="code-block">bin/RenderTextify --post-processing doc
 </pre>
-<p id="96f3270">If the environment variable WIDTH (--width) is also set, the text output will be wrapped to the value. WIDTH by default is set at 80 chars. To set at 70, use: </p>
-<pre class="code-block">POSTPROCESSING=1 WIDTH=70 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc &gt; store-output
+<p id="96f3270"class="py-4">If the environment variable WIDTH (--width) is also set, the text output will be wrapped to the value. WIDTH by default is set at 80 chars. To set at 70, use: </p>
+<pre class="code-block">POSTPROCESSING=1 WIDTH=70 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc > store-output
 </pre>
-<p id="7fa2f84">or </p>
+<p id="7fa2f84"class="py-4">or </p>
 <pre class="code-block">bin/RenderTextify --post-processing --width=70 doc
 </pre>
 
-<div class="id-target" id=""></div><h2 id="Troubleshooting" class="heading "><a href="#" title="go to top of document">Troubleshooting</a></h2>
-<p id="50d54e8">In order to get the RakuDoc render test file (rakudociem-ipsum) to work, a recent version of the Rakudoc compiler is needed, after v2024.06. </p>
-<p id="53029b4">If the cannonical command above fails, perhaps with a message such as </p>
+<div class="id-target" id=""></div><h2 id="Troubleshooting" class="heading  py-4"><a href="#" title="go to top of document">Troubleshooting</a></h2>
+<p id="50d54e8"class="py-4">In order to get the RakuDoc render test file (rakudociem-ipsum) to work, a recent version of the Rakudoc compiler is needed, after v2024.06. </p>
+<p id="53029b4"class="py-4">If the cannonical command above fails, perhaps with a message such as </p>
 <pre class="code-block">===SORRY!===
     This element has not been resolved. Type: RakuAST::Type::Simple
 </pre>
-<p id="347a187">then try </p>
-<pre class="code-block">RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=Generic rakudociem-ipsum.rakudoc &gt; store-output
+<p id="347a187"class="py-4">then try </p>
+<pre class="code-block">RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=Generic rakudociem-ipsum.rakudoc > store-output
 </pre>
-<p id="4c23d02">The command above may also generate an error, such as </p>
+<p id="4c23d02"class="py-4">The command above may also generate an error, such as </p>
 <pre class="code-block">    ===SORRY!=== Error while compiling ..... (OO::Monitors)
     Variable '$cond' is not declared.  Perhaps you forgot a 'sub' if this
     was intended to be part of a signature?
     at ....
-    ------&gt; macro wait-condition(⏏$cond) is export {
+    ------> macro wait-condition(⏏$cond) is export {
 because the RakuAST compiler does not yet handle macros, and (OO::Monitors) uses them.
 </pre>
-<p id="87645ef">The first step is to re-run the test files, eg., </p>
+<p id="87645ef"class="py-4">The first step is to re-run the test files, eg., </p>
 <pre class="code-block">prove6 -I.
 </pre>
-<p id="02a05a0">This causes a recompilation of the modules in this distribution to be recompiled because the tests run <span class="code">isa-ok</span> on each module. </p>
-<p id="0f6ea09">This is sometimes not sufficient. The next step is to use the utility <span class="code">bin/force-compile</span> in the root of the repo. It deletes the <span class="code">.precomp</span> files in the current directory, and runs <span class="code">prove6 -I.</span>. </p>
+<p id="02a05a0"class="py-4">This causes a recompilation of the modules in this distribution to be recompiled because the tests run <span class="code">isa-ok</span> on each module. </p>
+<p id="0f6ea09"class="py-4">This is sometimes not sufficient. The next step is to use the utility <span class="code">bin/force-compile</span> in the root of the repo. It deletes the <span class="code">.precomp</span> files in the current directory, and runs <span class="code">prove6 -I.</span>. </p>
 
-<div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
+<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-4"><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
 
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
+<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-4"><a href="#" title="go to top of document">VERSION</a></h2>
 v0.3.1
 
 
@@ -433,7 +433,7 @@ v0.3.1
                 Rendered from <span class="footer-field">docs/README</span>
             </div>
             <div class="level-item">
-                Rendered at 21:16 UTC on 2024-07-28</span>
+                Rendered at 07:33 UTC on 2024-08-02</span>
             </div>
             <div class="level-item">
                 Source last modified at 16:19 UTC on 2024-07-20</span>

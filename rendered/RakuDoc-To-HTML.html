@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-light" >
+<html class="theme-light" style="scroll-padding-top:var(--bulma-navbar-height)" >
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -241,7 +241,7 @@ function swap_toc_index(activate) {
   <div class="container">
 <div id="Rendering_RakuDoc_v2_to_HTML"></div><h1 class="title is-centered">Rendering RakuDoc v2 to HTML</h1>
 
-<p class="subtitle"><p id="f76afd4">RakuDoc v2 is rendered to minimal HTML. <span class="code">RakuAST::RakuDoc::Render</span> on which this module is based uses the RakuAST parser. A rendering of the <a href="#Compliance_testing">compliance</a> document can be <a href="https://htmlpreview.github.io/?https://github.com/finanalyst/rakuast-rakudoc-render/blob/main/resources/compliance-rendering/rakudociem-ipsum.html">found online</a>. </p>
+<p class="subtitle"><p id="f76afd4"class="py-4">RakuDoc v2 is rendered to minimal HTML. <span class="code">RakuAST::RakuDoc::Render</span> on which this module is based uses the RakuAST parser. A rendering of the <a href="#Compliance_testing">compliance</a> document can be <a href="https://htmlpreview.github.io/?https://github.com/finanalyst/rakuast-rakudoc-render/blob/main/resources/compliance-rendering/rakudociem-ipsum.html">found online</a>. </p>
 </p>
   </div>
 </section>
@@ -279,67 +279,67 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading "><a href="#" title="go to top of document">SYNOPSIS</a></h2>
+<div class="id-target" id=""></div><h2 id="SYNOPSIS" class="heading  py-4"><a href="#" title="go to top of document">SYNOPSIS</a></h2>
 
 
-<p id="de4213b">Currently, the module is difficult to install using <span class="important">zef</span>, so the instructions below are relative to local repo of <a href="https://github.com/finanalyst/rakuast-rakudoc-render.git">RakuDoc::Render repo</a>. </p>
-<p id="21df361">Use the utility <span class="basis">force-recompile</span> with the current working directory being the root of the <span class="code">RakuDoc::Render</span> repo bin/force-recompile </p>
-<p id="915319d">Assuming (the assumptions are for clarity and can be changed): </p>
+<p id="de4213b"class="py-4">Currently, the module is difficult to install using <span class="important">zef</span>, so the instructions below are relative to local repo of <a href="https://github.com/finanalyst/rakuast-rakudoc-render.git">RakuDoc::Render repo</a>. </p>
+<p id="21df361"class="py-4">Use the utility <span class="basis">force-recompile</span> with the current working directory being the root of the <span class="code">RakuDoc::Render</span> repo bin/force-recompile </p>
+<p id="915319d"class="py-4">Assuming (the assumptions are for clarity and can be changed): </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="17b880e">there is a RakuDoc source <span class="code">new-doc.rakudoc</span> in the current working directory, </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="17b880e"class="py-4">there is a RakuDoc source <span class="code">new-doc.rakudoc</span> in the current working directory, </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="9b8b17e">the current working directory is the root directory of the repo, <span class="code">/home/me/rakuast-rakudoc-render</span> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="9b8b17e"class="py-4">the current working directory is the root directory of the repo, <span class="code">/home/me/rakuast-rakudoc-render</span> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="e2b475c">the distribution has been tested on Ubuntu <span class="basis">6.5.0-35-generic #35~22.04.1-Ubuntu</span> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="e2b475c"class="py-4">the distribution has been tested on Ubuntu <span class="basis">6.5.0-35-generic #35~22.04.1-Ubuntu</span> </p>
 </li>
 <li class="item" data-bullet="▹" style="--level:1;"> [feedback of testing on other OS, and tweaks to improve, would be appreciated !]</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="b5ea7de">a recent Rakudo build is needed; <span class="basis">v2024.05-34-g5dd0ad6f5</span> works. </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="b5ea7de"class="py-4">a recent Rakudo build is needed; <span class="basis">v2024.05-34-g5dd0ad6f5</span> works. </p>
 </li>
 </ul>
-<p id="54f7ea1">Then: RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html </p>
-<p id="1eed893">generates <span class="basis">new-doc.html</span> in the current working directory. </p>
+<p id="54f7ea1"class="py-4">Then: RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html </p>
+<p id="1eed893"class="py-4">generates <span class="basis">new-doc.html</span> in the current working directory. </p>
 
-<div class="id-target" id=""></div><h2 id="Vanilla_HTML_and_CSS" class="heading "><a href="#" title="go to top of document">Vanilla HTML and CSS</a></h2>
-<p id="e3abb4f">The aim of <span class="code">RakuDoc::To::HTML</span> is to produce a minimal HTML output with minimal styling, and that the file can be directly viewed in a modern browser with the URL <span class="code">file:///home/me/rakuast-rakudoc-render/new-doc.html</span>. </p>
+<div class="id-target" id=""></div><h2 id="Vanilla_HTML_and_CSS" class="heading  py-4"><a href="#" title="go to top of document">Vanilla HTML and CSS</a></h2>
+<p id="e3abb4f"class="py-4">The aim of <span class="code">RakuDoc::To::HTML</span> is to produce a minimal HTML output with minimal styling, and that the file can be directly viewed in a modern browser with the URL <span class="code">file:///home/me/rakuast-rakudoc-render/new-doc.html</span>. </p>
 <div class="nested">Unfortunately some systems for opening HTML files in a browser will HTML-escape Unicode characters used for delimiting texts. So, just open the file in a browser.</div>
-<p id="8d60446">The styling is generated from <span class="code">resources/scss/vanilla.scss</span> to produce <span class="code">resources/css/vanilla.css</span>, which is slurped into the HTML output file (eg. new-doc.html). </p>
-<p id="81dcdbe">By the design of the <span class="code">RakuDoc::Render</span> module, all output is generated using templates. The module <span class="code">RakuDoc::To::HTML</span> attaches a minimum set of templates. It is possible to override any or all of the templates by adding the <span class="code">MORE_HTML</span> environment variable. Assuming the file <span class="code">my_new_html.raku</span> exists in the current working directory, and the file follows the <a href="Templates">Template specification</a>, then MORE_HTML=my_new_html.raku RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html </p>
-<p id="350ae20">will utilise the new templates. An example can be seen in <span class="code">xt/600-R-2-HTML.rakutest</span>. The intention of each template can be found in the comments within <span class="code">lib.RakuDoc/To/HTML.rakumod</span>. </p>
-<p id="4638f6f">To tweak the styling: </p>
+<p id="8d60446"class="py-4">The styling is generated from <span class="code">resources/scss/vanilla.scss</span> to produce <span class="code">resources/css/vanilla.css</span>, which is slurped into the HTML output file (eg. new-doc.html). </p>
+<p id="81dcdbe"class="py-4">By the design of the <span class="code">RakuDoc::Render</span> module, all output is generated using templates. The module <span class="code">RakuDoc::To::HTML</span> attaches a minimum set of templates. It is possible to override any or all of the templates by adding the <span class="code">MORE_HTML</span> environment variable. Assuming the file <span class="code">my_new_html.raku</span> exists in the current working directory, and the file follows the <a href="Templates">Template specification</a>, then MORE_HTML=my_new_html.raku RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html </p>
+<p id="350ae20"class="py-4">will utilise the new templates. An example can be seen in <span class="code">xt/600-R-2-HTML.rakutest</span>. The intention of each template can be found in the comments within <span class="code">lib.RakuDoc/To/HTML.rakumod</span>. </p>
+<p id="4638f6f"class="py-4">To tweak the styling: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="c9e7291">install <a href="https://sass-lang.com/guide/">sass is available</a> </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="c9e7291"class="py-4">install <a href="https://sass-lang.com/guide/">sass is available</a> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="08f2a80">copy the file <span class="code">/home/me/rakuast-rakudoc-render/resources/scss/vanilla.scss</span> to a new file, eg. <span class="code">~/tweaks/strawberry.scss</span> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="08f2a80"class="py-4">copy the file <span class="code">/home/me/rakuast-rakudoc-render/resources/scss/vanilla.scss</span> to a new file, eg. <span class="code">~/tweaks/strawberry.scss</span> </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> tweak the styling (many classes used in the HTML output have zero styling)</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="684d9ac">run <span class="code">sass ~/tweaks/strawberry.scss</span> to generate <span class="code">~/tweaks/strawberry.css</span> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="684d9ac"class="py-4">run <span class="code">sass ~/tweaks/strawberry.scss</span> to generate <span class="code">~/tweaks/strawberry.css</span> </p>
 </li>
-<li class="item" data-bullet="▹" style="--level:1;"> <p id="acfacf1">the <span class="code">sass</span> command is usefully run as <span class="code">--update -s compressed ~/tweaks/strawberry.scss</span> </p>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="acfacf1"class="py-4">the <span class="code">sass</span> command is usefully run as <span class="code">--update -s compressed ~/tweaks/strawberry.scss</span> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="9f973e9">use the <span class="code">ALT_CSS</span> environment variable to load the new CSS. </p>
-</li>
-</ul>
-<pre class="code-block">ALT_CSS=~/tweaks/strawberry.sss RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc &gt; new-doc.html
-</pre>
-<p id="1384e9c">Both <span class="code">ALT_CSS</span> and <span class="code">MORE_HTML</span> can be used, adding new HTML tags, or changing class names, then including CSS definitions in the file accessed by <span class="code">ALT_CSS</span>. </p>
-<p id="818d78b">Note that there is a difference between how the CSS and Template files are used. </p>
-
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="57c1a0e">By design, new Raku closure templates, eg, those defined in files given to <span class="code">MORE_HTML</span>, are placed at the head of a chain of templates, and so are <span class="important">in addition</span> to those previously defined. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="5c1ebaf">The alternate CSS file (eg ~/tweaks/strawberry.css) is used <span class="basis">instead</span> of the default <span class="code">vanilla.css</span>. </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="9f973e9"class="py-4">use the <span class="code">ALT_CSS</span> environment variable to load the new CSS. </p>
 </li>
 </ul>
+<pre class="code-block">ALT_CSS=~/tweaks/strawberry.sss RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html
+</pre>
+<p id="1384e9c"class="py-4">Both <span class="code">ALT_CSS</span> and <span class="code">MORE_HTML</span> can be used, adding new HTML tags, or changing class names, then including CSS definitions in the file accessed by <span class="code">ALT_CSS</span>. </p>
+<p id="818d78b"class="py-4">Note that there is a difference between how the CSS and Template files are used. </p>
 
-<div class="id-target" id=""></div><h2 id="Debug_options" class="heading "><a href="#" title="go to top of document">Debug options</a></h2>
-<p id="5cd84d1">The debug options described in <a href="Render">Render</a> can be invoked using , eg., </p>
-<pre class="code-block">RAKURENDEROPTS='Templates BlockType' RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc &gt; new-doc.html
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="57c1a0e"class="py-4">By design, new Raku closure templates, eg, those defined in files given to <span class="code">MORE_HTML</span>, are placed at the head of a chain of templates, and so are <span class="important">in addition</span> to those previously defined. </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="5c1ebaf"class="py-4">The alternate CSS file (eg ~/tweaks/strawberry.css) is used <span class="basis">instead</span> of the default <span class="code">vanilla.css</span>. </p>
+</li>
+</ul>
+
+<div class="id-target" id=""></div><h2 id="Debug_options" class="heading  py-4"><a href="#" title="go to top of document">Debug options</a></h2>
+<p id="5cd84d1"class="py-4">The debug options described in <a href="Render">Render</a> can be invoked using , eg., </p>
+<pre class="code-block">RAKURENDEROPTS='Templates BlockType' RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=HTML new-doc.rakudoc > new-doc.html
 </pre>
 
-<div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
+<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-4"><a href="#" title="go to top of document">Credits</a></h2>
 ｢semantic_AUTHOR UNAVAILABLE｣
 
 
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
+<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-4"><a href="#" title="go to top of document">VERSION</a></h2>
 v0.1.0
 
 
@@ -358,7 +358,7 @@ v0.1.0
                 Rendered from <span class="footer-field">docs/RakuDoc-To-HTML</span>
             </div>
             <div class="level-item">
-                Rendered at 21:16 UTC on 2024-07-28</span>
+                Rendered at 07:33 UTC on 2024-08-02</span>
             </div>
             <div class="level-item">
                 Source last modified at 20:37 UTC on 2024-07-24</span>

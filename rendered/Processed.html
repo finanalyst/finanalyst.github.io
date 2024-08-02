@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-light" >
+<html class="theme-light" style="scroll-padding-top:var(--bulma-navbar-height)" >
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -269,8 +269,8 @@ function swap_toc_index(activate) {
             <aside id="index-menu" class="menu is-hidden">
             <div class="index"><h2 class="index-caption">Index</h2>
 <div class="index-section" data-index-level="1">
-<span class="index-entry"></span>: <a class="index-ref" href="#index-entry-">Block # 2</a><span>Block # 2</span>, <a class="index-ref" href="#index-entry-_0"><p id="13f8909"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
-</a><span><p id="13f8909"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
+<span class="index-entry"></span>: <a class="index-ref" href="#index-entry-">Block # 2</a><span>Block # 2</span>, <a class="index-ref" href="#index-entry-_0"><p id="13f8909"class="py-4"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
+</a><span><p id="13f8909"class="py-4"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
 </span>
 </div>
 
@@ -284,21 +284,21 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="Purpose" class="heading "><a href="#" title="go to top of document">Purpose</a></h2>
-<p id="7dd26db">When a RakuDoc source is being processed, data is collected about numerous items, such as the Table of Contents, the Index, list and definition entries. </p>
-<p id="caf8c99">Many RakuDoc blocks allow for recursion, with blocks being embedded within each other. A ProcessState object is therefore created to contain all the intermediary data. </p>
-<p id="0a3e7a9">One ProcessState object can be added to another, and so once one block has been processed, it can be 'added' to the ProcessState object of the containing block. </p>
-<p id="1427915">Finally, when an entire RakuDoc source has been fully rendered, it is useful to retain all the intermediary data structures as well. </p>
-<p id="7c3ecf8">The overall RakuDoc::Processed object contains data related to the source as well as the rendered data. </p>
-<p id="228a2c4">By keeping track of the timestamps of the source file and the rendering, it will be possible to determine whether to render a source again, or not. </p>
+<div class="id-target" id=""></div><h2 id="Purpose" class="heading  py-4"><a href="#" title="go to top of document">Purpose</a></h2>
+<p id="7dd26db"class="py-4">When a RakuDoc source is being processed, data is collected about numerous items, such as the Table of Contents, the Index, list and definition entries. </p>
+<p id="caf8c99"class="py-4">Many RakuDoc blocks allow for recursion, with blocks being embedded within each other. A ProcessState object is therefore created to contain all the intermediary data. </p>
+<p id="0a3e7a9"class="py-4">One ProcessState object can be added to another, and so once one block has been processed, it can be 'added' to the ProcessState object of the containing block. </p>
+<p id="1427915"class="py-4">Finally, when an entire RakuDoc source has been fully rendered, it is useful to retain all the intermediary data structures as well. </p>
+<p id="7c3ecf8"class="py-4">The overall RakuDoc::Processed object contains data related to the source as well as the rendered data. </p>
+<p id="228a2c4"class="py-4">By keeping track of the timestamps of the source file and the rendering, it will be possible to determine whether to render a source again, or not. </p>
 
-<div class="id-target" id=""></div><h3 id="Attributes_of_ProcessedState_object" class="heading "><a href="#" title="go to top of document">Attributes of ProcessedState object</a></h3>
+<div class="id-target" id=""></div><h3 id="Attributes_of_ProcessedState_object" class="heading  py-4"><a href="#" title="go to top of document">Attributes of ProcessedState object</a></h3>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;4fc77d5&quot;&gt;&lt;span_class=&quot;code&quot;&gt;PStr_$.body_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="4fc77d5"><span class="code">PStr $.body is rw </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;4fc77d5&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;PStr_$.body_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="4fc77d5"class="py-4"><span class="code">PStr $.body is rw </span> </p>
 </a></h4>
-<p id="58c42ef">String of rendered source, may contain Promises during rendering </p>
+<p id="58c42ef"class="py-4">String of rendered source, may contain Promises during rendering </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;ed447a4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Hash_@.toc_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="ed447a4"><span class="code">Hash @.toc </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;ed447a4&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Hash_@.toc_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="ed447a4"class="py-4"><span class="code">Hash @.toc </span> </p>
 </a></h4>
 <pre class="code-block">Table of Contents data
 Ordered array of { :level, :text, :target, :is-heading }
@@ -306,7 +306,7 @@ level - in heading hierarchy, text - to be shown in TOC
 target - of item in text, is-heading - used for Index placing
 </pre>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;fa68a2b&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_@.head-numbering_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="fa68a2b"><span class="code">Array @.head-numbering </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;fa68a2b&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_@.head-numbering_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="fa68a2b"class="py-4"><span class="code">Array @.head-numbering </span> </p>
 </a></h4>
 <pre class="code-block">heading numbering data
 Ordered array of [ $id, $level ]
@@ -314,17 +314,17 @@ $id is the PCell id of where the numeration structure is to be placed
 level - in heading hierarchy
 </pre>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;31e98a9&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.index_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="31e98a9"><span class="code">%.index </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;31e98a9&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.index_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="31e98a9"class="py-4"><span class="code">%.index </span> </p>
 </a></h4>
 <pre class="code-block">Index (from X&lt;&gt; markup)
-Hash entry =&gt; Hash of :refs, :sub-index
- :sub-index (maybe empty) is Hash of sub-entry =&gt; :refs, :sub-index
+Hash entry => Hash of :refs, :sub-index
+ :sub-index (maybe empty) is Hash of sub-entry => :refs, :sub-index
  :refs is Array of (Hash :target, :place, :is-header)
  :target is for link, :place is section name
- :is-header because &lt;span id="index-entry-"&gt;&lt;span class="indexed"&gt;&lt;/span&gt;&lt;/span&gt; in headings treated differently to ordinary text
+ :is-header because <span id="index-entry-"><span class="indexed"></span></span> in headings treated differently to ordinary text
 </pre>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;39d0efa&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.footnotes_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="39d0efa"><span class="code">@.footnotes </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;39d0efa&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.footnotes_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="39d0efa"class="py-4"><span class="code">@.footnotes </span> </p>
 </a></h4>
 <pre class="code-block">Footnotes (from N&lt;&gt; markup)
 Ordered Array of :$text, :$retTarget, :$fnNumber, :$fnTarget
@@ -333,54 +333,54 @@ fnTarget is link to rendered footnote
 retTarget is link to where footnote is defined to link back form footnote
 </pre>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;c8f0741&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_%.semantics_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="c8f0741"><span class="code">Array %.semantics </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;c8f0741&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_%.semantics_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="c8f0741"class="py-4"><span class="code">Array %.semantics </span> </p>
 </a></h4>
-<p id="3ffaa5d">Semantic blocks (which includes TITLE & SUBTITLE) can be hidden Hash of SEMANTIC => [ PStr | Str ] </p>
+<p id="3ffaa5d"class="py-4">Semantic blocks (which includes TITLE & SUBTITLE) can be hidden Hash of SEMANTIC => [ PStr | Str ] </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;183a407&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.warnings_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="183a407"><span class="code">@.warnings </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;183a407&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.warnings_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="183a407"class="py-4"><span class="code">@.warnings </span> </p>
 </a></h4>
-<p id="4960b15">An array of warnings is generated and then rendered by the warnings template The warning template, by default is called by the wrap-source template RakuDoc warnings are generated as specified in the RakuDoc v2 document. </p>
+<p id="4960b15"class="py-4">An array of warnings is generated and then rendered by the warnings template The warning template, by default is called by the wrap-source template RakuDoc warnings are generated as specified in the RakuDoc v2 document. </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;cb74584&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.items_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="cb74584"><span class="code">@.items </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;cb74584&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.items_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="cb74584"class="py-4"><span class="code">@.items </span> </p>
 </a></h4>
-<p id="a5b5846">An array of accumulated rendered items, added to body when next non-item block encountered </p>
+<p id="a5b5846"class="py-4">An array of accumulated rendered items, added to body when next non-item block encountered </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;f5230bd&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.defns_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="f5230bd"><span class="code">@.defns </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;f5230bd&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.defns_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="f5230bd"class="py-4"><span class="code">@.defns </span> </p>
 </a></h4>
-<p id="943df73">An array of accumulated rendered definitions, added to body when next non-defn block encountered </p>
+<p id="943df73"class="py-4">An array of accumulated rendered definitions, added to body when next non-defn block encountered </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;848f240&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numitems_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="848f240"><span class="code">@.numitems </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;848f240&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numitems_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="848f240"class="py-4"><span class="code">@.numitems </span> </p>
 </a></h4>
-<p id="877174c">An array of accumulated rendered numbered items, added to body when next non-item block encountered </p>
+<p id="877174c"class="py-4">An array of accumulated rendered numbered items, added to body when next non-item block encountered </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;200b196&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numdefns_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="200b196"><span class="code">@.numdefns </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;200b196&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numdefns_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="200b196"class="py-4"><span class="code">@.numdefns </span> </p>
 </a></h4>
-<p id="7b0e777">An array of accumulated rendered numbered definitions, added to body when next non-defn block encountered </p>
+<p id="7b0e777"class="py-4">An array of accumulated rendered numbered definitions, added to body when next non-defn block encountered </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;a3990c6&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.definitions_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="a3990c6"><span class="code">%.definitions </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;a3990c6&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.definitions_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="a3990c6"class="py-4"><span class="code">%.definitions </span> </p>
 </a></h4>
-<p id="19cd8a1">Hash of definition => rendered value for definitions </p>
+<p id="19cd8a1"class="py-4">Hash of definition => rendered value for definitions </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;a256195&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.inline-defns_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="a256195"><span class="code">@.inline-defns </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;a256195&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.inline-defns_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="a256195"class="py-4"><span class="code">@.inline-defns </span> </p>
 </a></h4>
-<p id="9e0ecf0">Array to signal when one or more inline defn are made in a Paragraph </p>
+<p id="9e0ecf0"class="py-4">Array to signal when one or more inline defn are made in a Paragraph </p>
 
-<div class="id-target" id=""></div><h3 id="Attributes_of_RakuDoc::Processed" class="heading "><a href="#" title="go to top of document">Attributes of RakuDoc::Processed</a></h3>
-<p id="a1a36bd">All of the ProcessState attributes, and the following. </p>
+<div class="id-target" id=""></div><h3 id="Attributes_of_RakuDoc::Processed" class="heading  py-4"><a href="#" title="go to top of document">Attributes of RakuDoc::Processed</a></h3>
+<p id="a1a36bd"class="py-4">All of the ProcessState attributes, and the following. </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;83f512a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_%.source-data_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="83f512a"><span class="code"> %.source-data </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;83f512a&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_%.source-data_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="83f512a"class="py-4"><span class="code"> %.source-data </span> </p>
 </a></h4>
-<p id="e3abda9">Information about the RakuDoc source, eg file name, path, modified, language </p>
+<p id="e3abda9"class="py-4">Information about the RakuDoc source, eg file name, path, modified, language </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;8ec13ee&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_$!output-format_=_'txt'_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="8ec13ee"><span class="code"> $!output-format = 'txt' </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;8ec13ee&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_$!output-format_=_'txt'_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="8ec13ee"class="py-4"><span class="code"> $!output-format = 'txt' </span> </p>
 </a></h4>
-<p id="c077417">The output format that the source has been rendered into </p>
+<p id="c077417"class="py-4">The output format that the source has been rendered into </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;13f8909&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.front-matter_is_rw_=_'preface'_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="13f8909"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;13f8909&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.front-matter_is_rw_=_'preface'_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="13f8909"class="py-4"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
 </a></h4>
-<p id="aa2271a">Text between =TITLE and first header, used for <span id="index-entry-_0"><span class="indexed"></span></span> place before first header </p>
+<p id="aa2271a"class="py-4">Text between =TITLE and first header, used for <span id="index-entry-_0"><span class="indexed"></span></span> place before first header </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;7a7260a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.name_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="7a7260a"><span class="code"> Str $.name is rw </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;7a7260a&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.name_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="7a7260a"class="py-4"><span class="code"> Str $.name is rw </span> </p>
 </a></h4>
 <pre class="code-block">Name to be used in titles and files
 name can be modified after creation of Object
@@ -388,50 +388,50 @@ name can be set when creating object
 if name is not set, then it is taken from source name + format
 </pre>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;1cc966d&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title_is_rw_=_'NO_TITLE'_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="1cc966d"><span class="code"> Str $.title is rw = 'NO_TITLE' </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;1cc966d&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title_is_rw_=_'NO_TITLE'_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="1cc966d"class="py-4"><span class="code"> Str $.title is rw = 'NO_TITLE' </span> </p>
 </a></h4>
-<p id="b207d5d">String value of TITLE. </p>
+<p id="b207d5d"class="py-4">String value of TITLE. </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;3bab138&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title-target_is_rw_=_'___top'_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="3bab138"><span class="code"> Str $.title-target is rw = '___top' </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;3bab138&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title-target_is_rw_=_'___top'_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="3bab138"class="py-4"><span class="code"> Str $.title-target is rw = '___top' </span> </p>
 </a></h4>
-<p id="77bfcf9">Target of Title Line </p>
+<p id="77bfcf9"class="py-4">Target of Title Line </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;70b27ab&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.subtitle_is_rw_=_''_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="70b27ab"><span class="code"> Str $.subtitle is rw = '' </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;70b27ab&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.subtitle_is_rw_=_''_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="70b27ab"class="py-4"><span class="code"> Str $.subtitle is rw = '' </span> </p>
 </a></h4>
-<p id="52a4608">String value of SUBTITLE, provides description of file </p>
+<p id="52a4608"class="py-4">String value of SUBTITLE, provides description of file </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;d5a3b20&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="d5a3b20"><span class="code"> Str $.modified is rw = now.DateTime.utc.truncated-to('seconds').Str </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;d5a3b20&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="d5a3b20"class="py-4"><span class="code"> Str $.modified is rw = now.DateTime.utc.truncated-to('seconds').Str </span> </p>
 </a></h4>
-<p id="deb5920">When RakuDoc Processed Object modified (source-data<modified> should be earlier than RPO.modified) </p>
+<p id="deb5920"class="py-4">When RakuDoc Processed Object modified (source-data<modified> should be earlier than RPO.modified) </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;9a72100&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_SetHash_$.targets_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="9a72100"><span class="code"> SetHash $.targets </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;9a72100&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_SetHash_$.targets_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="9a72100"class="py-4"><span class="code"> SetHash $.targets </span> </p>
 </a></h4>
-<p id="51e7f52">target data generated from block names and :id metadata A set of unique targets inside the file, new targets must be unique </p>
+<p id="51e7f52"class="py-4">target data generated from block names and :id metadata A set of unique targets inside the file, new targets must be unique </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;ac2662c&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Hash_%.links_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="ac2662c"><span class="code"> Hash %.links </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;ac2662c&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Hash_%.links_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="ac2662c"class="py-4"><span class="code"> Hash %.links </span> </p>
 </a></h4>
-<p id="cc2d340">Links (from <a href="destination">link-label</a> markup) Hash of destination => :target, :type, :place, :link-label target = computed URL (for local files), place = anchor inside file type has following values: </p>
+<p id="cc2d340"class="py-4">Links (from <a href="destination">link-label</a> markup) Hash of destination => :target, :type, :place, :link-label target = computed URL (for local files), place = anchor inside file type has following values: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> Internal are of the form '#this is a heading' and refer to anchors inside the file</li>
 <li class="item" data-bullet="•" style="--level:0;"> Local are of the form 'some-type#a heading there', where 'some-type' is a file name in the same directory</li>
 <li class="item" data-bullet="•" style="--level:0;"> External is a fully qualified URL</li>
 </ul>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;05e7424&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-toc_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="05e7424"><span class="code"> Str $.rendered-toc is rw </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;05e7424&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-toc_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="05e7424"class="py-4"><span class="code"> Str $.rendered-toc is rw </span> </p>
 </a></h4>
-<p id="e064804">Rendered version of the ToC </p>
+<p id="e064804"class="py-4">Rendered version of the ToC </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;5124fa1&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-index_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="5124fa1"><span class="code"> Str $.rendered-index is rw </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;5124fa1&quot;class=&quot;py-4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-index_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="5124fa1"class="py-4"><span class="code"> Str $.rendered-index is rw </span> </p>
 </a></h4>
-<p id="10f5945">Rendered version of the Index </p>
+<p id="10f5945"class="py-4">Rendered version of the Index </p>
 
-<div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
+<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-4"><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
 
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
+<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-4"><a href="#" title="go to top of document">VERSION</a></h2>
 v0.2.1
 
 
@@ -450,7 +450,7 @@ v0.2.1
                 Rendered from <span class="footer-field">docs/Processed</span>
             </div>
             <div class="level-item">
-                Rendered at 21:16 UTC on 2024-07-28</span>
+                Rendered at 07:33 UTC on 2024-08-02</span>
             </div>
             <div class="level-item">
                 Source last modified at 20:48 UTC on 2024-07-06</span>

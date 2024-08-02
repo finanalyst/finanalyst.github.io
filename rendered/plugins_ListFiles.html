@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-light" >
+<html class="theme-light" style="scroll-padding-top:var(--bulma-navbar-height)" >
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -277,17 +277,17 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="Overview" class="heading "><a href="#" title="go to top of document">Overview</a></h2>
-<p id="99c1f37">When a group of Rakudoc files are rendered using a <span class="code">RakuDoc::Processor</span> object (RPO), the data from the processing can be collected before the final output is stored. </p>
-<p id="7ba2c85">If this processed file meta data is injected back into the RPO before a RakuDoc source with a <span class="code">=ListFiles</span> block, then the block will output the files in the meta data cache according to selector criteria. </p>
+<div class="id-target" id=""></div><h2 id="Overview" class="heading  py-4"><a href="#" title="go to top of document">Overview</a></h2>
+<p id="99c1f37"class="py-4">When a group of Rakudoc files are rendered using a <span class="code">RakuDoc::Processor</span> object (RPO), the data from the processing can be collected before the final output is stored. </p>
+<p id="7ba2c85"class="py-4">If this processed file meta data is injected back into the RPO before a RakuDoc source with a <span class="code">=ListFiles</span> block, then the block will output the files in the meta data cache according to selector criteria. </p>
 
-<div class="id-target" id=""></div><h2 id="Selectors" class="heading "><a href="#" title="go to top of document">Selectors</a></h2>
-<p id="5bd0169">At the start of a RakuDoc source is a <span class="code">=begin rakudoc</span> instruction. It can be given metadata options, which describe the file. </p>
-<p id="ec804db">For example, the documentation files for the <span class="code">RakuAST::RakuDoc::Render</span> distribution all contain the option <span class="code">:type</span>, eg. </p>
+<div class="id-target" id=""></div><h2 id="Selectors" class="heading  py-4"><a href="#" title="go to top of document">Selectors</a></h2>
+<p id="5bd0169"class="py-4">At the start of a RakuDoc source is a <span class="code">=begin rakudoc</span> instruction. It can be given metadata options, which describe the file. </p>
+<p id="ec804db"class="py-4">For example, the documentation files for the <span class="code">RakuAST::RakuDoc::Render</span> distribution all contain the option <span class="code">:type</span>, eg. </p>
 <pre class="code-block">    =begin rakudoc :type&lt;plugin&gt;
 </pre>
-<p id="d68a441">In the distribution, the <span class="important">type</span> option is given the values: <span class="basis">plugin</span>, <span class="basis">renderer</span>, <span class="basis">fundamental</span>, and <span class="basis">minor</span>. </p>
-<p id="52f6f89">Using the <span class="code">ListFiles</span> block, an index source can be written so that the files are sorted according to the type values, eg. </p>
+<p id="d68a441"class="py-4">In the distribution, the <span class="important">type</span> option is given the values: <span class="basis">plugin</span>, <span class="basis">renderer</span>, <span class="basis">fundamental</span>, and <span class="basis">minor</span>. </p>
+<p id="52f6f89"class="py-4">Using the <span class="code">ListFiles</span> block, an index source can be written so that the files are sorted according to the type values, eg. </p>
 <pre class="code-block">The documentation can be split as follows:
 =for ListFiles :select&lt;type=fundamental&gt; :caption&lt;Fundamental&gt;
 Sources containing key concepts and information
@@ -300,16 +300,16 @@ Descriptions of the Renderer classes
 =for ListFiles :select&lt;type=!&gt; :caption&lt;Files without type options&gt;
 File from other sources or automatically generated
 </pre>
-<p id="a946455">The last example shows how to capture files that do not have a type option. A file not matching any of the select criteria are not listed, so having a catchall syntax ensures all the RakuDoc source files in a collection are listed. </p>
-<p id="75c2cf3">When more meta options are available, for example the Raku documentation suite, with about 700 source files, has three metadata options for each file. </p>
+<p id="a946455"class="py-4">The last example shows how to capture files that do not have a type option. A file not matching any of the select criteria are not listed, so having a catchall syntax ensures all the RakuDoc source files in a collection are listed. </p>
+<p id="75c2cf3"class="py-4">When more meta options are available, for example the Raku documentation suite, with about 700 source files, has three metadata options for each file. </p>
 
-<div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
+<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-4"><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth, aka finanalyst
 
 
 
 
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
+<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-4"><a href="#" title="go to top of document">VERSION</a></h2>
 v0.1.0
 
 
@@ -328,7 +328,7 @@ v0.1.0
                 Rendered from <span class="footer-field">docs/plugins/plugins/ListFiles</span>
             </div>
             <div class="level-item">
-                Rendered at 21:16 UTC on 2024-07-28</span>
+                Rendered at 07:33 UTC on 2024-08-02</span>
             </div>
             <div class="level-item">
                 Source last modified at 20:48 UTC on 2024-07-06</span>

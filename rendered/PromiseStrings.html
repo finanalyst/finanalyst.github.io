@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-light" >
+<html class="theme-light" style="scroll-padding-top:var(--bulma-navbar-height)" >
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -276,85 +276,85 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="PCell_and_PStr_classes" class="heading "><a href="#" title="go to top of document">PCell and PStr classes</a></h2>
-<p id="64dc8b9">RakuDoc statements that make references to structures or data that have not been completely rendered embed the references in <span class="basis">PCells</span>, which will interpolate the rendering once known. </p>
-<p id="1df43c5">For instance, when <span class="code">=place toc:*</span> is given in a RakuDoc source (eg at the top of a source), typically the source has not yet been completely rendered. </p>
-<p id="6fd957a">The renderer actually renders a source into <span class="code">PStr</span> or <span class="basis">PromiseStrings</span> rather than <span class="code">Str</span>. As forward references become known, they are included in the text. </p>
-<p id="efa7434">Consequently, parameters to a template may contain a mixture of Raku <span class="important">Str</span> and <span class="important">PCells</span>, in an object of type called <span class="basis">PStr</span>. </p>
-<p id="3f9e5eb"><span class="important">PCells</span> should not be visible to the template user. </p>
-<p id="6951b3b">If a <span class="important">PStr</span> or <span class="important">PCell</span> is stringified before the data has been rendered, its internal <span class="important">id</span> and <span class="important">UNAVAILABLE</span> will be the rendered result. </p>
-<p id="bef1394">Since the embedded content of a <span class="important">PStr</span> may ony be available after a template has rendered, care must be taken not be stringify any of the parameters prematurely. </p>
-<p id="c8344f0">Consequently, the return object from a template should be built from the parameter values using the concatenation operator <span class="code">~</span>. </p>
+<div class="id-target" id=""></div><h2 id="PCell_and_PStr_classes" class="heading  py-4"><a href="#" title="go to top of document">PCell and PStr classes</a></h2>
+<p id="64dc8b9"class="py-4">RakuDoc statements that make references to structures or data that have not been completely rendered embed the references in <span class="basis">PCells</span>, which will interpolate the rendering once known. </p>
+<p id="1df43c5"class="py-4">For instance, when <span class="code">=place toc:*</span> is given in a RakuDoc source (eg at the top of a source), typically the source has not yet been completely rendered. </p>
+<p id="6fd957a"class="py-4">The renderer actually renders a source into <span class="code">PStr</span> or <span class="basis">PromiseStrings</span> rather than <span class="code">Str</span>. As forward references become known, they are included in the text. </p>
+<p id="efa7434"class="py-4">Consequently, parameters to a template may contain a mixture of Raku <span class="important">Str</span> and <span class="important">PCells</span>, in an object of type called <span class="basis">PStr</span>. </p>
+<p id="3f9e5eb"class="py-4"><span class="important">PCells</span> should not be visible to the template user. </p>
+<p id="6951b3b"class="py-4">If a <span class="important">PStr</span> or <span class="important">PCell</span> is stringified before the data has been rendered, its internal <span class="important">id</span> and <span class="important">UNAVAILABLE</span> will be the rendered result. </p>
+<p id="bef1394"class="py-4">Since the embedded content of a <span class="important">PStr</span> may ony be available after a template has rendered, care must be taken not be stringify any of the parameters prematurely. </p>
+<p id="c8344f0"class="py-4">Consequently, the return object from a template should be built from the parameter values using the concatenation operator <span class="code">~</span>. </p>
 
-<div class="id-target" id=""></div><h3 id="Concatenation_to_PStr" class="heading "><a href="#" title="go to top of document">Concatenation to PStr</a></h3>
-<p id="ed12c32">A PStr is built up by concatenating using the infix operator <span class="code">~</span>. Assignment does not add to a PStr. Concatenation can be on the left or the right of the PStr and the result will depend on the type. </p>
+<div class="id-target" id=""></div><h3 id="Concatenation_to_PStr" class="heading  py-4"><a href="#" title="go to top of document">Concatenation to PStr</a></h3>
+<p id="ed12c32"class="py-4">A PStr is built up by concatenating using the infix operator <span class="code">~</span>. Assignment does not add to a PStr. Concatenation can be on the left or the right of the PStr and the result will depend on the type. </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> A PCell on the left or right is added to the start or end, respectively, of the PStr</li>
 <li class="item" data-bullet="•" style="--level:0;"> Concatentating two PStr adds the right hand one to the left hand one, and returns the left hand one</li>
 <li class="item" data-bullet="•" style="--level:0;"> Any other type on the left or right is coerced to a Str and added to the start/end of the PStr</li>
 </ul>
-<p id="f906456">Since left concatenation has an effect on the PStr on the right, use <span class="code">sink</span> to discard the return value, unless of course the return value is the last line of a block, in which case it is returned as the value of the block, eg., </p>
+<p id="f906456"class="py-4">Since left concatenation has an effect on the PStr on the right, use <span class="code">sink</span> to discard the return value, unless of course the return value is the last line of a block, in which case it is returned as the value of the block, eg., </p>
 <pre class="code-block">my PStr $p;
 $p ~= PCell.new( :s($a-supplier.Supply), :id&lt;AAA&gt; );
 sink '&lt;bold&gt;' ~ $p
 </pre>
 
-<div class="id-target" id=""></div><h3 id="PStr_methods" class="heading "><a href="#" title="go to top of document">PStr methods</a></h3>
-<p id="f690ca5">The following methods are defined for <span class="basis">PStr</span>. Unless specified, they result in a <span class="basis">PStr</span> allowing for chaining. </p>
+<div class="id-target" id=""></div><h3 id="PStr_methods" class="heading  py-4"><a href="#" title="go to top of document">PStr methods</a></h3>
+<p id="f690ca5"class="py-4">The following methods are defined for <span class="basis">PStr</span>. Unless specified, they result in a <span class="basis">PStr</span> allowing for chaining. </p>
 
-<div class="id-target" id=""></div><h4 id="new()_and_new(_*@string_)" class="heading "><a href="#" title="go to top of document">new() and new( *@string )</a></h4>
-<p id="95edfd4">Creates a new <span class="basis">PStr</span> either with no parameters, or a sequence of strings. </p>
+<div class="id-target" id=""></div><h4 id="new()_and_new(_*@string_)" class="heading  py-4"><a href="#" title="go to top of document">new() and new( *@string )</a></h4>
+<p id="95edfd4"class="py-4">Creates a new <span class="basis">PStr</span> either with no parameters, or a sequence of strings. </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;f42f66f&quot;&gt;debug_Calling_debug_on_a_&lt;span_class=&quot;basis&quot;&gt;PStr&lt;/span&gt;_will_stringify_the_object_together_with_information_about_any_&lt;span_class=&quot;basis&quot;&gt;PCells&lt;/span&gt;_inside_the_object._&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="f42f66f">debug Calling debug on a <span class="basis">PStr</span> will stringify the object together with information about any <span class="basis">PCells</span> inside the object. </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;f42f66f&quot;class=&quot;py-4&quot;&gt;debug_Calling_debug_on_a_&lt;span_class=&quot;basis&quot;&gt;PStr&lt;/span&gt;_will_stringify_the_object_together_with_information_about_any_&lt;span_class=&quot;basis&quot;&gt;PCells&lt;/span&gt;_inside_the_object._&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="f42f66f"class="py-4">debug Calling debug on a <span class="basis">PStr</span> will stringify the object together with information about any <span class="basis">PCells</span> inside the object. </p>
 </a></h4>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;9d5b7aa&quot;&gt;Method_strip_Goes_through_a_&lt;span_class=&quot;basis&quot;&gt;PStr&lt;/span&gt;_and_substitutes_any_expanded_&lt;span_class=&quot;basis&quot;&gt;PCell&lt;/span&gt;_with_its_Str_equivalent._All_Str_are_then_concatenated._&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="9d5b7aa">Method strip Goes through a <span class="basis">PStr</span> and substitutes any expanded <span class="basis">PCell</span> with its Str equivalent. All Str are then concatenated. </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;9d5b7aa&quot;class=&quot;py-4&quot;&gt;Method_strip_Goes_through_a_&lt;span_class=&quot;basis&quot;&gt;PStr&lt;/span&gt;_and_substitutes_any_expanded_&lt;span_class=&quot;basis&quot;&gt;PCell&lt;/span&gt;_with_its_Str_equivalent._All_Str_are_then_concatenated._&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="9d5b7aa"class="py-4">Method strip Goes through a <span class="basis">PStr</span> and substitutes any expanded <span class="basis">PCell</span> with its Str equivalent. All Str are then concatenated. </p>
 </a></h4>
 
-<div class="id-target" id=""></div><h4 id="Method_trim-trailing,_trim-leading,_trim" class="heading "><a href="#" title="go to top of document">Method trim-trailing, trim-leading, trim</a></h4>
-<p id="d39f1dc"><span class="code">strip</span> is first called, then trailing or leading space, respectively, are removed from final, initial strings in the <span class="basis">PStr</span>. <span class="code">trim</span> calls both trim-trailing and trim-leading. </p>
+<div class="id-target" id=""></div><h4 id="Method_trim-trailing,_trim-leading,_trim" class="heading  py-4"><a href="#" title="go to top of document">Method trim-trailing, trim-leading, trim</a></h4>
+<p id="d39f1dc"class="py-4"><span class="code">strip</span> is first called, then trailing or leading space, respectively, are removed from final, initial strings in the <span class="basis">PStr</span>. <span class="code">trim</span> calls both trim-trailing and trim-leading. </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;e4dd623&quot;&gt;Method_&lt;span_class=&quot;code&quot;&gt;_has-PCells(_--&gt;_Bool_)_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="e4dd623">Method <span class="code"> has-PCells( --> Bool ) </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;e4dd623&quot;class=&quot;py-4&quot;&gt;Method_&lt;span_class=&quot;code&quot;&gt;_has-PCells(_--&gt;_Bool_)_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="e4dd623"class="py-4">Method <span class="code"> has-PCells( --> Bool ) </span> </p>
 </a></h4>
-<p id="1e62eca">Determines whether there are any unexpanded <span class="basis">PCell</span> in a <span class="basis">PStr</span>. </p>
+<p id="1e62eca"class="py-4">Determines whether there are any unexpanded <span class="basis">PCell</span> in a <span class="basis">PStr</span>. </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;e621643&quot;&gt;Method_&lt;span_class=&quot;code&quot;&gt;_segments(_--&gt;_Int_)_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="e621643">Method <span class="code"> segments( --> Int ) </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;e621643&quot;class=&quot;py-4&quot;&gt;Method_&lt;span_class=&quot;code&quot;&gt;_segments(_--&gt;_Int_)_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="e621643"class="py-4">Method <span class="code"> segments( --> Int ) </span> </p>
 </a></h4>
-<p id="b7c33c2">Returns the number of segments (strings or <span class="basis">PCells</span>) in a <span class="basis">PStr</span> </p>
+<p id="b7c33c2"class="py-4">Returns the number of segments (strings or <span class="basis">PCells</span>) in a <span class="basis">PStr</span> </p>
 
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;dec8576&quot;&gt;Methods_&lt;span_class=&quot;code&quot;&gt;_lead(_--&gt;Str_)_&lt;/span&gt;_and_&lt;span_class=&quot;code&quot;&gt;_tail(_--&gt;_Str_)_&lt;/span&gt;_&lt;/p&gt;" class="heading "><a href="#" title="go to top of document"><p id="dec8576">Methods <span class="code"> lead( -->Str ) </span> and <span class="code"> tail( --> Str ) </span> </p>
+<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;dec8576&quot;class=&quot;py-4&quot;&gt;Methods_&lt;span_class=&quot;code&quot;&gt;_lead(_--&gt;Str_)_&lt;/span&gt;_and_&lt;span_class=&quot;code&quot;&gt;_tail(_--&gt;_Str_)_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-4"><a href="#" title="go to top of document"><p id="dec8576"class="py-4">Methods <span class="code"> lead( -->Str ) </span> and <span class="code"> tail( --> Str ) </span> </p>
 </a></h4>
-<p id="480295c">These two methods of a <span class="important">PStr</span> object return any of the <span class="basis">leading</span> or <span class="basis">tailing</span> (respectively) <span class="important">Str</span> elements of the <span class="important">PStr</span>. The elements are removed, and so should be concatenated back on after processing. </p>
-<p id="aa45553">For simplicity above, examples were given of pre- and post-processing templates, and treating the contents of <span class="code">%prm</span> as <span class="important">Str</span>. Since some parameters may contain <span class="important">PStr</span>, more care is needed. For example, the post-processing should be done as follows: </p>
-<pre class="code-block">table =&gt; -&gt; %prm, $tmpl {
+<p id="480295c"class="py-4">These two methods of a <span class="important">PStr</span> object return any of the <span class="basis">leading</span> or <span class="basis">tailing</span> (respectively) <span class="important">Str</span> elements of the <span class="important">PStr</span>. The elements are removed, and so should be concatenated back on after processing. </p>
+<p id="aa45553"class="py-4">For simplicity above, examples were given of pre- and post-processing templates, and treating the contents of <span class="code">%prm</span> as <span class="important">Str</span>. Since some parameters may contain <span class="important">PStr</span>, more care is needed. For example, the post-processing should be done as follows: </p>
+<pre class="code-block">table => -> %prm, $tmpl {
     my $rv = $tmpl.prev;
     if $rv ~~ PStr {
         # get leading text
         my $lead = $rv.lead;
         # process the string, if it exists
-        $lead.subst( / '&lt;table' \s+ 'class="pod-table' /, '&lt;table class="table is-centered');
+        $lead.subst( / '<table' \s+ 'class="pod-table' /, '<table class="table is-centered');
         # left concatenate onto the PStr
         $lead ~ $rv
         # concatenating to a PStr results in a PStr, which is the return object
     }
-    else { $rv.subst( / '&lt;table' \s+ 'class="pod-table' /, '&lt;table class="table is-centered') }
+    else { $rv.subst( / '<table' \s+ 'class="pod-table' /, '<table class="table is-centered') }
 }
 </pre>
 
-<div class="id-target" id=""></div><h3 id="PCell_methods" class="heading "><a href="#" title="go to top of document">PCell methods</a></h3>
-<p id="67e8a02"><span class="basis">PCells</span> should be invisible to the end user. However, if references are made that are not expanded, then a PCell will become visible. </p>
-<p id="8a63624">Typically, <span class="basis">PCell</span> instances are converted to Str once a future block has provided the payload needed for the cell. </p>
+<div class="id-target" id=""></div><h3 id="PCell_methods" class="heading  py-4"><a href="#" title="go to top of document">PCell methods</a></h3>
+<p id="67e8a02"class="py-4"><span class="basis">PCells</span> should be invisible to the end user. However, if references are made that are not expanded, then a PCell will become visible. </p>
+<p id="8a63624"class="py-4">Typically, <span class="basis">PCell</span> instances are converted to Str once a future block has provided the payload needed for the cell. </p>
 
-<div class="id-target" id=""></div><h4 id="debug" class="heading "><a href="#" title="go to top of document">debug</a></h4>
-<p id="9b2645c">Provides information about a <span class="basis">PCell</span>. </p>
+<div class="id-target" id=""></div><h4 id="debug" class="heading  py-4"><a href="#" title="go to top of document">debug</a></h4>
+<p id="9b2645c"class="py-4">Provides information about a <span class="basis">PCell</span>. </p>
 
-<div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
+<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-4"><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
 
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
+<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-4"><a href="#" title="go to top of document">VERSION</a></h2>
 v0.2.1
 
 
@@ -373,7 +373,7 @@ v0.2.1
                 Rendered from <span class="footer-field">docs/PromiseStrings</span>
             </div>
             <div class="level-item">
-                Rendered at 21:16 UTC on 2024-07-28</span>
+                Rendered at 07:33 UTC on 2024-08-02</span>
             </div>
             <div class="level-item">
                 Source last modified at 21:19 UTC on 2024-07-21</span>

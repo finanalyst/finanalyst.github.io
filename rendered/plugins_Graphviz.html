@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-light" >
+<html class="theme-light" style="scroll-padding-top:var(--bulma-navbar-height)" >
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -277,23 +277,23 @@ function swap_toc_index(activate) {
     <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="Introduction" class="heading "><a href="#" title="go to top of document">Introduction</a></h2>
-<p id="d9cc137">The GraphViz block introduces a directed graph in the dot language. It is rendered into HTML as an svg using the dot program. Since a graph data is require, only the delimited form of the block (starting with =begin/=end) will be used. </p>
-<p id="63e7876">The following digraph comes from the <span class="code">dot</span> documentation. The following Rakudoc </p>
+<div class="id-target" id=""></div><h2 id="Introduction" class="heading  py-4"><a href="#" title="go to top of document">Introduction</a></h2>
+<p id="d9cc137"class="py-4">The GraphViz block introduces a directed graph in the dot language. It is rendered into HTML as an svg using the dot program. Since a graph data is require, only the delimited form of the block (starting with =begin/=end) will be used. </p>
+<p id="63e7876"class="py-4">The following digraph comes from the <span class="code">dot</span> documentation. The following Rakudoc </p>
 <pre class="code-block">=begin Graphviz :headlevel(2) :caption&lt;Simple example&gt;
     digraph G {
-        main -&gt; parse -&gt; execute;
-        main -&gt; init;
-        main -&gt; cleanup;
-        execute -&gt; make_string;
-        execute -&gt; printf
-        init -&gt; make_string;
-        main -&gt; printf;
-        execute -&gt; compare;
+        main -> parse -> execute;
+        main -> init;
+        main -> cleanup;
+        execute -> make_string;
+        execute -> printf
+        init -> make_string;
+        main -> printf;
+        execute -> compare;
     }
 =end Graphviz
 </pre>
-<p id="b28eadc">produces </p>
+<p id="b28eadc"class="py-4">produces </p>
 
 <div class="graphviz"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -411,13 +411,13 @@ function swap_toc_index(activate) {
 </g>
 </svg>
 </div>
-<div class="id-target" id=""></div><h2 id="Credits" class="heading "><a href="#" title="go to top of document">Credits</a></h2>
+<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-4"><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
 
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading "><a href="#" title="go to top of document">VERSION</a></h2>
+<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-4"><a href="#" title="go to top of document">VERSION</a></h2>
 v0.1.0
 
 
@@ -436,7 +436,7 @@ v0.1.0
                 Rendered from <span class="footer-field">docs/plugins/plugins/Graphviz</span>
             </div>
             <div class="level-item">
-                Rendered at 21:16 UTC on 2024-07-28</span>
+                Rendered at 07:33 UTC on 2024-08-02</span>
             </div>
             <div class="level-item">
                 Source last modified at 20:48 UTC on 2024-07-06</span>
