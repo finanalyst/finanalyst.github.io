@@ -3,10 +3,19 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><p id="bfa6e20"class="py-4">Templates in <span class="code">default-text-templates</span> </p>
+    <title><p id="bfa6e20">Templates in <span class="code">default-text-templates</span> </p>
 </title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
-<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+</style>
+<style>#page-nav .panel-block .toc {
+    overflow-y:scroll;
+    height:65vh;
+}
+#page-nav .panel-block .index {
+    overflow-y:scroll;
+    height:65vh;
+}
 </style>
 <style>.listf-container {
   display: flex;
@@ -98,6 +107,7 @@ crossorigin=""
 />
 
 <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+<script src="https://rawgit.com/farzher/fuzzysort/master/fuzzysort.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin=""
@@ -121,20 +131,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var matchTocState = function ( state ) {
         if ( state ) {
             document.getElementById("TOC").classList.remove('is-hidden');
+            document.getElementById("page-nav").classList.remove('is-hidden');
             persist_tocState( 'open');
         }
         else {
             document.getElementById("TOC").classList.add('is-hidden');
+            document.getElementById("page-nav").classList.add('is-hidden');
             persist_tocState( 'closed' );
         }
     }
     var setTocState = function ( state ) {
         if ( state === 'closed') {
             document.getElementById("TOC").classList.add('is-hidden');
+            document.getElementById("page-nav").classList.add('is-hidden');
             document.getElementById("navbar-toc-toggle").checked = false;
         }
         else {
             document.getElementById("TOC").classList.remove('is-hidden');
+            document.getElementById("page-nav").classList.remove('is-hidden');
             document.getElementById("navbar-toc-toggle").checked = true;
         }
     };
@@ -197,6 +211,39 @@ document.addEventListener('DOMContentLoaded', function () {
 //        document.execCommand("copy", false);
 //        document.body.removeChild(container);
 //    });
+    var TOC = document.getElementById('toc-menu');
+    var Index = document.getElementById('index-menu');
+    var originalTOC = TOC.getHTML();
+    var originalIndex = Index.getHTML();
+    document.getElementById("page-nav-search").addEventListener('keyup', function (event) {
+        TOC.innerHTML = originalTOC;
+        Index.innerHTML = originalIndex;
+        var searchText = event.srcElement.value.toLowerCase();
+        if (searchText.length === 0) return;
+        var menuListElements = document.getElementById('page-nav').querySelectorAll('.toc-item, .index-section');
+        var matchingListElements = Array.from(menuListElements).filter(function (item) {
+            var el;
+            if ( item.classList.contains('toc-item') ) {
+                el = item.querySelector('a');
+            } else {
+                el = item.querySelector('.index-entry')
+            }
+            var listItemHTML = el.innerHTML;
+            var fuzzyRes = fuzzysort.go(searchText, [listItemHTML])[0];
+            if (fuzzyRes === undefined || fuzzyRes.score <= 0) {
+                return false;
+            }
+            var res = fuzzyRes.highlight('<b>','</b>');
+            if (res !== null) {
+                el.innerHTML = res;
+                return true;
+            } else {
+                return false;
+            }
+        });
+    menuListElements.forEach(function(elem){elem.classList.add('is-hidden')});
+    matchingListElements.forEach(function(elem){elem.classList.remove('is-hidden')});
+    });
 });
 function swap_toc_index(activate) {
     let disactivate = (activate == 'toc') ? 'index' : 'toc';
@@ -212,240 +259,241 @@ function swap_toc_index(activate) {
     </head>
     <body class="has-navbar-fixed-top">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-<div class="navbar-brand">
-    <figure class="navbar-item is-128x128">
-        <a href="/index.html">
-        <img class="is-rounded" src="https://avatars.githubusercontent.com/u/58170775">
+    <div class="navbar-brand">
+        <figure class="navbar-item is-256x256">
+            <a href="/index.html">
+            <img class="is-rounded" src="https://avatars.githubusercontent.com/u/58170775">
+            </a>
+        </figure>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pageNavigation">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-    </figure>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pageNavigation">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-</div>
-<div id="pageNavigation" class="navbar-menu">
-    <div class="navbar-start">
-        <label class="chyronToggle">
-          <input id="navbar-toc-toggle" type="checkbox" />
-          <span class="checkmark"> </span>
-        </label>
     </div>
-    <div class="navbar-end">
-        <div class="navbar-item">
-            <button id="changeTheme" class="button">Change theme</button>
+    <div id="pageNavigation" class="navbar-menu">
+        <div class="navbar-start">
+            <label class="chyronToggle">
+              <input id="navbar-toc-toggle" type="checkbox" />
+              <span class="checkmark"> </span>
+            </label>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <button id="changeTheme" class="button">Change theme</button>
+            </div>
         </div>
     </div>
 </nav>
-<section class="section">
+<nav class="panel" id="page-nav" style="width: 25%; position:fixed;">
+  <div class="panel-block">
+    <p class="control has-icons-left">
+      <input class="input" type="text" placeholder="Search" id="page-nav-search"/>
+      <span class="icon is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
+  </div>
+  <p class="panel-tabs">
+    <a id="toc-tab">Table of Contents</a>
+    <a id="index-tab">Index</a>
+  </p>
+    <aside id="toc-menu" class="panel-block">
+    <div class="toc"><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Documentation_of_default_templates">Documentation of default templates</a></div>
+</div>
+
+    </aside>
+    <aside id="index-menu" class="panel-block is-hidden">
+    <p>No Index for this page</p>
+    </aside>
+</nav>
+
+    <div class="columns">
+    <div id="TOC" class="column is-one-quarter">
+        
+    </div>
+    <div class="column">
+        <section class="section">
   <div class="container">
-<div id="&lt;p_id=&quot;bfa6e20&quot;class=&quot;py-4&quot;&gt;Templates_in_&lt;span_class=&quot;code&quot;&gt;default-text-templates&lt;/span&gt;_&lt;/p&gt;"></div><h1 class="title is-centered"><p id="bfa6e20"class="py-4">Templates in <span class="code">default-text-templates</span> </p>
+<div id="&lt;p_id=&quot;bfa6e20&quot;&gt;Templates_in_&lt;span_class=&quot;code&quot;&gt;default-text-templates&lt;/span&gt;_&lt;/p&gt;"></div><h1 class="title is-centered"><p id="bfa6e20">Templates in <span class="code">default-text-templates</span> </p>
 </h1>
 
-<p class="subtitle"><p id="438785c"class="py-4">Auto generated from <span class="code">lib/RakuDoc/Render.rakumod</span> </p>
+<p class="subtitle"><p id="438785c">Auto generated from <span class="code">lib/RakuDoc/Render.rakumod</span> </p>
 </p>
   </div>
 </section>
 
-    <div class="columns">
-    <div id="TOC" class="column is-one-quarter">
-            <div class="container px-4">
-        <div class="tabs" id="tabs">
-            <ul>
-                <li class="is-active" id="toc-tab">
-                    <a>Table of Contents</a>
-                </li>
-                <li id="index-tab">
-                    <a>Index</a>
-                </li>
-            </ul>
-        </div>
-        <div class="container">
-            <aside id="toc-menu" class="menu">
-            <div class="toc">
-<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Documentation_of_default_templates">Documentation of default templates</a></div>
-</div>
-
-            </aside>
-            <aside id="index-menu" class="menu is-hidden">
-            <p>No Index for this page</p>
-            </aside>
-        </div>
-    </div>
-
-    </div>
-    <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="Documentation_of_default_templates" class="heading  py-4"><a href="#" title="go to top of document">Documentation of default templates</a></h2>
+<div class="id-target" id=""></div><h2 id="Documentation_of_default_templates" class="heading  py-2"><a href="#" title="go to top of document">Documentation of default templates</a></h2>
 <table class="table">
 <tr><th class="">Name</th><th class="">Description</th></tr>
-<tr><td class="procedural-cell-label">_name</td><td class=""><p id="27e3ddc"class="py-4">special key to name template set </p>
+<tr><td class="procedural-cell-label">_name</td><td class=""><p id="27e3ddc">special key to name template set </p>
 </td></tr>
-<tr><td class="procedural-cell-label">code</td><td class=""><p id="3dec596"class="py-4">renders =code blocks </p>
+<tr><td class="procedural-cell-label">code</td><td class=""><p id="3dec596">renders =code blocks </p>
 </td></tr>
-<tr><td class="procedural-cell-label">comment</td><td class=""><p id="2f99d68"class="py-4">renders =comment block </p>
+<tr><td class="procedural-cell-label">comment</td><td class=""><p id="2f99d68">renders =comment block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">custom</td><td class=""><p id="9e8c809"class="py-4">renders =custom block </p>
+<tr><td class="procedural-cell-label">custom</td><td class=""><p id="9e8c809">renders =custom block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">defn</td><td class=""><p id="c771e39"class="py-4">renders =defn block </p>
+<tr><td class="procedural-cell-label">defn</td><td class=""><p id="c771e39">renders =defn block </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">defn-list</td><td class=""><p id="7cb2885"class="py-4">renders =numdefn block </p>
+<tr><td rowspan="2" class="procedural-cell-label">defn-list</td><td class=""><p id="7cb2885">renders =numdefn block </p>
 </td></tr>
-<tr><td class=""><p id="b56631f"class="py-4">special template to render a defn list data structure </p>
+<tr><td class=""><p id="b56631f">special template to render a defn list data structure </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">delta</td><td class=""><p id="1b9acc8"class="py-4">rendering the content from the :delta option </p>
+<tr><td rowspan="2" class="procedural-cell-label">delta</td><td class=""><p id="1b9acc8">rendering the content from the :delta option </p>
 </td></tr>
-<tr><td class=""><p id="2bccd99"class="py-4">see inline variant markup-Δ </p>
+<tr><td class=""><p id="2bccd99">see inline variant markup-Δ </p>
 </td></tr>
-<tr><td class="procedural-cell-label">final</td><td class=""><p id="3405299"class="py-4">special template to encapsulate all the output to save to a file </p>
+<tr><td class="procedural-cell-label">final</td><td class=""><p id="3405299">special template to encapsulate all the output to save to a file </p>
 </td></tr>
-<tr><td class="procedural-cell-label">footnotes</td><td class=""><p id="50e844d"class="py-4">special template to render the footnotes data structure </p>
+<tr><td class="procedural-cell-label">footnotes</td><td class=""><p id="50e844d">special template to render the footnotes data structure </p>
 </td></tr>
-<tr><td class="procedural-cell-label">formula</td><td class=""><p id="331ed5b"class="py-4">renders =formula block </p>
+<tr><td class="procedural-cell-label">formula</td><td class=""><p id="331ed5b">renders =formula block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">head</td><td class=""><p id="9c65f22"class="py-4">renders =head block </p>
+<tr><td class="procedural-cell-label">head</td><td class=""><p id="9c65f22">renders =head block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">implicit-code</td><td class=""><p id="18f56ae"class="py-4">renders implicit code from an indented paragraph </p>
+<tr><td class="procedural-cell-label">implicit-code</td><td class=""><p id="18f56ae">renders implicit code from an indented paragraph </p>
 </td></tr>
-<tr><td class="procedural-cell-label">index</td><td class=""><p id="6edebce"class="py-4">special template to render the index data structure </p>
+<tr><td class="procedural-cell-label">index</td><td class=""><p id="6edebce">special template to render the index data structure </p>
 </td></tr>
-<tr><td class="procedural-cell-label">index-item</td><td class=""><p id="cd0c629"class="py-4">renders a single item in the index </p>
+<tr><td class="procedural-cell-label">index-item</td><td class=""><p id="cd0c629">renders a single item in the index </p>
 </td></tr>
-<tr><td class="procedural-cell-label">input</td><td class=""><p id="5bbbc8a"class="py-4">renders =input block </p>
+<tr><td class="procedural-cell-label">input</td><td class=""><p id="5bbbc8a">renders =input block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">item</td><td class=""><p id="2428f96"class="py-4">renders =item block </p>
+<tr><td class="procedural-cell-label">item</td><td class=""><p id="2428f96">renders =item block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">item-list</td><td class=""><p id="321fb0a"class="py-4">special template to render an item list data structure </p>
+<tr><td class="procedural-cell-label">item-list</td><td class=""><p id="321fb0a">special template to render an item list data structure </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-A</td><td class=""><p id="e53ae5c"class="py-4">A&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = ALIAS-NAME &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-A</td><td class=""><p id="e53ae5c">A&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = ALIAS-NAME &gt; </p>
 </td></tr>
-<tr><td class=""><p id="5c11d84"class="py-4">Alias to be replaced by contents of specified V&lt;=alias&gt; directive </p>
+<tr><td class=""><p id="5c11d84">Alias to be replaced by contents of specified V&lt;=alias&gt; directive </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-B</td><td class=""><p id="79aa5de"class="py-4">B&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-B</td><td class=""><p id="79aa5de">B&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="b6a0a75"class="py-4">Basis/focus of sentence (typically rendered bold) </p>
+<tr><td class=""><p id="b6a0a75">Basis/focus of sentence (typically rendered bold) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-C</td><td class=""><p id="dd79125"class="py-4">C&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-C</td><td class=""><p id="dd79125">C&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="053997a"class="py-4">Code (typically rendered fixed-width) </p>
+<tr><td class=""><p id="053997a">Code (typically rendered fixed-width) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-D</td><td class=""><p id="7468453"class="py-4">D&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = SYNONYMS &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-D</td><td class=""><p id="7468453">D&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = SYNONYMS &gt; </p>
 </td></tr>
-<tr><td class=""><p id="ec126f4"class="py-4">Definition inline ( D&lt;term being defined&amp;#124;synonym1; synonym2&gt; ) </p>
+<tr><td class=""><p id="ec126f4">Definition inline ( D&lt;term being defined&amp;#124;synonym1; synonym2&gt; ) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-E</td><td class=""><p id="29a1ef9"class="py-4">E&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = HTML/UNICODE-ENTITIES |&gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-E</td><td class=""><p id="29a1ef9">E&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = HTML/UNICODE-ENTITIES |&gt; </p>
 </td></tr>
-<tr><td class=""><p id="30ecf30"class="py-4">Entity (HTML or Unicode) description ( E&lt;entity1;entity2; multi,glyph;...|&gt; ) </p>
+<tr><td class=""><p id="30ecf30">Entity (HTML or Unicode) description ( E&lt;entity1;entity2; multi,glyph;...|&gt; ) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-F</td><td class=""><p id="204e906"class="py-4">F&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = LATEX-FORM &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-F</td><td class=""><p id="204e906">F&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = LATEX-FORM &gt; </p>
 </td></tr>
-<tr><td class=""><p id="75a783f"class="py-4">Formula inline content ( F&lt;ALT&amp;#124;LaTex notation&gt; ) </p>
+<tr><td class=""><p id="75a783f">Formula inline content ( F&lt;ALT&amp;#124;LaTex notation&gt; ) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-H</td><td class=""><p id="ed9d09c"class="py-4">H&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-H</td><td class=""><p id="ed9d09c">H&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="170b913"class="py-4">High text (typically rendered superscript) </p>
+<tr><td class=""><p id="170b913">High text (typically rendered superscript) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-I</td><td class=""><p id="c641ae1"class="py-4">I&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-I</td><td class=""><p id="c641ae1">I&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="d0ac424"class="py-4">Important (typically rendered in italics) </p>
+<tr><td class=""><p id="d0ac424">Important (typically rendered in italics) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-J</td><td class=""><p id="9ec00eb"class="py-4">J&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-J</td><td class=""><p id="9ec00eb">J&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="0241359"class="py-4">Junior text (typically rendered subscript) </p>
+<tr><td class=""><p id="0241359">Junior text (typically rendered subscript) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-K</td><td class=""><p id="54d7428"class="py-4">K&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-K</td><td class=""><p id="54d7428">K&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="3784b04"class="py-4">Keyboard input (typically rendered fixed-width) </p>
+<tr><td class=""><p id="3784b04">Keyboard input (typically rendered fixed-width) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-L</td><td class=""><p id="730c026"class="py-4">L&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = TARGET-URI &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-L</td><td class=""><p id="730c026">L&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = TARGET-URI &gt; </p>
 </td></tr>
-<tr><td class=""><p id="b400309"class="py-4">Link ( L&lt;display text&amp;#124;destination URI&gt; ) </p>
+<tr><td class=""><p id="b400309">Link ( L&lt;display text&amp;#124;destination URI&gt; ) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-M</td><td class=""><p id="6e4fb25"class="py-4">M&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = WHATEVER &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-M</td><td class=""><p id="6e4fb25">M&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = WHATEVER &gt; </p>
 </td></tr>
-<tr><td class=""><p id="88bd682"class="py-4">Markup extra ( M&lt;display text&amp;#124;functionality;param,sub-type;...&gt;) </p>
+<tr><td class=""><p id="88bd682">Markup extra ( M&lt;display text&amp;#124;functionality;param,sub-type;...&gt;) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-N</td><td class=""><p id="b7dad7e"class="py-4">N&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-N</td><td class=""><p id="b7dad7e">N&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="30d6980"class="py-4">Note (text not rendered inline, but visible in some way: footnote, sidenote, pop-up, etc.)) </p>
+<tr><td class=""><p id="30d6980">Note (text not rendered inline, but visible in some way: footnote, sidenote, pop-up, etc.)) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-O</td><td class=""><p id="4e9c862"class="py-4">O&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-O</td><td class=""><p id="4e9c862">O&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="a670973"class="py-4">Overstrike or strikethrough </p>
+<tr><td class=""><p id="a670973">Overstrike or strikethrough </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-P</td><td class=""><p id="12f4bc4"class="py-4">P&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = REPLACEMENT-URI &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-P</td><td class=""><p id="12f4bc4">P&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = REPLACEMENT-URI &gt; </p>
 </td></tr>
-<tr><td class=""><p id="76ffc1a"class="py-4">Placement link </p>
+<tr><td class=""><p id="76ffc1a">Placement link </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-R</td><td class=""><p id="f6414bf"class="py-4">R&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-R</td><td class=""><p id="f6414bf">R&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="2be8ae3"class="py-4">Replaceable component or metasyntax </p>
+<tr><td class=""><p id="2be8ae3">Replaceable component or metasyntax </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-S</td><td class=""><p id="55227d0"class="py-4">S&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-S</td><td class=""><p id="55227d0">S&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="9507ade"class="py-4">Space characters to be preserved </p>
+<tr><td class=""><p id="9507ade">Space characters to be preserved </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-T</td><td class=""><p id="e884418"class="py-4">T&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-T</td><td class=""><p id="e884418">T&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="391a995"class="py-4">Terminal output (typically rendered fixed-width) </p>
+<tr><td class=""><p id="391a995">Terminal output (typically rendered fixed-width) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-U</td><td class=""><p id="b41452b"class="py-4">U&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-U</td><td class=""><p id="b41452b">U&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="d41fa2f"class="py-4">Unusual (typically rendered with underlining) </p>
+<tr><td class=""><p id="d41fa2f">Unusual (typically rendered with underlining) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-V</td><td class=""><p id="4a843fb"class="py-4">V&lt; DISPLAY-TEXT &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-V</td><td class=""><p id="4a843fb">V&lt; DISPLAY-TEXT &gt; </p>
 </td></tr>
-<tr><td class=""><p id="44cbb29"class="py-4">Verbatim (internal markup instructions ignored) </p>
+<tr><td class=""><p id="44cbb29">Verbatim (internal markup instructions ignored) </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-X</td><td class=""><p id="e6aba76"class="py-4">X&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = INDEX-ENTRY &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-X</td><td class=""><p id="e6aba76">X&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = INDEX-ENTRY &gt; </p>
 </td></tr>
-<tr><td class=""><p id="247f97b"class="py-4">Index entry ( X&lt;display text&amp;#124;entry,subentry;...&gt;) </p>
+<tr><td class=""><p id="247f97b">Index entry ( X&lt;display text&amp;#124;entry,subentry;...&gt;) </p>
 </td></tr>
-<tr><td class="procedural-cell-label">markup-bad</td><td class=""><p id="621b50a"class="py-4">Unknown markup, render minimally </p>
+<tr><td class="procedural-cell-label">markup-bad</td><td class=""><p id="621b50a">Unknown markup, render minimally </p>
 </td></tr>
-<tr><td rowspan="2" class="procedural-cell-label">markup-Δ</td><td class=""><p id="29b9b23"class="py-4">Δ&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = VERSION-ETC &gt; </p>
+<tr><td rowspan="2" class="procedural-cell-label">markup-Δ</td><td class=""><p id="29b9b23">Δ&lt; DISPLAY-TEXT &amp;#124;&nbsp;&nbsp;METADATA = VERSION-ETC &gt; </p>
 </td></tr>
-<tr><td class=""><p id="ca3d849"class="py-4">Delta note ( Δ&lt;visible text&amp;#124;version; Notification text&gt; ) </p>
+<tr><td class=""><p id="ca3d849">Delta note ( Δ&lt;visible text&amp;#124;version; Notification text&gt; ) </p>
 </td></tr>
-<tr><td class="procedural-cell-label">nested</td><td class=""><p id="c0b92f5"class="py-4">renders =nested block </p>
+<tr><td class="procedural-cell-label">nested</td><td class=""><p id="c0b92f5">renders =nested block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">numdefn</td><td class=""><p id="50d5a07"class="py-4">special template to render a numbered defn list data structure </p>
+<tr><td class="procedural-cell-label">numdefn</td><td class=""><p id="50d5a07">special template to render a numbered defn list data structure </p>
 </td></tr>
-<tr><td class="procedural-cell-label">numdefn-list</td><td class=""><p id="80bf10f"class="py-4">special template to render a numbered item list data structure </p>
+<tr><td class="procedural-cell-label">numdefn-list</td><td class=""><p id="80bf10f">special template to render a numbered item list data structure </p>
 </td></tr>
-<tr><td class="procedural-cell-label">numhead</td><td class=""><p id="014fbbb"class="py-4">renders =numhead block </p>
+<tr><td class="procedural-cell-label">numhead</td><td class=""><p id="014fbbb">renders =numhead block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">numitem</td><td class=""><p id="0dd1bae"class="py-4">renders =numitem block </p>
+<tr><td class="procedural-cell-label">numitem</td><td class=""><p id="0dd1bae">renders =numitem block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">numitem-list</td><td class=""><p id="80bf10f"class="py-4">special template to render a numbered item list data structure </p>
+<tr><td class="procedural-cell-label">numitem-list</td><td class=""><p id="80bf10f">special template to render a numbered item list data structure </p>
 </td></tr>
-<tr><td class="procedural-cell-label">output</td><td class=""><p id="7275005"class="py-4">renders =output block </p>
+<tr><td class="procedural-cell-label">output</td><td class=""><p id="7275005">renders =output block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">para</td><td class=""><p id="2508e98"class="py-4">renders =para block </p>
+<tr><td class="procedural-cell-label">para</td><td class=""><p id="2508e98">renders =para block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">place</td><td class=""><p id="a451e2d"class="py-4">renders =place block </p>
+<tr><td class="procedural-cell-label">place</td><td class=""><p id="a451e2d">renders =place block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">pod</td><td class=""><p id="a1ece5e"class="py-4">renders =pod block </p>
+<tr><td class="procedural-cell-label">pod</td><td class=""><p id="a1ece5e">renders =pod block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">rakudoc</td><td class=""><p id="f759746"class="py-4">renders =rakudoc block </p>
+<tr><td class="procedural-cell-label">rakudoc</td><td class=""><p id="f759746">renders =rakudoc block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">section</td><td class=""><p id="c1bf008"class="py-4">renders =section block </p>
+<tr><td class="procedural-cell-label">section</td><td class=""><p id="c1bf008">renders =section block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">semantic</td><td class=""><p id="cea3703"class="py-4">renders =SEMANTIC block, if not otherwise given </p>
+<tr><td class="procedural-cell-label">semantic</td><td class=""><p id="cea3703">renders =SEMANTIC block, if not otherwise given </p>
 </td></tr>
-<tr><td class="procedural-cell-label">table</td><td class=""><p id="7fa375e"class="py-4">renders =table block </p>
+<tr><td class="procedural-cell-label">table</td><td class=""><p id="7fa375e">renders =table block </p>
 </td></tr>
-<tr><td class="procedural-cell-label">toc</td><td class=""><p id="dc812e2"class="py-4">special template to render the toc list </p>
+<tr><td class="procedural-cell-label">toc</td><td class=""><p id="dc812e2">special template to render the toc list </p>
 </td></tr>
-<tr><td class="procedural-cell-label">toc-item</td><td class=""><p id="936ca1e"class="py-4">renders a single item in the toc </p>
+<tr><td class="procedural-cell-label">toc-item</td><td class=""><p id="936ca1e">renders a single item in the toc </p>
 </td></tr>
-<tr><td class="procedural-cell-label">toc-numeration</td><td class=""><p id="2b2616b"class="py-4">renders the numeration part for a toc </p>
+<tr><td class="procedural-cell-label">toc-numeration</td><td class=""><p id="2b2616b">renders the numeration part for a toc </p>
 </td></tr>
-<tr><td class="procedural-cell-label">unknown</td><td class=""><p id="e543742"class="py-4">renders any unknown block minimally </p>
+<tr><td class="procedural-cell-label">unknown</td><td class=""><p id="e543742">renders any unknown block minimally </p>
 </td></tr>
-<tr><td class="procedural-cell-label">warnings</td><td class=""><p id="b1b151e"class="py-4">special template to render the warnings data structure </p>
+<tr><td class="procedural-cell-label">warnings</td><td class=""><p id="b1b151e">special template to render the warnings data structure </p>
 </td></tr></table>
 
         </div>
@@ -462,7 +510,7 @@ function swap_toc_index(activate) {
                 Rendered from <span class="footer-field">docs/default-text-templates</span>
             </div>
             <div class="level-item">
-                Rendered at 07:33 UTC on 2024-08-02</span>
+                Rendered at 11:25 UTC on 2024-08-05</span>
             </div>
             <div class="level-item">
                 Source last modified at 09:54 UTC on 2024-06-30</span>

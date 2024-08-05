@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Minimal documentation of RakuDoc::Render Module</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
-<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.index-entry{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc(var(--level)*1rem)}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:5em;overflow:hidden;text-overflow:ellipsis}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee;transform:translate(-5em, -1em)}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+</style>
+<style>#page-nav .panel-block .toc {
+    overflow-y:scroll;
+    height:65vh;
+}
+#page-nav .panel-block .index {
+    overflow-y:scroll;
+    height:65vh;
+}
 </style>
 <style>.listf-container {
   display: flex;
@@ -97,6 +106,7 @@ crossorigin=""
 />
 
 <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+<script src="https://rawgit.com/farzher/fuzzysort/master/fuzzysort.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin=""
@@ -120,20 +130,24 @@ document.addEventListener('DOMContentLoaded', function () {
     var matchTocState = function ( state ) {
         if ( state ) {
             document.getElementById("TOC").classList.remove('is-hidden');
+            document.getElementById("page-nav").classList.remove('is-hidden');
             persist_tocState( 'open');
         }
         else {
             document.getElementById("TOC").classList.add('is-hidden');
+            document.getElementById("page-nav").classList.add('is-hidden');
             persist_tocState( 'closed' );
         }
     }
     var setTocState = function ( state ) {
         if ( state === 'closed') {
             document.getElementById("TOC").classList.add('is-hidden');
+            document.getElementById("page-nav").classList.add('is-hidden');
             document.getElementById("navbar-toc-toggle").checked = false;
         }
         else {
             document.getElementById("TOC").classList.remove('is-hidden');
+            document.getElementById("page-nav").classList.remove('is-hidden');
             document.getElementById("navbar-toc-toggle").checked = true;
         }
     };
@@ -196,6 +210,39 @@ document.addEventListener('DOMContentLoaded', function () {
 //        document.execCommand("copy", false);
 //        document.body.removeChild(container);
 //    });
+    var TOC = document.getElementById('toc-menu');
+    var Index = document.getElementById('index-menu');
+    var originalTOC = TOC.getHTML();
+    var originalIndex = Index.getHTML();
+    document.getElementById("page-nav-search").addEventListener('keyup', function (event) {
+        TOC.innerHTML = originalTOC;
+        Index.innerHTML = originalIndex;
+        var searchText = event.srcElement.value.toLowerCase();
+        if (searchText.length === 0) return;
+        var menuListElements = document.getElementById('page-nav').querySelectorAll('.toc-item, .index-section');
+        var matchingListElements = Array.from(menuListElements).filter(function (item) {
+            var el;
+            if ( item.classList.contains('toc-item') ) {
+                el = item.querySelector('a');
+            } else {
+                el = item.querySelector('.index-entry')
+            }
+            var listItemHTML = el.innerHTML;
+            var fuzzyRes = fuzzysort.go(searchText, [listItemHTML])[0];
+            if (fuzzyRes === undefined || fuzzyRes.score <= 0) {
+                return false;
+            }
+            var res = fuzzyRes.highlight('<b>','</b>');
+            if (res !== null) {
+                el.innerHTML = res;
+                return true;
+            } else {
+                return false;
+            }
+        });
+    menuListElements.forEach(function(elem){elem.classList.add('is-hidden')});
+    matchingListElements.forEach(function(elem){elem.classList.remove('is-hidden')});
+    });
 });
 function swap_toc_index(activate) {
     let disactivate = (activate == 'toc') ? 'index' : 'toc';
@@ -211,33 +258,65 @@ function swap_toc_index(activate) {
     </head>
     <body class="has-navbar-fixed-top">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-<div class="navbar-brand">
-    <figure class="navbar-item is-128x128">
-        <a href="/index.html">
-        <img class="is-rounded" src="https://avatars.githubusercontent.com/u/58170775">
+    <div class="navbar-brand">
+        <figure class="navbar-item is-256x256">
+            <a href="/index.html">
+            <img class="is-rounded" src="https://avatars.githubusercontent.com/u/58170775">
+            </a>
+        </figure>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pageNavigation">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-    </figure>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pageNavigation">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-</div>
-<div id="pageNavigation" class="navbar-menu">
-    <div class="navbar-start">
-        <label class="chyronToggle">
-          <input id="navbar-toc-toggle" type="checkbox" />
-          <span class="checkmark"> </span>
-        </label>
     </div>
-    <div class="navbar-end">
-        <div class="navbar-item">
-            <button id="changeTheme" class="button">Change theme</button>
+    <div id="pageNavigation" class="navbar-menu">
+        <div class="navbar-start">
+            <label class="chyronToggle">
+              <input id="navbar-toc-toggle" type="checkbox" />
+              <span class="checkmark"> </span>
+            </label>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <button id="changeTheme" class="button">Change theme</button>
+            </div>
         </div>
     </div>
 </nav>
-<section class="section">
+<nav class="panel" id="page-nav" style="width: 25%; position:fixed;">
+  <div class="panel-block">
+    <p class="control has-icons-left">
+      <input class="input" type="text" placeholder="Search" id="page-nav-search"/>
+      <span class="icon is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
+  </div>
+  <p class="panel-tabs">
+    <a id="toc-tab">Table of Contents</a>
+    <a id="index-tab">Index</a>
+  </p>
+    <aside id="toc-menu" class="panel-block">
+    <div class="toc"><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Environment_variables">Environment variables</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Paragraph_id">Paragraph id</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
+</div>
+
+    </aside>
+    <aside id="index-menu" class="panel-block is-hidden">
+    <p>No Index for this page</p>
+    </aside>
+</nav>
+
+    <div class="columns">
+    <div id="TOC" class="column is-one-quarter">
+        
+    </div>
+    <div class="column">
+        <section class="section">
   <div class="container">
 <div id="Minimal_documentation_of_RakuDoc::Render_Module"></div><h1 class="title is-centered">Minimal documentation of RakuDoc::Render Module</h1>
 
@@ -245,102 +324,71 @@ function swap_toc_index(activate) {
   </div>
 </section>
 
-    <div class="columns">
-    <div id="TOC" class="column is-one-quarter">
-            <div class="container px-4">
-        <div class="tabs" id="tabs">
-            <ul>
-                <li class="is-active" id="toc-tab">
-                    <a>Table of Contents</a>
-                </li>
-                <li id="index-tab">
-                    <a>Index</a>
-                </li>
-            </ul>
-        </div>
-        <div class="container">
-            <aside id="toc-menu" class="menu">
-            <div class="toc">
-<h2 class="toc-caption">Table of Contents</h2><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Environment_variables">Environment variables</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Paragraph_id">Paragraph id</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
-</div>
-
-            </aside>
-            <aside id="index-menu" class="menu is-hidden">
-            <p>No Index for this page</p>
-            </aside>
-        </div>
-    </div>
-
-    </div>
-    <div class="column">
         <div class="container px-4">
         
-<div class="id-target" id=""></div><h2 id="Overview" class="heading  py-4"><a href="#" title="go to top of document">Overview</a></h2>
-<p id="2b8160a"class="py-4">The module contains the RakuDoc::Processor class. </p>
-<p id="16eda6d"class="py-4">The class method 'render' is the principal one for rendering RakuDoc v2. The Raku compiler expects to call render with an AST and to return a Str. It can be called with the option <span class="code">:pre-finalised</span> to get the processed data, see the example in <a href="#Debugging">Debugging</a>. </p>
-<p id="50a3466"class="py-4">The aim is for a <span class="basis">RakuDoc::Processor</span> object (an <span class="basis">RPO</span>) to be as generic as possible, allowing for other classes to instantiate it, and to attach templates that will generate more specific formats, such as HTML, MarkDown, or EPub pages. </p>
-<p id="0d1420c"class="py-4">An <span class="basis">RPO</span> relies on <a href="Templates">Templates</a>, <a href="PromiseStrings">PromiseStrings</a>, and <a href="ScopedData">ScopedData</a>. </p>
-<p id="dbba06d"class="py-4">It is also necessary to have a good understanding of RakuDoc v2. </p>
-<p id="79b4ea3"class="py-4">Some <a href="#Environment_variables">environment variables</a> provide for some output control. </p>
-<p id="685dcbf"class="py-4">The following describes choices that are left by RakuDoc v2 to the renderer. </p>
+<div class="id-target" id=""></div><h2 id="Overview" class="heading  py-2"><a href="#" title="go to top of document">Overview</a></h2>
+<p id="2b8160a">The module contains the RakuDoc::Processor class. </p>
+<p id="16eda6d">The class method 'render' is the principal one for rendering RakuDoc v2. The Raku compiler expects to call render with an AST and to return a Str. It can be called with the option <span class="code">:pre-finalised</span> to get the processed data, see the example in <a href="#Debugging">Debugging</a>. </p>
+<p id="50a3466">The aim is for a <span class="basis">RakuDoc::Processor</span> object (an <span class="basis">RPO</span>) to be as generic as possible, allowing for other classes to instantiate it, and to attach templates that will generate more specific formats, such as HTML, MarkDown, or EPub pages. </p>
+<p id="0d1420c">An <span class="basis">RPO</span> relies on <a href="Templates">Templates</a>, <a href="PromiseStrings">PromiseStrings</a>, and <a href="ScopedData">ScopedData</a>. </p>
+<p id="dbba06d">It is also necessary to have a good understanding of RakuDoc v2. </p>
+<p id="79b4ea3">Some <a href="#Environment_variables">environment variables</a> provide for some output control. </p>
+<p id="685dcbf">The following describes choices that are left by RakuDoc v2 to the renderer. </p>
 
-<div class="id-target" id=""></div><h3 id="Templates" class="heading  py-4"><a href="#" title="go to top of document">Templates</a></h3>
-<p id="26e8f63"class="py-4">An <span class="basis">RPO</span> contains a default set of Text templates. </p>
-<p id="214c828"class="py-4">The aim of the text templates is that they are the lowest level templates needed to render any RakuDoc source. </p>
-<p id="907bd54"class="py-4">When a renderer is needed to output a new format, eg., HTML, the renderer instantiates an <span class="basis">RPO</span> and attaches new templates to it using the <span class="code">add-template( Pair $p, :source )</span> method or the <span class="code">add-templates( Hash $h, :source )</span> method. Setting the <span class="code">source</span> option to some value will help determine which module introduced the templates. </p>
-<p id="f31964f"class="py-4">The design of the Templates object means that new additions to the object push the previous definition onto a linked list, and so they will always be available by default. </p>
-<p id="f09fa10"class="py-4">The set of template keys needed to create a renderer is <a href="default-text-templates">tabulated here</a>. </p>
-<p id="2e881b0"class="py-4">All aspects of the output can be defined using the templates. </p>
+<div class="id-target" id=""></div><h3 id="Templates" class="heading  py-2"><a href="#" title="go to top of document">Templates</a></h3>
+<p id="26e8f63">An <span class="basis">RPO</span> contains a default set of Text templates. </p>
+<p id="214c828">The aim of the text templates is that they are the lowest level templates needed to render any RakuDoc source. </p>
+<p id="907bd54">When a renderer is needed to output a new format, eg., HTML, the renderer instantiates an <span class="basis">RPO</span> and attaches new templates to it using the <span class="code">add-template( Pair $p, :source )</span> method or the <span class="code">add-templates( Hash $h, :source )</span> method. Setting the <span class="code">source</span> option to some value will help determine which module introduced the templates. </p>
+<p id="f31964f">The design of the Templates object means that new additions to the object push the previous definition onto a linked list, and so they will always be available by default. </p>
+<p id="f09fa10">The set of template keys needed to create a renderer is <a href="default-text-templates">tabulated here</a>. </p>
+<p id="2e881b0">All aspects of the output can be defined using the templates. </p>
 
-<div class="id-target" id=""></div><h3 id="Process" class="heading  py-4"><a href="#" title="go to top of document">Process</a></h3>
-<p id="f30be0b"class="py-4">The generic render method transforms the AST of the input file using a handle method for each type of Block and Markup code. A template exists for each block and markup code. </p>
-<p id="dce45f9"class="py-4">After all the blocks have been processed, the Table of Contents, Index, and Footnotes are rendered, with templates for each item and for the list of items. </p>
-<p id="75d7015"class="py-4">Any forward references and numerations are then resolved. </p>
-<p id="b5a857e"class="py-4">The intermediate structure of the processed file can then be accessed before it is finally rendered into a string. </p>
-<p id="9179577"class="py-4">The final rendering is done by the 'final' template. </p>
-<p id="b8b2717"class="py-4">Once a string has been obtained, it can be post-processed using the post-process method. For example, text output can be transformed by wrapping lines. </p>
+<div class="id-target" id=""></div><h3 id="Process" class="heading  py-2"><a href="#" title="go to top of document">Process</a></h3>
+<p id="f30be0b">The generic render method transforms the AST of the input file using a handle method for each type of Block and Markup code. A template exists for each block and markup code. </p>
+<p id="dce45f9">After all the blocks have been processed, the Table of Contents, Index, and Footnotes are rendered, with templates for each item and for the list of items. </p>
+<p id="75d7015">Any forward references and numerations are then resolved. </p>
+<p id="b5a857e">The intermediate structure of the processed file can then be accessed before it is finally rendered into a string. </p>
+<p id="9179577">The final rendering is done by the 'final' template. </p>
+<p id="b8b2717">Once a string has been obtained, it can be post-processed using the post-process method. For example, text output can be transformed by wrapping lines. </p>
 
-<div class="id-target" id=""></div><h3 id="Warnings" class="heading  py-4"><a href="#" title="go to top of document">Warnings</a></h3>
-<p id="9d7622b"class="py-4">In order to offer the maximum flexibility to a RakuDoc author, if there is an error condition after the RakuDoc source has been compiled, a set of warnings are generated. </p>
-<p id="f8a57a9"class="py-4">By default these are rendered using the 'warnings' template, and the rendered version is appended to the output file. </p>
+<div class="id-target" id=""></div><h3 id="Warnings" class="heading  py-2"><a href="#" title="go to top of document">Warnings</a></h3>
+<p id="9d7622b">In order to offer the maximum flexibility to a RakuDoc author, if there is an error condition after the RakuDoc source has been compiled, a set of warnings are generated. </p>
+<p id="f8a57a9">By default these are rendered using the 'warnings' template, and the rendered version is appended to the output file. </p>
 
-<div class="id-target" id=""></div><h3 id="Customisability" class="heading  py-4"><a href="#" title="go to top of document">Customisability</a></h3>
-<p id="389c5ca"class="py-4">RakuDoc allows for customisability. This renderer handles customisability via the template mechanism. </p>
+<div class="id-target" id=""></div><h3 id="Customisability" class="heading  py-2"><a href="#" title="go to top of document">Customisability</a></h3>
+<p id="389c5ca">RakuDoc allows for customisability. This renderer handles customisability via the template mechanism. </p>
 
-<div class="id-target" id=""></div><h4 id="Custom_blocks" class="heading  py-4"><a href="#" title="go to top of document">Custom blocks</a></h4>
-<p id="f796cfc"class="py-4">When custom block is detected according to the RakuDoc v2 spelling rules, an <span class="basis">RPO</span> will check whether a template exists with that name. </p>
-<p id="9b11ca6"class="py-4">If a template has been attached to an <span class="basis">RPO</span>, then the rendered content of the block (including rendered embedded RakuDoc instructions) will be provided to the template as <span class="code">contents</span> and the verbatim contents with no renderering will be provided as <span class="code">raw</span>. </p>
-<p id="f97427a"class="py-4">So a new block can be created by attaching a template with the blockname to the <span class="basis">RPO</span>. </p>
+<div class="id-target" id=""></div><h4 id="Custom_blocks" class="heading  py-2"><a href="#" title="go to top of document">Custom blocks</a></h4>
+<p id="f796cfc">When custom block is detected according to the RakuDoc v2 spelling rules, an <span class="basis">RPO</span> will check whether a template exists with that name. </p>
+<p id="9b11ca6">If a template has been attached to an <span class="basis">RPO</span>, then the rendered content of the block (including rendered embedded RakuDoc instructions) will be provided to the template as <span class="code">contents</span> and the verbatim contents with no renderering will be provided as <span class="code">raw</span>. </p>
+<p id="f97427a">So a new block can be created by attaching a template with the blockname to the <span class="basis">RPO</span>. </p>
 
-<div class="id-target" id=""></div><h4 id="Custom_markup_codes" class="heading  py-4"><a href="#" title="go to top of document">Custom markup codes</a></h4>
-<p id="cc3389a"class="py-4">RakuDoc v2 allows for custom markup codes in two ways: </p>
+<div class="id-target" id=""></div><h4 id="Custom_markup_codes" class="heading  py-2"><a href="#" title="go to top of document">Custom markup codes</a></h4>
+<p id="cc3389a">RakuDoc v2 allows for custom markup codes in two ways: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="b121c46"class="py-4">the <span class="code"> M< DISPLAY | FUNCTION ; list of comma delimited strings > </span> </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="b121c46">the <span class="code"> M< DISPLAY | FUNCTION ; list of comma delimited strings > </span> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="f33d7a5"class="py-4">a single Unicode (not ASCII ) character with the <span class="important">upper</span> property. </p>
-</li>
-</ul>
-
-<div class="id-target" id=""></div><h5 id="Markup_M" class="heading  py-4"><a href="#" title="go to top of document">Markup M</a></h5>
-<p id="0d6e36d"class="py-4">When a <span class="code"> M< DISPLAY | FUNCTION ; LIST > </span> is encountered, the renderer will look for a template named in the <span class="replace">FUNCTION</span> position. If no such template exists, the text will be rendered verbatim and a warning logged. </p>
-
-<div class="id-target" id=""></div><h5 id="Markup_UNICODE[upper]" class="heading  py-4"><a href="#" title="go to top of document">Markup UNICODE[upper]</a></h5>
-<p id="d42c4d4"class="py-4">When some custom markup is encountered, the renderer will </p>
-
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="22b3181"class="py-4">check that the character, eg Ɵ (Greek Capital Theta), has the unicode property <span class="important">Upper</span>; </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="a592cd4"class="py-4">look for a template called (eg) <span class="basis">markup-Ɵ</span>. For clarity, the Unicode character chosen for the markup code is prefixed by <span class="basis">markup-</span> in order to name the template. </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="f33d7a5">a single Unicode (not ASCII ) character with the <span class="important">upper</span> property. </p>
 </li>
 </ul>
-<p id="0573f8a"class="py-4">Thus in order to create a new markup code, create an appropriately named template and add it to the <span class="basis">RPO</span>. </p>
 
-<div class="id-target" id=""></div><h4 id="Global_data_accessible_in_templates" class="heading  py-4"><a href="#" title="go to top of document">Global data accessible in templates</a></h4>
-<p id="194c97a"class="py-4">More information is available in <a href="Templates">Templates</a>. </p>
-<p id="094f0a8"class="py-4">All templates can attach items to the Table of Contents, Index, Footnotes, and Warnings structures of the rendered source using the helper methods. </p>
-<p id="dee143f"class="py-4">The following helper methods are available: </p>
+<div class="id-target" id=""></div><h5 id="Markup_M" class="heading  py-2"><a href="#" title="go to top of document">Markup M</a></h5>
+<p id="0d6e36d">When a <span class="code"> M< DISPLAY | FUNCTION ; LIST > </span> is encountered, the renderer will look for a template named in the <span class="replace">FUNCTION</span> position. If no such template exists, the text will be rendered verbatim and a warning logged. </p>
+
+<div class="id-target" id=""></div><h5 id="Markup_UNICODE[upper]" class="heading  py-2"><a href="#" title="go to top of document">Markup UNICODE[upper]</a></h5>
+<p id="d42c4d4">When some custom markup is encountered, the renderer will </p>
+
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="22b3181">check that the character, eg Ɵ (Greek Capital Theta), has the unicode property <span class="important">Upper</span>; </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="a592cd4">look for a template called (eg) <span class="basis">markup-Ɵ</span>. For clarity, the Unicode character chosen for the markup code is prefixed by <span class="basis">markup-</span> in order to name the template. </p>
+</li>
+</ul>
+<p id="0573f8a">Thus in order to create a new markup code, create an appropriately named template and add it to the <span class="basis">RPO</span>. </p>
+
+<div class="id-target" id=""></div><h4 id="Global_data_accessible_in_templates" class="heading  py-2"><a href="#" title="go to top of document">Global data accessible in templates</a></h4>
+<p id="194c97a">More information is available in <a href="Templates">Templates</a>. </p>
+<p id="094f0a8">All templates can attach items to the Table of Contents, Index, Footnotes, and Warnings structures of the rendered source using the helper methods. </p>
+<p id="dee143f">The following helper methods are available: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> add-to-toc( %h ), where %h is a hash with the following keys:</li>
 <li class="item" data-bullet="▹" style="--level:1;"> :caption(Str)</li>
@@ -356,11 +404,11 @@ function swap_toc_index(activate) {
 <li class="item" data-bullet="▹" style="--level:1;"> :fnNumber(Str}</li>
 <li class="item" data-bullet="•" style="--level:0;"> add-to-warnings( $warning )</li>
 </ul>
-<p id="d3c6895"class="py-4">In addition, within a template, it is possible to attach data to globals, and to retrieve the data in another template. </p>
-<p id="b3a30c2"class="py-4">For an example of this, see test <span class="basis">xt/030-customisation-data.rakutest</span>. (test number may be changed, but otherwise the filename will be the same). </p>
+<p id="d3c6895">In addition, within a template, it is possible to attach data to globals, and to retrieve the data in another template. </p>
+<p id="b3a30c2">For an example of this, see test <span class="basis">xt/030-customisation-data.rakutest</span>. (test number may be changed, but otherwise the filename will be the same). </p>
 
-<div class="id-target" id=""></div><h3 id="Debugging" class="heading  py-4"><a href="#" title="go to top of document">Debugging</a></h3>
-<p id="f632c5d"class="py-4">When developing new templates or renderers based on an <span class="basis">RPO</span>, several debug options can be attached to the <span class="basis">RPO</span>, eg. </p>
+<div class="id-target" id=""></div><h3 id="Debugging" class="heading  py-2"><a href="#" title="go to top of document">Debugging</a></h3>
+<p id="f632c5d">When developing new templates or renderers based on an <span class="basis">RPO</span>, several debug options can be attached to the <span class="basis">RPO</span>, eg. </p>
 <pre class="code-block">    my RakuDoc::Processor $rdp .=new( :test );
     $rdp.debug( AstBlock, Templates);
     $ast = Q:to/QAST/.AST;
@@ -375,54 +423,54 @@ function swap_toc_index(activate) {
     $rv = $rdp.render( $ast, :pre-finalised );
     'myOutput'.IO.spurt: $rdp.finalise
 </pre>
-<p id="a8b339d"class="py-4">Commentary on the code </p>
+<p id="a8b339d">Commentary on the code </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="784bea7"class="py-4"><span class="code"> new( :test )</span> this attaches the test templates to the <span class="basis">RPO</span> </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="784bea7"><span class="code"> new( :test )</span> this attaches the test templates to the <span class="basis">RPO</span> </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> the list inside the debug method may contain several entities as described below</li>
 <li class="item" data-bullet="•" style="--level:0;"> creation of an AST from a string, or it can be slurped in from a file.</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="cfcf4bc"class="py-4"><span class="code"> :pre-finalised </span> returns the RakuDoc::Processed object </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="cfcf4bc"><span class="code"> :pre-finalised </span> returns the RakuDoc::Processed object </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="cbc6d4c"class="py-4">if called with <span class="code">:pre-finalised</span>, calling <span class="code">finalise</span> returns a Str that can then be stored as a file. </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="cbc6d4c">if called with <span class="code">:pre-finalised</span>, calling <span class="code">finalise</span> returns a Str that can then be stored as a file. </p>
 </li>
 </ul>
 
-<div class="id-target" id=""></div><h4 id="Debug_options" class="heading  py-4"><a href="#" title="go to top of document">Debug options</a></h4>
-<p id="bce5bad"class="py-4">The following options are available: </p>
+<div class="id-target" id=""></div><h4 id="Debug_options" class="heading  py-2"><a href="#" title="go to top of document">Debug options</a></h4>
+<p id="bce5bad">The following options are available: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> None removes all previous debugging</li>
 <li class="item" data-bullet="•" style="--level:0;"> All adds all debugging options</li>
 <li class="item" data-bullet="•" style="--level:0;"> AstBlock diagnostic whenever a new Block is called</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="d0b5457"class="py-4">BlockType information about which <span class="code">RakuAST::Doc::Block</span> is being processed </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="d0b5457">BlockType information about which <span class="code">RakuAST::Doc::Block</span> is being processed </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> Scoping produces scope level diagnostics when a new level is started/ended</li>
 <li class="item" data-bullet="•" style="--level:0;"> Templates indicates which templates are called and the params they are called with</li>
 <li class="item" data-bullet="•" style="--level:0;"> MarkUp like BlockType but gives the MarkUp letter</li>
 </ul>
-<p id="146e904"class="py-4">It is also possible to get the result of one template (so as to reduce the amount of output information). This is done eg for the 'table' template: $rdp.verbose( 'table' ); $rv = $rdp.render( $ast, :pre-finalised ); </p>
-<p id="31b3c80"class="py-4">The Test and Pretty options described in <a href="Templates">the Templates documentation</a> can be set on an <span class="basis">RPO</span>, eg. $rdp.test( True ); $rdp.pretty( True ); </p>
-<p id="d33db3c"class="py-4">Bear in mind that the <span class="basis">pretty</span> flag overrides the <span class="basis">test</span> flag, and both override the <span class="basis">debug</span> and <span class="basis">verbose</span> flags. </p>
+<p id="146e904">It is also possible to get the result of one template (so as to reduce the amount of output information). This is done eg for the 'table' template: $rdp.verbose( 'table' ); $rv = $rdp.render( $ast, :pre-finalised ); </p>
+<p id="31b3c80">The Test and Pretty options described in <a href="Templates">the Templates documentation</a> can be set on an <span class="basis">RPO</span>, eg. $rdp.test( True ); $rdp.pretty( True ); </p>
+<p id="d33db3c">Bear in mind that the <span class="basis">pretty</span> flag overrides the <span class="basis">test</span> flag, and both override the <span class="basis">debug</span> and <span class="basis">verbose</span> flags. </p>
 
-<div class="id-target" id=""></div><h2 id="Environment_variables" class="heading  py-4"><a href="#" title="go to top of document">Environment variables</a></h2>
-<p id="aa34249"class="py-4">By setting the environment variable POSTPROCESSING=1 the text output will be naively wrapped. </p>
-<p id="189b0ff"class="py-4">For example, POSTPROCESSING=1 bin/RenderTextify --pretty rakudociem-ipsum </p>
-<p id="d0c9c25"class="py-4">If the environment variable WIDTH is also set, the text output will be wrapped to the value. </p>
-<p id="b2879cf"class="py-4">WIDTH by default is set at 80 chars. To set at 70, use: POSTPROCESSING=1 WIDTH=70 bin/RenderTextify rakudociem-ipsum </p>
+<div class="id-target" id=""></div><h2 id="Environment_variables" class="heading  py-2"><a href="#" title="go to top of document">Environment variables</a></h2>
+<p id="aa34249">By setting the environment variable POSTPROCESSING=1 the text output will be naively wrapped. </p>
+<p id="189b0ff">For example, POSTPROCESSING=1 bin/RenderTextify --pretty rakudociem-ipsum </p>
+<p id="d0c9c25">If the environment variable WIDTH is also set, the text output will be wrapped to the value. </p>
+<p id="b2879cf">WIDTH by default is set at 80 chars. To set at 70, use: POSTPROCESSING=1 WIDTH=70 bin/RenderTextify rakudociem-ipsum </p>
 
-<div class="id-target" id=""></div><h2 id="Paragraph_id" class="heading  py-4"><a href="#" title="go to top of document">Paragraph id</a></h2>
-<p id="d37a747"class="py-4">Since sometimes it is necessary to target a specific paragraph, some paragraphs get an automated id based on the last Seven hex chars of the SHA1 encoding of its contents. </p>
-<p id="cea9f65"class="py-4">Seven chars should be adequate so long as the number of paragraphs in a single document is below 16,000. </p>
-<div class="nested"><p id="0fd5c2b"class="py-4">Based on the expectation that we would see collision in a repository with 2^(2N) objects when using object names shortened to first N bits <a href="https://stackoverflow.com/questions/18134627/how-much-of-a-git-sha-is-generally-considered-necessary-to-uniquely-identify-a">Stackoverflow question</a> </p>
+<div class="id-target" id=""></div><h2 id="Paragraph_id" class="heading  py-2"><a href="#" title="go to top of document">Paragraph id</a></h2>
+<p id="d37a747">Since sometimes it is necessary to target a specific paragraph, some paragraphs get an automated id based on the last Seven hex chars of the SHA1 encoding of its contents. </p>
+<p id="cea9f65">Seven chars should be adequate so long as the number of paragraphs in a single document is below 16,000. </p>
+<div class="nested"><p id="0fd5c2b">Based on the expectation that we would see collision in a repository with 2^(2N) objects when using object names shortened to first N bits <a href="https://stackoverflow.com/questions/18134627/how-much-of-a-git-sha-is-generally-considered-necessary-to-uniquely-identify-a">Stackoverflow question</a> </p>
 </div>
-<p id="f349f6f"class="py-4">Long texts or books will probably need more to avoid a conflict. This can be done by setting <span class="code">paragraph-id-length</span> in the %structure-data to the required number of hex digits. </p>
+<p id="f349f6f">Long texts or books will probably need more to avoid a conflict. This can be done by setting <span class="code">paragraph-id-length</span> in the %structure-data to the required number of hex digits. </p>
 
-<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-4"><a href="#" title="go to top of document">Credits</a></h2>
+<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
 
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-4"><a href="#" title="go to top of document">VERSION</a></h2>
+<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a></h2>
 v0.3.0
 
 
@@ -441,7 +489,7 @@ v0.3.0
                 Rendered from <span class="footer-field">docs/Render</span>
             </div>
             <div class="level-item">
-                Rendered at 07:33 UTC on 2024-08-02</span>
+                Rendered at 11:25 UTC on 2024-08-05</span>
             </div>
             <div class="level-item">
                 Source last modified at 20:48 UTC on 2024-07-06</span>
