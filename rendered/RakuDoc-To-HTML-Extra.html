@@ -303,6 +303,7 @@ function swap_toc_index(activate) {
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Plugins_and_their_sources">Plugins and their sources</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#RakuDoc::Render_plugins">RakuDoc::Render plugins</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Customisability">Customisability</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
 
@@ -332,10 +333,10 @@ function swap_toc_index(activate) {
 <pre class="code-block">RAKUDO_RAKUAST=1 raku -MRakuDoc::Render -MRakuDoc::To::HTML --rakudoc=HTML-Extra wp.rakudoc > wp.html
 </pre>
 <p id="797439a">Easier (once the distribution has been installed, see <a href="README">README</a>) </p>
-<pre class="code-block">RakuDoc wp
+<pre class="code-block">RenderDocs --html --extra --src='.' --to='.' wp
 </pre>
-<p id="ed2f944">Both will cause the file <span class="code">wp.html</span> to be generated in the current working directory, together with a new subdirectory <span class="important">assets/</span> in which other CSS and Javascript files will be placed. </p>
-<p id="7789dff">To view this file, see <a href="#Small_Cro_app">small Cro app</a>. </p>
+<p id="3d5fa56">Both will cause the file <span class="code">wp.html</span> to be generated in the current working directory from <span class="code">wp.rakudoc</span> in CWD. </p>
+<p id="3505b69">To view this file (adapt according to browser), open <span class="code">file://<home-path-to>/wp.html</span>. All the JS and CSS are packaged in the HTML file, or downloaded from a CDN. </p>
 
 
 
@@ -346,17 +347,62 @@ function swap_toc_index(activate) {
 <div class="id-target" id=""></div><h3 id="Plugins_and_their_sources" class="heading  py-2"><a href="#" title="go to top of document">Plugins and their sources</a></h3>
 <table class="table">
 <tr><th class="">Plugin</th><th class="">Source</th><th class="">Use</th><th class="">License</th></tr>
-<tr><td class="">Bulma CSS</td><td class=""><p id="22db035"><a href="https://bulma.io">Bulma Home</a> </p>
-</td><td class="">The output page is styled into panels, is responsive, has themes</td><td class="">MIT</td></tr>
-<tr><td class="">Leaflet Maps</td><td class=""><p id="b67d91a"><a href="https://leafletjs.com/">Home page</a> </p>
+<tr><td class="">Bulma</td><td class=""><p id="22db035"><a href="https://bulma.io">Bulma Home</a> </p>
+</td><td class="">Use the Bulma CSS for the page, which is styled into panels, is responsive, has themes</td><td class="">MIT</td></tr>
+<tr><td class="">LeafletMaps</td><td class=""><p id="e06fe72"><a href="https://leafletjs.com/">Home page</a> and <a href="https://github.com/leaflet-extras/leaflet-providers">Github repo</a> </p>
 </td><td class="">Puts a map in a web page, with tiles from multiple providers</td><td class="">2-clause BSD</td></tr>
-<tr><td class="">Leaflet providers</td><td class=""><p id="6d5b0b0"><a href="https://github.com/leaflet-extras/leaflet-providers">Github repo</a> </p>
-</td><td class="">Easy way to access tile providers</td><td class="">2-clause BSD</td></tr></table>
+<tr><td class="">Latex</td><td class=""><p id="aa0f518"><a href="https://editor.codecogs.com/">CodeCogs editor page</a> </p>
+</td><td class="">Uses CodeCogs online equation editor to render formulae</td><td class="">see website</td></tr>
+<tr><td class="">Graphviz</td><td class=""><p id="512d76e"><a href="https://graphviz.org">GraphViz software </a> </p>
+</td><td class=""><p id="60453e5">Allows for figures/diagrams to be described in the <span class="code">dot</span> language </p>
+</td><td class="">see website</td></tr>
+<tr><td class="">FontAwesome</td><td class=""><p id="c3282c8"><a href="https://docs.fontawesome.com/v5/web/setup/get-started/">FontAwesome v5-15-4</a> </p>
+</td><td class=""><p id="311287b">Include FontAwesome icons using ℱ&lt;> markup, where ℱ is U+2131 </p>
+</td><td class="">see website</td></tr>
+<tr><td class="">ListFiles</td><td class=""><p id="6508e99"><a href="plugins/ListFiles.txt">Local documentation</a> </p>
+</td><td class=""><p id="f3c719e">Provides <span class="code">=ListFiles</span> custom block </p>
+</td><td class="">Artistic-2.0</td></tr></table>
 
 <div class="id-target" id=""></div><h2 id="RakuDoc::Render_plugins" class="heading  py-2"><a href="#" title="go to top of document">RakuDoc::Render plugins</a></h2>
 <p id="0bcd561">Customisation is provided by plugins. These are essentially classes of the form <span class="code">RakuDoc::Plugins::XXX</span>, where <span class="basis">XXX</span> is the name of a plugin. </p>
-<p id="dbf106c">The plugin class <span class="basis">does</span> the <span class="important">RakuDoc::Plugin</span> role. </p>
-<p id="27ee1ea">Each RP class must have a <span class="code">%.config</span> attribute containing the information needed for the plugin. These are divided into mandatory keys, which will be tested for, and plugin-specific. </p>
+<p id="d705461">An illustrative example of the plugin class is for the Bulma CSS: </p>
+<pre class="code-block">use experimental :rakuast;
+use RakuDoc::Templates;
+use RakuDoc::PromiseStrings;
+use RakuDoc::Render;
+
+unit class RakuDoc::Plugin::Bulma;
+has %.config = %(
+    :name-space&lt;bulma&gt;,
+	:license&lt;Artistic-2.0&gt;,
+	:credit&lt;https://https://bulma.io , MIT License&gt;,
+	:author&lt;Richard Hainsworth, aka finanalyst&gt;,
+	:version&lt;0.1.0&gt;,
+	:css-link(['href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"',1],),
+	:js-link(['src="https://rawgit.com/farzher/fuzzysort/master/fuzzysort.js"',1],),
+    :js(['',2],), # 1st element is replaced in TWEAK
+    :css([]),
+);
+submethod TWEAK {
+    %!config&lt;js&gt;[0][0] = self.js-text;
+    %!config&lt;css&gt;.append: [self.chyron-css,1], [ self.toc-css, 1];
+}
+method enable( RakuDoc::Processor:D $rdp ) {
+    $rdp.add-templates( $.templates );
+    $rdp.add-data( %!config&lt;name-space&gt;, %!config );
+}
+method templates {
+    %(
+        final => -> %prm, $tmpl {
+            qq:to/PAGE/
+            &lt;!DOCTYPE html&gt;
+            ... &lt;!- the rest of the template is omitted -&gt;
+            PAGE
+        },
+    )
+}
+</pre>
+<p id="f0b0313">Each RP class must have a <span class="code">%.config</span> attribute containing the information needed for the plugin. These are divided into mandatory keys and plugin-specific. </p>
 <p id="ab374e8">The mandatory key-value Pairs are: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> <p id="f810a1b"><span class="basis">license</span>, typically Artistic-2.0 (same as Raku), but may need to change if the plugin relies on software that has another license. </p>
@@ -379,6 +425,20 @@ function swap_toc_index(activate) {
 </li>
 </ul>
 <p id="6bf1569">All the elements of %.config are transferred to the RakuDoc::Processor object, and can be accessed in a template or callable, as <span class="code">$tmpl.globals.data<plugin-name-space> </span> (assuming that the plugin's config has <span class="code">namespace =</span> plugin-name-space>). </p>
+<p id="2f6ef3c">The <span class="code">enable</span> method is mandatory. It is used to add data and templates to the <span class="code">RakuDoc::Processor</span> object created by the <span class="code">RakuDoc::To::HTML-Extra</span> renderer. </p>
+
+<div class="id-target" id=""></div><h2 id="Customisability" class="heading  py-2"><a href="#" title="go to top of document">Customisability</a></h2>
+<p id="0b62f26">A user can create a custom plugin class (eg. <span class="code">RakuDoc::Plugin::MyFunc</span>), which should then be installed in the environment. </p>
+<p id="cbffdb6">The plugin can be enabled, for example by running the following in the repo root directory zef install -/precompile-install . </p>
+<p id="f33571c">Note the option <span class="code">-/precompile-install</span> turning off the precompilation. This is because currently this distribution has some modules that depend on the RakuAST compiler, and some that use the standard Rakudo compiler. Precompilation does not handle the situation robustly. However, when a <span class="code">use</span> or <span class="code">require</span> is encountered, the relevant module is correctly compiled and loaded. </p>
+<p id="18abb4c">In order to enable <span class="code">RakuDoc::Plugin::MyFunc</span>, create a file called <span class="code">rakudoc-config.raku</span> in the current working directory. The file should be a raku program that yields a sequence or array, eg. </p>
+<pre class="code-block">use RakuDoc::To::HTML-Extra;
+my @plugs = @HTML-Extra-plugins;
+@plugs.append: 'MyFunc';
+</pre>
+<p id="c0d1818"><span class="code">@HTML-Extra-plugins</span> contains the default plugins called by <span class="code">RakuDoc::To::HTML-Extra</span>. </p>
+<p id="8d56b97">So the code above adds <span class="code">MyFunc</span> to the list, and the plugin <span class="code">RakuDoc::Plugin::MyFunc</span> will now be enabled after all of the default plugins called by <span class="code">RakuDoc::To::HTML-Extra</span>. </p>
+<p id="db0e58f">It is also possible to disable a default plugin by passing an array that does not contain the plugin to be disabled. </p>
 
 <div class="id-target" id=""></div><h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth, aka finanalyst
@@ -405,10 +465,10 @@ v0.1.0
                 Rendered from <span class="footer-field">docs/RakuDoc-To-HTML-Extra</span>
             </div>
             <div class="level-item">
-                Rendered at 11:17 UTC on 2024-08-06</span>
+                Rendered at 20:30 UTC on 2024-08-07</span>
             </div>
             <div class="level-item">
-                Source last modified at 20:48 UTC on 2024-07-06</span>
+                Source last modified at 20:28 UTC on 2024-08-07</span>
             </div>
         </nav>
     </div>
