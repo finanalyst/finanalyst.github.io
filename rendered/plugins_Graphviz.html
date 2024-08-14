@@ -7,7 +7,11 @@
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
 <style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;justify-content:space-around;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}
 </style>
-<style>#page-nav .panel-block .toc {
+<style>#page-nav {
+    width: 25%;
+    position: fixed;
+}
+#page-nav .panel-block .toc {
     overflow-y:scroll;
     height:65vh;
 }
@@ -15,6 +19,7 @@
     overflow-y:scroll;
     height:65vh;
 }
+.main-footer { z-index: 1; }
 </style>
 <style>/* graphviz */
 div.graphviz{display:flex;justify-content:space-around;align-items:center}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
@@ -264,7 +269,7 @@ function swap_toc_index(activate) {
         </div>
     </div>
 </nav>
-<nav class="panel" id="page-nav" style="width: 25%; position:fixed;">
+<nav class="panel" id="page-nav">
   <div class="panel-block">
     <p class="control has-icons-left">
       <input class="input" type="text" placeholder="Search" id="page-nav-search"/>
@@ -978,35 +983,36 @@ digraph G {bgcolor="#0000FF44:#FF000044" gradientangle=90
                 <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                 <label>Raku highlighting</label>
                 <div><pre class="nohighlights">
-=begin Graphviz :caption<Neural network :headlevel(2)
-    digraph G {
-      fontname="Helvetica,Arial,sans-serif"
-      node [fontname="Helvetica,Arial,sans-serif"]
-      edge [fontname="Helvetica,Arial,sans-serif"]
-      concentrate=True;
-      rankdir=TB;
-      node [shape=record];
-      140087530674552 [label="title: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}"];
-      140087537895856 [label="body: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}"];
-      140087531105640 [label="embedding_2: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}"];
-      140087530711024 [label="embedding_3: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}"];
-      140087537980360 [label="lstm_2: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 128)}}"];
-      140087531256464 [label="lstm_3: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 32)}}"];
-      140087531106200 [label="tags: InputLayer\n|{input:|output:}|{{[(?, 12)]}|{[(?, 12)]}}"];
-      140087530348048 [label="concatenate_1: Concatenate\n|{input:|output:}|{{[(?, 128), (?, 32), (?, 12)]}|{(?, 172)}}"];
-      140087530347992 [label="priority: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 1)}}"];
-      140087530711304 [label="department: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 4)}}"];
-      140087530674552 -> 140087531105640;
-      140087537895856 -> 140087530711024;
-      140087531105640 -> 140087537980360;
-      140087530711024 -> 140087531256464;
-      140087537980360 -> 140087530348048;
-      140087531256464 -> 140087530348048;
-      140087531106200 -> 140087530348048;
-      140087530348048 -> 140087530347992;
-      140087530348048 -> 140087530711304;
-    }
-    =end Graphviz
+<span style="color:green;">=begin</span> <span style="color:red;">Graphviz</span> <span style="color:red;">:caption<Neural network> :headlevel(<span style="color:red;">2</span>)</span>
+digraph G {
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  concentrate=True;
+  rankdir=TB;
+  node [shape=record];
+  140087530674552 [label="title: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}"];
+  140087537895856 [label="body: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}"];
+  140087531105640 [label="embedding_2: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}"];
+  140087530711024 [label="embedding_3: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}"];
+  140087537980360 [label="lstm_2: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 128)}}"];
+  140087531256464 [label="lstm_3: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 32)}}"];
+  140087531106200 [label="tags: InputLayer\n|{input:|output:}|{{[(?, 12)]}|{[(?, 12)]}}"];
+  140087530348048 [label="concatenate_1: Concatenate\n|{input:|output:}|{{[(?, 128), (?, 32), (?, 12)]}|{(?, 172)}}"];
+  140087530347992 [label="priority: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 1)}}"];
+  140087530711304 [label="department: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 4)}}"];
+  140087530674552 -> 140087531105640;
+  140087537895856 -> 140087530711024;
+  140087531105640 -> 140087537980360;
+  140087530711024 -> 140087531256464;
+  140087537980360 -> 140087530348048;
+  140087531256464 -> 140087530348048;
+  140087531106200 -> 140087530348048;
+  140087530348048 -> 140087530347992;
+  140087530348048 -> 140087530711304;
+}
+<span style="color:green;">=end</span> <span style="color:red;">Graphviz</span>
+
 </pre>
 </div>
             </div>
@@ -2424,13 +2430,15 @@ graph Color_wheel {
             </div>
         
 <div class="id-target" id=""></div><h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits</a></h2>
-Richard Hainsworth aka finanalyst authors of dot coding for figures can be found at the links provided beneath each figure
+<p id="84eec39">Richard Hainsworth aka finanalyst </p>
+<p id="e243b23">Authors of <span class="basis">dot</span> coding for figures can be found at the links provided beneath each figure </p>
+
 
 
 
 
 <div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a></h2>
-v0.2.0
+v0.3.0
 
 
 
@@ -2448,45 +2456,14 @@ v0.2.0
                 Rendered from <span class="footer-field">docs/plugins/plugins/Graphviz</span>
             </div>
             <div class="level-item">
-                Rendered at 10:31 UTC on 2024-08-14</span>
+                Rendered at 12:02 UTC on 2024-08-14</span>
             </div>
             <div class="level-item">
-                Source last modified at 10:30 UTC on 2024-08-14</span>
+                Source last modified at 11:44 UTC on 2024-08-14</span>
             </div>
         </nav>
     </div>
-    <div class="section"><div class="container px-4 warnings">    <div class="warnings">
-    <h2 class="warnings-caption">Warnings</h2>
-        <ol>
-        <li>Could not highlight ｢al,sans-serif&quot;]
-      concentrate=True;
-      rankdir=TB;
-      node [shape=record];
-      140087530674552 [label=&quot;title: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}&quot;];
-      140087537895856 [label=&quot;body: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}&quot;];
-      140087531105640 [label=&quot;embedding_2: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}&quot;];
-      140087530711024 [label=&quot;embedding_3: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}&quot;];
-      140087537980360 [label=&quot;lstm_2: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 128)}}&quot;];
-      140087531256464 [label=&quot;lstm_3: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 32)}}&quot;];
-      140087531106200 [label=&quot;tags: InputLayer\n|{input:|output:}|{{[(?, 12)]}|{[(?, 12)]}}&quot;];
-      140087530348048 [label=&quot;concatenate_1: Concatenate\n|{input:|output:}|{{[(?, 128), (?, 32), (?, 12)]}|{(?, 172)}}&quot;];
-      140087530347992 [label=&quot;priority: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 1)}}&quot;];
-      140087530711304 [label=&quot;department: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 4)}}&quot;];
-      140087530674552 -&gt; 140087531105640;
-      140087537895856 -&gt; 140087530711024;
-      140087531105640 -&gt; 140087537980360;
-      140087530711024 -&gt; 140087531256464;
-      140087537980360 -&gt; 140087530348048;
-      140087531256464 -&gt; 140087530348048;
-      140087531106200 -&gt; 140087530348048;
-      140087530348048 -&gt; 140087530347992;
-      140087530348048 -&gt; 140087530711304;
-    }
-    =end Graphviz ... ｣</li>
-
-        </ol>
-    </div>
-</div></div>
+    
 </footer>
 
 </body>
