@@ -979,34 +979,34 @@ digraph G {bgcolor="#0000FF44:#FF000044" gradientangle=90
                 <label>Raku highlighting</label>
                 <div><pre class="nohighlights">
 =begin Graphviz :caption<Neural network :headlevel(2)
-digraph G {
-  fontname="Helvetica,Arial,sans-serif"
-  node [fontname="Helvetica,Arial,sans-serif"]
-  edge [fontname="Helvetica,Arial,sans-serif"]
-  concentrate=True;
-  rankdir=TB;
-  node [shape=record];
-  140087530674552 [label="title: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}"];
-  140087537895856 [label="body: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}"];
-  140087531105640 [label="embedding_2: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}"];
-  140087530711024 [label="embedding_3: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}"];
-  140087537980360 [label="lstm_2: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 128)}}"];
-  140087531256464 [label="lstm_3: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 32)}}"];
-  140087531106200 [label="tags: InputLayer\n|{input:|output:}|{{[(?, 12)]}|{[(?, 12)]}}"];
-  140087530348048 [label="concatenate_1: Concatenate\n|{input:|output:}|{{[(?, 128), (?, 32), (?, 12)]}|{(?, 172)}}"];
-  140087530347992 [label="priority: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 1)}}"];
-  140087530711304 [label="department: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 4)}}"];
-  140087530674552 -> 140087531105640;
-  140087537895856 -> 140087530711024;
-  140087531105640 -> 140087537980360;
-  140087530711024 -> 140087531256464;
-  140087537980360 -> 140087530348048;
-  140087531256464 -> 140087530348048;
-  140087531106200 -> 140087530348048;
-  140087530348048 -> 140087530347992;
-  140087530348048 -> 140087530711304;
-}
-=end Graphviz
+    digraph G {
+      fontname="Helvetica,Arial,sans-serif"
+      node [fontname="Helvetica,Arial,sans-serif"]
+      edge [fontname="Helvetica,Arial,sans-serif"]
+      concentrate=True;
+      rankdir=TB;
+      node [shape=record];
+      140087530674552 [label="title: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}"];
+      140087537895856 [label="body: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}"];
+      140087531105640 [label="embedding_2: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}"];
+      140087530711024 [label="embedding_3: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}"];
+      140087537980360 [label="lstm_2: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 128)}}"];
+      140087531256464 [label="lstm_3: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 32)}}"];
+      140087531106200 [label="tags: InputLayer\n|{input:|output:}|{{[(?, 12)]}|{[(?, 12)]}}"];
+      140087530348048 [label="concatenate_1: Concatenate\n|{input:|output:}|{{[(?, 128), (?, 32), (?, 12)]}|{(?, 172)}}"];
+      140087530347992 [label="priority: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 1)}}"];
+      140087530711304 [label="department: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 4)}}"];
+      140087530674552 -> 140087531105640;
+      140087537895856 -> 140087530711024;
+      140087531105640 -> 140087537980360;
+      140087530711024 -> 140087531256464;
+      140087537980360 -> 140087530348048;
+      140087531256464 -> 140087530348048;
+      140087531106200 -> 140087530348048;
+      140087530348048 -> 140087530347992;
+      140087530348048 -> 140087530711304;
+    }
+    =end Graphviz
 </pre>
 </div>
             </div>
@@ -2448,40 +2448,41 @@ v0.2.0
                 Rendered from <span class="footer-field">docs/plugins/plugins/Graphviz</span>
             </div>
             <div class="level-item">
-                Rendered at 10:09 UTC on 2024-08-14</span>
+                Rendered at 10:31 UTC on 2024-08-14</span>
             </div>
             <div class="level-item">
-                Source last modified at 09:38 UTC on 2024-08-07</span>
+                Source last modified at 10:30 UTC on 2024-08-14</span>
             </div>
         </nav>
     </div>
     <div class="section"><div class="container px-4 warnings">    <div class="warnings">
     <h2 class="warnings-caption">Warnings</h2>
         <ol>
-        <li>Could not highlight ｢  concentrate=True;
-  rankdir=TB;
-  node [shape=record];
-  140087530674552 [label=&quot;title: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}&quot;];
-  140087537895856 [label=&quot;body: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}&quot;];
-  140087531105640 [label=&quot;embedding_2: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}&quot;];
-  140087530711024 [label=&quot;embedding_3: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}&quot;];
-  140087537980360 [label=&quot;lstm_2: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 128)}}&quot;];
-  140087531256464 [label=&quot;lstm_3: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 32)}}&quot;];
-  140087531106200 [label=&quot;tags: InputLayer\n|{input:|output:}|{{[(?, 12)]}|{[(?, 12)]}}&quot;];
-  140087530348048 [label=&quot;concatenate_1: Concatenate\n|{input:|output:}|{{[(?, 128), (?, 32), (?, 12)]}|{(?, 172)}}&quot;];
-  140087530347992 [label=&quot;priority: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 1)}}&quot;];
-  140087530711304 [label=&quot;department: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 4)}}&quot;];
-  140087530674552 -&gt; 140087531105640;
-  140087537895856 -&gt; 140087530711024;
-  140087531105640 -&gt; 140087537980360;
-  140087530711024 -&gt; 140087531256464;
-  140087537980360 -&gt; 140087530348048;
-  140087531256464 -&gt; 140087530348048;
-  140087531106200 -&gt; 140087530348048;
-  140087530348048 -&gt; 140087530347992;
-  140087530348048 -&gt; 140087530711304;
-}
-=end Graphviz ... ｣</li>
+        <li>Could not highlight ｢al,sans-serif&quot;]
+      concentrate=True;
+      rankdir=TB;
+      node [shape=record];
+      140087530674552 [label=&quot;title: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}&quot;];
+      140087537895856 [label=&quot;body: InputLayer\n|{input:|output:}|{{[(?, ?)]}|{[(?, ?)]}}&quot;];
+      140087531105640 [label=&quot;embedding_2: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}&quot;];
+      140087530711024 [label=&quot;embedding_3: Embedding\n|{input:|output:}|{{(?, ?)}|{(?, ?, 64)}}&quot;];
+      140087537980360 [label=&quot;lstm_2: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 128)}}&quot;];
+      140087531256464 [label=&quot;lstm_3: LSTM\n|{input:|output:}|{{(?, ?, 64)}|{(?, 32)}}&quot;];
+      140087531106200 [label=&quot;tags: InputLayer\n|{input:|output:}|{{[(?, 12)]}|{[(?, 12)]}}&quot;];
+      140087530348048 [label=&quot;concatenate_1: Concatenate\n|{input:|output:}|{{[(?, 128), (?, 32), (?, 12)]}|{(?, 172)}}&quot;];
+      140087530347992 [label=&quot;priority: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 1)}}&quot;];
+      140087530711304 [label=&quot;department: Dense\n|{input:|output:}|{{(?, 172)}|{(?, 4)}}&quot;];
+      140087530674552 -&gt; 140087531105640;
+      140087537895856 -&gt; 140087530711024;
+      140087531105640 -&gt; 140087537980360;
+      140087530711024 -&gt; 140087531256464;
+      140087537980360 -&gt; 140087530348048;
+      140087531256464 -&gt; 140087530348048;
+      140087531106200 -&gt; 140087530348048;
+      140087530348048 -&gt; 140087530347992;
+      140087530348048 -&gt; 140087530711304;
+    }
+    =end Graphviz ... ｣</li>
 
         </ol>
     </div>
