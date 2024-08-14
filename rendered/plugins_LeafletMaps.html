@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LeafletMap</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
-<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;justify-content:space-around;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}
 </style>
 <style>#page-nav .panel-block .toc {
     overflow-y:scroll;
@@ -16,90 +16,57 @@
     height:65vh;
 }
 </style>
-<style>.listf-container {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.25rem;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  border: 1px solid #cccccc;
-  border-bottom: 5px solid #d9d9d9;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.07);
-}
-.listf-container .listf-caption {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  display: flex;
-  justify-content: center;
-  background: #f2f2f2;
-  border-bottom: 1px solid #cccccc;
-  color: #83858D;
-}
-.listf-container .listf-file {
-  display: inline-block;
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
-  break-inside: avoid;
-}
-.listf-container .listf-file .listf-link {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  padding-top: 0.25rem;
-}
-.listf-container .listf-file p {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  margin-bottom: 0.25rem;
-}
-.listf-error {
-  color: red;
-  font-size: xlarge;
-}
+<style>/* graphviz */
+div.graphviz{display:flex;justify-content:space-around;align-items:center}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
+</style>
+<style>/* hilite */
+.raku-code{position:relative;margin:1rem 0;border-bottom:3px solid #ccccccc;box-shadow:0 2px 3px 0 rgba(0,0,0,.07);border:1px solid #ccccccc}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;margin:0 5px 0 0}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;color:#a30031;font-weight:500}.raku-code pre{background-color:#fafafa;color:#030303;display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}
+</style>
+<style>/* latexformula */
+div.latex-equation{display:flex;justify-content:space-around;align-items:center}div.latex-equation a.logo{align-self:flex-last}span.latex-formula{display:inline-block;cursor:crosshair}span.latex-formula a{display:none}span.latex-formula:hover>a{display:inline-block;position:absolute;transform:translate(-3rem, -2rem);background:#faebd7}.latex-render-error{color:red;font-weight:bold}
+</style>
+<style>/* listfiles */
+.listf-container{display:flex;flex-direction:column;margin-bottom:1.25rem;font-size:1rem;font-weight:500;line-height:1.5;border:1px solid #ccc;border-bottom:5px solid #d9d9d9;box-shadow:0 2px 3px 0 rgba(0,0,0,.07)}.listf-container .listf-caption{display:flex;justify-content:center;background:#f2f2f2;border-bottom:1px solid #ccc;color:#83858d}.listf-container .listf-file{display:inline-block;border-top:1px solid #ccc;border-bottom:1px solid #ccc;break-inside:avoid}.listf-container .listf-file .listf-link{display:inline-block;width:100%;text-align:center;padding-top:.25rem}.listf-container .listf-file p{padding-left:.5rem;padding-right:.5rem;margin-bottom:.25rem}.listf-error{color:red;font-size:xlarge}
 </style>
 <style>// Chyron Toggle checkbox
 label.chyronToggle input#navbar-toc-toggle {
-opacity: 0;
-height: 0;
-width: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
 }
 label.chyronToggle span.checkmark {
-top: 1rem;
-position: relative;
-cursor: pointer;
+    top: 1rem;
+    position: relative;
+    cursor: pointer;
 }
 label.chyronToggle input[type="checkbox"]{
-position: absolute;
-opacity: 0;
-cursor: pointer;
-height: 0;
-width: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
 label.chyronToggle span.checkmark::before {
-content: '[\21e8';
-color: grey;
-font-weight: 800;
-line-height: 0.5rem;
-font-size: 1.75rem;
-margin-right: 0.25rem;
+    content: '[\21e8';
+    color: grey;
+    font-weight: 800;
+    line-height: 0.5rem;
+    font-size: 1.75rem;
+    margin-right: 0.25rem;
 }
 label.chyronToggle:hover span.checkmark::before {
-content: '[ \21e8';
+    content: '[ \21e8';
 }
 label.chyronToggle input[type="checkbox"]:checked + .checkmark::before {
-content: '[ \21e6';
+    content: '[ \21e6';
 }
 label.chyronToggle:hover input[type="checkbox"]:checked + .checkmark::before {
-content: '[\21e6';
+    content: '[\21e6';
 }
 </style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-light.min.css" title="light"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
 crossorigin=""
@@ -111,9 +78,39 @@ crossorigin=""
 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin=""
 ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/haskell.min.js"></script>
 <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
 ></script>
 
+<script>    // Hilite-helper.js
+    document.addEventListener('DOMContentLoaded', function () {
+        // trigger the highlighter for non-Raku code
+        hljs.highlightAll();
+
+        // copy code block to clipboard adapted from solution at
+        // https://stackoverflow.com/questions/34191780/javascript-copy-string-to-clipboard-as-text-html
+        // if behaviour problems with different browsers add stylesheet code from that solution.
+        const copyButtons = Array.from(document.querySelectorAll('.copy-code'));
+        copyButtons.forEach( function( button ) {
+        var codeElement = button.nextElementSibling.nextElementSibling; // skip the label and get the div
+        button.addEventListener( 'click', function(insideButton) {
+            var container = document.createElement('div');
+            container.innerHTML = codeElement.innerHTML;
+                container.style.position = 'fixed';
+                container.style.pointerEvents = 'none';
+                container.style.opacity = 0;
+                document.body.appendChild(container);
+                window.getSelection().removeAllRanges();
+                var range = document.createRange();
+                range.selectNode(container);
+                window.getSelection().addRange(range);
+                document.execCommand("copy", false);
+                document.body.removeChild(container);
+            });
+        });
+    });
+</script>
 <script>// BulmaHelper.js
 var change_theme = function (theme) {
     document.querySelector('html').className = '';
@@ -192,24 +189,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     document.getElementById('toc-tab').addEventListener('click', function () { swap_toc_index('toc') });
     document.getElementById('index-tab').addEventListener('click', function () { swap_toc_index('index') });
-    // copy code block to clipboard adapted from solution at
-    // https://stackoverflow.com/questions/34191780/javascript-copy-string-to-clipboard-as-text-html
-    // if behaviour problems with different browsers add stylesheet code from that solution.
-//    $('.copy-code').click( function() {
-//        var codeElement = $(this).next().next(); // skip the label and get the div
-//        var container = document.createElement('div');
-//        container.innerHTML = codeElement.html();
-//        container.style.position = 'fixed';
-//        container.style.pointerEvents = 'none';
-//        container.style.opacity = 0;
-//        document.body.appendChild(container);
-//        window.getSelection().removeAllRanges();
-//        var range = document.createRange();
-//        range.selectNode(container);
-//        window.getSelection().addRange(range);
-//        document.execCommand("copy", false);
-//        document.body.removeChild(container);
-//    });
     var TOC = document.getElementById('toc-menu');
     var Index = document.getElementById('index-menu');
     var originalTOC = TOC.getHTML();
@@ -335,9 +314,16 @@ function swap_toc_index(activate) {
 <div class="id-target" id=""></div><h2 id="Overview" class="heading  py-2"><a href="#" title="go to top of document">Overview</a></h2>
 <p id="097eb5a">The plugin uses the fabulous <a href="https://leafletjs.com">Leaflet JS library</a>. The map MUST have a fixed height, so this is specified in the config attribute. </p>
 <p id="dba22e5">By default, the map will point at Cardiff Castle in Cardiff, Wales with a 200px height and 16 unit magnification, using OpenStreetMap as the tile provider. So </p>
-<pre class="code-block">=LeafletMap
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+=LeafletMap
 </pre>
-<p id="3387465">produces: </p>
+</div>
+            </div>
+        <p id="3387465">produces: </p>
 <div id="html-extra-leaflet-map"
 style="height: 200px; "
 >
@@ -347,15 +333,18 @@ style="height: 200px; "
       L.tileLayer.provider('OpenStreetMap' ).addTo(vhtml_extra_leaflet_map);
 </script>
 <p id="4638a8f">The simplest customisation is to centre the map by specifying the lattitude and longitude, and to change the starting zoom level (smaller numbers are larger views). It is also possible to change the height of the map. Each map on a page must have its own id. Additionally, when developing a page, not setting a width is tiresome. Note another very underutilised feature of Rakudoc, the ability to spread meta-data accross lines. The first virtual column must start in a <span class="code">=</span> and there must be at least one horizontal whitespace character. Thus </p>
-<pre class="code-block">=for LeafletMap
-=  :lat&lt;55.948595&gt; :long&lt;-3.199913&gt;
-=  :zoom(13) :height&lt;300px&gt;
-=  :map-id&lt;new-map&gt;
-=  :headlevel(2)
-=  :width&lt;50vw&gt;
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+<span style="color:green;">=for</span> <span style="color:red;">LeafletMap</span> <span style="color:red;">:headlevel(<span style="color:red;">2</span>) :height<300px> :lat<55.948595> :long<-3.199913> :map-id<new-map> :width<50vw> :zoom(<span style="color:red;">13</span>)</span>
 Edinburgh Castle
+
 </pre>
-<p id="fe333e1">will produce </p>
+</div>
+            </div>
+        <p id="fe333e1">will produce </p>
 <div id="new-map"
 style="height: 300px; width: 50vw;"
 >
@@ -367,9 +356,16 @@ style="height: 300px; width: 50vw;"
 <p id="fc22346">Maps are generated from tiles and the information can be rendered in many ways. There are multiple tile providers, collected in a github resource <a href="https://github.com/leaflet-extras/leaflet-providers">leaflet-extras</a>. "Leaflet-providers provides tile layers from different providers, including OpenStreetMap, Stamen, Esri and OpenWeatherMap. The full listing of free to use layers can be previewed." (from README of leaflet-providers) </p>
 <p id="3f5b22a">Some providers have map types that do not need registration, most types need registration. <a href="http://leaflet-extras.github.io/leaflet-providers/preview/index.html">Here are all</a> the providers and variants. </p>
 <p id="5e7d725">For example, this is a map with the Esri.WorldImagery provider[.variant] string. </p>
-<pre class="code-block">=for LeafletMap :provider&lt;Esri.WorldImagery&gt; :map-id&lt;third-map&gt; :width&lt;50vw&gt;
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+=for LeafletMap :provider<Esri.WorldImagery> :map-id<third-map> :width<50vw>
 </pre>
-<div id="third-map"
+</div>
+            </div>
+        <div id="third-map"
 style="height: 200px; width: 50vw;"
 >
 </div>
@@ -383,29 +379,36 @@ style="height: 200px; width: 50vw;"
 <p id="10c9999"><span class="code">:title<text></span> allows for the <span class="important">text</span> to be visible with a mouseover. </p>
 <p id="ebf5eb3"><span class="code">:fa-icon</span> will work if the <span class="code">FontAwesome</span> plugin has been configured for rendering (see above for detail on extra commands). </p>
 <p id="ca50b52"><span class="code">:headlevel(0)</span> is set so that the Table of Contents is not affected. </p>
-<pre class="code-block">=for LeafletMap :map-id&lt;map-four&gt; :height&lt;600px&gt; :zoom(12) :width&lt;50vw&gt;
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+=for LeafletMap :map-id<map-four> :height<600px> :zoom(12) :width<50vw>
 
 =for LeafMarker
-=    :map-id&lt;map-four&gt; :name&lt;mk1&gt;
-=    :lat&lt;51.48160&gt; :long&lt;-3.18070&gt;
+=    :map-id<map-four> :name<mk1>
+=    :lat<51.48160> :long<-3.18070>
 =    :headlevel(0)
-=    :title&lt;Cardiff Castle&gt;
+=    :title<Cardiff Castle>
 
 =for LeafMarker
-=    :map-id&lt;map-four&gt;
-=    :lat&lt;51.529269&gt; :long&lt;-3.188109&gt;
-=    :fa-icon&lt;fas fa-cutlery fa-spin fa-3x fa-fw&gt;
+=    :map-id<map-four>
+=    :lat<51.529269> :long<-3.188109>
+=    :fa-icon<fas fa-cutlery fa-spin fa-3x fa-fw>
 =    :headlevel(0)
-=    :title&lt;Fintans Fish & Chip Co&gt;
+=    :title<Fintans Fish & Chip Co>
 
 =for LeafMarker
-=    :map-id&lt;map-four&gt;
-=    :lat&lt;51.502576&gt; :long&lt;-3.190222&gt;
-=    :fa-icon&lt;fas fa-cutlery&gt;
+=    :map-id<map-four>
+=    :lat<51.502576> :long<-3.190222>
+=    :fa-icon<fas fa-cutlery>
 =    :headlevel(0)
-=    :popup&lt;Yan’s Fish Bar&gt;
+=    :popup<Yan’s Fish Bar>
 </pre>
-<p id="70bd7ad">Thus for two chippies judged the best in Cardiff at the time of writing: </p>
+</div>
+            </div>
+        <p id="70bd7ad">Thus for two chippies judged the best in Cardiff at the time of writing: </p>
 <div id="map-four"
 style="height: 600px; width: 50vw;"
 >
@@ -421,25 +424,25 @@ L.marker([51.4816, -3.1807], { title: 'Cardiff Castle' }).addTo(vmap_four)
 
 </script>
 <script>
-const bmgazlwnq = L.divIcon({
+const unvraqbyx = L.divIcon({
     html: '<span class="fa fa-solid fa-utensils fa-spin fa-3x fa-fw"></span>',
     iconSize: [20, 20],
     className: 'myDivIcon'
 });
 
 
-L.marker([51.529269, -3.188109], { icon: bmgazlwnq,title: 'Fintans Fish & Chip Co, Llanishen' }).addTo(vmap_four)
+L.marker([51.529269, -3.188109], { icon: unvraqbyx,title: 'Fintans Fish & Chip Co, Llanishen' }).addTo(vmap_four)
 
 </script>
 <script>
-const fqzimhsrx = L.divIcon({
+const kmrlzscdv = L.divIcon({
     html: '<span class="fa fa-solid fa-utensils"></span>',
     iconSize: [20, 20],
     className: 'myDivIcon'
 });
 
 
-L.marker([51.502576, -3.190222], { icon: fqzimhsrx }).addTo(vmap_four)
+L.marker([51.502576, -3.190222], { icon: kmrlzscdv }).addTo(vmap_four)
 .bindPopup('Yan’s Fish Bar')
 </script>
 
@@ -468,14 +471,37 @@ v0.1.0
                 Rendered from <span class="footer-field">docs/plugins/plugins/LeafletMaps</span>
             </div>
             <div class="level-item">
-                Rendered at 13:40 UTC on 2024-08-08</span>
+                Rendered at 10:09 UTC on 2024-08-14</span>
             </div>
             <div class="level-item">
                 Source last modified at 09:38 UTC on 2024-08-07</span>
             </div>
         </nav>
     </div>
-    
+    <div class="section"><div class="container px-4 warnings">    <div class="warnings">
+    <h2 class="warnings-caption">Warnings</h2>
+        <ol>
+        <li>Could not highlight ｢=LeafletMap｣</li>
+<li>Could not highlight ｢=for LeafletMap :provider&lt;Esri.WorldImagery&gt; :map-id&lt;third-map&gt; :width&lt;50vw&gt;｣</li>
+<li>Could not highlight ｢stle&gt;
+
+=for LeafMarker
+=    :map-id&lt;map-four&gt;
+=    :lat&lt;51.529269&gt; :long&lt;-3.188109&gt;
+=    :fa-icon&lt;fas fa-cutlery fa-spin fa-3x fa-fw&gt;
+=    :headlevel(0)
+=    :title&lt;Fintans Fish &amp; Chip Co&gt;
+
+=for LeafMarker
+=    :map-id&lt;map-four&gt;
+=    :lat&lt;51.502576&gt; :long&lt;-3.190222&gt;
+=    :fa-icon&lt;fas fa-cutlery&gt;
+=    :headlevel(0)
+=    :popup&lt;Yan’s Fish Bar&gt; ... ｣</li>
+
+        </ol>
+    </div>
+</div></div>
 </footer>
 
 </body>
