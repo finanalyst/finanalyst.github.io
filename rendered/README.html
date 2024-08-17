@@ -285,10 +285,10 @@ function swap_toc_index(activate) {
     <aside id="toc-menu" class="panel-block">
     <div class="toc"><div class="toc-item" style="--level:0;" data-bullet=""><a href="#SYNOPSIS">SYNOPSIS</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Table_of_outputs_and_renderers">Table of outputs and renderers</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Documentation">Documentation</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#RenderTextify_utility">RenderTextify utility</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Wrapping">Wrapping</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#RenderDocs_utility">RenderDocs utility</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Troubleshooting">Troubleshooting</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
@@ -332,22 +332,8 @@ function swap_toc_index(activate) {
 
 <div class="id-target" id=""></div><h2 id="Overview" class="heading  py-2"><a href="#" title="go to top of document">Overview</a></h2>
 <p id="887ec44">This distribution is intended to provide several renderers from RakuDoc v2 into commonly used output formats. </p>
-<p id="fed50d3">The basic render engine is <span class="code">RakuDoc::Render</span>, which renders into Text. It is designed to be extended to other output formats by subclassing. </p>
-<p id="da74a31">Currently, the other renderers in this distribution are: </p>
-
-<div class="id-target" id=""></div><h3 id="Table_of_outputs_and_renderers" class="heading  py-2"><a href="#" title="go to top of document">Table of outputs and renderers</a></h3>
-<table class="table">
-<tr><th class="">Output</th><th class="">Renderer</th><th class="">Documentation</th></tr>
-<tr><td class="">Text</td><td class=""><p id="7cf4d1f"><span class="code">RakuDoc::To::Generic</span> </p>
-</td><td class=""><p id="23977bd"><a href="Render">a wrapper for <span class="important">RakuDoc::Render</span></a> </p>
-</td></tr>
-<tr><td class="">Markdown</td><td class=""><p id="1108ad6"><span class="code">RakuDoc::To::Markdown</span> </p>
-</td><td class=""><p id="075e020"><a href="RakuDoc-To-Markdown">Markdown</a> </p>
-</td></tr>
-<tr><td class="">HTML</td><td class=""><p id="108de6e"><span class="code">RakuDoc::To::HTML</span> </p>
-</td><td class=""><p id="8bd7222"><a href="RakuDoc-To-HTML">A minimal, single file, 'all in' HTML</a> </p>
-</td></tr>
-<tr><td class="">HTML-Extra</td><td class="">in development</td><td class="">HTML output using Bulma CSS, Graphviz, Leaflet-Maps, Latex, assumes internet</td></tr></table>
+<p id="bdf35b4">The basic render engine is <span class="code">RakuDoc::Render</span>, which renders a RakuDoc source into text for display on a terminal. </p>
+<p id="221bd19">The Renderer class is designed to be extended to other output formats by subclassing. </p>
 <p id="385bc98">This is software using bleeding edge Rakudo, so look <a href="#Troubleshooting">at troubleshooting below</a>. </p>
 <p id="c686f12">Using the <span class="important">Generic</span> renderer, the <span class="basis">canonical method</span> for generating rendered text is possible (which sends output to STDOUT, so pipe to a file), namely </p>
 
@@ -370,7 +356,7 @@ bin/get-compliance-document
 </pre>
 </div>
             </div>
-        <p id="bece221"><span class="code">rakudociem-ipsum.rakudoc</span> is contained in the submodule <span class="code">rakudoc-compliance</span> with a link in <span class="code">resources/compliance</span>. </p>
+        <p id="3cf5954">A copy of <span class="code">rakudociem-ipsum.rakudoc</span> is also contained in <span class="code">resources/compliance-rendering</span>, together with renderings of the file using the output renderers in this distribution. </p>
 <p id="e6059ff">In order to avoid environment variables, eg for Windows, a RakuDoc file can be rendered to Text using the <a href="#RenderTextify_utility">RenderTextify</a>. It avoids some installation problems, stores the output and offers some other output options, eg. </p>
 
             <div class="raku-code raku-lang">
@@ -382,28 +368,24 @@ bin/RenderTextify rakudociem-ipsum
 </div>
             </div>
         <p id="416d7d2">(the .rakudoc extension may be omitted if desired) </p>
+<p id="6f2e7d3">Rendering into the other output formats provided in this distribution can be done using <a href="#RenderDocs_utility">RenderDocs</a>. By default, sources are located in <span class="code">docs/</span> and rendered to the current working directory into MarkDown, eg., </p>
 
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+bin/RenderDocs README
+</pre>
+</div>
+            </div>
+        
 <div class="id-target" id=""></div><h2 id="Documentation" class="heading  py-2"><a href="#" title="go to top of document">Documentation</a></h2>
+<p id="27e82ea">All documentation can be found at <a href="https://finanalyst.github.io">finanalyst.github.io</a>. </p>
 <p id="9ae1d19">The two main documentation sources are: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="641e025"><a href="Render">An overview of the generic renderer</a> </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="05403a6"><a href="https://finanalyst.github.io/Render">An overview of the generic renderer</a> </p>
 </li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="7e13acb"><a href="Templates">The templating system</a> </p>
-</li>
-</ul>
-<p id="525d438">Other modules are also documented: </p>
-
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="7558bb1"><a href="Processed">Processed - objects to keep track of intermediate state</a> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="81cb740"><a href="PromiseStrings">PStr - Strings containing forward references</a> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="aaba484"><a href="ScopedData">ScopedData - an object to keep track of data valid for a block scope</a> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="34cc89f"><a href="default-text-templates">a table of the minimum set of templates to render any RakuDoc source</a> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="a58c902"><a href="MarkUpMeta">a grammar for parsing the meta data of a Markup code</a> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="97e6f87"><a href="Numeration">an object for numerating items headings</a> </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="d3a5d97"><a href="https://finanalyst.github.io/Templates">The templating system</a> </p>
 </li>
 </ul>
 
@@ -493,9 +475,91 @@ bin/RenderTextify --post-processing --width=70 doc
 </pre>
 </div>
             </div>
+        <p id="29350b2">The utility can also be used for debugging new templates. For more information, see the Render and Templates documents. To get all the debugging information, and information on the template for <span class="code">C-markup</span> try </p>
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+bin/RenderTextify --debug='All' --verbose='C-markup' doc
+</pre>
+</div>
+            </div>
         
+<div class="id-target" id=""></div><h2 id="RenderDocs_utility" class="heading  py-2"><a href="#" title="go to top of document">RenderDocs utility</a></h2>
+<p id="acc9fb2"><span class="important">RenderDoc</span> is similar to RenderTextify, but uses the other formats in this distribution, namely </p>
+
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="b952249"><span class="basis">.md</span> - Markdown (default) </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="1ccbaed"><span class="basis">-singlefile.html</span> - HTML that can be opened directly in a browser without internet connection. </p>
+</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="658d6c6"><span class="basis">.html</span> - HTML that is intended for use with an internet connection </p>
+</li>
+</ul>
+<p id="d28cd2c">By default, the utility renders all the <span class="important">rakudoc</span> sources from <span class="code">docs/</span> and outputs them in <span class="important">markdown</span> to the current working directory, eg. </p>
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+bin/RenderDocs
+</pre>
+</div>
+            </div>
+        <p id="1cb6d95">In order to get the useage try </p>
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+bin/RenderDocs -h
+</pre>
+</div>
+            </div>
+        <p id="32734c6">In order to render a single file, put the basename without <span class="important">.rakudoc</span> as a string parameter, eg. </p>
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+bin/RenderDocs README
+</pre>
+</div>
+            </div>
+        <p id="daaff92">In order to override the source and output defaults use <span class="code">--src</span> and <span class="code">--to</span> options, eg. </p>
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+bin/RenderDocs --src='sources/' --to='rendered/' some-file
+</pre>
+</div>
+            </div>
+        <p id="21f9a8c">In order to get single file HTML, rather than markdown </p>
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+bin/Render --to='rendered' --html README
+</pre>
+</div>
+            </div>
+        <p id="36602c7">In order to get the possibilities offered by RakuDoc::To::HTML-Extra, including maps, graphs, themes and the Bulma CSS framework, use <span class="code">--html</span> and <span class="code">--extra</span>, eg. </p>
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+bin/Render --html --extra Graphviz
+</pre>
+</div>
+            </div>
+        <p id="dc35410">The <span class="basis">html</span> variants allow for <span class="code">--debug</span> and <span class="code">--verbose</span>. </p>
+
 <div class="id-target" id=""></div><h2 id="Troubleshooting" class="heading  py-2"><a href="#" title="go to top of document">Troubleshooting</a></h2>
-<p id="50d54e8">In order to get the RakuDoc render test file (rakudociem-ipsum) to work, a recent version of the Rakudoc compiler is needed, after v2024.06. </p>
+<p id="e3431ff">In order to get the RakuDoc render test file (rakudociem-ipsum) to work, a recent version of the Rakudoc compiler is needed, after v2024.07. </p>
 <p id="53029b4">If the cannonical command above fails, perhaps with a message such as </p>
 
             <div class="raku-code raku-lang">
@@ -507,43 +571,31 @@ bin/RenderTextify --post-processing --width=70 doc
 </pre>
 </div>
             </div>
+        <p id="7fa2f84">or </p>
+
+            <div class="raku-code raku-lang">
+                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                <label>Raku highlighting</label>
+                <div><pre class="nohighlights">
+Out-of-sync package detected in LANG1 at r => Str=｢{ $!front-matter }｣
+
+  (value in braid: RakuAST::Class, value in $*PACKAGE: RakuAST::Class)
+===SORRY!===
+No such method 'IMPL-REGEX-QAST' for invocant of type 'RakuAST::Regex'
+</pre>
+</div>
+            </div>
         <p id="347a187">then try </p>
 
             <div class="raku-code raku-lang">
                 <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                 <label>Raku highlighting</label>
                 <div><pre class="nohighlights">
-RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=Generic rakudociem-ipsum.rakudoc > store-output
+bin/force-compile
 </pre>
 </div>
             </div>
-        <p id="4c23d02">The command above may also generate an error, such as </p>
-
-            <div class="raku-code raku-lang">
-                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                <label>Raku highlighting</label>
-                <div><pre class="nohighlights">
-    ===SORRY!=== Error while compiling ..... (OO::Monitors)
-    Variable '$cond' is not declared.  Perhaps you forgot a 'sub' if this
-    was intended to be part of a signature?
-    at ....
-    ------> macro wait-condition(⏏$cond) is export {
-because the RakuAST compiler does not yet handle macros, and (OO::Monitors) uses them.
-</pre>
-</div>
-            </div>
-        <p id="87645ef">The first step is to re-run the test files, eg., </p>
-
-            <div class="raku-code raku-lang">
-                <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                <label>Raku highlighting</label>
-                <div><pre class="nohighlights">
-prove6 -I.
-</pre>
-</div>
-            </div>
-        <p id="02a05a0">This causes a recompilation of the modules in this distribution to be recompiled because the tests run <span class="code">isa-ok</span> on each module. </p>
-<p id="0f6ea09">This is sometimes not sufficient. The next step is to use the utility <span class="code">bin/force-compile</span> in the root of the repo. It deletes the <span class="code">.precomp</span> files in the current directory, and runs <span class="code">prove6 -I.</span>. </p>
+        <p id="4633367">This deletes the <span class="code">.precomp</span> files in the current directory, and runs <span class="code">prove6 -I.</span>, which causes a recompilation of all the modules. </p>
 
 <div class="id-target" id=""></div><h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits</a></h2>
 Richard Hainsworth aka finanalyst
@@ -552,7 +604,7 @@ Richard Hainsworth aka finanalyst
 
 
 <div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a></h2>
-v0.3.1
+v0.4.0
 
 
 
@@ -570,10 +622,10 @@ v0.3.1
                 Rendered from <span class="footer-field">docs/README</span>
             </div>
             <div class="level-item">
-                Rendered at 12:02 UTC on 2024-08-14</span>
+                Rendered at 11:12 UTC on 2024-08-17</span>
             </div>
             <div class="level-item">
-                Source last modified at 09:38 UTC on 2024-08-07</span>
+                Source last modified at 11:05 UTC on 2024-08-17</span>
             </div>
         </nav>
     </div>
@@ -583,6 +635,7 @@ v0.3.1
         <li>Could not highlight ｢RAKUDO_RAKUAST=1 raku --rakudoc=Generic rakudociem-ipsum.rakudoc &gt; store-output｣</li>
 <li>Could not highlight ｢bin/get-compliance-document｣</li>
 <li>Could not highlight ｢bin/RenderTextify rakudociem-ipsum｣</li>
+<li>Could not highlight ｢bin/RenderDocs README｣</li>
 <li>Could not highlight ｢bin/RenderTextify rakudociem-ipsum｣</li>
 <li>Could not highlight ｢rakudociem-ipsum.rakudoc.text｣</li>
 <li>Could not highlight ｢bin/RenderTextify --pretty rakudociem-ipsum｣</li>
@@ -591,12 +644,17 @@ v0.3.1
 <li>Could not highlight ｢bin/RenderTextify --post-processing doc｣</li>
 <li>Could not highlight ｢POSTPROCESSING=1 WIDTH=70 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc &gt; store-output｣</li>
 <li>Could not highlight ｢bin/RenderTextify --post-processing --width=70 doc｣</li>
+<li>Could not highlight ｢bin/RenderTextify --debug='All' --verbose='C-markup' doc｣</li>
+<li>Could not highlight ｢bin/RenderDocs｣</li>
+<li>Could not highlight ｢bin/RenderDocs -h｣</li>
+<li>Could not highlight ｢bin/RenderDocs README｣</li>
+<li>Could not highlight ｢bin/RenderDocs --src='sources/' --to='rendered/' some-file｣</li>
+<li>Could not highlight ｢bin/Render --to='rendered' --html README｣</li>
+<li>Could not highlight ｢bin/Render --html --extra Graphviz｣</li>
 <li>Could not highlight ｢===SORRY!===
     This element has not been resolved. Type: RakuAST::Type::Simple｣</li>
-<li>Could not highlight ｢RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc=Generic rakudociem-ipsum.rakudoc &gt; store-output｣</li>
-<li>Could not highlight ｢&gt; macro wait-condition(⏏$cond) is export {
-because the RakuAST compiler does not yet handle macros, and (OO::Monitors) uses them. ... ｣</li>
-<li>Could not highlight ｢prove6 -I.｣</li>
+<li>Could not highlight ｢t of type 'RakuAST::Regex' ... ｣</li>
+<li>Could not highlight ｢bin/force-compile｣</li>
 
         </ol>
     </div>
