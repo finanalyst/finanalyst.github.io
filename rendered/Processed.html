@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ProcessState and RakuDoc::Processed</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
-<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;justify-content:space-around;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.indexed:hover::before{content:attr(data-index-text);translate:0 -1.5em;position:absolute}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;justify-content:space-around;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}.raku-anchor{font-size:.9em;text-decoration:none;visibility:hidden}.heading:hover .raku-anchor{visibility:visible;padding-left:5px}
 </style>
 <style>/* bulma */
-#page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}
+#page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
@@ -89,11 +89,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if ( state ) {
             document.getElementById("TOC").classList.remove('is-hidden');
             document.getElementById("page-nav").classList.remove('is-hidden');
+            document.getElementById("MainText").classList.add('is-three-quarters');
+            document.getElementById("MainText").classList.add('column');
+            document.getElementById("MainText").classList.remove('px-5');
             persist_tocState( 'open');
         }
         else {
             document.getElementById("TOC").classList.add('is-hidden');
             document.getElementById("page-nav").classList.add('is-hidden');
+            document.getElementById("MainText").classList.remove('is-three-quarters');
+            document.getElementById("MainText").classList.remove('column');
+            document.getElementById("MainText").classList.add('px-5');
             persist_tocState( 'closed' );
         }
     }
@@ -101,11 +107,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if ( state === 'closed') {
             document.getElementById("TOC").classList.add('is-hidden');
             document.getElementById("page-nav").classList.add('is-hidden');
+            document.getElementById("MainText").classList.remove('is-three-quarters');
+            document.getElementById("MainText").classList.remove('column');
+            document.getElementById("MainText").classList.add('px-5');
             document.getElementById("navbar-toc-toggle").checked = false;
         }
         else {
             document.getElementById("TOC").classList.remove('is-hidden');
             document.getElementById("page-nav").classList.remove('is-hidden');
+            document.getElementById("MainText").classList.add('is-three-quarters');
+            document.getElementById("MainText").classList.add('column');
+            document.getElementById("MainText").classList.remove('px-5');
             document.getElementById("navbar-toc-toggle").checked = true;
         }
     };
@@ -240,6 +252,58 @@ function swap_toc_index(activate) {
   </p>
     <aside id="toc-menu" class="panel-block">
     <div class="toc"><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Purpose">Purpose</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Attributes_of_ProcessedState_object">Attributes of ProcessedState object</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;PStr_$.body_is_rw_&gt;">PStr $.body is rw  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;Hash_@.toc_&gt;">Hash @.toc  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;Array_@.head-numbering_&gt;">Array @.head-numbering  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;%.index_&gt;">%.index  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.footnotes_&gt;">@.footnotes  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;Array_%.semantics_&gt;">Array %.semantics  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.warnings_&gt;">@.warnings  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.items_&gt;">@.items  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.defns_&gt;">@.defns  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.numitems_&gt;">@.numitems  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.numdefns_&gt;">@.numdefns  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;%.definitions_&gt;">%.definitions  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.inline-defns_&gt;">@.inline-defns  
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Attributes_of_RakuDoc::Processed">Attributes of RakuDoc::Processed</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_%.source-data_&gt;&gt;"> %.source-data  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_$!output-format_=_'txt'_&gt;&gt;"> $!output-format = 'txt'  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.front-matter_is_rw_=_'preface'_&gt;&gt;"> Str $.front-matter is rw = 'preface'  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.name_is_rw_&gt;&gt;"> Str $.name is rw  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.title_is_rw_=_'NO_TITLE'_&gt;&gt;"> Str $.title is rw = 'NO_TITLE'  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.title-target_is_rw_=_'___top'_&gt;&gt;"> Str $.title-target is rw = '___top'  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.subtitle_is_rw_=_''_&gt;&gt;"> Str $.subtitle is rw = ''  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&gt;&gt;"> Str $.modified is rw = now.DateTime.utc.truncated-to('seconds').Str  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_SetHash_$.targets_&gt;&gt;"> SetHash $.targets  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Hash_%.links_&gt;&gt;"> Hash %.links  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.rendered-toc_is_rw_&gt;&gt;"> Str $.rendered-toc is rw  
+</a></div>
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.rendered-index_is_rw_&gt;&gt;"> Str $.rendered-index is rw  
+</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
 
@@ -247,8 +311,7 @@ function swap_toc_index(activate) {
     <aside id="index-menu" class="panel-block is-hidden">
     <div class="index">
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry"></span>: <a class="index-ref" href="#index-entry-">&nbsp;§&nbsp;</a><span>Block # 2</span>, <a class="index-ref" href="#index-entry-_0">&nbsp;§&nbsp;</a><span><p id="13f8909"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
-</span>
+<span class="index-entry"></span>: <a class="index-ref" href="#index-entry-">&nbsp;§&nbsp;</a><span>C<< Str $.front-matter is rw = 'preface' >></span>
 </div>
 
 </div>
@@ -260,7 +323,7 @@ function swap_toc_index(activate) {
     <div id="TOC" class="column is-one-quarter">
         
     </div>
-    <div class="column">
+    <div id="MainText" class="column">
         <section class="section">
   <div class="container">
 <div id="ProcessState_and_RakuDoc::Processed"></div><h1 class="title is-centered">ProcessState and RakuDoc::Processed</h1>
@@ -269,24 +332,18 @@ function swap_toc_index(activate) {
   </div>
 </section>
 
-        <div class="container px-4">
-        
-<div class="id-target" id=""></div><h2 id="Purpose" class="heading  py-2"><a href="#" title="go to top of document">Purpose<a class="raku-anchor" title="direct link" href="#Purpose">§</a></a></h2>
+        <div class="content px-4">
+        <h2 id="Purpose" class="heading  py-2"><a href="#" title="go to top of document">Purpose</a><a class="raku-anchor" title="direct link" href="#Purpose">§</a></h2>
 <p id="7dd26db">When a RakuDoc source is being processed, data is collected about numerous items, such as the Table of Contents, the Index, list and definition entries. </p>
 <p id="caf8c99">Many RakuDoc blocks allow for recursion, with blocks being embedded within each other. A ProcessState object is therefore created to contain all the intermediary data. </p>
 <p id="0a3e7a9">One ProcessState object can be added to another, and so once one block has been processed, it can be 'added' to the ProcessState object of the containing block. </p>
 <p id="1427915">Finally, when an entire RakuDoc source has been fully rendered, it is useful to retain all the intermediary data structures as well. </p>
 <p id="7c3ecf8">The overall RakuDoc::Processed object contains data related to the source as well as the rendered data. </p>
 <p id="228a2c4">By keeping track of the timestamps of the source file and the rendering, it will be possible to determine whether to render a source again, or not. </p>
-
-<div class="id-target" id=""></div><h3 id="Attributes_of_ProcessedState_object" class="heading  py-2"><a href="#" title="go to top of document">Attributes of ProcessedState object<a class="raku-anchor" title="direct link" href="#Attributes_of_ProcessedState_object">§</a></a></h3>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;4fc77d5&quot;&gt;&lt;span_class=&quot;code&quot;&gt;PStr_$.body_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="4fc77d5"><span class="code">PStr $.body is rw </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;4fc77d5&quot;&gt;&lt;span_class=&quot;code&quot;&gt;PStr_$.body_is_rw_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h3 id="Attributes_of_ProcessedState_object" class="heading  py-2"><a href="#" title="go to top of document">Attributes_of_ProcessedState_object</a><a class="raku-anchor" title="direct link" href="#Attributes_of_ProcessedState_object">§</a></h3>
+<h4 id="C&lt;PStr_$.body_is_rw_&gt;" class="heading  py-2"><a href="#" title="go to top of document">PStr_$.body_is_rw</a><a class="raku-anchor" title="direct link" href="#C&lt;PStr_$.body_is_rw_&gt;">§</a></h4>
 <p id="58c42ef">String of rendered source, may contain Promises during rendering </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;ed447a4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Hash_@.toc_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="ed447a4"><span class="code">Hash @.toc </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;ed447a4&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Hash_@.toc_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;Hash_@.toc_&gt;" class="heading  py-2"><a href="#" title="go to top of document">Hash_@.toc</a><a class="raku-anchor" title="direct link" href="#C&lt;Hash_@.toc_&gt;">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -299,9 +356,7 @@ Ordered array </span><span style="color:var(--bulma-primary);font-weight:600;">o
 </pre>
 </div>
                 </div>
-            
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;fa68a2b&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_@.head-numbering_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="fa68a2b"><span class="code">Array @.head-numbering </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;fa68a2b&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_@.head-numbering_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+            <h4 id="C&lt;Array_@.head-numbering_&gt;" class="heading  py-2"><a href="#" title="go to top of document">Array_@.head-numbering</a><a class="raku-anchor" title="direct link" href="#C&lt;Array_@.head-numbering_&gt;">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -314,9 +369,7 @@ Ordered array </span><span style="color:var(--bulma-primary);font-weight:600;">o
 </pre>
 </div>
                 </div>
-            
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;31e98a9&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.index_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="31e98a9"><span class="code">%.index </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;31e98a9&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.index_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+            <h4 id="C&lt;%.index_&gt;" class="heading  py-2"><a href="#" title="go to top of document">%.index</a><a class="raku-anchor" title="direct link" href="#C&lt;%.index_&gt;">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -327,13 +380,11 @@ Ordered array </span><span style="color:var(--bulma-primary);font-weight:600;">o
  <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-primary);font-weight:600;">sub</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-info);font-weight:600;">index</span><span style="color:var(--bulma-black);font-weight:600;"> (maybe empty) </span><span style="color:var(--bulma-primary);font-weight:600;">is</span> <span style="color:var(--bulma-danger);font-weight:600;">Hash</span> <span style="color:var(--bulma-primary);font-weight:600;">of</span> <span style="color:var(--bulma-primary);font-weight:600;">sub</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">entry </span><span style="color:var(--bulma-success);font-weight:600;">=></span> <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">refs</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-primary);font-weight:600;">sub</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-info);font-weight:600;">index</span>
  <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">refs </span><span style="color:var(--bulma-primary);font-weight:600;">is</span> <span style="color:var(--bulma-danger);font-weight:600;">Array</span> <span style="color:var(--bulma-primary);font-weight:600;">of</span><span style="color:var(--bulma-black);font-weight:600;"> (</span><span style="color:var(--bulma-danger);font-weight:600;">Hash</span> <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-info);font-weight:600;">target</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">place</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-primary);font-weight:600;">is</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">header)
  </span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-info);font-weight:600;">target</span> <span style="color:var(--bulma-primary);font-weight:600;">is</span> <span style="color:var(--bulma-primary);font-weight:600;">for</span> <span style="color:var(--bulma-info);font-weight:600;">link</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">place </span><span style="color:var(--bulma-primary);font-weight:600;">is</span><span style="color:var(--bulma-black);font-weight:600;"> section </span><span style="color:var(--bulma-info);font-weight:600;">name</span>
- <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-primary);font-weight:600;">is</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">header because </span><span style="color:var(--bulma-success);font-weight:600;">&lt;</span&gt;<span style="color:var(--bulma-black);font-weight:600;">span </span><span style="color:var(--bulma-primary);font-weight:600;">class</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">indexed</span><span style="color:var(--bulma-black);font-weight:600;">"</span> <span style="color:var(--bulma-info);font-weight:600;">id</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">index-entry-</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;"> data</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-info);font-weight:600;">index</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">text</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">〚〛</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-success);font-weight:600;">></span><span style="color:var(--bulma-black);font-weight:600;">&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">/span</span><span style="color:var(--bulma-black);font-weight:600;">></span> <span style="color:var(--bulma-info);font-weight:600;">in</span><span style="color:var(--bulma-black);font-weight:600;"> headings treated differently </span><span style="color:var(--bulma-info);font-weight:600;">to</span><span style="color:var(--bulma-black);font-weight:600;"> ordinary text</span>
+ <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-primary);font-weight:600;">is</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">header because </span><span style="color:var(--bulma-success);font-weight:600;">X</span><span style="color:var(--bulma-info);font-weight:600;">&lt</span><span style="color:var(--bulma-black);font-weight:600;">;</span><span style="color:var(--bulma-info);font-weight:600;">&gt</span><span style="color:var(--bulma-black);font-weight:600;">; </span><span style="color:var(--bulma-info);font-weight:600;">in</span><span style="color:var(--bulma-black);font-weight:600;"> headings treated differently </span><span style="color:var(--bulma-info);font-weight:600;">to</span><span style="color:var(--bulma-black);font-weight:600;"> ordinary text</span>
 </pre>
 </div>
                 </div>
-            
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;39d0efa&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.footnotes_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="39d0efa"><span class="code">@.footnotes </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;39d0efa&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.footnotes_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+            <h4 id="C&lt;@.footnotes_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.footnotes</a><a class="raku-anchor" title="direct link" href="#C&lt;@.footnotes_&gt;">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -347,56 +398,31 @@ retTarget </span><span style="color:var(--bulma-primary);font-weight:600;">is</s
 </pre>
 </div>
                 </div>
-            
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;c8f0741&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_%.semantics_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="c8f0741"><span class="code">Array %.semantics </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;c8f0741&quot;&gt;&lt;span_class=&quot;code&quot;&gt;Array_%.semantics_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+            <h4 id="C&lt;Array_%.semantics_&gt;" class="heading  py-2"><a href="#" title="go to top of document">Array_%.semantics</a><a class="raku-anchor" title="direct link" href="#C&lt;Array_%.semantics_&gt;">§</a></h4>
 <p id="3ffaa5d">Semantic blocks (which includes TITLE & SUBTITLE) can be hidden Hash of SEMANTIC => [ PStr | Str ] </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;183a407&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.warnings_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="183a407"><span class="code">@.warnings </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;183a407&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.warnings_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;@.warnings_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.warnings</a><a class="raku-anchor" title="direct link" href="#C&lt;@.warnings_&gt;">§</a></h4>
 <p id="4960b15">An array of warnings is generated and then rendered by the warnings template The warning template, by default is called by the wrap-source template RakuDoc warnings are generated as specified in the RakuDoc v2 document. </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;cb74584&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.items_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="cb74584"><span class="code">@.items </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;cb74584&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.items_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;@.items_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.items</a><a class="raku-anchor" title="direct link" href="#C&lt;@.items_&gt;">§</a></h4>
 <p id="a5b5846">An array of accumulated rendered items, added to body when next non-item block encountered </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;f5230bd&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.defns_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="f5230bd"><span class="code">@.defns </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;f5230bd&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.defns_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;@.defns_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.defns</a><a class="raku-anchor" title="direct link" href="#C&lt;@.defns_&gt;">§</a></h4>
 <p id="943df73">An array of accumulated rendered definitions, added to body when next non-defn block encountered </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;848f240&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numitems_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="848f240"><span class="code">@.numitems </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;848f240&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numitems_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;@.numitems_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.numitems</a><a class="raku-anchor" title="direct link" href="#C&lt;@.numitems_&gt;">§</a></h4>
 <p id="877174c">An array of accumulated rendered numbered items, added to body when next non-item block encountered </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;200b196&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numdefns_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="200b196"><span class="code">@.numdefns </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;200b196&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.numdefns_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;@.numdefns_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.numdefns</a><a class="raku-anchor" title="direct link" href="#C&lt;@.numdefns_&gt;">§</a></h4>
 <p id="7b0e777">An array of accumulated rendered numbered definitions, added to body when next non-defn block encountered </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;a3990c6&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.definitions_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="a3990c6"><span class="code">%.definitions </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;a3990c6&quot;&gt;&lt;span_class=&quot;code&quot;&gt;%.definitions_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;%.definitions_&gt;" class="heading  py-2"><a href="#" title="go to top of document">%.definitions</a><a class="raku-anchor" title="direct link" href="#C&lt;%.definitions_&gt;">§</a></h4>
 <p id="19cd8a1">Hash of definition => rendered value for definitions </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;a256195&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.inline-defns_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="a256195"><span class="code">@.inline-defns </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;a256195&quot;&gt;&lt;span_class=&quot;code&quot;&gt;@.inline-defns_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;@.inline-defns_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.inline-defns</a><a class="raku-anchor" title="direct link" href="#C&lt;@.inline-defns_&gt;">§</a></h4>
 <p id="9e0ecf0">Array to signal when one or more inline defn are made in a Paragraph </p>
-
-<div class="id-target" id=""></div><h3 id="Attributes_of_RakuDoc::Processed" class="heading  py-2"><a href="#" title="go to top of document">Attributes of RakuDoc::Processed<a class="raku-anchor" title="direct link" href="#Attributes_of_RakuDoc::Processed">§</a></a></h3>
+<h3 id="Attributes_of_RakuDoc::Processed" class="heading  py-2"><a href="#" title="go to top of document">Attributes_of_RakuDoc::Processed</a><a class="raku-anchor" title="direct link" href="#Attributes_of_RakuDoc::Processed">§</a></h3>
 <p id="a1a36bd">All of the ProcessState attributes, and the following. </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;83f512a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_%.source-data_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="83f512a"><span class="code"> %.source-data </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;83f512a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_%.source-data_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_%.source-data_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">%.source-data</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_%.source-data_&gt;&gt;">§</a></h4>
 <p id="e3abda9">Information about the RakuDoc source, eg file name, path, modified, language </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;8ec13ee&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_$!output-format_=_'txt'_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="8ec13ee"><span class="code"> $!output-format = 'txt' </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;8ec13ee&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_$!output-format_=_'txt'_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_$!output-format_=_'txt'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">$!output-format_=_'txt'</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_$!output-format_=_'txt'_&gt;&gt;">§</a></h4>
 <p id="c077417">The output format that the source has been rendered into </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;13f8909&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.front-matter_is_rw_=_'preface'_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="13f8909"><span class="code"> Str $.front-matter is rw = 'preface' </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;13f8909&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.front-matter_is_rw_=_'preface'_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
-<p id="783a990">Text between =TITLE and first header, used for <span class="indexed" id="index-entry-_0" data-index-text="〚〛"></span> place before first header </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;7a7260a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.name_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="7a7260a"><span class="code"> Str $.name is rw </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;7a7260a&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.name_is_rw_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_Str_$.front-matter_is_rw_=_'preface'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.front-matter_is_rw_=_'preface'</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.front-matter_is_rw_=_'preface'_&gt;&gt;">§</a></h4>
+<p id="fc2ba14">Text between =TITLE and first header, used for <span class="indexed" id="index-entry-" data-index-text="〚〛"></span> place before first header </p>
+<h4 id="C&lt;&lt;_Str_$.name_is_rw_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.name_is_rw</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.name_is_rw_&gt;&gt;">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -409,57 +435,39 @@ retTarget </span><span style="color:var(--bulma-primary);font-weight:600;">is</s
 </pre>
 </div>
                 </div>
-            
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;1cc966d&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title_is_rw_=_'NO_TITLE'_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="1cc966d"><span class="code"> Str $.title is rw = 'NO_TITLE' </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;1cc966d&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title_is_rw_=_'NO_TITLE'_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+            <h4 id="C&lt;&lt;_Str_$.title_is_rw_=_'NO_TITLE'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.title_is_rw_=_'NO_TITLE'</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.title_is_rw_=_'NO_TITLE'_&gt;&gt;">§</a></h4>
 <p id="b207d5d">String value of TITLE. </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;3bab138&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title-target_is_rw_=_'___top'_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="3bab138"><span class="code"> Str $.title-target is rw = '___top' </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;3bab138&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.title-target_is_rw_=_'___top'_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_Str_$.title-target_is_rw_=_'___top'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.title-target_is_rw_=_'___top'</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.title-target_is_rw_=_'___top'_&gt;&gt;">§</a></h4>
 <p id="77bfcf9">Target of Title Line </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;70b27ab&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.subtitle_is_rw_=_''_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="70b27ab"><span class="code"> Str $.subtitle is rw = '' </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;70b27ab&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.subtitle_is_rw_=_''_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_Str_$.subtitle_is_rw_=_''_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.subtitle_is_rw_=_''</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.subtitle_is_rw_=_''_&gt;&gt;">§</a></h4>
 <p id="52a4608">String value of SUBTITLE, provides description of file </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;d5a3b20&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="d5a3b20"><span class="code"> Str $.modified is rw = now.DateTime.utc.truncated-to('seconds').Str </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;d5a3b20&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&gt;&gt;">§</a></h4>
 <p id="deb5920">When RakuDoc Processed Object modified (source-data<modified> should be earlier than RPO.modified) </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;9a72100&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_SetHash_$.targets_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="9a72100"><span class="code"> SetHash $.targets </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;9a72100&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_SetHash_$.targets_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_SetHash_$.targets_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">SetHash_$.targets</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_SetHash_$.targets_&gt;&gt;">§</a></h4>
 <p id="51e7f52">target data generated from block names and :id metadata A set of unique targets inside the file, new targets must be unique </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;ac2662c&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Hash_%.links_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="ac2662c"><span class="code"> Hash %.links </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;ac2662c&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Hash_%.links_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_Hash_%.links_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Hash_%.links</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Hash_%.links_&gt;&gt;">§</a></h4>
 <p id="cc2d340">Links (from <a href="destination">link-label</a> markup) Hash of destination => :target, :type, :place, :link-label target = computed URL (for local files), place = anchor inside file type has following values: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> Internal are of the form '#this is a heading' and refer to anchors inside the file</li>
 <li class="item" data-bullet="•" style="--level:0;"> Local are of the form 'some-type#a heading there', where 'some-type' is a file name in the same directory</li>
 <li class="item" data-bullet="•" style="--level:0;"> External is a fully qualified URL</li>
 </ul>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;05e7424&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-toc_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="05e7424"><span class="code"> Str $.rendered-toc is rw </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;05e7424&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-toc_is_rw_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_Str_$.rendered-toc_is_rw_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.rendered-toc_is_rw</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.rendered-toc_is_rw_&gt;&gt;">§</a></h4>
 <p id="e064804">Rendered version of the ToC </p>
-
-<div class="id-target" id=""></div><h4 id="&lt;p_id=&quot;5124fa1&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-index_is_rw_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="5124fa1"><span class="code"> Str $.rendered-index is rw </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;5124fa1&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_Str_$.rendered-index_is_rw_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h4>
+<h4 id="C&lt;&lt;_Str_$.rendered-index_is_rw_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.rendered-index_is_rw</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.rendered-index_is_rw_&gt;&gt;">§</a></h4>
 <p id="10f5945">Rendered version of the Index </p>
-
-<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits<a class="raku-anchor" title="direct link" href="#Credits">§</a></a></h2>
+<h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
-
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION<a class="raku-anchor" title="direct link" href="#VERSION_0">§</a></a></h2>
+<h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION_0">§</a></h2>
 v0.2.1
 
 
 
         </div>
-        <div class="container px-4">
+        <div class="content px-4">
         
         </div>
     </div>
@@ -472,10 +480,10 @@ v0.2.1
                 Rendered from <span class="footer-field">docs/Processed
             </div>
             <div class="level-item">
-                Rendered at 21:57 UTC on 2024-09-22
+                Rendered at 09:32 UTC on 2024-10-19
             </div>
             <div class="level-item">
-                Source last modified at 09:38 UTC on 2024-08-07
+                Source last modified at 21:32 UTC on 2024-10-16
             </div>
         </nav>
     </div>

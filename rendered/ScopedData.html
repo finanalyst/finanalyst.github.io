@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The ScopeData module</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
-<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;justify-content:space-around;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.indexed:hover::before{content:attr(data-index-text);translate:0 -1.5em;position:absolute}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;justify-content:space-around;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}.raku-anchor{font-size:.9em;text-decoration:none;visibility:hidden}.heading:hover .raku-anchor{visibility:visible;padding-left:5px}
 </style>
 <style>/* bulma */
-#page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}
+#page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
@@ -89,11 +89,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if ( state ) {
             document.getElementById("TOC").classList.remove('is-hidden');
             document.getElementById("page-nav").classList.remove('is-hidden');
+            document.getElementById("MainText").classList.add('is-three-quarters');
+            document.getElementById("MainText").classList.add('column');
+            document.getElementById("MainText").classList.remove('px-5');
             persist_tocState( 'open');
         }
         else {
             document.getElementById("TOC").classList.add('is-hidden');
             document.getElementById("page-nav").classList.add('is-hidden');
+            document.getElementById("MainText").classList.remove('is-three-quarters');
+            document.getElementById("MainText").classList.remove('column');
+            document.getElementById("MainText").classList.add('px-5');
             persist_tocState( 'closed' );
         }
     }
@@ -101,11 +107,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if ( state === 'closed') {
             document.getElementById("TOC").classList.add('is-hidden');
             document.getElementById("page-nav").classList.add('is-hidden');
+            document.getElementById("MainText").classList.remove('is-three-quarters');
+            document.getElementById("MainText").classList.remove('column');
+            document.getElementById("MainText").classList.add('px-5');
             document.getElementById("navbar-toc-toggle").checked = false;
         }
         else {
             document.getElementById("TOC").classList.remove('is-hidden');
             document.getElementById("page-nav").classList.remove('is-hidden');
+            document.getElementById("MainText").classList.add('is-three-quarters');
+            document.getElementById("MainText").classList.add('column');
+            document.getElementById("MainText").classList.remove('px-5');
             document.getElementById("navbar-toc-toggle").checked = true;
         }
     };
@@ -240,6 +252,36 @@ function swap_toc_index(activate) {
   </p>
     <aside id="toc-menu" class="panel-block">
     <div class="toc"><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Purpose">Purpose</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Method_diagnostic()">Method diagnostic()</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Method_C&lt;&lt;_start-scope(_:$starter!,_:$title,_:$verbatim_)_&gt;&gt;">Method  start-scope( :$starter!, :$title, :$verbatim )  
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Method_end-scope">Method end-scope</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_config(%h)&gt;&gt;"> multi method config(%h) 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_config(_--&gt;_Hash_)&gt;&gt;"> multi method config( --> Hash ) 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_aliases(%h)&gt;&gt;"> multi method aliases(%h) 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_aliases(_--&gt;_Hash_)&gt;&gt;"> multi method aliases( --> Hash ) 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_method_last-starter_&gt;&gt;"> method last-starter  
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_last-title()_&gt;&gt;"> multi method last-title()  
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_last-title(_$s_)&gt;&gt;"> multi method last-title( $s ) 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_verbatim()&gt;&gt;"> multi method verbatim() 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_verbatim(_:called-by($)!_)&gt;&gt;"> multi method verbatim( :called-by($)! ) 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_item-inc(_$level_--&gt;_Str_)&gt;&gt;"> multi method item-inc( $level --> Str ) 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_item-reset()&gt;&gt;"> multi method item-reset() 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_defn-inc(_--&gt;_Str_)&gt;&gt;"> multi method defn-inc( --> Str ) 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;&lt;_multi_method_defn-reset()&gt;&gt;"> multi method defn-reset() 
+</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
 
@@ -253,7 +295,7 @@ function swap_toc_index(activate) {
     <div id="TOC" class="column is-one-quarter">
         
     </div>
-    <div class="column">
+    <div id="MainText" class="column">
         <section class="section">
   <div class="container">
 <div id="The_ScopeData_module"></div><h1 class="title is-centered">The ScopeData module</h1>
@@ -262,9 +304,8 @@ function swap_toc_index(activate) {
   </div>
 </section>
 
-        <div class="container px-4">
-        
-<div class="id-target" id=""></div><h2 id="Purpose" class="heading  py-2"><a href="#" title="go to top of document">Purpose<a class="raku-anchor" title="direct link" href="#Purpose">§</a></a></h2>
+        <div class="content px-4">
+        <h2 id="Purpose" class="heading  py-2"><a href="#" title="go to top of document">Purpose</a><a class="raku-anchor" title="direct link" href="#Purpose">§</a></h2>
 <p id="22e11ec">RakuDoc v2 introduces the concept of a block scope. The choice of terminology is to avoid some of the complexities of Raku's 'lexical scope'. </p>
 <p id="9a65430">Basically a block scope is started by a <span class="code">=begin BLOCKNAME</span> and ended by a <span class="code">=end BLOCKNAME</span>. </p>
 <p id="8e97db0">Within a block scope, several directives may affect other RakuDoc features within the same block, such as <span class="code">=config</span> and <span class="code">=alias</span>. </p>
@@ -282,84 +323,52 @@ function swap_toc_index(activate) {
 <li class="item" data-bullet="•" style="--level:0;"> items-numeration - the current numeration for items</li>
 <li class="item" data-bullet="•" style="--level:0;"> defns-numeration - the current numeration for defns</li>
 </ul>
-
-<div class="id-target" id=""></div><h3 id="Method_diagnostic()" class="heading  py-2"><a href="#" title="go to top of document">Method diagnostic()<a class="raku-anchor" title="direct link" href="#Method_diagnostic()">§</a></a></h3>
+<h3 id="Method_diagnostic()" class="heading  py-2"><a href="#" title="go to top of document">Method_diagnostic()</a><a class="raku-anchor" title="direct link" href="#Method_diagnostic()">§</a></h3>
 <p id="58ac60d">Provides information about all block scopes. A ScopeData object has an attribute <span class="code">debug</span>. If set to True then diagnostic is called by <span class="code">start-scope</span> and <span class="code">end-scope</span>. </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;e9762f9&quot;&gt;Method_&lt;span_class=&quot;code&quot;&gt;_start-scope(_:$starter!,_:$title,_:$verbatim_)_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="e9762f9">Method <span class="code"> start-scope( :$starter!, :$title, :$verbatim ) </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;e9762f9&quot;&gt;Method_&lt;span_class=&quot;code&quot;&gt;_start-scope(_:$starter!,_:$title,_:$verbatim_)_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="Method_C&lt;&lt;_start-scope(_:$starter!,_:$title,_:$verbatim_)_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Method__start-scope(_:$starter!,_:$title,_:$verbatim_)</a><a class="raku-anchor" title="direct link" href="#Method_C&lt;&lt;_start-scope(_:$starter!,_:$title,_:$verbatim_)_&gt;&gt;">§</a></h3>
 <p id="dc30c3a">Starts a new scope. When a scope is started, all the previous information is copied. </p>
 <p id="c974347">This information can be changed within the scope. </p>
 <p id="4b70150">If <span class="code">verbatim</span> is set, then all strings will be rendered without removing spaces or new lines. </p>
-
-<div class="id-target" id=""></div><h3 id="Method_end-scope" class="heading  py-2"><a href="#" title="go to top of document">Method end-scope<a class="raku-anchor" title="direct link" href="#Method_end-scope">§</a></a></h3>
+<h3 id="Method_end-scope" class="heading  py-2"><a href="#" title="go to top of document">Method_end-scope</a><a class="raku-anchor" title="direct link" href="#Method_end-scope">§</a></h3>
 <p id="e036cf7">Changes to items tracked by the object are forgotten. </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;cd61948&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_config(%h)&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="cd61948"><span class="code"> multi method config(%h)</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;cd61948&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_config(%h)&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_config(%h)&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_config(%h)</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_config(%h)&gt;&gt;">§</a></h3>
 <p id="c859a2b">Add key/value pair to the existing scope's config </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;fd6dd12&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_config(_--&gt;_Hash_)&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="fd6dd12"><span class="code"> multi method config( --> Hash )</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;fd6dd12&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_config(_--&gt;_Hash_)&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_config(_--&gt;_Hash_)&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_config(_--&gt;_Hash_)</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_config(_--&gt;_Hash_)&gt;&gt;">§</a></h3>
 <p id="28d670f">Get the current scope's config </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;51a9d1d&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_aliases(%h)&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="51a9d1d"><span class="code"> multi method aliases(%h)</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;51a9d1d&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_aliases(%h)&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_aliases(%h)&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_aliases(%h)</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_aliases(%h)&gt;&gt;">§</a></h3>
 <p id="cd745fe">Add key/value pair to the existing scope's aliases </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;762263f&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_aliases(_--&gt;_Hash_)&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="762263f"><span class="code"> multi method aliases( --> Hash )</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;762263f&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_aliases(_--&gt;_Hash_)&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_aliases(_--&gt;_Hash_)&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_aliases(_--&gt;_Hash_)</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_aliases(_--&gt;_Hash_)&gt;&gt;">§</a></h3>
 <p id="80cf22d">Get the current scope's aliases </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;e8d2e91&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_method_last-starter_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="e8d2e91"><span class="code"> method last-starter </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;e8d2e91&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_method_last-starter_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_method_last-starter_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">method_last-starter</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_method_last-starter_&gt;&gt;">§</a></h3>
 <p id="2da6349">Return the last starter block </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;99162f7&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_last-title()_&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="99162f7"><span class="code"> multi method last-title() </span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;99162f7&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_last-title()_&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_last-title()_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_last-title()</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_last-title()_&gt;&gt;">§</a></h3>
 <p id="b1d8fab">Return the most recent title </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;9a3a3dd&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_last-title(_$s_)&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="9a3a3dd"><span class="code"> multi method last-title( $s )</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;9a3a3dd&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_last-title(_$s_)&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_last-title(_$s_)&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_last-title(_$s_)</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_last-title(_$s_)&gt;&gt;">§</a></h3>
 <p id="2d32bfd">Change the title for the current block </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;a2cc111&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_verbatim()&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="a2cc111"><span class="code"> multi method verbatim()</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;a2cc111&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_verbatim()&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_verbatim()&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_verbatim()</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_verbatim()&gt;&gt;">§</a></h3>
 <p id="3a5fb49">Change the state of the verbatim flag to True </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;40b71f2&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_verbatim(_:called-by($)!_)&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="40b71f2"><span class="code"> multi method verbatim( :called-by($)! )</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;40b71f2&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_verbatim(_:called-by($)!_)&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_verbatim(_:called-by($)!_)&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_verbatim(_:called-by($)!_)</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_verbatim(_:called-by($)!_)&gt;&gt;">§</a></h3>
 <p id="4519a04">Which block set the verbatim flag </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;0557f1e&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_item-inc(_$level_--&gt;_Str_)&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="0557f1e"><span class="code"> multi method item-inc( $level --> Str )</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;0557f1e&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_item-inc(_$level_--&gt;_Str_)&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_item-inc(_$level_--&gt;_Str_)&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_item-inc(_$level_--&gt;_Str_)</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_item-inc(_$level_--&gt;_Str_)&gt;&gt;">§</a></h3>
 <p id="929dcfa">Increment the item numeration at the required level, returns the result. See <a href="Numeration">Numeration module</a> for more detail </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;01eb3ce&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_item-reset()&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="01eb3ce"><span class="code"> multi method item-reset()</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;01eb3ce&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_item-reset()&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_item-reset()&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_item-reset()</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_item-reset()&gt;&gt;">§</a></h3>
 <p id="6dd75d3">Reset the item numeration altogether </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;57056f3&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_defn-inc(_--&gt;_Str_)&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="57056f3"><span class="code"> multi method defn-inc( --> Str )</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;57056f3&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_defn-inc(_--&gt;_Str_)&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_defn-inc(_--&gt;_Str_)&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_defn-inc(_--&gt;_Str_)</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_defn-inc(_--&gt;_Str_)&gt;&gt;">§</a></h3>
 <p id="37a8eea">Increment the defn numeration, only one level </p>
-
-<div class="id-target" id=""></div><h3 id="&lt;p_id=&quot;6fee137&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_defn-reset()&lt;/span&gt;_&lt;/p&gt;" class="heading  py-2"><a href="#" title="go to top of document"><p id="6fee137"><span class="code"> multi method defn-reset()</span> </p>
-<a class="raku-anchor" title="direct link" href="#&lt;p_id=&quot;6fee137&quot;&gt;&lt;span_class=&quot;code&quot;&gt;_multi_method_defn-reset()&lt;/span&gt;_&lt;/p&gt;">§</a></a></h3>
+<h3 id="C&lt;&lt;_multi_method_defn-reset()&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">multi_method_defn-reset()</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_multi_method_defn-reset()&gt;&gt;">§</a></h3>
 <p id="b75a9fe">Reset the defn numeration </p>
-
-<div class="id-target" id=""></div><h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits<a class="raku-anchor" title="direct link" href="#Credits">§</a></a></h2>
+<h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
-
-<div class="id-target" id=""></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION<a class="raku-anchor" title="direct link" href="#VERSION_0">§</a></a></h2>
+<h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION_0">§</a></h2>
 v0.2.1
 
 
 
         </div>
-        <div class="container px-4">
+        <div class="content px-4">
         
         </div>
     </div>
@@ -372,7 +381,7 @@ v0.2.1
                 Rendered from <span class="footer-field">docs/ScopedData
             </div>
             <div class="level-item">
-                Rendered at 21:57 UTC on 2024-09-22
+                Rendered at 09:32 UTC on 2024-10-19
             </div>
             <div class="level-item">
                 Source last modified at 09:38 UTC on 2024-08-07
