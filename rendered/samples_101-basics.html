@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html class="theme-light" style="scroll-padding-top:var(--bulma-navbar-height)" >
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raku by example 101</title>
+<link rel="icon" href="https://irclogs.raku.org/favicon.ico">
+<style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.indexed:hover::before{content:attr(data-index-text);translate:0 -1.5em;position:absolute}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;justify-content:space-around;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}.raku-anchor{font-size:.9em;text-decoration:none;visibility:hidden}.heading:hover .raku-anchor{visibility:visible;padding-left:5px}
+</style>
+<style>/* bulma */
+#page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
+</style>
+<style>/* bulma */
+label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
+</style>
+<style>/* graphviz */
+div.graphviz{display:flex;justify-content:space-around;align-items:center}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
+</style>
+<style>/* hilite */
+.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}
+</style>
+<style>/* latexformula */
+div.latex-equation{display:flex;justify-content:space-around;align-items:center}div.latex-equation a.logo{align-self:flex-last}span.latex-formula{display:inline-block;cursor:crosshair}span.latex-formula a{display:none}span.latex-formula:hover>a{display:inline-block;position:absolute;transform:translate(-3rem, -2rem);background:#faebd7}.latex-render-error{color:red;font-weight:bold}
+</style>
+<style>/* listfiles */
+.listf-container{display:flex;flex-direction:column;margin-bottom:1.25rem;font-size:1rem;font-weight:500;line-height:1.5;border:1px solid #ccc;border-bottom:5px solid #d9d9d9;box-shadow:0 2px 3px 0 rgba(0,0,0,.07)}.listf-container .listf-caption{display:flex;justify-content:center;background:#f2f2f2;border-bottom:1px solid #ccc;color:#83858d}.listf-container .listf-file{display:inline-block;border-top:1px solid #ccc;border-bottom:1px solid #ccc;break-inside:avoid}.listf-container .listf-file .listf-link{display:inline-block;width:100%;text-align:center;padding-top:.25rem}.listf-container .listf-file p{padding-left:.5rem;padding-right:.5rem;margin-bottom:.25rem}.listf-error{color:red;font-size:xlarge}
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+crossorigin=""
+/>
+
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+<script src="https://rawgit.com/farzher/fuzzysort/master/fuzzysort.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""
+></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+<script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
+></script>
+
+<script>    // Hilite-helper.js
+    document.addEventListener('DOMContentLoaded', function () {
+        // trigger the highlighter for non-Raku code
+        hljs.highlightAll();
+
+        // copy code block to clipboard adapted from solution at
+        // https://stackoverflow.com/questions/34191780/javascript-copy-string-to-clipboard-as-text-html
+        // if behaviour problems with different browsers add stylesheet code from that solution.
+        const copyButtons = Array.from(document.querySelectorAll('.copy-code'));
+        copyButtons.forEach( function( button ) {
+        var codeElement = button.nextElementSibling.nextElementSibling; // skip the label and get the div
+        button.addEventListener( 'click', function(insideButton) {
+            var container = document.createElement('div');
+            container.innerHTML = codeElement.innerHTML;
+                container.style.position = 'fixed';
+                container.style.pointerEvents = 'none';
+                container.style.opacity = 0;
+                document.body.appendChild(container);
+                window.getSelection().removeAllRanges();
+                var range = document.createRange();
+                range.selectNode(container);
+                window.getSelection().addRange(range);
+                document.execCommand("copy", false);
+                document.body.removeChild(container);
+            });
+        });
+    });
+</script>
+<script>// BulmaHelper.js
+var change_theme = function (theme) {
+    document.querySelector('html').className = '';
+    document.querySelector('html').classList.add('theme-' + theme);
+};
+var persisted_theme = function () { return localStorage.getItem('theme') };
+var persist_theme = function (theme) { localStorage.setItem('theme', theme) };
+
+var persisted_tocState = function () { return localStorage.getItem('tocOpen') };
+var persist_tocState = function (tocState) { localStorage.setItem('tocOpen', tocState ) };
+
+document.addEventListener('DOMContentLoaded', function () {
+    // set up functions needing document variables.
+    var matchTocState = function ( state ) {
+        if ( state ) {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            document.getElementById("page-nav").classList.remove('is-hidden');
+            document.getElementById("MainText").classList.add('is-three-quarters');
+            document.getElementById("MainText").classList.add('column');
+            document.getElementById("MainText").classList.remove('px-5');
+            persist_tocState( 'open');
+        }
+        else {
+            document.getElementById("TOC").classList.add('is-hidden');
+            document.getElementById("page-nav").classList.add('is-hidden');
+            document.getElementById("MainText").classList.remove('is-three-quarters');
+            document.getElementById("MainText").classList.remove('column');
+            document.getElementById("MainText").classList.add('px-5');
+            persist_tocState( 'closed' );
+        }
+    }
+    var setTocState = function ( state ) {
+        if ( state === 'closed') {
+            document.getElementById("TOC").classList.add('is-hidden');
+            document.getElementById("page-nav").classList.add('is-hidden');
+            document.getElementById("MainText").classList.remove('is-three-quarters');
+            document.getElementById("MainText").classList.remove('column');
+            document.getElementById("MainText").classList.add('px-5');
+            document.getElementById("navbar-toc-toggle").checked = false;
+        }
+        else {
+            document.getElementById("TOC").classList.remove('is-hidden');
+            document.getElementById("page-nav").classList.remove('is-hidden');
+            document.getElementById("MainText").classList.add('is-three-quarters');
+            document.getElementById("MainText").classList.add('column');
+            document.getElementById("MainText").classList.remove('px-5');
+            document.getElementById("navbar-toc-toggle").checked = true;
+        }
+    };
+    // initialise if localStorage is set
+    let theme = persisted_theme();
+    if ( theme ) {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        change_theme(theme);
+        persist_theme(theme);
+    }
+    let tocState = persisted_tocState();
+    if ( tocState ) {
+        setTocState( tocState );
+        persist_tocState( tocState );
+    }
+
+    // Add listeners
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    };
+    // initialise window state
+    document.getElementById('changeTheme').addEventListener('click', function () {
+        let theme = persisted_theme() === 'light' ? 'dark' : 'light';
+        change_theme(theme);
+        persist_theme(theme);
+    });
+    document.getElementById("navbar-toc-toggle").addEventListener('change', function() {
+        matchTocState( this.checked )
+    });
+    document.getElementById('toc-tab').addEventListener('click', function () { swap_toc_index('toc') });
+    document.getElementById('index-tab').addEventListener('click', function () { swap_toc_index('index') });
+    var TOC = document.getElementById('toc-menu');
+    var Index = document.getElementById('index-menu');
+    var originalTOC = TOC.getHTML();
+    var originalIndex = Index.getHTML();
+    document.getElementById("page-nav-search").addEventListener('keyup', function (event) {
+        TOC.innerHTML = originalTOC;
+        Index.innerHTML = originalIndex;
+        var searchText = event.srcElement.value.toLowerCase();
+        if (searchText.length === 0) return;
+        var menuListElements = document.getElementById('page-nav').querySelectorAll('.toc-item, .index-section');
+        var matchingListElements = Array.from(menuListElements).filter(function (item) {
+            var el;
+            if ( item.classList.contains('toc-item') ) {
+                el = item.querySelector('a');
+            } else {
+                el = item.querySelector('.index-entry')
+            }
+            var listItemHTML = el.innerHTML;
+            var fuzzyRes = fuzzysort.go(searchText, [listItemHTML])[0];
+            if (fuzzyRes === undefined || fuzzyRes.score <= 0) {
+                return false;
+            }
+            var res = fuzzyRes.highlight('<b>','</b>');
+            if (res !== null) {
+                el.innerHTML = res;
+                return true;
+            } else {
+                return false;
+            }
+        });
+    menuListElements.forEach(function(elem){elem.classList.add('is-hidden')});
+    matchingListElements.forEach(function(elem){elem.classList.remove('is-hidden')});
+    });
+});
+function swap_toc_index(activate) {
+    let disactivate = (activate == 'toc') ? 'index' : 'toc';
+    document.getElementById( activate + '-tab').classList.add('is-active');
+    document.getElementById( disactivate + '-menu').classList.add('is-hidden');
+    document.getElementById( disactivate + '-tab').classList.remove('is-active');
+    document.getElementById( activate + '-menu').classList.remove('is-hidden');
+}
+</script>
+
+
+    <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
+    </head>
+    <body class="has-navbar-fixed-top">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <figure class="navbar-item is-256x256">
+            <a href="/index.html">
+            <img class="is-rounded" src="https://avatars.githubusercontent.com/u/58170775">
+            </a>
+        </figure>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pageNavigation">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="pageNavigation" class="navbar-menu">
+        <div class="navbar-start">
+            <label class="chyronToggle">
+              <input id="navbar-toc-toggle" type="checkbox" />
+              <span class="checkmark"> </span>
+            </label>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <button id="changeTheme" class="button">Change theme</button>
+            </div>
+        </div>
+    </div>
+</nav>
+<nav class="panel" id="page-nav">
+  <div class="panel-block">
+    <p class="control has-icons-left">
+      <input class="input" type="text" placeholder="Search" id="page-nav-search"/>
+      <span class="icon is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
+  </div>
+  <p class="panel-tabs">
+    <a id="toc-tab">Table of Contents</a>
+    <a id="index-tab">Index</a>
+  </p>
+    <aside id="toc-menu" class="panel-block">
+    <div class="toc"><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Pragma_X&lt;C&lt;v6&gt;|Tutorial,v6_(Basics)&gt;">Pragma v6 
+</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#X&lt;Statements|Tutorial,statement_(Basics)&gt;">Statements 
+</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#X&lt;Lexical_scope|Tutorial,my_(Basics)&gt;_and_X&lt;block|Tutorial,block_(Basics)&gt;">Lexical scope and block 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#X&lt;Sigils|Tutorial,sigils_(Basics)&gt;_and_X&lt;identifiers|Tutorial,identifiers_(Basics)&gt;">Sigils and identifiers 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#X&lt;Scalar|Tutorial,scalar_(Basics)&gt;">Scalar 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#X&lt;Filehandle|Tutorial,filehandle_(Basics)&gt;_and_X&lt;assignment|Tutorial,assignment_(Basics)&gt;">Filehandle and assignment 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#X&lt;String_literals|Tutorial,string_literal_(Basics)&gt;">String literals 
+</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#X&lt;Arrays|Tutorial,array_(Basics)&gt;,_X&lt;methods|Tutorial,method_(Basics)&gt;_and_X&lt;invocants|Tutorial,invocant_(Basics)&gt;">Arrays, methods and invocants 
+</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#X&lt;Hashes|Tutorial,hash_(Basics)&gt;">Hashes 
+</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#X&lt;C&lt;for&gt;|Tutorial,for_(Basics)&gt;_and_blocks">for and blocks 
+</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Table">Table</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#X&lt;L&lt;C&lt;Any&gt;|/type/Any&gt;|Tutorial,Any_(Basics)&gt;_and_X&lt;C&lt;+=&gt;|Tutorial,+=_(Basics)&gt;">Any and += 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#X&lt;Fat_arrow|Tutorial,fat_arrow_(Basics)&gt;,_X&lt;pairs|Tutorial,pair_(Basics)&gt;_and_X&lt;autovivification|Tutorial,autovivification_(Basics)&gt;">Fat arrow, pairs and autovivification 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#X&lt;Postincrement|Tutorial,postincrement_(Basics)&gt;_and_X&lt;preincrement|Tutorial,preincrement_(Basics)&gt;">Postincrement and preincrement 
+</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#X&lt;Topic_variable|Tutorial,topic_variable_(Basics)&gt;">Topic variable 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Blocks">Blocks</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Stable_sort">Stable sort</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Standard_output">Standard output</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#X&lt;Variable_interpolation|Tutorial,variable_interpolation_(Basics)&gt;">Variable interpolation 
+</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#X&lt;Double-quoted_strings|Tutorial,double-quoted_strings&gt;_and_X&lt;single-quoted_strings|Tutorial,single-quoted_strings&gt;">Double-quoted strings and single-quoted strings 
+</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Zen_slices">Zen slices</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Exercises">Exercises</a></div>
+</div>
+
+    </aside>
+    <aside id="index-menu" class="panel-block is-hidden">
+    No indexed items
+    </aside>
+</nav>
+
+    <div class="columns">
+    <div id="TOC" class="column is-one-quarter">
+        
+    </div>
+    <div id="MainText" class="column">
+        <section class="section">
+  <div class="container">
+<div id="Raku_by_example_101"></div><h1 class="title is-centered">Raku by example 101</h1>
+
+<p class="subtitle">A basic introductory example of a Raku program</p>
+  </div>
+</section>
+
+        <div class="content px-4">
+        <p id="b4e0432">Suppose that you host a table tennis tournament. The referees tell you the results of each game in the format <span class="code">Player1 Player2 | 3:2</span>, which means that <span class="code">Player1</span> won against <span class="code">Player2</span> by 3 to 2 sets. You need a script that sums up how many matches and sets each player has won to determine the overall winner. </p>
+<p id="10c83b4">The input data (stored in a file called <span class="code">scores.txt</span>) looks like this: </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>data</label>
+                    <div><pre class="nohighlights">
+PStr.new(string_=&gt;_[&quot;Beth_Ana_Charlie_Dave\nAna_Dave_|_3:0\nCharlie_Beth_|_3:1\nAna_Beth_|_2:3\nDave_Charlie_|_3:0\nAna_Charlie_|_3:1\nBeth_Dave_|_0:3&quot;])
+</pre>
+</div>
+                </div>
+            <p id="e45e29f">The first line is the list of players. Every subsequent line records a result of a match. </p>
+<p id="fbd309a">Here's one way to solve that problem in Raku: </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">use</span><span style="color:var(--bulma-black);font-weight:600;"> v6;
+
+</span><span style="color:var(--bulma-black);font-weight:600;"># start by printing out the header.
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">Tournament Results:</span><span style="color:var(--bulma-black);font-weight:600;">\n</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;
+
+</span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$file</span>  <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-info);font-weight:600;">open</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">scores.txt</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">; </span><span style="color:var(--bulma-black);font-weight:600;"># get filehandle and...
+</span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@names</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$file</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">get</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">words</span><span style="color:var(--bulma-black);font-weight:600;">;   </span><span style="color:var(--bulma-black);font-weight:600;"># ... get players.
+</span>
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">;
+
+</span><span style="color:var(--bulma-primary);font-weight:600;">for</span> <span style="color:var(--bulma-link);font-weight:600;">$file</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">lines</span> <span style="color:var(--bulma-primary);font-weight:600;">-></span> <span style="color:var(--bulma-link);font-weight:600;">$line</span><span style="color:var(--bulma-black);font-weight:600;"> {
+    </span><span style="color:var(--bulma-info);font-weight:600;">next</span> <span style="color:var(--bulma-primary);font-weight:600;">unless</span> <span style="color:var(--bulma-link);font-weight:600;">$line</span><span style="color:var(--bulma-black);font-weight:600;">; </span><span style="color:var(--bulma-black);font-weight:600;"># ignore any empty lines
+</span>
+    <span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> (</span><span style="color:var(--bulma-link);font-weight:600;">$pairing</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$result</span><span style="color:var(--bulma-black);font-weight:600;">) </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$line</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">split</span><span style="color:var(--bulma-black);font-weight:600;">(</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;"> | </span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">);
+    </span><span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> (</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">)          </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$pairing</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">words</span><span style="color:var(--bulma-black);font-weight:600;">;
+    </span><span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> (</span><span style="color:var(--bulma-link);font-weight:600;">$r1</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$r2</span><span style="color:var(--bulma-black);font-weight:600;">)          </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$result</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">split</span><span style="color:var(--bulma-black);font-weight:600;">(</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">);
+
+    </span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">+</span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$r1</span><span style="color:var(--bulma-black);font-weight:600;">;
+    </span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">+</span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$r2</span><span style="color:var(--bulma-black);font-weight:600;">;
+
+    </span><span style="color:var(--bulma-primary);font-weight:600;">if</span> <span style="color:var(--bulma-link);font-weight:600;">$r1</span> <span style="color:var(--bulma-success);font-weight:600;">></span> <span style="color:var(--bulma-link);font-weight:600;">$r2</span><span style="color:var(--bulma-black);font-weight:600;"> {
+        </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-black);font-weight:600;">}</span><span style="color:var(--bulma-success);font-weight:600;">++</span><span style="color:var(--bulma-black);font-weight:600;">;
+    } </span><span style="color:var(--bulma-primary);font-weight:600;">else</span><span style="color:var(--bulma-black);font-weight:600;"> {
+        </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">}</span><span style="color:var(--bulma-success);font-weight:600;">++</span><span style="color:var(--bulma-black);font-weight:600;">;
+    }
+}
+
+</span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@sorted</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">@names</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">sort</span><span style="color:var(--bulma-black);font-weight:600;">({ </span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$_</span><span style="color:var(--bulma-black);font-weight:600;">} })</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">sort</span><span style="color:var(--bulma-black);font-weight:600;">({ </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$_</span><span style="color:var(--bulma-black);font-weight:600;">} })</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">reverse</span><span style="color:var(--bulma-black);font-weight:600;">;
+
+</span><span style="color:var(--bulma-primary);font-weight:600;">for</span> <span style="color:var(--bulma-link);font-weight:600;">@sorted</span> <span style="color:var(--bulma-primary);font-weight:600;">-></span> <span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;"> {
+    </span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$match-noun</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">==</span><span style="color:var(--bulma-black);font-weight:600;"> 1 </span><span style="color:var(--bulma-success);font-weight:600;">??</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">match</span><span style="color:var(--bulma-black);font-weight:600;">'</span> <span style="color:var(--bulma-success);font-weight:600;">!!</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">matches</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">;
+    </span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$set-noun</span>   <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">==</span><span style="color:var(--bulma-black);font-weight:600;"> 1 </span><span style="color:var(--bulma-success);font-weight:600;">??</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">set</span><span style="color:var(--bulma-black);font-weight:600;">'</span> <span style="color:var(--bulma-success);font-weight:600;">!!</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">sets</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">;
+    </span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-warning);font-weight:600;"> has won </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;">}</span> <span style="color:var(--bulma-link);font-weight:600;">$match-noun</span><span style="color:var(--bulma-warning);font-weight:600;"> and </span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;">}</span> <span style="color:var(--bulma-link);font-weight:600;">$set-noun</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;
+}</span>
+</pre>
+</div>
+                </div>
+            <p id="0bd1984">This produces the output: </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>text</label>
+                    <div><pre class="nohighlights">
+PStr.new(string_=&gt;_[&quot;Tournament_Results:\n\nAna_has_won_2_matches_and_8_sets\nDave_has_won_2_matches_and_6_sets\nCharlie_has_won_1_match_and_4_sets\nBeth_has_won_1_match_and_4_sets&quot;])
+</pre>
+</div>
+                </div>
+            <h2 id="Pragma_X&lt;C&lt;v6&gt;|Tutorial,v6_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Pragma_v6</a><a class="raku-anchor" title="direct link" href="#Pragma_X&lt;C&lt;v6&gt;|Tutorial,v6_(Basics)&gt;">§</a></h2>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">use</span><span style="color:var(--bulma-black);font-weight:600;"> v6;</span>
+</pre>
+</div>
+                </div>
+            <p id="85cb38a">Every Raku program should begin with a line similar to <span class="code">use v6;</span>. This line tells the compiler which version of Raku the program expects. For instance, 6.c is an example of a Raku version. Should you accidentally run the file with Perl, you'll get a helpful error message. </p>
+<h2 id="X&lt;Statements|Tutorial,statement_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Statements</a><a class="raku-anchor" title="direct link" href="#X&lt;Statements|Tutorial,statement_(Basics)&gt;">§</a></h2>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-black);font-weight:600;"># start by printing out the header.
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">Tournament Results:</span><span style="color:var(--bulma-black);font-weight:600;">\n</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="606e5c2">A Raku program consists of zero or more statements. A <span class="important">statement</span> ends with a semicolon or a curly brace at the end of a line. </p>
+<p id="86f7a02">In Raku, single line comments start with a single hash character <span class="code">#</span> and extend until the end of the line. Raku also supports <a href="/language/syntax">multi-line/embedded comments</a>. The compiler doesn't evaluate comments as program text and they're only intended for human readers. </p>
+<h2 id="X&lt;Lexical_scope|Tutorial,my_(Basics)&gt;_and_X&lt;block|Tutorial,block_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Lexical_scope_and_block</a><a class="raku-anchor" title="direct link" href="#X&lt;Lexical_scope|Tutorial,my_(Basics)&gt;_and_X&lt;block|Tutorial,block_(Basics)&gt;">§</a></h2>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$file</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-info);font-weight:600;">open</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">scores.txt</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="8cf2cc2"><span class="code">my</span> declares a lexical variable, which are visible only in the current block from the point of declaration to the end of the block. If there's no enclosing block, it's visible throughout the remainder of the file (which would effectively be the enclosing block). A block is any part of the code enclosed between curly braces <span class="code">{ }</span>. </p>
+<h3 id="X&lt;Sigils|Tutorial,sigils_(Basics)&gt;_and_X&lt;identifiers|Tutorial,identifiers_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Sigils_and_identifiers</a><a class="raku-anchor" title="direct link" href="#X&lt;Sigils|Tutorial,sigils_(Basics)&gt;_and_X&lt;identifiers|Tutorial,identifiers_(Basics)&gt;">§</a></h3>
+<p id="b52f28a">A variable name begins with a <span class="important">sigil</span>, which is a non-alpha-numeric symbol such as <span class="code">$</span>, <span class="code">@</span>, <span class="code">%</span>, or <span class="code">&</span> — or occasionally the double colon <span class="code">::</span>. Sigils indicate the structural interface for the variable, such as whether it should be treated as a single value, a compound value, a subroutine, etc. After the sigil comes an <span class="important">identifier</span>, which may consist of letters, digits and the underscore. Between letters you can also use a dash <span class="code">-</span> or an apostrophe <span class="code">'</span>, so <span class="code">isn't</span> and <span class="code">double-click</span> are valid identifiers. </p>
+<h3 id="X&lt;Scalar|Tutorial,scalar_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Scalar</a><a class="raku-anchor" title="direct link" href="#X&lt;Scalar|Tutorial,scalar_(Basics)&gt;">§</a></h3>
+<p id="6b5b96d">Sigils indicate the default access method for a variable. Variables with the <span class="code">@</span> sigil are accessed positionally; variables with the <span class="code">%</span> sigil are accessed by string key. The <span class="code">$</span> sigil, however, indicates a general scalar container that can hold any single value and be accessed in any manner. A scalar can even contain a compound object like an <a href="/type/Array"><span class="code">Array</span></a> or a <a href="/type/Hash"><span class="code">Hash</span></a>; the <span class="code">$</span> sigil signifies that it should be treated as a single value, even in a context that expects multiple values (as with an <a href="/type/Array"><span class="code">Array</span></a> or <a href="/type/Hash"><span class="code">Hash</span></a>). </p>
+<h3 id="X&lt;Filehandle|Tutorial,filehandle_(Basics)&gt;_and_X&lt;assignment|Tutorial,assignment_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Filehandle_and_assignment</a><a class="raku-anchor" title="direct link" href="#X&lt;Filehandle|Tutorial,filehandle_(Basics)&gt;_and_X&lt;assignment|Tutorial,assignment_(Basics)&gt;">§</a></h3>
+<p id="ce7e97a">The built-in function <span class="code">open</span> opens a file, here named <span class="code">scores.txt</span>, and returns a <span class="important">filehandle</span> — an object representing that file. The assignment operator <span class="code">=</span> <span class="important">assigns</span> that filehandle to the variable on the left, which means that <span class="code">$file</span> now stores the filehandle. </p>
+<h3 id="X&lt;String_literals|Tutorial,string_literal_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">String_literals</a><a class="raku-anchor" title="direct link" href="#X&lt;String_literals|Tutorial,string_literal_(Basics)&gt;">§</a></h3>
+<p id="6a4e062"><span class="code">'scores.txt'</span> is a <span class="important">string literal</span>. A string is a piece of text, and a string literal is a string which appears directly in the program. In this line, it's the argument provided to <span class="code">open</span>. </p>
+<h2 id="X&lt;Arrays|Tutorial,array_(Basics)&gt;,_X&lt;methods|Tutorial,method_(Basics)&gt;_and_X&lt;invocants|Tutorial,invocant_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Arrays,_methods_and_invocants</a><a class="raku-anchor" title="direct link" href="#X&lt;Arrays|Tutorial,array_(Basics)&gt;,_X&lt;methods|Tutorial,method_(Basics)&gt;_and_X&lt;invocants|Tutorial,invocant_(Basics)&gt;">§</a></h2>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@names</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$file</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">get</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">words</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="299ea28">The right-hand side calls a <span class="important">method</span> — a named group of behavior — named <span class="code">get</span> on the filehandle stored in <span class="code">$file</span>. The <span class="code">get</span> method reads and returns one line from the file, removing the line ending. If you print the contents of <span class="code">$file</span> after calling <span class="code">get</span>, you will see that the first line is no longer in there. <span class="code">words</span> is also a method, called on the string returned from <span class="code">get</span>. <span class="code">words</span> decomposes its <span class="important">invocant</span> — the string on which it operates — into a list of words, which here means strings separated by whitespace. It turns the single string <span class="code">'Beth Ana Charlie
+Dave'</span> into the list of strings <span class="code">'Beth', 'Ana', 'Charlie', 'Dave'</span>. </p>
+<p id="66662df">Finally, this list gets stored in the <a href="/type/Array"><span class="code">Array</span></a> <span class="code">@names</span>. The <span class="code">@</span> sigil marks the declared variable as an <a href="/type/Array"><span class="code">Array</span></a>. Arrays store ordered lists. </p>
+<h2 id="X&lt;Hashes|Tutorial,hash_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Hashes</a><a class="raku-anchor" title="direct link" href="#X&lt;Hashes|Tutorial,hash_(Basics)&gt;">§</a></h2>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="ca17085">These two lines of code declare two hashes. The <span class="code">%</span> sigil marks each variable as a <a href="/type/Hash"><span class="code">Hash</span></a>. A <a href="/type/Hash"><span class="code">Hash</span></a> is an unordered collection of key-value pairs. Other programming languages call that a <span class="important">hash table</span>, <span class="important">dictionary</span>, or <span class="important">map</span>. You can query a hash table for the value that corresponds to a certain <span class="code">$key</span> with <span class="code">%hash{$key}</span>. </p>
+<p id="7161356">In the score counting program, <span class="code">%matches</span> stores the number of matches each player has won. <span class="code">%sets</span> stores the number of sets each player has won. Both of these hashes are indexed by the player's name. </p>
+<h2 id="X&lt;C&lt;for&gt;|Tutorial,for_(Basics)&gt;_and_blocks" class="heading  py-2"><a href="#" title="go to top of document">for_and_blocks</a><a class="raku-anchor" title="direct link" href="#X&lt;C&lt;for&gt;|Tutorial,for_(Basics)&gt;_and_blocks">§</a></h2>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">for</span> <span style="color:var(--bulma-link);font-weight:600;">$file</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">lines</span> <span style="color:var(--bulma-primary);font-weight:600;">-></span> <span style="color:var(--bulma-link);font-weight:600;">$line</span><span style="color:var(--bulma-black);font-weight:600;"> {
+    </span><span style="color:var(--bulma-success);font-weight:600;">...</span><span style="color:var(--bulma-black);font-weight:600;">
+}</span>
+</pre>
+</div>
+                </div>
+            <p id="a2406d9"><span class="code">for</span> produces a loop that runs the <span class="important">block</span> delimited by curly braces once for each item of the list, setting the variable <span class="code">$line</span> to the current value of each iteration. <span class="code">$file.lines</span> produces a list of the lines read from the file <span class="code">scores.txt</span>, starting with the second line of the file since we already called <span class="code">$file.get</span> once, and going all the way to the end of the file. </p>
+<p id="f7a7e5a">During the first iteration, <span class="code">$line</span> will contain the string <span class="code">Ana Dave |
+3:0</span>; during the second, <span class="code">Charlie Beth | 3:1</span>, and so on. </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> (</span><span style="color:var(--bulma-link);font-weight:600;">$pairing</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$result</span><span style="color:var(--bulma-black);font-weight:600;">) </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$line</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">split</span><span style="color:var(--bulma-black);font-weight:600;">(</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;"> | </span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">);</span>
+</pre>
+</div>
+                </div>
+            <p id="89bb03d"><span class="code">my</span> can declare multiple variables simultaneously. The right-hand side of the assignment is a call to a method named <span class="code">split</span>, passing along the string <span class="code">' | '</span> as an argument. </p>
+<p id="0c704ba"><span class="code">split</span> decomposes its invocant into a list of strings, so that joining the list items with the separator <span class="code">' | '</span> produces the original string. </p>
+<p id="5a7192a"><span class="code">$pairing</span> gets the first item of the returned list, and <span class="code">$result</span> the second. </p>
+<p id="1e2b6a8">After processing the first line, <span class="code">$pairing</span> will hold the string <span class="code">Ana Dave</span> and <span class="code">$result</span> will hold <span class="code">3:0</span>. </p>
+<p id="825d287">The next two lines follow the same pattern: </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> (</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">) </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$pairing</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">words</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> (</span><span style="color:var(--bulma-link);font-weight:600;">$r1</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$r2</span><span style="color:var(--bulma-black);font-weight:600;">) </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$result</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">split</span><span style="color:var(--bulma-black);font-weight:600;">(</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">);</span>
+</pre>
+</div>
+                </div>
+            <p id="a389807">The first extracts and stores the names of the two players in the variables <span class="code">$p1</span> and <span class="code">$p2</span>. The second extracts the results for each player and stores them in <span class="code">$r1</span> and <span class="code">$r2</span>. </p>
+<p id="3f645fb">After processing the first line of the file, the variables contain the values: </p>
+<h2 id="Table" class="heading  py-2"><a href="#" title="go to top of document">Table</a><a class="raku-anchor" title="direct link" href="#Table">§</a></h2>
+<table class="table">	<tbody>
+		<tr><td>Variable</td><td>Contents</td></tr>
+		<tr><td>$line</td><td>'Ana Dave \| 3:0'</td></tr>
+		<tr><td>$pairing</td><td>'Ana Dave'</td></tr>
+		<tr><td>$result</td><td>'3:0'</td></tr>
+		<tr><td>$p1</td><td>'Ana'</td></tr>
+		<tr><td>$p2</td><td>'Dave'</td></tr>
+		<tr><td>$r1</td><td>'3'</td></tr>
+		<tr><td>$r2</td><td>'0'</td></tr>
+			</tbody>
+</table>
+<p id="fcb4418">The program then counts the number of sets each player has won: </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">+</span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$r1</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">+</span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$r2</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="56ecb09">The above two statements involve the <span class="code">+=</span> compound assignment operator. They are a variant of the following two statements that use the simple assignment operator <span class="code">=</span> and that may be easier to understand at first sight: </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">+</span> <span style="color:var(--bulma-link);font-weight:600;">$r1</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">+</span> <span style="color:var(--bulma-link);font-weight:600;">$r2</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="1899fdd">For your program, the shorthand version using the <span class="code">+=</span> compound assignment operator is preferred over the longhand version using the simple assignment operator <span class="code">=</span>. This is not only because the shorter version requires less typing, but also because the <span class="code">+=</span> operator silently initializes undefined values of the hash's key-value pairs to zero. In other words: by using <span class="code">+=</span>, there is no need to include a separate statement like <span class="code">%sets{$p1} = 0</span> before you can meaningfully add <span class="code">$r1</span> to it. We'll look at this is behavior in a bit more detail below. </p>
+<h3 id="X&lt;L&lt;C&lt;Any&gt;|/type/Any&gt;|Tutorial,Any_(Basics)&gt;_and_X&lt;C&lt;+=&gt;|Tutorial,+=_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Any_and_+=</a><a class="raku-anchor" title="direct link" href="#X&lt;L&lt;C&lt;Any&gt;|/type/Any&gt;|Tutorial,Any_(Basics)&gt;_and_X&lt;C&lt;+=&gt;|Tutorial,+=_(Basics)&gt;">§</a></h3>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">+</span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$r1</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">+</span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$r2</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="3655a8d"><span class="code">%sets{$p1} += $r1</span> means <span class="important">increase the value in the variable on the left by $r1</span>. In the first iteration <span class="code">%sets{$p1}</span> is not yet defined, so it defaults to a special value called <a href="/type/Any"><span class="code">Any</span></a>. The <span class="code">+=</span> operator conveniently treats the undefined value <a href="/type/Any"><span class="code">Any</span></a> as a number with the value <span class="code">0</span>, allowing it to sensibly add some other value to it. To perform the addition, the strings <span class="code">$r1</span>, <span class="code">$r2</span>, etc. are automatically converted to numbers, as addition is a numeric operation. </p>
+<h3 id="X&lt;Fat_arrow|Tutorial,fat_arrow_(Basics)&gt;,_X&lt;pairs|Tutorial,pair_(Basics)&gt;_and_X&lt;autovivification|Tutorial,autovivification_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Fat_arrow,_pairs_and_autovivification</a><a class="raku-anchor" title="direct link" href="#X&lt;Fat_arrow|Tutorial,fat_arrow_(Basics)&gt;,_X&lt;pairs|Tutorial,pair_(Basics)&gt;_and_X&lt;autovivification|Tutorial,autovivification_(Basics)&gt;">§</a></h3>
+<p id="8d6af3c">Before these two lines execute, <span class="code">%sets</span> is empty. Adding to an entry that is not in the hash yet will cause that entry to spring into existence just-in-time, with a value starting at zero. This behavior is known as <span class="important">autovivification</span>. After these two lines have run for the first time, <span class="code">%sets</span> contains <span class="code">'Ana' => 3, 'Dave' => 0</span>. (The fat arrow <span class="code">=></span> separates the key and the value in a <a href="/type/Pair"><span class="code">Pair</span></a>.) </p>
+<h3 id="X&lt;Postincrement|Tutorial,postincrement_(Basics)&gt;_and_X&lt;preincrement|Tutorial,preincrement_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Postincrement_and_preincrement</a><a class="raku-anchor" title="direct link" href="#X&lt;Postincrement|Tutorial,postincrement_(Basics)&gt;_and_X&lt;preincrement|Tutorial,preincrement_(Basics)&gt;">§</a></h3>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">if</span> <span style="color:var(--bulma-link);font-weight:600;">$r1</span> <span style="color:var(--bulma-success);font-weight:600;">></span> <span style="color:var(--bulma-link);font-weight:600;">$r2</span><span style="color:var(--bulma-black);font-weight:600;"> {
+    </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-black);font-weight:600;">}</span><span style="color:var(--bulma-success);font-weight:600;">++</span><span style="color:var(--bulma-black);font-weight:600;">;
+} </span><span style="color:var(--bulma-primary);font-weight:600;">else</span><span style="color:var(--bulma-black);font-weight:600;"> {
+    </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">}</span><span style="color:var(--bulma-success);font-weight:600;">++</span><span style="color:var(--bulma-black);font-weight:600;">;
+}</span>
+</pre>
+</div>
+                </div>
+            <p id="5e5a748">If <span class="code">$r1</span> is numerically larger than <span class="code">$r2</span>, <span class="code">%matches{$p1}</span> increments by one. If <span class="code">$r1</span> is not larger than <span class="code">$r2</span>, <span class="code">%matches{$p2}</span> increments. Just as in the case of <span class="code">+=</span>, if either hash value did not exist previously, it is autovivified by the increment operation. </p>
+<p id="83821df"><span class="code">$thing++</span> is a variant of <span class="code">$thing += 1</span>; it differs from the latter in that the return value of the expression is <span class="code">$thing</span> <span class="important">before</span> the increment, and not the incremented value. As in many other programming languages, you can use <span class="code">++</span> as a prefix. Then it returns the incremented value: <span class="code">my $x = 1; say ++$x</span> prints <span class="code">2</span>. </p>
+<h2 id="X&lt;Topic_variable|Tutorial,topic_variable_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Topic_variable</a><a class="raku-anchor" title="direct link" href="#X&lt;Topic_variable|Tutorial,topic_variable_(Basics)&gt;">§</a></h2>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@sorted</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">@names</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">sort</span><span style="color:var(--bulma-black);font-weight:600;">({ </span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$_</span><span style="color:var(--bulma-black);font-weight:600;">} })</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">sort</span><span style="color:var(--bulma-black);font-weight:600;">({ </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$_</span><span style="color:var(--bulma-black);font-weight:600;">} })</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">reverse</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="c0ce692">This line consists of three individually simple steps. An array's <span class="code">sort</span> method returns a sorted version of the array's contents. However, the default sort on an array sorts by its contents. To print player names in winner-first order, the code must sort the array by the <span class="important">scores</span> of the players, not their names. The <span class="code">sort</span> method's argument is a <span class="important">block</span> used to transform the array elements (the names of players) to the data by which to sort. The array items are passed in through the <span class="important">topic variable</span> <span class="code">$_</span>. </p>
+<h3 id="Blocks" class="heading  py-2"><a href="#" title="go to top of document">Blocks</a><a class="raku-anchor" title="direct link" href="#Blocks">§</a></h3>
+<p id="186b87b">You have seen blocks before: both the <span class="code">for</span> loop <span class="code">-> $line { ... }</span> and the <span class="code">if</span> statement worked on blocks. A block is a self-contained piece of Raku code with an optional signature (the <span class="code">-> $line</span> part). </p>
+<p id="e07ce09">The simplest way to sort the players by score would be <span class="code">@names.sort({
+%matches{$_} })</span>, which sorts by number of matches won. However Ana and Dave have both won two matches. That simple sort doesn't account for the number of sets won, which is the secondary criterion to decide who has won the tournament. </p>
+<h3 id="Stable_sort" class="heading  py-2"><a href="#" title="go to top of document">Stable_sort</a><a class="raku-anchor" title="direct link" href="#Stable_sort">§</a></h3>
+<p id="c94c274">When two array items have the same value, <span class="code">sort</span> leaves them in the same order as it found them. Computer scientists call this a <span class="important">stable sort</span>. The program takes advantage of this property of Raku's <span class="code">sort</span> to achieve the goal by sorting twice: first by the number of sets won (the secondary criterion), then by the number of matches won (the primary criterion). </p>
+<p id="02dd3d1">After the first sorting step, the names are in the order <span class="code">Beth Charlie Dave
+Ana</span>. After the second sorting step, it's still the same, because no one has won fewer matches but more sets than someone else. Such a situation is entirely possible, especially at larger tournaments. </p>
+<p id="51c1187"><span class="code">sort</span> sorts in ascending order, from smallest to largest. This is the opposite of the desired order. Therefore, the code calls the <span class="code">.reverse</span> method on the result of the second sort, and stores the final list in <span class="code">@sorted</span>. </p>
+<h2 id="Standard_output" class="heading  py-2"><a href="#" title="go to top of document">Standard_output</a><a class="raku-anchor" title="direct link" href="#Standard_output">§</a></h2>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">for</span> <span style="color:var(--bulma-link);font-weight:600;">@sorted</span> <span style="color:var(--bulma-primary);font-weight:600;">-></span> <span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;"> {
+    </span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$match-noun</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">==</span><span style="color:var(--bulma-black);font-weight:600;"> 1 </span><span style="color:var(--bulma-success);font-weight:600;">??</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">match</span><span style="color:var(--bulma-black);font-weight:600;">'</span> <span style="color:var(--bulma-success);font-weight:600;">!!</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">matches</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">;
+    </span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$set-noun</span>   <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;">} </span><span style="color:var(--bulma-success);font-weight:600;">==</span><span style="color:var(--bulma-black);font-weight:600;"> 1 </span><span style="color:var(--bulma-success);font-weight:600;">??</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">set</span><span style="color:var(--bulma-black);font-weight:600;">'</span> <span style="color:var(--bulma-success);font-weight:600;">!!</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">sets</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">;
+    </span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-warning);font-weight:600;"> has won </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;">}</span> <span style="color:var(--bulma-link);font-weight:600;">$match-noun</span><span style="color:var(--bulma-warning);font-weight:600;"> and </span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$n</span><span style="color:var(--bulma-black);font-weight:600;">}</span> <span style="color:var(--bulma-link);font-weight:600;">$set-noun</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;
+}</span>
+</pre>
+</div>
+                </div>
+            <p id="d84d393">To print out the players and their scores, the code loops over <span class="code">@sorted</span>, setting <span class="code">$n</span> to the name of each player in turn. Read this code as "For each element of sorted, set <span class="code">$n</span> to the element, then execute the contents of the following block." The variable <span class="code">$match-noun</span> will store either the string <span class="important">match</span> if the player has won a single match or <span class="important">matches</span> if the player has won zero or more matches. In order to do this, the <span class="important">ternary</span> operator (<span class="code">?? !!</span>) is used. If <span class="code">%matches{$n} == 1</span> evaluates to <span class="code">True</span>, then <span class="important">match</span> is returned. Otherwise, <span class="important">matches</span> is returned. Either way, the returned value is stored in <span class="code">$match-noun</span>. The same approach applies to <span class="code">$set-noun</span>. </p>
+<p id="ca4c144">The statement <span class="code">say</span> prints its arguments to the standard output (the screen, normally), followed by a newline. (Use <span class="code">print</span> if you don't want the newline at the end.) </p>
+<p id="3bf81fd">Note that <span class="code">say</span> will truncate certain data structures by calling the <span class="code">.gist</span> method so <span class="code">put</span> is safer if you want exact output. </p>
+<h3 id="X&lt;Variable_interpolation|Tutorial,variable_interpolation_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Variable_interpolation</a><a class="raku-anchor" title="direct link" href="#X&lt;Variable_interpolation|Tutorial,variable_interpolation_(Basics)&gt;">§</a></h3>
+<p id="304db43">When you run the program, you'll see that <span class="code">say</span> doesn't print the contents of that string verbatim. In place of <span class="code">$n</span> it prints the contents of the variable <span class="code">$n</span> — a player's name stored in <span class="code">$n</span>. This automatic substitution of code with its contents is called <span class="important">interpolation</span>. This interpolation happens only in strings delimited by double quotes <span class="code">"..."</span>. Single quoted strings <span class="code">'...'</span> do not interpolate: </p>
+<h3 id="X&lt;Double-quoted_strings|Tutorial,double-quoted_strings&gt;_and_X&lt;single-quoted_strings|Tutorial,single-quoted_strings&gt;" class="heading  py-2"><a href="#" title="go to top of document">Double-quoted_strings_and_single-quoted_strings</a><a class="raku-anchor" title="direct link" href="#X&lt;Double-quoted_strings|Tutorial,double-quoted_strings&gt;_and_X&lt;single-quoted_strings|Tutorial,single-quoted_strings&gt;">§</a></h3>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$names</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">things</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">Do not call me $names</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">; </span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT: «Do not call me $names␤»
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">Do not call me </span><span style="color:var(--bulma-link);font-weight:600;">$names</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">; </span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT: «Do not call me things␤»</span>
+</pre>
+</div>
+                </div>
+            <p id="43dde02">Double quoted strings in Raku can interpolate variables with the <span class="code">$</span> sigil as well as blocks of code in curly braces. Since any arbitrary Raku code can appear within curly braces, <a href="/type/Array"><span class="code">Array</span></a>s and <a href="/type/Hash"><span class="code">Hash</span></a>es may be interpolated by placing them within curly braces. </p>
+<p id="6b5a375">Arrays within curly braces are interpolated with a single space character between each item. Hashes within curly braces are interpolated as a series of lines. Each line will contain a key, followed by a tab character, then the value associated with that key, and finally a newline. </p>
+<p id="9bee26f">Let's see an example of this now. </p>
+<p id="7179f01">In this example, you will see some special syntax that makes it easier to make a list of strings. This is the <span class="code"><...></span> <a href="/language/operators">quote-words</a> construct. When you put words in between the <span class="code"><</span> and <span class="code">></span> they are all assumed to be strings, so you do not need to wrap them each in double quotes <span class="code">"..."</span>. </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">Math: </span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-black);font-weight:600;"> 1 </span><span style="color:var(--bulma-success);font-weight:600;">+</span><span style="color:var(--bulma-black);font-weight:600;"> 2 </span><span style="color:var(--bulma-black);font-weight:600;">}</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT: «Math: 3␤»
+</span>
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@people</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-black);font-weight:600;">&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">Luke Matthew Mark</span><span style="color:var(--bulma-black);font-weight:600;">></span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">The synoptics are: </span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">@people</span><span style="color:var(--bulma-black);font-weight:600;">}</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT: «The synoptics are: Luke Matthew Mark␤»
+</span>
+<span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">}</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT (From the table tennis tournament):
+</span>
+<span style="color:var(--bulma-black);font-weight:600;"># Charlie 4
+</span><span style="color:var(--bulma-black);font-weight:600;"># Dave    6
+</span><span style="color:var(--bulma-black);font-weight:600;"># Ana     8
+</span><span style="color:var(--bulma-black);font-weight:600;"># Beth    4</span>
+</pre>
+</div>
+                </div>
+            <p id="44675be">When array and hash variables appear directly in a double-quoted string (and not inside curly braces), they are only interpolated if their name is followed by a postcircumfix operator — a bracketing pair that follows a statement. It's also ok to have a method call between the variable name and the postcircumfix. </p>
+<h2 id="Zen_slices" class="heading  py-2"><a href="#" title="go to top of document">Zen_slices</a><a class="raku-anchor" title="direct link" href="#Zen_slices">§</a></h2>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@flavors</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-black);font-weight:600;">&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">vanilla peach</span><span style="color:var(--bulma-black);font-weight:600;">></span><span style="color:var(--bulma-black);font-weight:600;">;
+
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">we have </span><span style="color:var(--bulma-link);font-weight:600;">@flavors</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;           </span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT: «we have @flavors␤»
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">we have </span><span style="color:var(--bulma-link);font-weight:600;">@flavors</span><span style="color:var(--bulma-warning);font-weight:600;">[0]</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;        </span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT: «we have vanilla␤»
+</span><span style="color:var(--bulma-black);font-weight:600;"># so-called "Zen slice"
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">we have </span><span style="color:var(--bulma-link);font-weight:600;">@flavors</span><span style="color:var(--bulma-warning);font-weight:600;">[]</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;         </span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT: «we have vanilla peach␤»
+</span>
+<span style="color:var(--bulma-black);font-weight:600;"># method calls ending in postcircumfix
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">we have </span><span style="color:var(--bulma-link);font-weight:600;">@flavors</span><span style="color:var(--bulma-warning);font-weight:600;">.sort()</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;    </span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT: «we have peach vanilla␤»
+</span>
+<span style="color:var(--bulma-black);font-weight:600;"># chained method calls:
+</span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">we have </span><span style="color:var(--bulma-link);font-weight:600;">@flavors</span><span style="color:var(--bulma-warning);font-weight:600;">.sort.join(', ')</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;
+                                  </span><span style="color:var(--bulma-black);font-weight:600;"># OUTPUT: «we have peach, vanilla␤»</span>
+</pre>
+</div>
+                </div>
+            <h2 id="Exercises" class="heading  py-2"><a href="#" title="go to top of document">Exercises</a><a class="raku-anchor" title="direct link" href="#Exercises">§</a></h2>
+<p id="8b3de2b"><span class="basis">1.</span> The input format of the example program is redundant: the first line containing the name of all players is not necessary, because you can find out which players participated in the tournament by looking at their names in the subsequent rows, so in principle we could safely remove it. </p>
+<p id="9648ec8">How can you make the program run if you do not use the <span class="code">@names</span> variable? Hint: <span class="code">%hash.keys</span> returns a list of all keys stored in <span class="code">%hash</span>. </p>
+<p id="6198f4b"><span class="basis">Answer:</span> After removing the first line in <span class="code">scores.txt</span>, remove the line <span class="code">my
+@names = $file.get.words;</span> (which would read it), and change: </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@sorted</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">@names</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">sort</span><span style="color:var(--bulma-black);font-weight:600;">({ </span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$_</span><span style="color:var(--bulma-black);font-weight:600;">} })</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">sort</span><span style="color:var(--bulma-black);font-weight:600;">({ </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$_</span><span style="color:var(--bulma-black);font-weight:600;">} })</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">reverse</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="cacf043">... into: </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@sorted</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">keys</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">sort</span><span style="color:var(--bulma-black);font-weight:600;">({ </span><span style="color:var(--bulma-link);font-weight:600;">%sets</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$_</span><span style="color:var(--bulma-black);font-weight:600;">} })</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">sort</span><span style="color:var(--bulma-black);font-weight:600;">({ </span><span style="color:var(--bulma-link);font-weight:600;">%matches</span><span style="color:var(--bulma-black);font-weight:600;">{</span><span style="color:var(--bulma-link);font-weight:600;">$_</span><span style="color:var(--bulma-black);font-weight:600;">} })</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">reverse</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+</pre>
+</div>
+                </div>
+            <p id="5b092f5"><span class="basis">2.</span> Instead of deleting the redundant <span class="code">@names</span> variable, you can also use it to warn if a player appears that wasn't mentioned in the first line, for example due to a typo. How would you modify your program to achieve that? </p>
+<p id="229de79">Hint: Try using <a href="/language/operators">membership operators</a>. </p>
+<p id="03d9077"><span class="basis">Answer:</span> Change <span class="code">@names</span> to <span class="code">@valid-players</span>. When looping through the lines of the file, check to see that <span class="code">$p1</span> and <span class="code">$p2</span> are in <span class="code">@valid-players</span>. Note that for membership operators you can also use <span class="code">(elem)</span> and <span class="code">!(elem)</span>. </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span style="color:var(--bulma-success);font-weight:600;">...</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@valid-players</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$file</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">get</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">words</span><span style="color:var(--bulma-black);font-weight:600;">;
+</span><span style="color:var(--bulma-success);font-weight:600;">...</span><span style="color:var(--bulma-black);font-weight:600;">;
+
+</span><span style="color:var(--bulma-primary);font-weight:600;">for</span> <span style="color:var(--bulma-link);font-weight:600;">$file</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">lines</span> <span style="color:var(--bulma-primary);font-weight:600;">-></span> <span style="color:var(--bulma-link);font-weight:600;">$line</span><span style="color:var(--bulma-black);font-weight:600;"> {
+    </span><span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> (</span><span style="color:var(--bulma-link);font-weight:600;">$pairing</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$result</span><span style="color:var(--bulma-black);font-weight:600;">) </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$line</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">split</span><span style="color:var(--bulma-black);font-weight:600;">(</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;"> | </span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">);
+    </span><span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> (</span><span style="color:var(--bulma-link);font-weight:600;">$p1</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$p2</span><span style="color:var(--bulma-black);font-weight:600;">)          </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$pairing</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">split</span><span style="color:var(--bulma-black);font-weight:600;">(</span><span style="color:var(--bulma-black);font-weight:600;">'</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">);
+    </span><span style="color:var(--bulma-primary);font-weight:600;">if</span> <span style="color:var(--bulma-link);font-weight:600;">$p1</span> <span style="color:var(--bulma-success);font-weight:600;">∉</span> <span style="color:var(--bulma-link);font-weight:600;">@valid-players</span><span style="color:var(--bulma-black);font-weight:600;"> {
+        </span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">Warning: '</span><span style="color:var(--bulma-link);font-weight:600;">$p1'</span><span style="color:var(--bulma-warning);font-weight:600;"> is not on our list!</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;
+    }
+    </span><span style="color:var(--bulma-primary);font-weight:600;">if</span> <span style="color:var(--bulma-link);font-weight:600;">$p2</span> <span style="color:var(--bulma-success);font-weight:600;">∉</span> <span style="color:var(--bulma-link);font-weight:600;">@valid-players</span><span style="color:var(--bulma-black);font-weight:600;"> {
+        </span><span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;">Warning: '</span><span style="color:var(--bulma-link);font-weight:600;">$p2'</span><span style="color:var(--bulma-warning);font-weight:600;"> is not on our list!</span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-black);font-weight:600;">;
+    }
+    </span><span style="color:var(--bulma-success);font-weight:600;">...</span><span style="color:var(--bulma-black);font-weight:600;">
+}</span>
+</pre>
+</div>
+                </div>
+
+        </div>
+        <div class="content px-4">
+        
+        </div>
+    </div>
+</div>
+
+    <footer class="footer main-footer">
+    <div class="container px-4">
+        <nav class="level">
+            <div class="level-item">
+                Rendered from <span class="footer-field">docs/samples/samples/101-basics
+            </div>
+            <div class="level-item">
+                Rendered at 09:52 UTC on 2024-10-19
+            </div>
+            <div class="level-item">
+                Source last modified at 22:23 UTC on 2024-10-05
+            </div>
+        </nav>
+    </div>
+    
+</footer>
+
+</body>
+</html>
