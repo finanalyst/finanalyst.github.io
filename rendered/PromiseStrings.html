@@ -26,7 +26,7 @@ div.latex-equation{display:flex;justify-content:space-around;align-items:center}
 .listf-container{display:flex;flex-direction:column;margin-bottom:1.25rem;font-size:1rem;font-weight:500;line-height:1.5;border:1px solid #ccc;border-bottom:5px solid #d9d9d9;box-shadow:0 2px 3px 0 rgba(0,0,0,.07)}.listf-container .listf-caption{display:flex;justify-content:center;background:#f2f2f2;border-bottom:1px solid #ccc;color:#83858d}.listf-container .listf-file{display:inline-block;border-top:1px solid #ccc;border-bottom:1px solid #ccc;break-inside:avoid}.listf-container .listf-file .listf-link{display:inline-block;width:100%;text-align:center;padding-top:.25rem}.listf-container .listf-file p{padding-left:.5rem;padding-right:.5rem;margin-bottom:.25rem}.listf-error{color:red;font-size:xlarge}
 </style>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -39,7 +39,8 @@ crossorigin=""
 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin=""
 ></script>
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/haskell.min.js"></script>
 <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
 ></script>
 
@@ -290,7 +291,8 @@ function swap_toc_index(activate) {
 </section>
 
         <div class="content px-4">
-        <h2 id="PCell_and_PStr_classes" class="heading  py-2"><a href="#" title="go to top of document">PCell_and_PStr_classes</a><a class="raku-anchor" title="direct link" href="#PCell_and_PStr_classes">§</a></h2>
+        
+<div class="id-target" id="PCell_and_PStr_classes"></div><h2 id="PCell_and_PStr_classes" class="heading  py-2"><a href="#" title="go to top of document">PCell and PStr classes</a><a class="raku-anchor" title="direct link" href="#PCell_and_PStr_classes">§</a></h2>
 <p id="64dc8b9">RakuDoc statements that make references to structures or data that have not been completely rendered embed the references in <span class="basis">PCells</span>, which will interpolate the rendering once known. </p>
 <p id="1df43c5">For instance, when <span class="code">=place toc:*</span> is given in a RakuDoc source (eg at the top of a source), typically the source has not yet been completely rendered. </p>
 <p id="6fd957a">The renderer actually renders a source into <span class="code">PStr</span> or <span class="basis">PromiseStrings</span> rather than <span class="code">Str</span>. As forward references become known, they are included in the text. </p>
@@ -299,7 +301,8 @@ function swap_toc_index(activate) {
 <p id="6951b3b">If a <span class="important">PStr</span> or <span class="important">PCell</span> is stringified before the data has been rendered, its internal <span class="important">id</span> and <span class="important">UNAVAILABLE</span> will be the rendered result. </p>
 <p id="bef1394">Since the embedded content of a <span class="important">PStr</span> may ony be available after a template has rendered, care must be taken not be stringify any of the parameters prematurely. </p>
 <p id="c8344f0">Consequently, the return object from a template should be built from the parameter values using the concatenation operator <span class="code">~</span>. </p>
-<h3 id="Concatenation_to_PStr" class="heading  py-2"><a href="#" title="go to top of document">Concatenation_to_PStr</a><a class="raku-anchor" title="direct link" href="#Concatenation_to_PStr">§</a></h3>
+
+<div class="id-target" id="Concatenation_to_PStr"></div><h3 id="Concatenation_to_PStr" class="heading  py-2"><a href="#" title="go to top of document">Concatenation to PStr</a><a class="raku-anchor" title="direct link" href="#Concatenation_to_PStr">§</a></h3>
 <p id="ed12c32">A PStr is built up by concatenating using the infix operator <span class="code">~</span>. Assignment does not add to a PStr. Concatenation can be on the left or the right of the PStr and the result will depend on the type. </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> A PCell on the left or right is added to the start or end, respectively, of the PStr</li>
@@ -318,19 +321,27 @@ function swap_toc_index(activate) {
 </pre>
 </div>
                 </div>
-            <h3 id="PStr_methods" class="heading  py-2"><a href="#" title="go to top of document">PStr_methods</a><a class="raku-anchor" title="direct link" href="#PStr_methods">§</a></h3>
+            
+<div class="id-target" id="PStr_methods"></div><h3 id="PStr_methods" class="heading  py-2"><a href="#" title="go to top of document">PStr methods</a><a class="raku-anchor" title="direct link" href="#PStr_methods">§</a></h3>
 <p id="f690ca5">The following methods are defined for <span class="basis">PStr</span>. Unless specified, they result in a <span class="basis">PStr</span> allowing for chaining. </p>
-<h4 id="new()_and_new(_*@string_)" class="heading  py-2"><a href="#" title="go to top of document">new()_and_new(_*@string_)</a><a class="raku-anchor" title="direct link" href="#new()_and_new(_*@string_)">§</a></h4>
+
+<div class="id-target" id="new()_and_new(_*@string_)"></div><h4 id="new()_and_new(_*@string_)" class="heading  py-2"><a href="#" title="go to top of document">new() and new( *@string )</a><a class="raku-anchor" title="direct link" href="#new()_and_new(_*@string_)">§</a></h4>
 <p id="95edfd4">Creates a new <span class="basis">PStr</span> either with no parameters, or a sequence of strings. </p>
-<h4 id="debug_Calling_debug_on_a_B&lt;PStr&gt;_will_stringify_the_object_together_with_information_about_any_B&lt;PCells&gt;_inside_the_object." class="heading  py-2"><a href="#" title="go to top of document">debug_Calling_debug_on_a_PStr_will_stringify_the_object_together_with_information_about_any_PCells_inside_the_object.</a><a class="raku-anchor" title="direct link" href="#debug_Calling_debug_on_a_B&lt;PStr&gt;_will_stringify_the_object_together_with_information_about_any_B&lt;PCells&gt;_inside_the_object.">§</a></h4>
-<h4 id="Method_strip_Goes_through_a_B&lt;PStr&gt;_and_substitutes_any_expanded_B&lt;PCell&gt;_with_its_Str_equivalent._All_Str_are_then_concatenated." class="heading  py-2"><a href="#" title="go to top of document">Method_strip_Goes_through_a_PStr_and_substitutes_any_expanded_PCell_with_its_Str_equivalent._All_Str_are_then_concatenated.</a><a class="raku-anchor" title="direct link" href="#Method_strip_Goes_through_a_B&lt;PStr&gt;_and_substitutes_any_expanded_B&lt;PCell&gt;_with_its_Str_equivalent._All_Str_are_then_concatenated.">§</a></h4>
-<h4 id="Method_trim-trailing,_trim-leading,_trim" class="heading  py-2"><a href="#" title="go to top of document">Method_trim-trailing,_trim-leading,_trim</a><a class="raku-anchor" title="direct link" href="#Method_trim-trailing,_trim-leading,_trim">§</a></h4>
+
+<div class="id-target" id="debug_Calling_debug_on_a_PStr_will_stringify_the_object_together_with_information_about_any_PCells_inside_the_object."></div><h4 id="debug_Calling_debug_on_a_B&lt;PStr&gt;_will_stringify_the_object_together_with_information_about_any_B&lt;PCells&gt;_inside_the_object." class="heading  py-2"><a href="#" title="go to top of document">debug Calling debug on a PStr will stringify the object together with information about any PCells inside the object.</a><a class="raku-anchor" title="direct link" href="#debug_Calling_debug_on_a_PStr_will_stringify_the_object_together_with_information_about_any_PCells_inside_the_object.">§</a></h4>
+
+<div class="id-target" id="Method_strip_Goes_through_a_PStr_and_substitutes_any_expanded_PCell_with_its_Str_equivalent._All_Str_are_then_concatenated."></div><h4 id="Method_strip_Goes_through_a_B&lt;PStr&gt;_and_substitutes_any_expanded_B&lt;PCell&gt;_with_its_Str_equivalent._All_Str_are_then_concatenated." class="heading  py-2"><a href="#" title="go to top of document">Method strip Goes through a PStr and substitutes any expanded PCell with its Str equivalent. All Str are then concatenated.</a><a class="raku-anchor" title="direct link" href="#Method_strip_Goes_through_a_PStr_and_substitutes_any_expanded_PCell_with_its_Str_equivalent._All_Str_are_then_concatenated.">§</a></h4>
+
+<div class="id-target" id="Method_trim-trailing,_trim-leading,_trim"></div><h4 id="Method_trim-trailing,_trim-leading,_trim" class="heading  py-2"><a href="#" title="go to top of document">Method trim-trailing, trim-leading, trim</a><a class="raku-anchor" title="direct link" href="#Method_trim-trailing,_trim-leading,_trim">§</a></h4>
 <p id="d39f1dc"><span class="code">strip</span> is first called, then trailing or leading space, respectively, are removed from final, initial strings in the <span class="basis">PStr</span>. <span class="code">trim</span> calls both trim-trailing and trim-leading. </p>
-<h4 id="Method_C&lt;&lt;_has-PCells(_--&gt;_Bool_)_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Method__has-PCells(_--&gt;_Bool_)</a><a class="raku-anchor" title="direct link" href="#Method_C&lt;&lt;_has-PCells(_--&gt;_Bool_)_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Method__has-PCells(_--&gt;_Bool_)"></div><h4 id="Method_C&lt;&lt;_has-PCells(_--&gt;_Bool_)_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Method  has-PCells( --> Bool )</a><a class="raku-anchor" title="direct link" href="#Method__has-PCells(_--&gt;_Bool_)">§</a></h4>
 <p id="1e62eca">Determines whether there are any unexpanded <span class="basis">PCell</span> in a <span class="basis">PStr</span>. </p>
-<h4 id="Method_C&lt;&lt;_segments(_--&gt;_Int_)_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Method__segments(_--&gt;_Int_)</a><a class="raku-anchor" title="direct link" href="#Method_C&lt;&lt;_segments(_--&gt;_Int_)_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Method__segments(_--&gt;_Int_)"></div><h4 id="Method_C&lt;&lt;_segments(_--&gt;_Int_)_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Method  segments( --> Int )</a><a class="raku-anchor" title="direct link" href="#Method__segments(_--&gt;_Int_)">§</a></h4>
 <p id="b7c33c2">Returns the number of segments (strings or <span class="basis">PCells</span>) in a <span class="basis">PStr</span> </p>
-<h4 id="Methods_C&lt;&lt;_lead(_--&gt;Str_)_&gt;&gt;_and_C&lt;&lt;_tail(_--&gt;_Str_)_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Methods__lead(_--&gt;Str_)__and__tail(_--&gt;_Str_)</a><a class="raku-anchor" title="direct link" href="#Methods_C&lt;&lt;_lead(_--&gt;Str_)_&gt;&gt;_and_C&lt;&lt;_tail(_--&gt;_Str_)_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Methods__lead(_--&gt;Str_)__and__tail(_--&gt;_Str_)"></div><h4 id="Methods_C&lt;&lt;_lead(_--&gt;Str_)_&gt;&gt;_and_C&lt;&lt;_tail(_--&gt;_Str_)_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Methods  lead( -->Str )  and  tail( --> Str )</a><a class="raku-anchor" title="direct link" href="#Methods__lead(_--&gt;Str_)__and__tail(_--&gt;_Str_)">§</a></h4>
 <p id="480295c">These two methods of a <span class="important">PStr</span> object return any of the <span class="basis">leading</span> or <span class="basis">tailing</span> (respectively) <span class="important">Str</span> elements of the <span class="important">PStr</span>. The elements are removed, and so should be concatenated back on after processing. </p>
 <p id="aa45553">For simplicity above, examples were given of pre- and post-processing templates, and treating the contents of <span class="code">%prm</span> as <span class="important">Str</span>. Since some parameters may contain <span class="important">PStr</span>, more care is needed. For example, the post-processing should be done as follows: </p>
 
@@ -354,7 +365,8 @@ function swap_toc_index(activate) {
 </pre>
 </div>
                 </div>
-            <h3 id="PCell_methods" class="heading  py-2"><a href="#" title="go to top of document">PCell_methods</a><a class="raku-anchor" title="direct link" href="#PCell_methods">§</a></h3>
+            
+<div class="id-target" id="PCell_methods"></div><h3 id="PCell_methods" class="heading  py-2"><a href="#" title="go to top of document">PCell methods</a><a class="raku-anchor" title="direct link" href="#PCell_methods">§</a></h3>
 <p id="67e8a02"><span class="basis">PCells</span> should be invisible to the end user. However, if references are made that are not expanded, then a PCell will become visible. </p>
 <p id="8a63624">Typically, <span class="basis">PCell</span> instances are converted to Str once a future block has provided the payload needed for the cell. </p>
 <h4 id="debug" class="heading  py-2"><a href="#" title="go to top of document">debug</a><a class="raku-anchor" title="direct link" href="#debug">§</a></h4>
@@ -364,7 +376,8 @@ Richard Hainsworth aka finanalyst
 
 
 
-<h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION_0">§</a></h2>
+
+<div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
 v0.2.1
 
 
@@ -383,7 +396,7 @@ v0.2.1
                 Rendered from <span class="footer-field">docs/PromiseStrings
             </div>
             <div class="level-item">
-                Rendered at 09:52 UTC on 2024-10-19
+                Rendered at 20:20 UTC on 2024-10-19
             </div>
             <div class="level-item">
                 Source last modified at 09:38 UTC on 2024-08-07

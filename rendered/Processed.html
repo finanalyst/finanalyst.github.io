@@ -26,7 +26,7 @@ div.latex-equation{display:flex;justify-content:space-around;align-items:center}
 .listf-container{display:flex;flex-direction:column;margin-bottom:1.25rem;font-size:1rem;font-weight:500;line-height:1.5;border:1px solid #ccc;border-bottom:5px solid #d9d9d9;box-shadow:0 2px 3px 0 rgba(0,0,0,.07)}.listf-container .listf-caption{display:flex;justify-content:center;background:#f2f2f2;border-bottom:1px solid #ccc;color:#83858d}.listf-container .listf-file{display:inline-block;border-top:1px solid #ccc;border-bottom:1px solid #ccc;break-inside:avoid}.listf-container .listf-file .listf-link{display:inline-block;width:100%;text-align:center;padding-top:.25rem}.listf-container .listf-file p{padding-left:.5rem;padding-right:.5rem;margin-bottom:.25rem}.listf-error{color:red;font-size:xlarge}
 </style>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -39,7 +39,8 @@ crossorigin=""
 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin=""
 ></script>
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/haskell.min.js"></script>
 <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
 ></script>
 
@@ -339,10 +340,13 @@ function swap_toc_index(activate) {
 <p id="1427915">Finally, when an entire RakuDoc source has been fully rendered, it is useful to retain all the intermediary data structures as well. </p>
 <p id="7c3ecf8">The overall RakuDoc::Processed object contains data related to the source as well as the rendered data. </p>
 <p id="228a2c4">By keeping track of the timestamps of the source file and the rendering, it will be possible to determine whether to render a source again, or not. </p>
-<h3 id="Attributes_of_ProcessedState_object" class="heading  py-2"><a href="#" title="go to top of document">Attributes_of_ProcessedState_object</a><a class="raku-anchor" title="direct link" href="#Attributes_of_ProcessedState_object">§</a></h3>
-<h4 id="C&lt;PStr_$.body_is_rw_&gt;" class="heading  py-2"><a href="#" title="go to top of document">PStr_$.body_is_rw</a><a class="raku-anchor" title="direct link" href="#C&lt;PStr_$.body_is_rw_&gt;">§</a></h4>
+
+<div class="id-target" id="Attributes_of_ProcessedState_object"></div><h3 id="Attributes_of_ProcessedState_object" class="heading  py-2"><a href="#" title="go to top of document">Attributes of ProcessedState object</a><a class="raku-anchor" title="direct link" href="#Attributes_of_ProcessedState_object">§</a></h3>
+
+<div class="id-target" id="PStr_$.body_is_rw"></div><h4 id="C&lt;PStr_$.body_is_rw_&gt;" class="heading  py-2"><a href="#" title="go to top of document">PStr $.body is rw</a><a class="raku-anchor" title="direct link" href="#PStr_$.body_is_rw">§</a></h4>
 <p id="58c42ef">String of rendered source, may contain Promises during rendering </p>
-<h4 id="C&lt;Hash_@.toc_&gt;" class="heading  py-2"><a href="#" title="go to top of document">Hash_@.toc</a><a class="raku-anchor" title="direct link" href="#C&lt;Hash_@.toc_&gt;">§</a></h4>
+
+<div class="id-target" id="Hash_@.toc"></div><h4 id="C&lt;Hash_@.toc_&gt;" class="heading  py-2"><a href="#" title="go to top of document">Hash @.toc</a><a class="raku-anchor" title="direct link" href="#Hash_@.toc">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -355,7 +359,8 @@ Ordered array </span><span style="color:var(--bulma-primary);font-weight:600;">o
 </pre>
 </div>
                 </div>
-            <h4 id="C&lt;Array_@.head-numbering_&gt;" class="heading  py-2"><a href="#" title="go to top of document">Array_@.head-numbering</a><a class="raku-anchor" title="direct link" href="#C&lt;Array_@.head-numbering_&gt;">§</a></h4>
+            
+<div class="id-target" id="Array_@.head-numbering"></div><h4 id="C&lt;Array_@.head-numbering_&gt;" class="heading  py-2"><a href="#" title="go to top of document">Array @.head-numbering</a><a class="raku-anchor" title="direct link" href="#Array_@.head-numbering">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -368,7 +373,8 @@ Ordered array </span><span style="color:var(--bulma-primary);font-weight:600;">o
 </pre>
 </div>
                 </div>
-            <h4 id="C&lt;%.index_&gt;" class="heading  py-2"><a href="#" title="go to top of document">%.index</a><a class="raku-anchor" title="direct link" href="#C&lt;%.index_&gt;">§</a></h4>
+            
+<div class="id-target" id="%.index"></div><h4 id="C&lt;%.index_&gt;" class="heading  py-2"><a href="#" title="go to top of document">%.index</a><a class="raku-anchor" title="direct link" href="#%.index">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -383,7 +389,8 @@ Ordered array </span><span style="color:var(--bulma-primary);font-weight:600;">o
 </pre>
 </div>
                 </div>
-            <h4 id="C&lt;@.footnotes_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.footnotes</a><a class="raku-anchor" title="direct link" href="#C&lt;@.footnotes_&gt;">§</a></h4>
+            
+<div class="id-target" id="@.footnotes"></div><h4 id="C&lt;@.footnotes_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.footnotes</a><a class="raku-anchor" title="direct link" href="#@.footnotes">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -397,31 +404,44 @@ retTarget </span><span style="color:var(--bulma-primary);font-weight:600;">is</s
 </pre>
 </div>
                 </div>
-            <h4 id="C&lt;Array_%.semantics_&gt;" class="heading  py-2"><a href="#" title="go to top of document">Array_%.semantics</a><a class="raku-anchor" title="direct link" href="#C&lt;Array_%.semantics_&gt;">§</a></h4>
+            
+<div class="id-target" id="Array_%.semantics"></div><h4 id="C&lt;Array_%.semantics_&gt;" class="heading  py-2"><a href="#" title="go to top of document">Array %.semantics</a><a class="raku-anchor" title="direct link" href="#Array_%.semantics">§</a></h4>
 <p id="3ffaa5d">Semantic blocks (which includes TITLE & SUBTITLE) can be hidden Hash of SEMANTIC => [ PStr | Str ] </p>
-<h4 id="C&lt;@.warnings_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.warnings</a><a class="raku-anchor" title="direct link" href="#C&lt;@.warnings_&gt;">§</a></h4>
+
+<div class="id-target" id="@.warnings"></div><h4 id="C&lt;@.warnings_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.warnings</a><a class="raku-anchor" title="direct link" href="#@.warnings">§</a></h4>
 <p id="4960b15">An array of warnings is generated and then rendered by the warnings template The warning template, by default is called by the wrap-source template RakuDoc warnings are generated as specified in the RakuDoc v2 document. </p>
-<h4 id="C&lt;@.items_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.items</a><a class="raku-anchor" title="direct link" href="#C&lt;@.items_&gt;">§</a></h4>
+
+<div class="id-target" id="@.items"></div><h4 id="C&lt;@.items_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.items</a><a class="raku-anchor" title="direct link" href="#@.items">§</a></h4>
 <p id="a5b5846">An array of accumulated rendered items, added to body when next non-item block encountered </p>
-<h4 id="C&lt;@.defns_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.defns</a><a class="raku-anchor" title="direct link" href="#C&lt;@.defns_&gt;">§</a></h4>
+
+<div class="id-target" id="@.defns"></div><h4 id="C&lt;@.defns_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.defns</a><a class="raku-anchor" title="direct link" href="#@.defns">§</a></h4>
 <p id="943df73">An array of accumulated rendered definitions, added to body when next non-defn block encountered </p>
-<h4 id="C&lt;@.numitems_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.numitems</a><a class="raku-anchor" title="direct link" href="#C&lt;@.numitems_&gt;">§</a></h4>
+
+<div class="id-target" id="@.numitems"></div><h4 id="C&lt;@.numitems_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.numitems</a><a class="raku-anchor" title="direct link" href="#@.numitems">§</a></h4>
 <p id="877174c">An array of accumulated rendered numbered items, added to body when next non-item block encountered </p>
-<h4 id="C&lt;@.numdefns_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.numdefns</a><a class="raku-anchor" title="direct link" href="#C&lt;@.numdefns_&gt;">§</a></h4>
+
+<div class="id-target" id="@.numdefns"></div><h4 id="C&lt;@.numdefns_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.numdefns</a><a class="raku-anchor" title="direct link" href="#@.numdefns">§</a></h4>
 <p id="7b0e777">An array of accumulated rendered numbered definitions, added to body when next non-defn block encountered </p>
-<h4 id="C&lt;%.definitions_&gt;" class="heading  py-2"><a href="#" title="go to top of document">%.definitions</a><a class="raku-anchor" title="direct link" href="#C&lt;%.definitions_&gt;">§</a></h4>
+
+<div class="id-target" id="%.definitions"></div><h4 id="C&lt;%.definitions_&gt;" class="heading  py-2"><a href="#" title="go to top of document">%.definitions</a><a class="raku-anchor" title="direct link" href="#%.definitions">§</a></h4>
 <p id="19cd8a1">Hash of definition => rendered value for definitions </p>
-<h4 id="C&lt;@.inline-defns_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.inline-defns</a><a class="raku-anchor" title="direct link" href="#C&lt;@.inline-defns_&gt;">§</a></h4>
+
+<div class="id-target" id="@.inline-defns"></div><h4 id="C&lt;@.inline-defns_&gt;" class="heading  py-2"><a href="#" title="go to top of document">@.inline-defns</a><a class="raku-anchor" title="direct link" href="#@.inline-defns">§</a></h4>
 <p id="9e0ecf0">Array to signal when one or more inline defn are made in a Paragraph </p>
-<h3 id="Attributes_of_RakuDoc::Processed" class="heading  py-2"><a href="#" title="go to top of document">Attributes_of_RakuDoc::Processed</a><a class="raku-anchor" title="direct link" href="#Attributes_of_RakuDoc::Processed">§</a></h3>
+
+<div class="id-target" id="Attributes_of_RakuDoc::Processed"></div><h3 id="Attributes_of_RakuDoc::Processed" class="heading  py-2"><a href="#" title="go to top of document">Attributes of RakuDoc::Processed</a><a class="raku-anchor" title="direct link" href="#Attributes_of_RakuDoc::Processed">§</a></h3>
 <p id="a1a36bd">All of the ProcessState attributes, and the following. </p>
-<h4 id="C&lt;&lt;_%.source-data_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">%.source-data</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_%.source-data_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="%.source-data"></div><h4 id="C&lt;&lt;_%.source-data_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">%.source-data</a><a class="raku-anchor" title="direct link" href="#%.source-data">§</a></h4>
 <p id="e3abda9">Information about the RakuDoc source, eg file name, path, modified, language </p>
-<h4 id="C&lt;&lt;_$!output-format_=_'txt'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">$!output-format_=_'txt'</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_$!output-format_=_'txt'_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="$!output-format_=_'txt'"></div><h4 id="C&lt;&lt;_$!output-format_=_'txt'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">$!output-format = 'txt'</a><a class="raku-anchor" title="direct link" href="#$!output-format_=_'txt'">§</a></h4>
 <p id="c077417">The output format that the source has been rendered into </p>
-<h4 id="C&lt;&lt;_Str_$.front-matter_is_rw_=_'preface'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.front-matter_is_rw_=_'preface'</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.front-matter_is_rw_=_'preface'_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Str_$.front-matter_is_rw_=_'preface'"></div><h4 id="C&lt;&lt;_Str_$.front-matter_is_rw_=_'preface'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str $.front-matter is rw = 'preface'</a><a class="raku-anchor" title="direct link" href="#Str_$.front-matter_is_rw_=_'preface'">§</a></h4>
 <p id="fc2ba14">Text between =TITLE and first header, used for <span class="indexed" id="index-entry-" data-index-text="〚〛"></span> place before first header </p>
-<h4 id="C&lt;&lt;_Str_$.name_is_rw_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.name_is_rw</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.name_is_rw_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Str_$.name_is_rw"></div><h4 id="C&lt;&lt;_Str_$.name_is_rw_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str $.name is rw</a><a class="raku-anchor" title="direct link" href="#Str_$.name_is_rw">§</a></h4>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -434,33 +454,42 @@ retTarget </span><span style="color:var(--bulma-primary);font-weight:600;">is</s
 </pre>
 </div>
                 </div>
-            <h4 id="C&lt;&lt;_Str_$.title_is_rw_=_'NO_TITLE'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.title_is_rw_=_'NO_TITLE'</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.title_is_rw_=_'NO_TITLE'_&gt;&gt;">§</a></h4>
+            
+<div class="id-target" id="Str_$.title_is_rw_=_'NO_TITLE'"></div><h4 id="C&lt;&lt;_Str_$.title_is_rw_=_'NO_TITLE'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str $.title is rw = 'NO_TITLE'</a><a class="raku-anchor" title="direct link" href="#Str_$.title_is_rw_=_'NO_TITLE'">§</a></h4>
 <p id="b207d5d">String value of TITLE. </p>
-<h4 id="C&lt;&lt;_Str_$.title-target_is_rw_=_'___top'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.title-target_is_rw_=_'___top'</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.title-target_is_rw_=_'___top'_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Str_$.title-target_is_rw_=_'___top'"></div><h4 id="C&lt;&lt;_Str_$.title-target_is_rw_=_'___top'_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str $.title-target is rw = '___top'</a><a class="raku-anchor" title="direct link" href="#Str_$.title-target_is_rw_=_'___top'">§</a></h4>
 <p id="77bfcf9">Target of Title Line </p>
-<h4 id="C&lt;&lt;_Str_$.subtitle_is_rw_=_''_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.subtitle_is_rw_=_''</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.subtitle_is_rw_=_''_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Str_$.subtitle_is_rw_=_''"></div><h4 id="C&lt;&lt;_Str_$.subtitle_is_rw_=_''_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str $.subtitle is rw = ''</a><a class="raku-anchor" title="direct link" href="#Str_$.subtitle_is_rw_=_''">§</a></h4>
 <p id="52a4608">String value of SUBTITLE, provides description of file </p>
-<h4 id="C&lt;&lt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str"></div><h4 id="C&lt;&lt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str $.modified is rw = now.DateTime.utc.truncated-to('seconds').Str</a><a class="raku-anchor" title="direct link" href="#Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str">§</a></h4>
 <p id="deb5920">When RakuDoc Processed Object modified (source-data<modified> should be earlier than RPO.modified) </p>
-<h4 id="C&lt;&lt;_SetHash_$.targets_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">SetHash_$.targets</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_SetHash_$.targets_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="SetHash_$.targets"></div><h4 id="C&lt;&lt;_SetHash_$.targets_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">SetHash $.targets</a><a class="raku-anchor" title="direct link" href="#SetHash_$.targets">§</a></h4>
 <p id="51e7f52">target data generated from block names and :id metadata A set of unique targets inside the file, new targets must be unique </p>
-<h4 id="C&lt;&lt;_Hash_%.links_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Hash_%.links</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Hash_%.links_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Hash_%.links"></div><h4 id="C&lt;&lt;_Hash_%.links_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Hash %.links</a><a class="raku-anchor" title="direct link" href="#Hash_%.links">§</a></h4>
 <p id="cc2d340">Links (from <a href="destination">link-label</a> markup) Hash of destination => :target, :type, :place, :link-label target = computed URL (for local files), place = anchor inside file type has following values: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> Internal are of the form '#this is a heading' and refer to anchors inside the file</li>
 <li class="item" data-bullet="•" style="--level:0;"> Local are of the form 'some-type#a heading there', where 'some-type' is a file name in the same directory</li>
 <li class="item" data-bullet="•" style="--level:0;"> External is a fully qualified URL</li>
 </ul>
-<h4 id="C&lt;&lt;_Str_$.rendered-toc_is_rw_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.rendered-toc_is_rw</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.rendered-toc_is_rw_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Str_$.rendered-toc_is_rw"></div><h4 id="C&lt;&lt;_Str_$.rendered-toc_is_rw_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str $.rendered-toc is rw</a><a class="raku-anchor" title="direct link" href="#Str_$.rendered-toc_is_rw">§</a></h4>
 <p id="e064804">Rendered version of the ToC </p>
-<h4 id="C&lt;&lt;_Str_$.rendered-index_is_rw_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str_$.rendered-index_is_rw</a><a class="raku-anchor" title="direct link" href="#C&lt;&lt;_Str_$.rendered-index_is_rw_&gt;&gt;">§</a></h4>
+
+<div class="id-target" id="Str_$.rendered-index_is_rw"></div><h4 id="C&lt;&lt;_Str_$.rendered-index_is_rw_&gt;&gt;" class="heading  py-2"><a href="#" title="go to top of document">Str $.rendered-index is rw</a><a class="raku-anchor" title="direct link" href="#Str_$.rendered-index_is_rw">§</a></h4>
 <p id="10f5945">Rendered version of the Index </p>
 <h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
-<h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION_0">§</a></h2>
+
+<div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
 v0.2.1
 
 
@@ -479,7 +508,7 @@ v0.2.1
                 Rendered from <span class="footer-field">docs/Processed
             </div>
             <div class="level-item">
-                Rendered at 09:52 UTC on 2024-10-19
+                Rendered at 20:20 UTC on 2024-10-19
             </div>
             <div class="level-item">
                 Source last modified at 21:32 UTC on 2024-10-16

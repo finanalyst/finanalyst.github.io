@@ -26,7 +26,7 @@ div.latex-equation{display:flex;justify-content:space-around;align-items:center}
 .listf-container{display:flex;flex-direction:column;margin-bottom:1.25rem;font-size:1rem;font-weight:500;line-height:1.5;border:1px solid #ccc;border-bottom:5px solid #d9d9d9;box-shadow:0 2px 3px 0 rgba(0,0,0,.07)}.listf-container .listf-caption{display:flex;justify-content:center;background:#f2f2f2;border-bottom:1px solid #ccc;color:#83858d}.listf-container .listf-file{display:inline-block;border-top:1px solid #ccc;border-bottom:1px solid #ccc;break-inside:avoid}.listf-container .listf-file .listf-link{display:inline-block;width:100%;text-align:center;padding-top:.25rem}.listf-container .listf-file p{padding-left:.5rem;padding-right:.5rem;margin-bottom:.25rem}.listf-error{color:red;font-size:xlarge}
 </style>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/default.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -39,7 +39,8 @@ crossorigin=""
 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 crossorigin=""
 ></script>
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/haskell.min.js"></script>
 <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"
 ></script>
 
@@ -317,7 +318,13 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>data</label>
                     <div><pre class="nohighlights">
-PStr.new(string_=&gt;_[&quot;Beth_Ana_Charlie_Dave\nAna_Dave_|_3:0\nCharlie_Beth_|_3:1\nAna_Beth_|_2:3\nDave_Charlie_|_3:0\nAna_Charlie_|_3:1\nBeth_Dave_|_0:3&quot;])
+<span style="color:var(--bulma-black);font-weight:600;">Beth Ana Charlie Dave
+Ana Dave </span><span style="color:var(--bulma-success);font-weight:600;">|</span><span style="color:var(--bulma-black);font-weight:600;"> 3</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">0
+Charlie Beth </span><span style="color:var(--bulma-success);font-weight:600;">|</span><span style="color:var(--bulma-black);font-weight:600;"> 3</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">1
+Ana Beth </span><span style="color:var(--bulma-success);font-weight:600;">|</span><span style="color:var(--bulma-black);font-weight:600;"> 2</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">3
+Dave Charlie </span><span style="color:var(--bulma-success);font-weight:600;">|</span><span style="color:var(--bulma-black);font-weight:600;"> 3</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">0
+Ana Charlie </span><span style="color:var(--bulma-success);font-weight:600;">|</span><span style="color:var(--bulma-black);font-weight:600;"> 3</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">1
+Beth Dave </span><span style="color:var(--bulma-success);font-weight:600;">|</span><span style="color:var(--bulma-black);font-weight:600;"> 0</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">3</span>
 </pre>
 </div>
                 </div>
@@ -372,11 +379,17 @@ PStr.new(string_=&gt;_[&quot;Beth_Ana_Charlie_Dave\nAna_Dave_|_3:0\nCharlie_Beth
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
                     <div><pre class="nohighlights">
-PStr.new(string_=&gt;_[&quot;Tournament_Results:\n\nAna_has_won_2_matches_and_8_sets\nDave_has_won_2_matches_and_6_sets\nCharlie_has_won_1_match_and_4_sets\nBeth_has_won_1_match_and_4_sets&quot;])
+<span style="color:var(--bulma-black);font-weight:600;">Tournament Results</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">
+
+Ana </span><span style="color:var(--bulma-primary);font-weight:600;">has</span><span style="color:var(--bulma-black);font-weight:600;"> won 2 matches </span><span style="color:var(--bulma-success);font-weight:600;">and</span><span style="color:var(--bulma-black);font-weight:600;"> 8 sets
+Dave </span><span style="color:var(--bulma-primary);font-weight:600;">has</span><span style="color:var(--bulma-black);font-weight:600;"> won 2 matches </span><span style="color:var(--bulma-success);font-weight:600;">and</span><span style="color:var(--bulma-black);font-weight:600;"> 6 sets
+Charlie </span><span style="color:var(--bulma-primary);font-weight:600;">has</span><span style="color:var(--bulma-black);font-weight:600;"> won 1 </span><span style="color:var(--bulma-info);font-weight:600;">match</span> <span style="color:var(--bulma-success);font-weight:600;">and</span><span style="color:var(--bulma-black);font-weight:600;"> 4 sets
+Beth </span><span style="color:var(--bulma-primary);font-weight:600;">has</span><span style="color:var(--bulma-black);font-weight:600;"> won 1 </span><span style="color:var(--bulma-info);font-weight:600;">match</span> <span style="color:var(--bulma-success);font-weight:600;">and</span><span style="color:var(--bulma-black);font-weight:600;"> 4 sets</span>
 </pre>
 </div>
                 </div>
-            <h2 id="Pragma_X&lt;C&lt;v6&gt;|Tutorial,v6_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Pragma_v6</a><a class="raku-anchor" title="direct link" href="#Pragma_X&lt;C&lt;v6&gt;|Tutorial,v6_(Basics)&gt;">§</a></h2>
+            
+<div class="id-target" id="Pragma_v6"></div><h2 id="Pragma_X&lt;C&lt;v6&gt;|Tutorial,v6_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Pragma v6</a><a class="raku-anchor" title="direct link" href="#Pragma_v6">§</a></h2>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -387,7 +400,8 @@ PStr.new(string_=&gt;_[&quot;Tournament_Results:\n\nAna_has_won_2_matches_and_8_
 </div>
                 </div>
             <p id="85cb38a">Every Raku program should begin with a line similar to <span class="code">use v6;</span>. This line tells the compiler which version of Raku the program expects. For instance, 6.c is an example of a Raku version. Should you accidentally run the file with Perl, you'll get a helpful error message. </p>
-<h2 id="X&lt;Statements|Tutorial,statement_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Statements</a><a class="raku-anchor" title="direct link" href="#X&lt;Statements|Tutorial,statement_(Basics)&gt;">§</a></h2>
+
+<div class="id-target" id="Statements"></div><h2 id="X&lt;Statements|Tutorial,statement_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Statements</a><a class="raku-anchor" title="direct link" href="#Statements">§</a></h2>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -400,7 +414,8 @@ PStr.new(string_=&gt;_[&quot;Tournament_Results:\n\nAna_has_won_2_matches_and_8_
                 </div>
             <p id="606e5c2">A Raku program consists of zero or more statements. A <span class="important">statement</span> ends with a semicolon or a curly brace at the end of a line. </p>
 <p id="86f7a02">In Raku, single line comments start with a single hash character <span class="code">#</span> and extend until the end of the line. Raku also supports <a href="/language/syntax">multi-line/embedded comments</a>. The compiler doesn't evaluate comments as program text and they're only intended for human readers. </p>
-<h2 id="X&lt;Lexical_scope|Tutorial,my_(Basics)&gt;_and_X&lt;block|Tutorial,block_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Lexical_scope_and_block</a><a class="raku-anchor" title="direct link" href="#X&lt;Lexical_scope|Tutorial,my_(Basics)&gt;_and_X&lt;block|Tutorial,block_(Basics)&gt;">§</a></h2>
+
+<div class="id-target" id="Lexical_scope_and_block"></div><h2 id="X&lt;Lexical_scope|Tutorial,my_(Basics)&gt;_and_X&lt;block|Tutorial,block_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Lexical scope and block</a><a class="raku-anchor" title="direct link" href="#Lexical_scope_and_block">§</a></h2>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -411,15 +426,20 @@ PStr.new(string_=&gt;_[&quot;Tournament_Results:\n\nAna_has_won_2_matches_and_8_
 </div>
                 </div>
             <p id="8cf2cc2"><span class="code">my</span> declares a lexical variable, which are visible only in the current block from the point of declaration to the end of the block. If there's no enclosing block, it's visible throughout the remainder of the file (which would effectively be the enclosing block). A block is any part of the code enclosed between curly braces <span class="code">{ }</span>. </p>
-<h3 id="X&lt;Sigils|Tutorial,sigils_(Basics)&gt;_and_X&lt;identifiers|Tutorial,identifiers_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Sigils_and_identifiers</a><a class="raku-anchor" title="direct link" href="#X&lt;Sigils|Tutorial,sigils_(Basics)&gt;_and_X&lt;identifiers|Tutorial,identifiers_(Basics)&gt;">§</a></h3>
+
+<div class="id-target" id="Sigils_and_identifiers"></div><h3 id="X&lt;Sigils|Tutorial,sigils_(Basics)&gt;_and_X&lt;identifiers|Tutorial,identifiers_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Sigils and identifiers</a><a class="raku-anchor" title="direct link" href="#Sigils_and_identifiers">§</a></h3>
 <p id="b52f28a">A variable name begins with a <span class="important">sigil</span>, which is a non-alpha-numeric symbol such as <span class="code">$</span>, <span class="code">@</span>, <span class="code">%</span>, or <span class="code">&</span> — or occasionally the double colon <span class="code">::</span>. Sigils indicate the structural interface for the variable, such as whether it should be treated as a single value, a compound value, a subroutine, etc. After the sigil comes an <span class="important">identifier</span>, which may consist of letters, digits and the underscore. Between letters you can also use a dash <span class="code">-</span> or an apostrophe <span class="code">'</span>, so <span class="code">isn't</span> and <span class="code">double-click</span> are valid identifiers. </p>
-<h3 id="X&lt;Scalar|Tutorial,scalar_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Scalar</a><a class="raku-anchor" title="direct link" href="#X&lt;Scalar|Tutorial,scalar_(Basics)&gt;">§</a></h3>
+
+<div class="id-target" id="Scalar"></div><h3 id="X&lt;Scalar|Tutorial,scalar_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Scalar</a><a class="raku-anchor" title="direct link" href="#Scalar">§</a></h3>
 <p id="6b5b96d">Sigils indicate the default access method for a variable. Variables with the <span class="code">@</span> sigil are accessed positionally; variables with the <span class="code">%</span> sigil are accessed by string key. The <span class="code">$</span> sigil, however, indicates a general scalar container that can hold any single value and be accessed in any manner. A scalar can even contain a compound object like an <a href="/type/Array"><span class="code">Array</span></a> or a <a href="/type/Hash"><span class="code">Hash</span></a>; the <span class="code">$</span> sigil signifies that it should be treated as a single value, even in a context that expects multiple values (as with an <a href="/type/Array"><span class="code">Array</span></a> or <a href="/type/Hash"><span class="code">Hash</span></a>). </p>
-<h3 id="X&lt;Filehandle|Tutorial,filehandle_(Basics)&gt;_and_X&lt;assignment|Tutorial,assignment_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Filehandle_and_assignment</a><a class="raku-anchor" title="direct link" href="#X&lt;Filehandle|Tutorial,filehandle_(Basics)&gt;_and_X&lt;assignment|Tutorial,assignment_(Basics)&gt;">§</a></h3>
+
+<div class="id-target" id="Filehandle_and_assignment"></div><h3 id="X&lt;Filehandle|Tutorial,filehandle_(Basics)&gt;_and_X&lt;assignment|Tutorial,assignment_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Filehandle and assignment</a><a class="raku-anchor" title="direct link" href="#Filehandle_and_assignment">§</a></h3>
 <p id="ce7e97a">The built-in function <span class="code">open</span> opens a file, here named <span class="code">scores.txt</span>, and returns a <span class="important">filehandle</span> — an object representing that file. The assignment operator <span class="code">=</span> <span class="important">assigns</span> that filehandle to the variable on the left, which means that <span class="code">$file</span> now stores the filehandle. </p>
-<h3 id="X&lt;String_literals|Tutorial,string_literal_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">String_literals</a><a class="raku-anchor" title="direct link" href="#X&lt;String_literals|Tutorial,string_literal_(Basics)&gt;">§</a></h3>
+
+<div class="id-target" id="String_literals"></div><h3 id="X&lt;String_literals|Tutorial,string_literal_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">String literals</a><a class="raku-anchor" title="direct link" href="#String_literals">§</a></h3>
 <p id="6a4e062"><span class="code">'scores.txt'</span> is a <span class="important">string literal</span>. A string is a piece of text, and a string literal is a string which appears directly in the program. In this line, it's the argument provided to <span class="code">open</span>. </p>
-<h2 id="X&lt;Arrays|Tutorial,array_(Basics)&gt;,_X&lt;methods|Tutorial,method_(Basics)&gt;_and_X&lt;invocants|Tutorial,invocant_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Arrays,_methods_and_invocants</a><a class="raku-anchor" title="direct link" href="#X&lt;Arrays|Tutorial,array_(Basics)&gt;,_X&lt;methods|Tutorial,method_(Basics)&gt;_and_X&lt;invocants|Tutorial,invocant_(Basics)&gt;">§</a></h2>
+
+<div class="id-target" id="Arrays,_methods_and_invocants"></div><h2 id="X&lt;Arrays|Tutorial,array_(Basics)&gt;,_X&lt;methods|Tutorial,method_(Basics)&gt;_and_X&lt;invocants|Tutorial,invocant_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Arrays, methods and invocants</a><a class="raku-anchor" title="direct link" href="#Arrays,_methods_and_invocants">§</a></h2>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -432,7 +452,8 @@ PStr.new(string_=&gt;_[&quot;Tournament_Results:\n\nAna_has_won_2_matches_and_8_
             <p id="299ea28">The right-hand side calls a <span class="important">method</span> — a named group of behavior — named <span class="code">get</span> on the filehandle stored in <span class="code">$file</span>. The <span class="code">get</span> method reads and returns one line from the file, removing the line ending. If you print the contents of <span class="code">$file</span> after calling <span class="code">get</span>, you will see that the first line is no longer in there. <span class="code">words</span> is also a method, called on the string returned from <span class="code">get</span>. <span class="code">words</span> decomposes its <span class="important">invocant</span> — the string on which it operates — into a list of words, which here means strings separated by whitespace. It turns the single string <span class="code">'Beth Ana Charlie
 Dave'</span> into the list of strings <span class="code">'Beth', 'Ana', 'Charlie', 'Dave'</span>. </p>
 <p id="66662df">Finally, this list gets stored in the <a href="/type/Array"><span class="code">Array</span></a> <span class="code">@names</span>. The <span class="code">@</span> sigil marks the declared variable as an <a href="/type/Array"><span class="code">Array</span></a>. Arrays store ordered lists. </p>
-<h2 id="X&lt;Hashes|Tutorial,hash_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Hashes</a><a class="raku-anchor" title="direct link" href="#X&lt;Hashes|Tutorial,hash_(Basics)&gt;">§</a></h2>
+
+<div class="id-target" id="Hashes"></div><h2 id="X&lt;Hashes|Tutorial,hash_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Hashes</a><a class="raku-anchor" title="direct link" href="#Hashes">§</a></h2>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -445,7 +466,8 @@ Dave'</span> into the list of strings <span class="code">'Beth', 'Ana', 'Charlie
                 </div>
             <p id="ca17085">These two lines of code declare two hashes. The <span class="code">%</span> sigil marks each variable as a <a href="/type/Hash"><span class="code">Hash</span></a>. A <a href="/type/Hash"><span class="code">Hash</span></a> is an unordered collection of key-value pairs. Other programming languages call that a <span class="important">hash table</span>, <span class="important">dictionary</span>, or <span class="important">map</span>. You can query a hash table for the value that corresponds to a certain <span class="code">$key</span> with <span class="code">%hash{$key}</span>. </p>
 <p id="7161356">In the score counting program, <span class="code">%matches</span> stores the number of matches each player has won. <span class="code">%sets</span> stores the number of sets each player has won. Both of these hashes are indexed by the player's name. </p>
-<h2 id="X&lt;C&lt;for&gt;|Tutorial,for_(Basics)&gt;_and_blocks" class="heading  py-2"><a href="#" title="go to top of document">for_and_blocks</a><a class="raku-anchor" title="direct link" href="#X&lt;C&lt;for&gt;|Tutorial,for_(Basics)&gt;_and_blocks">§</a></h2>
+
+<div class="id-target" id="for_and_blocks"></div><h2 id="X&lt;C&lt;for&gt;|Tutorial,for_(Basics)&gt;_and_blocks" class="heading  py-2"><a href="#" title="go to top of document">for and blocks</a><a class="raku-anchor" title="direct link" href="#for_and_blocks">§</a></h2>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -521,7 +543,8 @@ Dave'</span> into the list of strings <span class="code">'Beth', 'Ana', 'Charlie
 </div>
                 </div>
             <p id="1899fdd">For your program, the shorthand version using the <span class="code">+=</span> compound assignment operator is preferred over the longhand version using the simple assignment operator <span class="code">=</span>. This is not only because the shorter version requires less typing, but also because the <span class="code">+=</span> operator silently initializes undefined values of the hash's key-value pairs to zero. In other words: by using <span class="code">+=</span>, there is no need to include a separate statement like <span class="code">%sets{$p1} = 0</span> before you can meaningfully add <span class="code">$r1</span> to it. We'll look at this is behavior in a bit more detail below. </p>
-<h3 id="X&lt;L&lt;C&lt;Any&gt;|/type/Any&gt;|Tutorial,Any_(Basics)&gt;_and_X&lt;C&lt;+=&gt;|Tutorial,+=_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Any_and_+=</a><a class="raku-anchor" title="direct link" href="#X&lt;L&lt;C&lt;Any&gt;|/type/Any&gt;|Tutorial,Any_(Basics)&gt;_and_X&lt;C&lt;+=&gt;|Tutorial,+=_(Basics)&gt;">§</a></h3>
+
+<div class="id-target" id="Any_and_+="></div><h3 id="X&lt;L&lt;C&lt;Any&gt;|/type/Any&gt;|Tutorial,Any_(Basics)&gt;_and_X&lt;C&lt;+=&gt;|Tutorial,+=_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Any and +=</a><a class="raku-anchor" title="direct link" href="#Any_and_+=">§</a></h3>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -533,9 +556,11 @@ Dave'</span> into the list of strings <span class="code">'Beth', 'Ana', 'Charlie
 </div>
                 </div>
             <p id="3655a8d"><span class="code">%sets{$p1} += $r1</span> means <span class="important">increase the value in the variable on the left by $r1</span>. In the first iteration <span class="code">%sets{$p1}</span> is not yet defined, so it defaults to a special value called <a href="/type/Any"><span class="code">Any</span></a>. The <span class="code">+=</span> operator conveniently treats the undefined value <a href="/type/Any"><span class="code">Any</span></a> as a number with the value <span class="code">0</span>, allowing it to sensibly add some other value to it. To perform the addition, the strings <span class="code">$r1</span>, <span class="code">$r2</span>, etc. are automatically converted to numbers, as addition is a numeric operation. </p>
-<h3 id="X&lt;Fat_arrow|Tutorial,fat_arrow_(Basics)&gt;,_X&lt;pairs|Tutorial,pair_(Basics)&gt;_and_X&lt;autovivification|Tutorial,autovivification_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Fat_arrow,_pairs_and_autovivification</a><a class="raku-anchor" title="direct link" href="#X&lt;Fat_arrow|Tutorial,fat_arrow_(Basics)&gt;,_X&lt;pairs|Tutorial,pair_(Basics)&gt;_and_X&lt;autovivification|Tutorial,autovivification_(Basics)&gt;">§</a></h3>
+
+<div class="id-target" id="Fat_arrow,_pairs_and_autovivification"></div><h3 id="X&lt;Fat_arrow|Tutorial,fat_arrow_(Basics)&gt;,_X&lt;pairs|Tutorial,pair_(Basics)&gt;_and_X&lt;autovivification|Tutorial,autovivification_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Fat arrow, pairs and autovivification</a><a class="raku-anchor" title="direct link" href="#Fat_arrow,_pairs_and_autovivification">§</a></h3>
 <p id="8d6af3c">Before these two lines execute, <span class="code">%sets</span> is empty. Adding to an entry that is not in the hash yet will cause that entry to spring into existence just-in-time, with a value starting at zero. This behavior is known as <span class="important">autovivification</span>. After these two lines have run for the first time, <span class="code">%sets</span> contains <span class="code">'Ana' => 3, 'Dave' => 0</span>. (The fat arrow <span class="code">=></span> separates the key and the value in a <a href="/type/Pair"><span class="code">Pair</span></a>.) </p>
-<h3 id="X&lt;Postincrement|Tutorial,postincrement_(Basics)&gt;_and_X&lt;preincrement|Tutorial,preincrement_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Postincrement_and_preincrement</a><a class="raku-anchor" title="direct link" href="#X&lt;Postincrement|Tutorial,postincrement_(Basics)&gt;_and_X&lt;preincrement|Tutorial,preincrement_(Basics)&gt;">§</a></h3>
+
+<div class="id-target" id="Postincrement_and_preincrement"></div><h3 id="X&lt;Postincrement|Tutorial,postincrement_(Basics)&gt;_and_X&lt;preincrement|Tutorial,preincrement_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Postincrement and preincrement</a><a class="raku-anchor" title="direct link" href="#Postincrement_and_preincrement">§</a></h3>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -551,7 +576,8 @@ Dave'</span> into the list of strings <span class="code">'Beth', 'Ana', 'Charlie
                 </div>
             <p id="5e5a748">If <span class="code">$r1</span> is numerically larger than <span class="code">$r2</span>, <span class="code">%matches{$p1}</span> increments by one. If <span class="code">$r1</span> is not larger than <span class="code">$r2</span>, <span class="code">%matches{$p2}</span> increments. Just as in the case of <span class="code">+=</span>, if either hash value did not exist previously, it is autovivified by the increment operation. </p>
 <p id="83821df"><span class="code">$thing++</span> is a variant of <span class="code">$thing += 1</span>; it differs from the latter in that the return value of the expression is <span class="code">$thing</span> <span class="important">before</span> the increment, and not the incremented value. As in many other programming languages, you can use <span class="code">++</span> as a prefix. Then it returns the incremented value: <span class="code">my $x = 1; say ++$x</span> prints <span class="code">2</span>. </p>
-<h2 id="X&lt;Topic_variable|Tutorial,topic_variable_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Topic_variable</a><a class="raku-anchor" title="direct link" href="#X&lt;Topic_variable|Tutorial,topic_variable_(Basics)&gt;">§</a></h2>
+
+<div class="id-target" id="Topic_variable"></div><h2 id="X&lt;Topic_variable|Tutorial,topic_variable_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Topic variable</a><a class="raku-anchor" title="direct link" href="#Topic_variable">§</a></h2>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -566,12 +592,14 @@ Dave'</span> into the list of strings <span class="code">'Beth', 'Ana', 'Charlie
 <p id="186b87b">You have seen blocks before: both the <span class="code">for</span> loop <span class="code">-> $line { ... }</span> and the <span class="code">if</span> statement worked on blocks. A block is a self-contained piece of Raku code with an optional signature (the <span class="code">-> $line</span> part). </p>
 <p id="e07ce09">The simplest way to sort the players by score would be <span class="code">@names.sort({
 %matches{$_} })</span>, which sorts by number of matches won. However Ana and Dave have both won two matches. That simple sort doesn't account for the number of sets won, which is the secondary criterion to decide who has won the tournament. </p>
-<h3 id="Stable_sort" class="heading  py-2"><a href="#" title="go to top of document">Stable_sort</a><a class="raku-anchor" title="direct link" href="#Stable_sort">§</a></h3>
+
+<div class="id-target" id="Stable_sort"></div><h3 id="Stable_sort" class="heading  py-2"><a href="#" title="go to top of document">Stable sort</a><a class="raku-anchor" title="direct link" href="#Stable_sort">§</a></h3>
 <p id="c94c274">When two array items have the same value, <span class="code">sort</span> leaves them in the same order as it found them. Computer scientists call this a <span class="important">stable sort</span>. The program takes advantage of this property of Raku's <span class="code">sort</span> to achieve the goal by sorting twice: first by the number of sets won (the secondary criterion), then by the number of matches won (the primary criterion). </p>
 <p id="02dd3d1">After the first sorting step, the names are in the order <span class="code">Beth Charlie Dave
 Ana</span>. After the second sorting step, it's still the same, because no one has won fewer matches but more sets than someone else. Such a situation is entirely possible, especially at larger tournaments. </p>
 <p id="51c1187"><span class="code">sort</span> sorts in ascending order, from smallest to largest. This is the opposite of the desired order. Therefore, the code calls the <span class="code">.reverse</span> method on the result of the second sort, and stores the final list in <span class="code">@sorted</span>. </p>
-<h2 id="Standard_output" class="heading  py-2"><a href="#" title="go to top of document">Standard_output</a><a class="raku-anchor" title="direct link" href="#Standard_output">§</a></h2>
+
+<div class="id-target" id="Standard_output"></div><h2 id="Standard_output" class="heading  py-2"><a href="#" title="go to top of document">Standard output</a><a class="raku-anchor" title="direct link" href="#Standard_output">§</a></h2>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -588,9 +616,11 @@ Ana</span>. After the second sorting step, it's still the same, because no one h
             <p id="d84d393">To print out the players and their scores, the code loops over <span class="code">@sorted</span>, setting <span class="code">$n</span> to the name of each player in turn. Read this code as "For each element of sorted, set <span class="code">$n</span> to the element, then execute the contents of the following block." The variable <span class="code">$match-noun</span> will store either the string <span class="important">match</span> if the player has won a single match or <span class="important">matches</span> if the player has won zero or more matches. In order to do this, the <span class="important">ternary</span> operator (<span class="code">?? !!</span>) is used. If <span class="code">%matches{$n} == 1</span> evaluates to <span class="code">True</span>, then <span class="important">match</span> is returned. Otherwise, <span class="important">matches</span> is returned. Either way, the returned value is stored in <span class="code">$match-noun</span>. The same approach applies to <span class="code">$set-noun</span>. </p>
 <p id="ca4c144">The statement <span class="code">say</span> prints its arguments to the standard output (the screen, normally), followed by a newline. (Use <span class="code">print</span> if you don't want the newline at the end.) </p>
 <p id="3bf81fd">Note that <span class="code">say</span> will truncate certain data structures by calling the <span class="code">.gist</span> method so <span class="code">put</span> is safer if you want exact output. </p>
-<h3 id="X&lt;Variable_interpolation|Tutorial,variable_interpolation_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Variable_interpolation</a><a class="raku-anchor" title="direct link" href="#X&lt;Variable_interpolation|Tutorial,variable_interpolation_(Basics)&gt;">§</a></h3>
+
+<div class="id-target" id="Variable_interpolation"></div><h3 id="X&lt;Variable_interpolation|Tutorial,variable_interpolation_(Basics)&gt;" class="heading  py-2"><a href="#" title="go to top of document">Variable interpolation</a><a class="raku-anchor" title="direct link" href="#Variable_interpolation">§</a></h3>
 <p id="304db43">When you run the program, you'll see that <span class="code">say</span> doesn't print the contents of that string verbatim. In place of <span class="code">$n</span> it prints the contents of the variable <span class="code">$n</span> — a player's name stored in <span class="code">$n</span>. This automatic substitution of code with its contents is called <span class="important">interpolation</span>. This interpolation happens only in strings delimited by double quotes <span class="code">"..."</span>. Single quoted strings <span class="code">'...'</span> do not interpolate: </p>
-<h3 id="X&lt;Double-quoted_strings|Tutorial,double-quoted_strings&gt;_and_X&lt;single-quoted_strings|Tutorial,single-quoted_strings&gt;" class="heading  py-2"><a href="#" title="go to top of document">Double-quoted_strings_and_single-quoted_strings</a><a class="raku-anchor" title="direct link" href="#X&lt;Double-quoted_strings|Tutorial,double-quoted_strings&gt;_and_X&lt;single-quoted_strings|Tutorial,single-quoted_strings&gt;">§</a></h3>
+
+<div class="id-target" id="Double-quoted_strings_and_single-quoted_strings"></div><h3 id="X&lt;Double-quoted_strings|Tutorial,double-quoted_strings&gt;_and_X&lt;single-quoted_strings|Tutorial,single-quoted_strings&gt;" class="heading  py-2"><a href="#" title="go to top of document">Double-quoted strings and single-quoted strings</a><a class="raku-anchor" title="direct link" href="#Double-quoted_strings_and_single-quoted_strings">§</a></h3>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -629,7 +659,8 @@ Ana</span>. After the second sorting step, it's still the same, because no one h
 </div>
                 </div>
             <p id="44675be">When array and hash variables appear directly in a double-quoted string (and not inside curly braces), they are only interpolated if their name is followed by a postcircumfix operator — a bracketing pair that follows a statement. It's also ok to have a method call between the variable name and the postcircumfix. </p>
-<h2 id="Zen_slices" class="heading  py-2"><a href="#" title="go to top of document">Zen_slices</a><a class="raku-anchor" title="direct link" href="#Zen_slices">§</a></h2>
+
+<div class="id-target" id="Zen_slices"></div><h2 id="Zen_slices" class="heading  py-2"><a href="#" title="go to top of document">Zen slices</a><a class="raku-anchor" title="direct link" href="#Zen_slices">§</a></h2>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -716,7 +747,7 @@ Ana</span>. After the second sorting step, it's still the same, because no one h
                 Rendered from <span class="footer-field">docs/samples/samples/101-basics
             </div>
             <div class="level-item">
-                Rendered at 09:52 UTC on 2024-10-19
+                Rendered at 20:20 UTC on 2024-10-19
             </div>
             <div class="level-item">
                 Source last modified at 22:23 UTC on 2024-10-05
