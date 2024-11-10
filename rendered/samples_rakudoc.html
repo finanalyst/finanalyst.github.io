@@ -385,8 +385,8 @@ function swap_toc_index(activate) {
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    unit class Beginners;
+                    <div><pre class="nohighlights">
+unit class Beginners;
 
     <span class="basis">#| a variable to hold number of people</span>
     has $.participants;
@@ -398,7 +398,7 @@ function swap_toc_index(activate) {
 
     <span class="basis">=finish</span>
     default data string for a new participant
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="1c5b019">A RakuDoc compliant editor or Integrated Design Environment will pick up the text following <span class="code">#|</span> and put it into a pop-up menu whenever you select (e.g. by hovering over) a use of <span class="code">$.participants</span>. </p>
@@ -412,7 +412,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin rakudoc</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=begin rakudoc</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =TITLE</span><span style="color:var(--bulma-warning);font-weight:600;"> Tutorial about Flavorizing</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =SUBTITLE</span><span style="color:var(--bulma-warning);font-weight:600;">
     A short tutorial on Flavorizing your quarks</span>
@@ -505,7 +505,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> ALIAS_NAME Text for substitution
+<span style="color:var(--bulma-danger);font-weight:600;">=alias</span><span style="color:var(--bulma-warning);font-weight:600;"> ALIAS_NAME Text for substitution
     =                 Optional extra text</span>
 </pre>
 </div>
@@ -515,10 +515,10 @@ function swap_toc_index(activate) {
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =config <span class="replace">BLOCK_TYPE</span>  <span class="replace">CONFIG OPTIONS</span>
+                    <div><pre class="nohighlights">
+=config <span class="replace">BLOCK_TYPE</span>  <span class="replace">CONFIG OPTIONS</span>
     =                   <span class="replace">OPTIONAL EXTRA CONFIG OPTIONS</span>
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="0ad1c1e">If the block-type is single uppercase character <span class="replace">X</span>, the <span class="code">=config</span> directive applies the specified configuration options to the <span class="replace">X</span> markup instruction. For example: </p>
@@ -526,9 +526,9 @@ function swap_toc_index(activate) {
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =config <span class="basis">C</span> :allow&lt;B I&gt;
-    </pre>
+                    <div><pre class="nohighlights">
+=config <span class="basis">C</span> :allow&lt;B I&gt;
+</pre>
 </div>
                 </div>
             <p id="c6feb6d">This configures the <span class="code">C<></span> markup instruction to recognize nested <span class="code">B<></span> and <span class="code">I<></span> markup instructions (both of which would otherwise be treated as verbatim within a <span class="code">C<></span> instruction). </p>
@@ -540,7 +540,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =place</span> <span style="color:var(--bulma-danger);font-weight:600;">R&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">URL</span><span style="color:var(--bulma-danger);font-weight:600;">></span> <span style="color:var(--bulma-danger);font-weight:600;">R&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">OPTIONS</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=place</span> <span style="color:var(--bulma-danger);font-weight:600;">R&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">URL</span><span style="color:var(--bulma-danger);font-weight:600;">></span> <span style="color:var(--bulma-danger);font-weight:600;">R&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">OPTIONS</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
     =             </span><span style="color:var(--bulma-danger);font-weight:600;">R&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">More Options if necessary</span><span style="color:var(--bulma-danger);font-weight:600;">></span>
 </pre>
 </div>
@@ -559,7 +559,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin para</span><span style="color:var(--bulma-warning);font-weight:600;"> :met</span><span style="color:var(--bulma-danger);font-weight:600;">a&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">data</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin para</span><span style="color:var(--bulma-warning);font-weight:600;"> :met</span><span style="color:var(--bulma-danger);font-weight:600;">a&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">data</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
     This text is the content of the block.
 
     The preceding blank line is also a part of the block,
@@ -573,12 +573,12 @@ function swap_toc_index(activate) {
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =begin <span class="replace">BLOCK_TYPE</span>  <span class="replace">OPTIONAL CONFIG INFO</span>
+                    <div><pre class="nohighlights">
+=begin <span class="replace">BLOCK_TYPE</span>  <span class="replace">OPTIONAL CONFIG INFO</span>
      =                  <span class="replace">OPTIONAL EXTRA CONFIG INFO</span>
      <span class="replace">BLOCK CONTENTS</span>
      =end <span class="replace">BLOCK_TYPE</span>
-    </pre>
+</pre>
 </div>
                 </div></li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="eb1dde8"><span class="basis">Extended form</span> </p>
@@ -588,7 +588,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =for para</span><span style="color:var(--bulma-warning);font-weight:600;"> :met</span><span style="color:var(--bulma-danger);font-weight:600;">a&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">data</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=for para</span><span style="color:var(--bulma-warning);font-weight:600;"> :met</span><span style="color:var(--bulma-danger);font-weight:600;">a&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">data</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
     This text is the content of the block.</span><span style="color:var(--bulma-black);font-weight:600;">
 
     This text </span><span style="color:var(--bulma-primary);font-weight:600;">is</span><span style="color:var(--bulma-black);font-weight:600;"> NOT </span><span style="color:var(--bulma-info);font-weight:600;">content</span> <span style="color:var(--bulma-primary);font-weight:600;">of</span><span style="color:var(--bulma-black);font-weight:600;"> the </span><span style="color:var(--bulma-info);font-weight:600;">block</span><span style="color:var(--bulma-black);font-weight:600;">.
@@ -601,11 +601,11 @@ function swap_toc_index(activate) {
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =for <span class="replace">BLOCK_TYPE</span>  <span class="replace">OPTIONAL CONFIG INFO</span>
+                    <div><pre class="nohighlights">
+=for <span class="replace">BLOCK_TYPE</span>  <span class="replace">OPTIONAL CONFIG INFO</span>
      =                <span class="replace">OPTIONAL EXTRA CONFIG INFO</span>
      <span class="replace">BLOCK DATA</span>
-    </pre>
+</pre>
 </div>
                 </div></li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="b014175"><span class="basis">Abbreviated form</span> </p>
@@ -615,7 +615,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =para</span><span style="color:var(--bulma-warning);font-weight:600;"> This text is the content of the block.</span><span style="color:var(--bulma-black);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=para</span><span style="color:var(--bulma-warning);font-weight:600;"> This text is the content of the block.</span><span style="color:var(--bulma-black);font-weight:600;">
 
     This text </span><span style="color:var(--bulma-primary);font-weight:600;">is</span><span style="color:var(--bulma-black);font-weight:600;"> NOT </span><span style="color:var(--bulma-info);font-weight:600;">content</span> <span style="color:var(--bulma-primary);font-weight:600;">of</span><span style="color:var(--bulma-black);font-weight:600;"> the </span><span style="color:var(--bulma-info);font-weight:600;">block</span><span style="color:var(--bulma-black);font-weight:600;">.
     After a blank </span><span style="color:var(--bulma-info);font-weight:600;">line</span><span style="color:var(--bulma-success);font-weight:600;">,</span><span style="color:var(--bulma-black);font-weight:600;"> a </span><span style="color:var(--bulma-info);font-weight:600;">new</span> <span style="color:var(--bulma-info);font-weight:600;">block</span> <span style="color:var(--bulma-primary);font-weight:600;">is</span> <span style="color:var(--bulma-info);font-weight:600;">started</span><span style="color:var(--bulma-black);font-weight:600;">.</span>
@@ -660,10 +660,10 @@ function swap_toc_index(activate) {
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    This is <span class="basis">U&lt;unusual&gt;</span> text, and this is <span class="basis">I&lt;important&gt;</span>.
+                    <div><pre class="nohighlights">
+This is <span class="basis">U&lt;unusual&gt;</span> text, and this is <span class="basis">I&lt;important&gt;</span>.
 And this is a <span class="basis">L&lt;link to the Raku Programming Language|https://raku.org&gt;</span>.
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="3391a7f">Which would be rendered as: </p>
@@ -695,7 +695,7 @@ And this is a <span class="basis">L&lt;link to the Raku Programming Language|htt
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">     =for head1</span><span style="color:var(--bulma-warning);font-weight:600;"> :a-first-line-ke</span><span style="color:var(--bulma-danger);font-weight:600;">y&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">firstvalue</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> :another-first-line-ke</span><span style="color:var(--bulma-danger);font-weight:600;">y&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">xyz</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=for head1</span><span style="color:var(--bulma-warning);font-weight:600;"> :a-first-line-ke</span><span style="color:var(--bulma-danger);font-weight:600;">y&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">firstvalue</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> :another-first-line-ke</span><span style="color:var(--bulma-danger);font-weight:600;">y&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">xyz</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
      =          :a-second-line-key(42)
      = :a-third-line-ke</span><span style="color:var(--bulma-danger);font-weight:600;">y&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">third</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
      Content for the header block</span>
@@ -716,7 +716,7 @@ And this is a <span class="basis">L&lt;link to the Raku Programming Language|htt
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> PROGNAME    Earl Irradiatem Evermore</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=alias</span><span style="color:var(--bulma-warning);font-weight:600;"> PROGNAME    Earl Irradiatem Evermore</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> VENDOR      4D Kingdoms</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> TERMS_URLS  =item </span><span style="color:var(--bulma-danger);font-weight:600;">L&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">http://www.4dk.com/eie</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
     =                  =item </span><span style="color:var(--bulma-danger);font-weight:600;">L&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">http://www.4dk.co.uk/eie.io/</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
@@ -754,7 +754,7 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> PROGNAME    Count Krunchem Constantly</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=alias</span><span style="color:var(--bulma-warning);font-weight:600;"> PROGNAME    Count Krunchem Constantly</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> VENDOR      Last Chance Receivers Intl</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> TERMS_URLS  </span><span style="color:var(--bulma-danger);font-weight:600;">L&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">http://www.c11.com/generic_conditions</span><span style="color:var(--bulma-danger);font-weight:600;">></span>
 </pre>
@@ -765,12 +765,12 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    The use of A&lt;B<this program |&gt; PROGNAME> is subject to the terms and conditions
+                    <div><pre class="nohighlights">
+The use of A&lt;B<this program |&gt; PROGNAME> is subject to the terms and conditions
     laid out by A&lt;B<our company |&gt; VENDOR>, as specified at:
 
         A&lt;B<(Please visit our website) |&gt; TERMS_URLS>
-    </pre>
+</pre>
 </div>
                 </div>
             
@@ -784,12 +784,12 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    <span class="basis">=config code :delta(v2.3.2+, 'oFun enhancements') </span>
+                    <div><pre class="nohighlights">
+<span class="basis">=config code :delta(v2.3.2+, 'oFun enhancements') </span>
     =code method droll { say 'what a cool operator' }
     =code method drool { say 'what a slob' }
     =code method drill { say 'keep up' }
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="64b309c">Within the same block scope, eg., between <span class="code">=begin section</span> and <span class="code">=end section</span> instructions, one or more <span class="code">=config</span> directives can be specified to define the default behaviour of specific block types. Successive <span class="code">=config</span> directives within the same scope are cumulative in effect. Because <span class="code">=config</span> directives specify <span class="important">default</span> behaviours, whenever a particular kind of metadata is explicitly specified for an instance of that block type, that option overrides the defaults set by any active <span class="code">=config</span> blocks. For example: </p>
@@ -798,7 +798,7 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =config</span><span style="color:var(--bulma-warning);font-weight:600;"> code :allo</span><span style="color:var(--bulma-danger);font-weight:600;">w&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;"> B C I </span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=config</span><span style="color:var(--bulma-warning);font-weight:600;"> code :allo</span><span style="color:var(--bulma-danger);font-weight:600;">w&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;"> B C I </span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
     # The default metadata for any code block is now:  :allo</span><span style="color:var(--bulma-danger);font-weight:600;">w&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;"> B C I </span><span style="color:var(--bulma-danger);font-weight:600;">></span>
 <span style="color:var(--bulma-danger);font-weight:600;">
     =begin code</span><span style="color:var(--bulma-warning);font-weight:600;">
@@ -848,15 +848,15 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    use JSON::Fast;
+                    <div><pre class="nohighlights">
+use JSON::Fast;
     my %h = from-json( <span class="basis">$=finish</span> );
     say %h.raku;
     # more lines of code
 
     <span class="basis">=finish
     { "key1": "a string value", "key2": "another value" }</span>
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="3f66755">This will generate the following output: </p>
@@ -864,9 +864,9 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    {:key1("a string value"), :key2("another value")}
-    </pre>
+                    <div><pre class="nohighlights">
+{:key1(&quot;a string value&quot;), :key2(&quot;another value&quot;)}
+</pre>
 </div>
                 </div>
             
@@ -924,7 +924,7 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =place</span><span style="color:var(--bulma-warning);font-weight:600;"> https://example.org/landingpage</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=place</span><span style="color:var(--bulma-warning);font-weight:600;"> https://example.org/landingpage</span>
 <span style="color:var(--bulma-danger);font-weight:600;">
     =place</span><span style="color:var(--bulma-warning);font-weight:600;"> rakudoc:App::Rak</span>
 <span style="color:var(--bulma-danger);font-weight:600;">
@@ -952,7 +952,7 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">  =place</span><span style="color:var(--bulma-warning);font-weight:600;"> https://raku.org/camelia-logo.png  :captio</span><span style="color:var(--bulma-danger);font-weight:600;">n&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">Raku's mascot</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">  :al</span><span style="color:var(--bulma-danger);font-weight:600;">t&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">A multicoloured butterfly</span><span style="color:var(--bulma-danger);font-weight:600;">></span>
+<span style="color:var(--bulma-danger);font-weight:600;">=place</span><span style="color:var(--bulma-warning);font-weight:600;"> https://raku.org/camelia-logo.png  :captio</span><span style="color:var(--bulma-danger);font-weight:600;">n&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">Raku's mascot</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">  :al</span><span style="color:var(--bulma-danger);font-weight:600;">t&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">A multicoloured butterfly</span><span style="color:var(--bulma-danger);font-weight:600;">></span>
 </pre>
 </div>
                 </div>
@@ -1042,8 +1042,8 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =begin data :key&lt;Virtues&gt;
+                    <div><pre class="nohighlights">
+=begin data :key&lt;Virtues&gt;
     Laziness
     Impatience
     Hubris
@@ -1051,7 +1051,7 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
 
     say 'The three virtues are:';
     say $=data&lt;Virtues&gt;;
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="faa1623">The contents of any <span class="code">=data</span> block that does not have a <span class="code">:key</span> are accessible (as a single string) via the Positional aspect of <span class="code">$=data</span>. Unkeyed <span class="code">=data</span> blocks are stored in the same order they appear in the file. For example: </p>
@@ -1135,7 +1135,7 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =numhead1</span><span style="color:var(--bulma-warning);font-weight:600;"> The Problem</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=numhead1</span><span style="color:var(--bulma-warning);font-weight:600;"> The Problem</span>
 <span style="color:var(--bulma-danger);font-weight:600;">
     =numhead1</span><span style="color:var(--bulma-warning);font-weight:600;"> The Solution</span>
 <span style="color:var(--bulma-danger);font-weight:600;">
@@ -1180,7 +1180,7 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =numhead6</span><span style="color:var(--bulma-warning);font-weight:600;"> The Rescue of the Kobayashi Maru</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=numhead6</span><span style="color:var(--bulma-warning);font-weight:600;"> The Rescue of the Kobayashi Maru</span>
 </pre>
 </div>
                 </div>
@@ -1220,7 +1220,7 @@ conditions laid out by 4D Kingdoms Inc</span><span style="color:var(--bulma-succ
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin section</span><span style="color:var(--bulma-warning);font-weight:600;"> :delta(v2.3.2-, 'removed due to conflict with chancellors')
+<span style="color:var(--bulma-danger);font-weight:600;">=begin section</span><span style="color:var(--bulma-warning);font-weight:600;"> :delta(v2.3.2-, 'removed due to conflict with chancellors')
 </span><span style="color:var(--bulma-danger);font-weight:600;">    =head2</span><span style="color:var(--bulma-warning);font-weight:600;"> role fool</span><span style="color:var(--bulma-warning);font-weight:600;">
 
     This role is especially important in authoritarian kingdoms to remind kings of their humanity.
@@ -1308,7 +1308,7 @@ which continues until an...
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin nested</span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin nested</span><span style="color:var(--bulma-warning);font-weight:600;">
     We are all of us in the gutter,
 
     but some of us are looking at the stars!
@@ -1331,7 +1331,7 @@ which continues until an...
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin nested</span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin nested</span><span style="color:var(--bulma-warning);font-weight:600;">
     We are all of us in the gutter,
 
     but some of us are looking at the stars!
@@ -1353,12 +1353,12 @@ which continues until an...
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    This ordinary paragraph introduces a code block:
+                    <div><pre class="nohighlights">
+This ordinary paragraph introduces a code block:
 
         $this = 1 * code('block');
         $which.is_specified(:by&lt;indenting&gt;);
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="6ffe3f5">Implicit code blocks may be used <a href="#Implied_code_and_indentation">elsewhere with some caveats</a>. </p>
@@ -1367,19 +1367,19 @@ which continues until an...
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    The C&lt;loud_update()&gt; subroutine adds feedback:
+                    <div><pre class="nohighlights">
+The C&lt;loud_update()&gt; subroutine adds feedback:
 
         =begin code
 
         sub loud_update ($who, $status) {
-            say "$who -> $status";
+            say &quot;$who -&gt; $status&quot;;
 
             silent_update($who, $status);
         }
 
         =end code
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="a1d5808">As the previous example demonstrates, within an explicit <span class="code">=code</span> block the code does not have to be indented; it can start at the (virtual) left margin. Furthermore, lines that start with whitespace characters after that margin have subsequent whitespace preserved exactly (in addition to the implicit nesting of the code). Explicit <span class="code">=code</span> blocks may also contain empty lines. </p>
@@ -1412,7 +1412,7 @@ which continues until an...
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin output</span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin output</span><span style="color:var(--bulma-warning);font-weight:600;">
             Name:    Baracus, B.A.
             Rank:    Sgt
             Serial:  1PTDF007
@@ -1437,14 +1437,14 @@ which continues until an...
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =begin code <span class="basis">:allow< B R ></span> :lang&lt;RakuDoc&gt;
+                    <div><pre class="nohighlights">
+=begin code <span class="basis">:allow< B R ></span> :lang&lt;RakuDoc&gt;
     sub demo {
         B&lt;say&gt; 'Hello R&lt;name&gt;';
         I&lt;note&gt; 'The I format is not recognised';
     }
     =end code
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="974f6f0">This would be rendered: </p>
@@ -1452,12 +1452,12 @@ which continues until an...
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    sub demo {
+                    <div><pre class="nohighlights">
+sub demo {
     <span class="basis">say</span> 'Hello <span class="replace">name</span>';
     I&lt;note&gt; 'The I format is not recognised';
 }
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="ca03201">It should be noted that both <span class="code">:allow</span> and <span class="code">:lang</span> (if <span class="code">:syntax-highlighting</span> is True) will affect the rendering of the content of the block. This is likely to cause conflicts in some cases. The renderer is free to choose how to resolve such conflicts, e.g. by disregarding the <span class="code">:allow</span> metadata. </p>
@@ -1533,7 +1533,7 @@ which continues until an...
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =comment</span><span style="color:var(--bulma-warning);font-weight:600;"> THE WRONG WAY...</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=comment</span><span style="color:var(--bulma-warning);font-weight:600;"> THE WRONG WAY...</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =begin item1</span><span style="color:var(--bulma-warning);font-weight:600;">          ───────────────┐
     The choices are:                     |
 </span><span style="color:var(--bulma-danger);font-weight:600;">    =item2</span><span style="color:var(--bulma-warning);font-weight:600;"> Liberty          ─── Level 2  ├─── Level 1</span>
@@ -1600,8 +1600,8 @@ As you can see, folk wisdom is often of dubious value.</span>
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    The project originally consisted of five phases, of which
+                    <div><pre class="nohighlights">
+The project originally consisted of five phases, of which
 two are already complete and two have been abandoned:
 
 =for item <span class="basis">:bullet« \c[BALLOT BOX WITH CHECK] »</span>
@@ -1618,7 +1618,7 @@ Secure 100 million in venture capital
 
 =for item <span class="basis">:bullet« \c[BALLOT BOX WITH X] »</span>
 Abscond to the Bahamas with the cash
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="34932ce">... would produce something like a list with checkboxes, thus: </p>
@@ -1626,8 +1626,8 @@ Abscond to the Bahamas with the cash
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    The project originally consisted of five phases, of which
+                    <div><pre class="nohighlights">
+The project originally consisted of five phases, of which
 two are already complete and two have been abandoned:
 
 ☑︎ Investigate existing solutions
@@ -1635,7 +1635,7 @@ two are already complete and two have been abandoned:
 ☐ Implement this minimal set of features
 ☒ Secure 100 million in venture capital
 ☒ Abscond to the Bahamas with the cash
-    </pre>
+</pre>
 </div>
                 </div></div>
 <p id="5483a70">However, more interesting bullets are possible, including multiple characters. For example: </p>
@@ -1643,8 +1643,8 @@ two are already complete and two have been abandoned:
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =for item <span class="basis">:bullet« \c[Heavy Check Mark] »</span>
+                    <div><pre class="nohighlights">
+=for item <span class="basis">:bullet« \c[Heavy Check Mark] »</span>
 Investigate existing solutions
 
 =for item <span class="basis">:bullet« \c[Heavy Check Mark] »</span>
@@ -1658,7 +1658,7 @@ Secure 100 million in venture capital
 
 =for item <span class="basis">:bullet« \c[prohibited sign; palm tree] »</span>
 Abscond to the Bahamas with the cash
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="def0fe7">... to produce </p>
@@ -1666,13 +1666,13 @@ Abscond to the Bahamas with the cash
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    ✅     Investigate existing solutions
+                    <div><pre class="nohighlights">
+✅     Investigate existing solutions
 ✅     Define a minimal initial feature set
 🔄    Implement this minimal set of features
 🚫    Secure 100 million in venture capital
 🚫 🌴 Abscond to the Bahamas with the cash
-    </pre>
+</pre>
 </div>
                 </div></div>
 <p id="8d12ed0">By using the <span class="code">=config</span> directive, it is also possible to change the default bullets for the duration of a section. For example, </p>
@@ -1680,8 +1680,8 @@ Abscond to the Bahamas with the cash
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =begin section
+                    <div><pre class="nohighlights">
+=begin section
     <span class="basis">=config item1 :bullet« \c[Earth Globe Europe-Africa] » </span>
     <span class="basis">=config item2 :bullet« \c[Hand with Index and Middle Fingers Crossed] » </span>
 
@@ -1693,7 +1693,7 @@ Abscond to the Bahamas with the cash
         =item1 fusion
         =item2 (eventually)
     =end section
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="b30337b">...which would produce: </p>
@@ -1701,15 +1701,15 @@ Abscond to the Bahamas with the cash
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    The major sources of sustainable energy are:
+                    <div><pre class="nohighlights">
+The major sources of sustainable energy are:
 🌍 wind
 🌍 hydroelectric
 🌍 solar
 🌍 geothermal
 🌍 fusion
    🤞(eventually)
-    </pre>
+</pre>
 </div>
                 </div></div>
 <p id="d39edf4">In the event that a custom bullet cannot be rendered (e.g. a specified Unicode glyph is unrecognised or unrenderable in the target format), a compliant renderer will fall back to its default bullet and generate an error message. </p>
@@ -1721,7 +1721,7 @@ Abscond to the Bahamas with the cash
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">     =numitem1</span><span style="color:var(--bulma-warning);font-weight:600;"> Visito</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=numitem1</span><span style="color:var(--bulma-warning);font-weight:600;"> Visito</span>
 <span style="color:var(--bulma-danger);font-weight:600;">     =numitem2</span><span style="color:var(--bulma-warning);font-weight:600;"> Veni</span>
 <span style="color:var(--bulma-danger);font-weight:600;">     =numitem2</span><span style="color:var(--bulma-warning);font-weight:600;"> Vidi</span>
 <span style="color:var(--bulma-danger);font-weight:600;">     =numitem2</span><span style="color:var(--bulma-warning);font-weight:600;"> Vici</span>
@@ -1741,7 +1741,7 @@ Abscond to the Bahamas with the cash
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">    The options are:
+<span style="color:var(--bulma-black);font-weight:600;">The options are:
 </span><span style="color:var(--bulma-danger);font-weight:600;">
     =numitem1</span><span style="color:var(--bulma-warning);font-weight:600;"> Liberty</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =numitem1</span><span style="color:var(--bulma-warning);font-weight:600;"> Death</span>
@@ -1772,7 +1772,7 @@ Abscond to the Bahamas with the cash
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">     =numitem1</span><span style="color:var(--bulma-warning);font-weight:600;"> Retreat to remote Himalayan monastery</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=numitem1</span><span style="color:var(--bulma-warning);font-weight:600;"> Retreat to remote Himalayan monastery</span>
 <span style="color:var(--bulma-danger);font-weight:600;">
      =numitem1</span><span style="color:var(--bulma-warning);font-weight:600;"> Learn the hidden mysteries of space and time</span><span style="color:var(--bulma-black);font-weight:600;">
 
@@ -1834,7 +1834,7 @@ When you're not happy.</span>
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =numdefn</span><span style="color:var(--bulma-warning);font-weight:600;"> AAA
+<span style="color:var(--bulma-danger);font-weight:600;">=numdefn</span><span style="color:var(--bulma-warning);font-weight:600;"> AAA
     first letters</span>
 <span style="color:var(--bulma-danger);font-weight:600;">
     =numdefn</span><span style="color:var(--bulma-warning);font-weight:600;"> BBB
@@ -1855,8 +1855,8 @@ When you're not happy.</span>
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    1. <span class="basis">AAA</span>
+                    <div><pre class="nohighlights">
+1. <span class="basis">AAA</span>
   first letters
 2. <span class="basis">BBB</span>
   second letters
@@ -1865,7 +1865,7 @@ A normal paragraph
   ending letters
 2. <span class="basis">YYY</span>
   finals
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="1c81567">In order to continue a list, an explicit <span class="code">:continued</span> is needed, such as: </p>
@@ -1873,8 +1873,8 @@ A normal paragraph
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =numdefn AAA
+                    <div><pre class="nohighlights">
+=numdefn AAA
     first letters
 
     =numdefn BBB
@@ -1888,7 +1888,7 @@ A normal paragraph
 
     =numdefn YYY
     finals
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="8c6f099">will yield something like </p>
@@ -1896,8 +1896,8 @@ A normal paragraph
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    1. <span class="basis">AAA</span>
+                    <div><pre class="nohighlights">
+1. <span class="basis">AAA</span>
   first letters
 2. <span class="basis">BBB</span>
   second letters
@@ -1906,7 +1906,7 @@ A normal paragraph
   ending letters
 4. <span class="basis">YYY</span>
   finals
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="656446e">Suppose a writer needs every numbered definition to form a single monotonic sequence within some block scope (e.g. for every definition within a document section, or every definition throughout the entire document). This would require every <span class="code">=numdefn</span> to be specified with a <span class="code">:continued</span> option. Or the writer could simply pre-configure every <span class="code">=numdefn</span> within the scope, as follows: </p>
@@ -1915,7 +1915,7 @@ A normal paragraph
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =config</span><span style="color:var(--bulma-warning);font-weight:600;"> numdefn :continued</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=config</span><span style="color:var(--bulma-warning);font-weight:600;"> numdefn :continued</span>
 </pre>
 </div>
                 </div>
@@ -1934,7 +1934,7 @@ A normal paragraph
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =table</span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=table</span><span style="color:var(--bulma-warning);font-weight:600;">
         The Shoveller   Eddie Stevens     King Arthur's singing shovel
         Blue Raja       Geoffrey Smith    Master of cutlery
         Mr Furious      Roy Orson         Ticking time bomb of fury
@@ -1948,7 +1948,7 @@ A normal paragraph
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =table</span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=table</span><span style="color:var(--bulma-warning);font-weight:600;">
         Superhero     | Secret          |
                       | Identity        | Superpower
         ==============|=================|================================
@@ -1965,7 +1965,7 @@ A normal paragraph
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin table</span><span style="color:var(--bulma-warning);font-weight:600;"> :caption('The Other Guys')
+<span style="color:var(--bulma-danger);font-weight:600;">=begin table</span><span style="color:var(--bulma-warning);font-weight:600;"> :caption('The Other Guys')
 
                         Secret
         Superhero       Identity          Superpower
@@ -2130,11 +2130,11 @@ bar
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    =begin table
+                    <div><pre class="nohighlights">
+=begin table
 r0c0 +  r0c1 | r0c3
 =end table
-    </pre>
+</pre>
 </div>
                 </div>
             
@@ -2144,12 +2144,12 @@ r0c0 +  r0c1 | r0c3
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    =begin table
+                    <div><pre class="nohighlights">
+=begin table
 r0c0 +  r0c1 | r0c3
 r1c0    r0c1   r0c3
 =end table
-    </pre>
+</pre>
 </div>
                 </div>
             
@@ -2159,14 +2159,14 @@ r1c0    r0c1   r0c3
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    =begin table
+                    <div><pre class="nohighlights">
+=begin table
 r0c0 |  r0c1
 ============
 ============
 r1c0 |  r1c1
 =end table
-    </pre>
+</pre>
 </div>
                 </div>
             
@@ -2180,7 +2180,7 @@ r1c0 |  r1c1
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin table</span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin table</span><span style="color:var(--bulma-warning);font-weight:600;">
     r0c0    r0c1
      r1c0 r0c1
     =end table</span>
@@ -2258,7 +2258,7 @@ r0c0  |  r0c1
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin table</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=begin table</span>
 <span style="color:var(--bulma-danger);font-weight:600;">        =row</span><span style="color:var(--bulma-warning);font-weight:600;"> :header</span>
 <span style="color:var(--bulma-danger);font-weight:600;">            =for cell</span><span style="color:var(--bulma-warning);font-weight:600;"> :row-span(2)
             Date</span>
@@ -2320,15 +2320,15 @@ r0c0  |  r0c1
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    ┌───┐
+                    <div><pre class="nohighlights">
+┌───┐
     │   │ : An empty table cell
     └───┘
     ┌───┐
-    │ → │ : The empty cell at $POS; $DIR is currently "across"
+    │ → │ : The empty cell at $POS; $DIR is currently &quot;across&quot;
     └───┘
     ┌───┐
-    │ ↓ │ : The empty cell at $POS; $DIR is currently "down"
+    │ ↓ │ : The empty cell at $POS; $DIR is currently &quot;down&quot;
     └───┘
     ┌───┐
     │+++│ : The most recently filled cell
@@ -2336,7 +2336,7 @@ r0c0  |  r0c1
     ┌───┐
     │###│ : A previously filled cell
     └───┘
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="cc947b6">And now the step-by-step explanation: </p>
@@ -2344,8 +2344,8 @@ r0c0  |  r0c1
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    =begin table                   ┌───┬───┬───┬───┬───┬───┬┈┈
+                    <div><pre class="nohighlights">
+=begin table                   ┌───┬───┬───┬───┬───┬───┬┈┈
                                    │ → │   │   │   │   │   │
     (Create a new table grid       ├───┼───┼───┼───┼───┼───┼┈┈
      Default $POS is [0,0]         │   │   │   │   │   │   │
@@ -2364,7 +2364,7 @@ r0c0  |  r0c1
     =row :header                   ┌───┬───┬───┬───┬───┬───┬┈┈
                                    │ → │   │   │   │   │   │
     (Previous action was not =cell ├───┼───┼───┼───┼───┼───┼┈┈
-     So set $DIR to "across"       │   │   │   │   │   │   │
+     So set $DIR to &quot;across&quot;       │   │   │   │   │   │   │
      and don't change $POS)        ├───┼───┼───┼───┼───┼───┼┈┈
                                    │   │   │   │   │   │   │
                                    ├───┼───┼───┼───┼───┼───┼┈┈
@@ -2435,7 +2435,7 @@ r0c0  |  r0c1
      to the left of $POS, then     │   │   │   │   │   │   │
      move $POS to the leftmost     ├───┼───┼───┼───┼───┼───┼┈┈
      cell on that row, and set     │   │   │   │   │   │   │
-     $DIR to "across")             ├───┼───┼───┼───┼───┼───┼┈┈
+     $DIR to &quot;across&quot;)             ├───┼───┼───┼───┼───┼───┼┈┈
                                    │   │   │   │   │   │   │
                                    ├───┼───┼───┼───┼───┼───┼┈┈
                                    │   │   │   │   │   │   │
@@ -2510,7 +2510,7 @@ r0c0  |  r0c1
     =column                        ┌───┬───────────┬───┬───┬┈┈
                                    │###│###########│###│   │
     (Previous action was not a     │###├───┬───┬───┤###│───┼┈┈
-     =cell so set $DIR to "down",  │###│###│###│###│###│   │
+     =cell so set $DIR to &quot;down&quot;,  │###│###│###│###│###│   │
      with no other effect)         ├───┼───┼───┼───┼───┼───┼┈┈
                                    │ ↓ │   │   │   │   │   │
                                    ├───┼───┼───┼───┼───┼───┼┈┈
@@ -2547,7 +2547,7 @@ r0c0  |  r0c1
      to the uppermost empty        ├───┼───┼───┼───┼───┼───┼┈┈
      cell in the first non-full    │###│ ↓ │   │   │   │   │
      column to the right,          ├───┼───┼───┼───┼───┼───┼┈┈
-     and set $DIR to "down")       │###│   │   │   │   │   │
+     and set $DIR to &quot;down&quot;)       │###│   │   │   │   │   │
                                    ├───┼───┼───┼───┼───┼───┼┈┈
                                    │###│   │   │   │   │   │
                                    ├───┼───┼───┼───┼───┼───┼┈┈
@@ -2597,7 +2597,7 @@ r0c0  |  r0c1
      of $POS, so stay on current   │###│###│###│###│###│   │
      row and move $POS to the      ├───┼───┼───┼───┼───┼───┼┈┈
      left-most empty cell in row;  │###│###│###│###│###│   │
-     change $DIR to "across")      ├───┼───┼───┼───┼───┼───┼┈┈
+     change $DIR to &quot;across&quot;)      ├───┼───┼───┼───┼───┼───┼┈┈
                                    │###│###│###│###│###│   │
                                    ├───┼───┼───┼───┼───┼───┼┈┈
                                    │ → │   │   │   │   │   │
@@ -2634,7 +2634,7 @@ r0c0  |  r0c1
                                    ├───┼───┼───┼───┼───┤
                                    │###│###│###│###│###│
                                    └───┴───┴───┴───┴───┘
-    </pre>
+</pre>
 </div>
                 </div>
             <h3 id="Formulae" class="heading  py-2"><a href="#" title="go to top of document">Formulae</a><a class="raku-anchor" title="direct link" href="#Formulae">§</a></h3>
@@ -2647,13 +2647,13 @@ r0c0  |  r0c1
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    We will use the identity: F&lt;\sum \frac{1}{n^{2}} = \frac{\pi^{2}}{6}&gt;
+                    <div><pre class="nohighlights">
+We will use the identity: F&lt;\sum \frac{1}{n^{2}} = \frac{\pi^{2}}{6}&gt;
 
 ...where the value of pi can be inferred from Euler’s Identity:
 
 =formula e^{i\pi}+1=0
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="8c19df5">...may either be rendered “accurately”: </p>
@@ -2661,13 +2661,13 @@ r0c0  |  r0c1
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    We will use the identity: F&lt;\sum \frac{1}{n^{2}} = \frac{\pi^{2}}{6}&gt;
+                    <div><pre class="nohighlights">
+We will use the identity: F&lt;\sum \frac{1}{n^{2}} = \frac{\pi^{2}}{6}&gt;
 
 ...where the value of pi can be inferred from Euler’s Identity:
 
 =formula e^{i\pi}+1=0
-    </pre>
+</pre>
 </div>
                 </div></div>
 <p id="87d40fd">... or may be converted to a suitable Unicode approximation: </p>
@@ -2687,15 +2687,15 @@ r0c0  |  r0c1
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    We will use the identity: F&lt;∑ 1/n² = 𝜋²/6 | \sum \frac{1}{n^{2}} = \frac{\pi^{2}}{6}&gt;
+                    <div><pre class="nohighlights">
+We will use the identity: F&lt;∑ 1/n² = 𝜋²/6 | \sum \frac{1}{n^{2}} = \frac{\pi^{2}}{6}&gt;
                             ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 ...where the value of pi can be inferred from Euler’s Identity:
 
-=for formula  :alt< eH&lt;iπ&gt; + 1 = 0 >
+=for formula  :alt&lt; eH&lt;iπ&gt; + 1 = 0 &gt;
 e^{i\pi}+1=0  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="a683400">An ALT text allows an author to rely on getting an “accurate” representation under those renderers that fully support formulas, and to be able to fall back on a range of reasonable alternatives under those renderers that don’t: </p>
@@ -2718,17 +2718,17 @@ e^{i\pi}+1=0  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    We will use: F<
-                 P<
-                     L< eH&lt;iπ&gt; + 1 = 0
+                    <div><pre class="nohighlights">
+We will use: F&lt;
+                 P&lt;
+                     L&lt; eH&lt;iπ&gt; + 1 = 0
                       | https://en.wikipedia.org/wiki/Euler%27s_identity
-                      >
+                      &gt;
                   | file:EulerID.jpg
-                  >
+                  &gt;
               | e^{i\pi}+1=0
-              >
-    </pre>
+              &gt;
+</pre>
 </div>
                 </div>
             <p id="dfc7eb0">Implementors are free to delay – or reject – implementing LaTeX-based formulas, and implementations are considered compliant with the specification, so long as the ALT texts are rendered. </p>
@@ -2791,14 +2791,14 @@ multi-line.
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    DOC use My::Special::Renderer;
+                    <div><pre class="nohighlights">
+DOC use My::Special::Renderer;
     DOC use My::Other::Special::Renderer;
 
     =begin rakudoc
     ...
     =end rakudoc
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="5e57552">Non-Raku environments might specify their own mechanisms for loading custom renderers. For example, they might require a RakuDoc comment at the start of the document: </p>
@@ -2807,7 +2807,7 @@ multi-line.
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin rakudoc</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=begin rakudoc</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =comment</span><span style="color:var(--bulma-warning);font-weight:600;"> load MySpecialRenderer, MyOtherSpecialRenderer
     ...</span><span style="color:var(--bulma-warning);font-weight:600;">
     =end rakudoc</span>
@@ -2820,7 +2820,7 @@ multi-line.
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin rakudoc</span><span style="color:var(--bulma-warning);font-weight:600;"> :Loa</span><span style="color:var(--bulma-danger);font-weight:600;">d&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;"> MySpecialRenderer MyOtherSpecialRenderer </span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin rakudoc</span><span style="color:var(--bulma-warning);font-weight:600;"> :Loa</span><span style="color:var(--bulma-danger);font-weight:600;">d&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;"> MySpecialRenderer MyOtherSpecialRenderer </span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
     ...
     =end rakudoc</span>
 </pre>
@@ -2862,8 +2862,8 @@ multi-line.
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>text</label>
-                    <div>    <pre class="nohighlights">
-    ┊=begin rakudoc
+                    <div><pre class="nohighlights">
+┊=begin rakudoc
 ┊This is an implicit =para block
 ┊
 ┊   This is implicit =code block
@@ -2894,7 +2894,7 @@ multi-line.
 ┊    This is implicit =code block
 ┊
 ┊=end rakudoc
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="bc238b4">Which means that: </p>
@@ -2919,7 +2919,7 @@ multi-line.
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin rakudoc</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=begin rakudoc</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =for Podcast</span><span style="color:var(--bulma-warning);font-weight:600;">
         this is not code</span><span style="color:var(--bulma-warning);font-weight:600;">
 
@@ -2935,7 +2935,7 @@ multi-line.
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin rakudoc</span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin rakudoc</span><span style="color:var(--bulma-warning);font-weight:600;">
     This is an ordinary paragraph
 
         While this is not an ordinary paragraph;
@@ -2960,7 +2960,7 @@ multi-line.
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin rakudoc</span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin rakudoc</span><span style="color:var(--bulma-warning);font-weight:600;">
     This is an ordinary paragraph
 
         While this is not
@@ -2994,7 +2994,7 @@ multi-line.
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin rakudoc</span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin rakudoc</span><span style="color:var(--bulma-warning);font-weight:600;">
     This is an ordinary paragraph
 
         While this is not
@@ -3082,7 +3082,7 @@ Table of Contents and Index</span><span style="color:var(--bulma-black);font-wei
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =for header</span><span style="color:var(--bulma-warning);font-weight:600;"> :i</span><span style="color:var(--bulma-danger);font-weight:600;">d&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">h123</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=for header</span><span style="color:var(--bulma-warning);font-weight:600;"> :i</span><span style="color:var(--bulma-danger);font-weight:600;">d&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">h123</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
     A sample header</span>
 <span style="color:var(--bulma-danger);font-weight:600;">
     =for table</span><span style="color:var(--bulma-warning);font-weight:600;"> :i</span><span style="color:var(--bulma-danger);font-weight:600;">d&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">t456</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> :captio</span><span style="color:var(--bulma-danger);font-weight:600;">n&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">Example table</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
@@ -3250,8 +3250,8 @@ Table of Contents and Index</span><span style="color:var(--bulma-black);font-wei
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    I&lt;ACM Transactions on Programming Languages and Systems&gt;
+                    <div><pre class="nohighlights">
+I&lt;ACM Transactions on Programming Languages and Systems&gt;
     is a registered serial publication (L&lt;B<issn:0164-0925&gt;>)
 
     This module implements the standard Unix L&lt;B<man:find(1)&gt;> facilities.
@@ -3273,7 +3273,7 @@ Table of Contents and Index</span><span style="color:var(--bulma-black);font-wei
 
     To treat his chronic L&lt;B<defn:lexiphania&gt;> the doctor prescribed an immediate L&lt;B<defn:glossoligation&gt;>
     or, if that proved ineffective, a complete cephalectomy.
-    </pre>
+</pre>
 </div>
                 </div>
             
@@ -3307,13 +3307,13 @@ Table of Contents and Index</span><span style="color:var(--bulma-black);font-wei
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    =COPYRIGHT
+                    <div><pre class="nohighlights">
+=COPYRIGHT
 P&lt;B<The document is copyright. |&gt; file:/shared/docs/std_copyright.rakudoc>
 
 =DISCLAIMER
 P&lt;B<NO WARRANTY. NONE. NIL. NADA. |&gt; http://www.MegaGigaTeraPetaCorp.com/std/disclaimer.txt>
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="eea99e6">If the filesystem or internet is inaccessible, this might produce: </p>
@@ -3375,7 +3375,7 @@ P&lt;B<NO WARRANTY. NONE. NIL. NADA. |&gt; http://www.MegaGigaTeraPetaCorp.com/s
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> PROGNAME    Earl Irradiatem Eventually</span>
+<span style="color:var(--bulma-danger);font-weight:600;">=alias</span><span style="color:var(--bulma-warning);font-weight:600;"> PROGNAME    Earl Irradiatem Eventually</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> VENDOR      4D Kingdoms</span>
 <span style="color:var(--bulma-danger);font-weight:600;">    =alias</span><span style="color:var(--bulma-warning);font-weight:600;"> TERMS_URL   </span><span style="color:var(--bulma-danger);font-weight:600;">L&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">http://www.4dk.com/eie</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-black);font-weight:600;">
 
@@ -3411,11 +3411,11 @@ The standard growth rate is assumed to be </span><span style="color:var(--bulma-
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    There ensued a terrible moment of <span class="basis">D&lt;coyotus interruptus&gt;</span>: a brief
+                    <div><pre class="nohighlights">
+There ensued a terrible moment of <span class="basis">D&lt;coyotus interruptus&gt;</span>: a brief
     suspension of the effects of gravity, accompanied by a sudden
     to-the-camera realization of imminent downwards acceleration.
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="c72c5f2">The contents of the <span class="code">D<></span> represent the term being defined, the location of the <span class="code">D<></span> implies a link target location, and the paragraph containing the <span class="code">D<></span> suggests a suitable pop-up definition of the term (if a renderer supports such). </p>
@@ -3425,9 +3425,9 @@ The standard growth rate is assumed to be </span><span style="color:var(--bulma-
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    ...a <span class="basis">&lt;dfn id="term being defined"&gt;term being defined&lt;/dfn&gt;</span> would be...
-    </pre>
+                    <div><pre class="nohighlights">
+...a <span class="basis">&lt;dfn id="term being defined"&gt;term being defined&lt;/dfn&gt;</span> would be...
+</pre>
 </div>
                 </div>
             <p id="3ab063f">And a <span class="code">L<defn:term being defined></span> link would be translated to something like: </p>
@@ -3435,9 +3435,9 @@ The standard growth rate is assumed to be </span><span style="color:var(--bulma-
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    ...a <span class="basis">&lt;a href="#term being defined"&gt;term being defined&lt;/a&gt;</span> link would be...
-    </pre>
+                    <div><pre class="nohighlights">
+...a <span class="basis">&lt;a href="#term being defined"&gt;term being defined&lt;/a&gt;</span> link would be...
+</pre>
 </div>
                 </div>
             <p id="7741dd5">A definition may be given synonyms, which are specified after a vertical bar and separated by semicolons: </p>
@@ -3445,10 +3445,10 @@ The standard growth rate is assumed to be </span><span style="color:var(--bulma-
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    A D&lt;formatting code|B<formatting codes;formatters&gt;> provides a way
+                    <div><pre class="nohighlights">
+A D&lt;formatting code|B<formatting codes;formatters&gt;> provides a way
     to add inline mark-up to a piece of text.
-    </pre>
+</pre>
 </div>
                 </div>
             
@@ -3601,7 +3601,7 @@ E&lt;REGIONAL INDICATOR SYMBOL LETTER U</span&gt;<span style="color:var(--bulma-
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">    E&lt;WHITE SMILING FACE&gt; Smiling face</span>
+<span style="color:var(--bulma-black);font-weight:600;">E&lt;WHITE SMILING FACE&gt; Smiling face</span>
 </pre>
 </div>
                 </div>
@@ -3635,12 +3635,12 @@ E&lt;REGIONAL INDICATOR SYMBOL LETTER U</span&gt;<span style="color:var(--bulma-
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    Raku makes considerable use of the E&lt;laquo&gt; and E&lt;raquo&gt; characters.
+                    <div><pre class="nohighlights">
+Raku makes considerable use of the E&lt;laquo&gt; and E&lt;raquo&gt; characters.
 
 Raku code often contains the E&lt;0xff62;0xff63&gt; bracketing characters
 to avoid using quotes.
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="5018767">An ASCII-only renderer would then render those like so: </p>
@@ -3681,11 +3681,11 @@ such as V< I&lt;</span&gt;<span style="color:var(--bulma-success);font-weight:60
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    An <span class="basis">X&lt;array&gt;</span> is an ordered list of scalars indexed by number,
+                    <div><pre class="nohighlights">
+An <span class="basis">X&lt;array&gt;</span> is an ordered list of scalars indexed by number,
 starting with 0. A <span class="basis">X&lt;hash&gt;</span> is an unordered collection of scalar
 values indexed by their associated string key.
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="5a6bc9a">You can specify an index entry in which the indexed text and the index entry are different, by separating the two with a vertical bar: </p>
@@ -3693,11 +3693,11 @@ values indexed by their associated string key.
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    An <span class="basis">X&lt;array|arrays&gt;</span> is an ordered list of scalars indexed by number,
+                    <div><pre class="nohighlights">
+An <span class="basis">X&lt;array|arrays&gt;</span> is an ordered list of scalars indexed by number,
 starting with 0. A <span class="basis">X&lt;hash|hashes&gt;</span> is an unordered collection of
 scalar values indexed by their associated string key.
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="b280a43">In the two-part form, the index entry comes after the bar and is case-sensitive. </p>
@@ -3706,12 +3706,12 @@ scalar values indexed by their associated string key.
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    An X&lt;array|B<arrays, definition of&gt;> is an ordered list of scalars
+                    <div><pre class="nohighlights">
+An X&lt;array|B<arrays, definition of&gt;> is an ordered list of scalars
 indexed by number, starting with 0. A X&lt;hash|B<hashes, definition of&gt;>
 is an unordered collection of scalar values indexed by their
 associated string key.
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="a0120f1">You can specify two or more entries for a single indexed text, by separating the entries with semicolons: </p>
@@ -3719,11 +3719,11 @@ associated string key.
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    A X&lt;hash|B<hashes, definition of; associative arrays&gt;>
+                    <div><pre class="nohighlights">
+A X&lt;hash|B<hashes, definition of; associative arrays&gt;>
 is an unordered collection of scalar values indexed by their
 associated string key.
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="5432f34">The indexed text can be empty, creating a "zero-width" index entry: </p>
@@ -3731,10 +3731,10 @@ associated string key.
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    <span class="basis">X&lt;|puns, deliberate&gt;</span>This is called the "Orcish Maneuver"
+                    <div><pre class="nohighlights">
+<span class="basis">X&lt;|puns, deliberate&gt;</span>This is called the "Orcish Maneuver"
 because you "OR" the "cache".
-    </pre>
+</pre>
 </div>
                 </div>
             
@@ -3747,9 +3747,9 @@ because you "OR" the "cache".
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    To sample this marvelous libation <span class="basis">M&lt;order now by PayMeApp|PayMeApp; vendor-id; $0.99&gt;</span>
-    </pre>
+                    <div><pre class="nohighlights">
+To sample this marvelous libation <span class="basis">M&lt;order now by PayMeApp|PayMeApp; vendor-id; $0.99&gt;</span>
+</pre>
 </div>
                 </div>
             <p id="e8c4e37">An HTML renderer would the convert this to, for example, </p>
@@ -3759,7 +3759,11 @@ because you "OR" the "cache".
                     <label>HTML highlighting by highlight-js</label>
                     <div><pre class="browser-hl">
 <code class="language-xml">
-____&lt;p&gt;To_sample_this_marvelous_libation_________&lt;button_class=&quot;PayMeApp&quot;_data-token=&quot;vendor-id&quot;_data-price=&quot;$0.99&quot;&gt;_________order_now_by_PayMeApp_________&lt;/button&gt;_____&lt;/p&gt;
+&lt;p&gt;To sample this marvelous libation
+        &lt;button class=&quot;PayMeApp&quot; data-token=&quot;vendor-id&quot; data-price=&quot;$0.99&quot;&gt;
+        order now by PayMeApp
+        &lt;/button&gt;
+    &lt;/p&gt;
 </code></pre>
 </div>
                 </div>
@@ -3774,8 +3778,8 @@ ____&lt;p&gt;To_sample_this_marvelous_libation_________&lt;button_class=&quot;Pa
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    B&lt; <span class="important">DISPLAY-TEXT</span> &gt;
+                    <div><pre class="nohighlights">
+B&lt; <span class="important">DISPLAY-TEXT</span> &gt;
 C&lt; <span class="important">DISPLAY-TEXT</span> &gt;
 H&lt; <span class="important">DISPLAY-TEXT</span> &gt;
 I&lt; <span class="important">DISPLAY-TEXT</span> &gt;
@@ -3788,7 +3792,7 @@ U&lt; <span class="important">DISPLAY-TEXT</span> &gt;
 V&lt; <span class="important">DISPLAY-TEXT</span> &gt;
 N&lt; <span class="important">DISPLAY-TEXT</span> &gt;
 O&lt; <span class="important">DISPLAY-TEXT</span> &gt;
-    </pre>
+</pre>
 </div>
                 </div></div>
 
@@ -3798,8 +3802,8 @@ O&lt; <span class="important">DISPLAY-TEXT</span> &gt;
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    A&lt; <span class="important">DISPLAY-TEXT </span> | METADATA=<span class="basis">ALIAS-NAME</span>&gt;
+                    <div><pre class="nohighlights">
+A&lt; <span class="important">DISPLAY-TEXT </span> | METADATA=<span class="basis">ALIAS-NAME</span>&gt;
 D&lt; <span class="important">DISPLAY-TEXT </span> | METADATA=<span class="basis">SYNONYMS</span>&gt;
 Δ&lt; <span class="important">DISPLAY-TEXT </span> | METADATA=<span class="basis">VERSION-ETC</span>&gt;
 E&lt; <span class="important">DISPLAY-TEXT </span> | METADATA=<span class="basis">HTML/UNICODE-ENTITIES</span>&gt;
@@ -3808,7 +3812,7 @@ L&lt; <span class="important">DISPLAY-TEXT </span> | METADATA=<span class="basis
 M&lt; <span class="important">DISPLAY-TEXT </span> | METADATA=<span class="basis">WHATEVER</span>&gt;
 P&lt; <span class="important">DISPLAY-TEXT </span> | METADATA=<span class="basis">REPLACEMENT-URI</span>&gt;
 X&lt; <span class="important">DISPLAY-TEXT </span> | METADATA=<span class="basis">INDEX-ENTRY</span>&gt;
-    </pre>
+</pre>
 </div>
                 </div></div>
 <p id="ae48b05">The markup codes <span class="code">A</span>, <span class="code">E</span>, <span class="code">F</span>, <span class="code">L</span>, and <span class="code">P</span> may be specified <span class="basis">without</span> a display text, in which case, the renderer (as elsewhere provided in this specification) may provide an automatic rendering if the metadata component fails to produce a renderable result. If an explicit display text is provided (i.e. to the left of a <span class="code">|</span>), that text overrides the default alternate rendering. </p>
@@ -4153,7 +4157,7 @@ Artistic-2.0
                 Rendered from <span class="footer-field">docs/samples/samples/rakudoc
             </div>
             <div class="level-item">
-                Rendered at 09:14 UTC on 2024-11-10
+                Rendered at 10:25 UTC on 2024-11-10
             </div>
             <div class="level-item">
                 Source last modified at 22:46 UTC on 2024-10-29

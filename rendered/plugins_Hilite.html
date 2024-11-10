@@ -292,7 +292,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">    =begin code</span><span style="color:var(--bulma-warning);font-weight:600;"> :highlighte</span><span style="color:var(--bulma-danger);font-weight:600;">r&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">deparse</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger);font-weight:600;">=begin code</span><span style="color:var(--bulma-warning);font-weight:600;"> :highlighte</span><span style="color:var(--bulma-danger);font-weight:600;">r&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">deparse</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
     ...
     =end code</span>
 </pre>
@@ -310,7 +310,10 @@ function swap_toc_index(activate) {
                     <label>haskell highlighting by highlight-js</label>
                     <div><pre class="browser-hl">
 <code class="language-haskell">
-greeting_::_String_-&gt;_String_greeting__&quot;&quot;___=_&quot;Hello,_World!&quot;_greeting_&quot;bub&quot;_=_&quot;Hey_bub.&quot;_greeting__name_=_&quot;Hello,_&quot;_++_name_++_&quot;!&quot;
+greeting :: String -&gt; String
+greeting  &quot;&quot;   = &quot;Hello, World!&quot;
+greeting &quot;bub&quot; = &quot;Hey bub.&quot;
+greeting  name = &quot;Hello, &quot; ++ name ++ &quot;!&quot;
 </code></pre>
 </div>
                 </div>
@@ -321,7 +324,14 @@ greeting_::_String_-&gt;_String_greeting__&quot;&quot;___=_&quot;Hello,_World!&q
                     <label>ruby highlighting by highlight-js</label>
                     <div><pre class="browser-hl">
 <code class="language-ruby">
-#_Ruby_if_x_&gt;_5_____puts_&quot;Bigger!&quot;_elsif_x_==_5_____puts_&quot;The_same!&quot;_else_____puts_&quot;Smaller!&quot;_end
+# Ruby
+if x &gt; 5
+    puts &quot;Bigger!&quot;
+elsif x == 5
+    puts &quot;The same!&quot;
+else
+    puts &quot;Smaller!&quot;
+end
 </code></pre>
 </div>
                 </div>
@@ -332,7 +342,12 @@ greeting_::_String_-&gt;_String_greeting__&quot;&quot;___=_&quot;Hello,_World!&q
                     <label>python highlighting by highlight-js</label>
                     <div><pre class="browser-hl">
 <code class="language-python">
-squares_=_[]_for_x_in_range(5):_____squares.append(lambda:_x_**_2)_print(squares[2]())_print(squares[4]())_#_both_16_since_there_is_only_one_x
+squares = []
+for x in range(5):
+    squares.append(lambda: x ** 2)
+print(squares[2]())
+print(squares[4]())
+# both 16 since there is only one x
 </code></pre>
 </div>
                 </div>
@@ -365,11 +380,11 @@ squares_=_[]_for_x_in_range(5):_____squares.append(lambda:_x_**_2)_print(squares
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
-                    <div>    <pre class="nohighlights">
-    # a renderer <span class="basis">should</span> observe the basis markup
+                    <div><pre class="nohighlights">
+# a renderer <span class="basis">should</span> observe the basis markup
 # and the <span class="keyboard">markup</span> but render R&lt;markup&gt; verbatim
 my $x = 3;
-    </pre>
+</pre>
 </div>
                 </div>
             <p id="74b9be2">Code from operators, using Rainbow </p>
@@ -414,7 +429,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/plugins/plugins/Hilite
             </div>
             <div class="level-item">
-                Rendered at 09:14 UTC on 2024-11-10
+                Rendered at 10:25 UTC on 2024-11-10
             </div>
             <div class="level-item">
                 Source last modified at 22:23 UTC on 2024-09-18
