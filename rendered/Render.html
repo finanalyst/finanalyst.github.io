@@ -289,7 +289,7 @@ function swap_toc_index(activate) {
 </section>
 
         <div class="content px-4">
-        <h2 id="Overview" class="heading  py-2"><a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h2>
+        <h2 id="Overview" class="heading py-2"><a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h2>
 <p id="2b8160a">The module contains the RakuDoc::Processor class. </p>
 <p id="16eda6d">The class method 'render' is the principal one for rendering RakuDoc v2. The Raku compiler expects to call render with an AST and to return a Str. It can be called with the option <span class="code">:pre-finalised</span> to get the processed data, see the example in <a href="#Debugging">Debugging</a>. </p>
 <p id="50a3466">The aim is for a <span class="basis">RakuDoc::Processor</span> object (an <span class="basis">RPO</span>) to be as generic as possible, allowing for other classes to instantiate it, and to attach templates that will generate more specific formats, such as HTML, MarkDown, or EPub pages. </p>
@@ -297,32 +297,32 @@ function swap_toc_index(activate) {
 <p id="dbba06d">It is also necessary to have a good understanding of RakuDoc v2. </p>
 <p id="79b4ea3">Some <a href="#Environment_variables">environment variables</a> provide for some output control. </p>
 <p id="685dcbf">The following describes choices that are left by RakuDoc v2 to the renderer. </p>
-<h3 id="Templates" class="heading  py-2"><a href="#" title="go to top of document">Templates</a><a class="raku-anchor" title="direct link" href="#Templates">§</a></h3>
+<h3 id="Templates" class="heading py-2"><a href="#" title="go to top of document">Templates</a><a class="raku-anchor" title="direct link" href="#Templates">§</a></h3>
 <p id="26e8f63">An <span class="basis">RPO</span> contains a default set of Text templates. </p>
 <p id="214c828">The aim of the text templates is that they are the lowest level templates needed to render any RakuDoc source. </p>
 <p id="907bd54">When a renderer is needed to output a new format, eg., HTML, the renderer instantiates an <span class="basis">RPO</span> and attaches new templates to it using the <span class="code">add-template( Pair $p, :source )</span> method or the <span class="code">add-templates( Hash $h, :source )</span> method. Setting the <span class="code">source</span> option to some value will help determine which module introduced the templates. </p>
 <p id="f31964f">The design of the Templates object means that new additions to the object push the previous definition onto a linked list, and so they will always be available by default. </p>
 <p id="f09fa10">The set of template keys needed to create a renderer is <a href="default-text-templates">tabulated here</a>. </p>
 <p id="2e881b0">All aspects of the output can be defined using the templates. </p>
-<h3 id="Process" class="heading  py-2"><a href="#" title="go to top of document">Process</a><a class="raku-anchor" title="direct link" href="#Process">§</a></h3>
+<h3 id="Process" class="heading py-2"><a href="#" title="go to top of document">Process</a><a class="raku-anchor" title="direct link" href="#Process">§</a></h3>
 <p id="f30be0b">The generic render method transforms the AST of the input file using a handle method for each type of Block and Markup code. A template exists for each block and markup code. </p>
 <p id="dce45f9">After all the blocks have been processed, the Table of Contents, Index, and Footnotes are rendered, with templates for each item and for the list of items. </p>
 <p id="75d7015">Any forward references and numerations are then resolved. </p>
 <p id="b5a857e">The intermediate structure of the processed file can then be accessed before it is finally rendered into a string. </p>
 <p id="9179577">The final rendering is done by the 'final' template. </p>
 <p id="b8b2717">Once a string has been obtained, it can be post-processed using the post-process method. For example, text output can be transformed by wrapping lines. </p>
-<h3 id="Warnings" class="heading  py-2"><a href="#" title="go to top of document">Warnings</a><a class="raku-anchor" title="direct link" href="#Warnings">§</a></h3>
+<h3 id="Warnings" class="heading py-2"><a href="#" title="go to top of document">Warnings</a><a class="raku-anchor" title="direct link" href="#Warnings">§</a></h3>
 <p id="9d7622b">In order to offer the maximum flexibility to a RakuDoc author, if there is an error condition after the RakuDoc source has been compiled, a set of warnings are generated. </p>
 <p id="f8a57a9">By default these are rendered using the 'warnings' template, and the rendered version is appended to the output file. </p>
-<h3 id="Customisability" class="heading  py-2"><a href="#" title="go to top of document">Customisability</a><a class="raku-anchor" title="direct link" href="#Customisability">§</a></h3>
+<h3 id="Customisability" class="heading py-2"><a href="#" title="go to top of document">Customisability</a><a class="raku-anchor" title="direct link" href="#Customisability">§</a></h3>
 <p id="389c5ca">RakuDoc allows for customisability. This renderer handles customisability via the template mechanism. </p>
 
-<div class="id-target" id="Custom blocks"></div><h4 id="Custom_blocks" class="heading  py-2"><a href="#" title="go to top of document">Custom blocks</a><a class="raku-anchor" title="direct link" href="#Custom blocks">§</a></h4>
+<div class="id-target" id="Custom blocks"></div><h4 id="Custom_blocks" class="heading py-2"><a href="#" title="go to top of document">Custom blocks</a><a class="raku-anchor" title="direct link" href="#Custom blocks">§</a></h4>
 <p id="f796cfc">When custom block is detected according to the RakuDoc v2 spelling rules, an <span class="basis">RPO</span> will check whether a template exists with that name. </p>
 <p id="9b11ca6">If a template has been attached to an <span class="basis">RPO</span>, then the rendered content of the block (including rendered embedded RakuDoc instructions) will be provided to the template as <span class="code">contents</span> and the verbatim contents with no renderering will be provided as <span class="code">raw</span>. </p>
 <p id="f97427a">So a new block can be created by attaching a template with the blockname to the <span class="basis">RPO</span>. </p>
 
-<div class="id-target" id="Custom markup codes"></div><h4 id="Custom_markup_codes" class="heading  py-2"><a href="#" title="go to top of document">Custom markup codes</a><a class="raku-anchor" title="direct link" href="#Custom markup codes">§</a></h4>
+<div class="id-target" id="Custom markup codes"></div><h4 id="Custom_markup_codes" class="heading py-2"><a href="#" title="go to top of document">Custom markup codes</a><a class="raku-anchor" title="direct link" href="#Custom markup codes">§</a></h4>
 <p id="cc3389a">RakuDoc v2 allows for custom markup codes in two ways: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> <p id="b121c46">the <span class="code"> M< DISPLAY | FUNCTION ; list of comma delimited strings > </span> </p>
@@ -331,10 +331,10 @@ function swap_toc_index(activate) {
 </li>
 </ul>
 
-<div class="id-target" id="Markup M"></div><h5 id="Markup_M" class="heading  py-2"><a href="#" title="go to top of document">Markup M</a><a class="raku-anchor" title="direct link" href="#Markup M">§</a></h5>
+<div class="id-target" id="Markup M"></div><h5 id="Markup_M" class="heading py-2"><a href="#" title="go to top of document">Markup M</a><a class="raku-anchor" title="direct link" href="#Markup M">§</a></h5>
 <p id="0d6e36d">When a <span class="code"> M< DISPLAY | FUNCTION ; LIST > </span> is encountered, the renderer will look for a template named in the <span class="replace">FUNCTION</span> position. If no such template exists, the text will be rendered verbatim and a warning logged. </p>
 
-<div class="id-target" id="Markup UNICODE[upper]"></div><h5 id="Markup_UNICODE[upper]" class="heading  py-2"><a href="#" title="go to top of document">Markup UNICODE[upper]</a><a class="raku-anchor" title="direct link" href="#Markup UNICODE[upper]">§</a></h5>
+<div class="id-target" id="Markup UNICODE[upper]"></div><h5 id="Markup_UNICODE[upper]" class="heading py-2"><a href="#" title="go to top of document">Markup UNICODE[upper]</a><a class="raku-anchor" title="direct link" href="#Markup UNICODE[upper]">§</a></h5>
 <p id="d42c4d4">When some custom markup is encountered, the renderer will </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> <p id="22b3181">check that the character, eg Ɵ (Greek Capital Theta), has the unicode property <span class="important">Upper</span>; </p>
@@ -344,7 +344,7 @@ function swap_toc_index(activate) {
 </ul>
 <p id="0573f8a">Thus in order to create a new markup code, create an appropriately named template and add it to the <span class="basis">RPO</span>. </p>
 
-<div class="id-target" id="Global data accessible in templates"></div><h4 id="Global_data_accessible_in_templates" class="heading  py-2"><a href="#" title="go to top of document">Global data accessible in templates</a><a class="raku-anchor" title="direct link" href="#Global data accessible in templates">§</a></h4>
+<div class="id-target" id="Global data accessible in templates"></div><h4 id="Global_data_accessible_in_templates" class="heading py-2"><a href="#" title="go to top of document">Global data accessible in templates</a><a class="raku-anchor" title="direct link" href="#Global data accessible in templates">§</a></h4>
 <p id="194c97a">More information is available in <a href="Templates">Templates</a>. </p>
 <p id="094f0a8">All templates can attach items to the Table of Contents, Index, Footnotes, and Warnings structures of the rendered source using the helper methods. </p>
 <p id="dee143f">The following helper methods are available: </p>
@@ -367,7 +367,7 @@ function swap_toc_index(activate) {
 </ul>
 <p id="d3c6895">In addition, within a template, it is possible to attach data to globals, and to retrieve the data in another template. </p>
 <p id="b3a30c2">For an example of this, see test <span class="basis">xt/030-customisation-data.rakutest</span>. (test number may be changed, but otherwise the filename will be the same). </p>
-<h3 id="Debugging" class="heading  py-2"><a href="#" title="go to top of document">Debugging</a><a class="raku-anchor" title="direct link" href="#Debugging">§</a></h3>
+<h3 id="Debugging" class="heading py-2"><a href="#" title="go to top of document">Debugging</a><a class="raku-anchor" title="direct link" href="#Debugging">§</a></h3>
 <p id="f632c5d">When developing new templates or renderers based on an <span class="basis">RPO</span>, several debug options can be attached to the <span class="basis">RPO</span>, eg. </p>
 
                 <div class="raku-code">
@@ -402,7 +402,7 @@ function swap_toc_index(activate) {
 </li>
 </ul>
 
-<div class="id-target" id="Debug options"></div><h4 id="Debug_options" class="heading  py-2"><a href="#" title="go to top of document">Debug options</a><a class="raku-anchor" title="direct link" href="#Debug options">§</a></h4>
+<div class="id-target" id="Debug options"></div><h4 id="Debug_options" class="heading py-2"><a href="#" title="go to top of document">Debug options</a><a class="raku-anchor" title="direct link" href="#Debug options">§</a></h4>
 <p id="bce5bad">The following options are available: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> None removes all previous debugging</li>
@@ -418,7 +418,7 @@ function swap_toc_index(activate) {
 <p id="31b3c80">The Test and Pretty options described in <a href="Templates">the Templates documentation</a> can be set on an <span class="basis">RPO</span>, eg. $rdp.test( True ); $rdp.pretty( True ); </p>
 <p id="d33db3c">Bear in mind that the <span class="basis">pretty</span> flag overrides the <span class="basis">test</span> flag, and both override the <span class="basis">debug</span> and <span class="basis">verbose</span> flags. </p>
 
-<div class="id-target" id="Environment variables"></div><h2 id="Environment_variables" class="heading  py-2"><a href="#" title="go to top of document">Environment variables</a><a class="raku-anchor" title="direct link" href="#Environment variables">§</a></h2>
+<div class="id-target" id="Environment variables"></div><h2 id="Environment_variables" class="heading py-2"><a href="#" title="go to top of document">Environment variables</a><a class="raku-anchor" title="direct link" href="#Environment variables">§</a></h2>
 <p id="aa34249">By setting the environment variable POSTPROCESSING=1 the text output will be naively wrapped. </p>
 <p id="c976c61">For example, </p>
 
@@ -442,14 +442,14 @@ POSTPROCESSING=1 WIDTH=70 bin/RenderTextify rakudociem-ipsum
 </div>
                 </div>
             
-<div class="id-target" id="Paragraph id"></div><h2 id="Paragraph_id" class="heading  py-2"><a href="#" title="go to top of document">Paragraph id</a><a class="raku-anchor" title="direct link" href="#Paragraph id">§</a></h2>
+<div class="id-target" id="Paragraph id"></div><h2 id="Paragraph_id" class="heading py-2"><a href="#" title="go to top of document">Paragraph id</a><a class="raku-anchor" title="direct link" href="#Paragraph id">§</a></h2>
 <p id="d37a747">Since sometimes it is necessary to target a specific paragraph, some paragraphs get an automated id based on the last Seven hex chars of the SHA1 encoding of its contents. </p>
 <p id="cea9f65">Seven chars should be adequate so long as the number of paragraphs in a single document is below 16,000. </p>
 <div class="nested"><p id="0fd5c2b">Based on the expectation that we would see collision in a repository with 2^(2N) objects when using object names shortened to first N bits <a href="https://stackoverflow.com/questions/18134627/how-much-of-a-git-sha-is-generally-considered-necessary-to-uniquely-identify-a">Stackoverflow question</a> </p>
 </div>
 <p id="f349f6f">Long texts or books will probably need more to avoid a conflict. This can be done by setting <span class="code">paragraph-id-length</span> in the %structure-data to the required number of hex digits. </p>
 
-<div class="id-target" id="Writing a new Render"></div><h2 id="Writing_a_new_Render" class="heading  py-2"><a href="#" title="go to top of document">Writing a new Render</a><a class="raku-anchor" title="direct link" href="#Writing a new Render">§</a></h2>
+<div class="id-target" id="Writing a new Render"></div><h2 id="Writing_a_new_Render" class="heading py-2"><a href="#" title="go to top of document">Writing a new Render</a><a class="raku-anchor" title="direct link" href="#Writing a new Render">§</a></h2>
 <p id="cf1766c">Typically, it should only be necessary to change the templates of an existing renderer to alter the way output is formated. But for a new type of format, a new renderer will be needed. </p>
 <p id="2cf2224">It is best to look at the code for the HTML renderer to see how to write a renderer. The following are only very brief notes. </p>
 <p id="106878a">A new renderer for a new output format will need: </p>
@@ -472,13 +472,13 @@ raku --rakudoc=NEWFORMAT input-file.rakudoc &gt; output-filename.newformat
 </li>
 <li class="item" data-bullet="4." style="--level:0;"> The class should also define and attach templates. Note that if any needed templates are not included, then the default 'text' templates will be used.</li>
 </ol>
-<h2 id="Credits" class="heading  py-2"><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
+<h2 id="Credits" class="heading py-2"><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
 
-<div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
+<div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
 
 
 
@@ -496,7 +496,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Render
             </div>
             <div class="level-item">
-                Rendered at 10:25 UTC on 2024-11-10
+                Rendered at 22:54 UTC on 2024-11-10
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05
