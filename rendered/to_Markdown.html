@@ -283,20 +283,20 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">RAKUDO_RAKUAST</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">1 </span><span style="color:var(--bulma-info);font-weight:600;">raku</span> <span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">Markdown some</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">docs</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc </span><span style="color:var(--bulma-success);font-weight:600;">></span><span style="color:var(--bulma-black);font-weight:600;"> some</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">docs</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">md</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc > some-docs.md
+    </pre>
 </div>
                 </div>
             <p id="f06d654">or (see <a href="#RenderDocs_utility">below for more detail</a>) </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderDocs some</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">docs</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderDocs some-docs
+    </pre>
 </div>
                 </div>
             <p id="1c6d680">There is a section on Troubleshooting in the <a href="README">general README file</a> if this fails. </p>
@@ -308,16 +308,16 @@ function swap_toc_index(activate) {
 <p id="6e9a0eb">The general <a href="README">README file should be read first</a>. </p>
 <p id="e80f229">For this description, it is assumed that the <span class="important">RakuAST::RakuDoc::Render</span> distribution is <span class="basis">NOT</span> installed using zef, although it can be. Consequently, all commands are assumed to be inside the repo directory root. </p>
 
-<div class="id-target" id="Customising_templates"></div><h2 id="Customising_templates" class="heading  py-2"><a href="#" title="go to top of document">Customising templates</a><a class="raku-anchor" title="direct link" href="#Customising_templates">§</a></h2>
+<div class="id-target" id="Customising templates"></div><h2 id="Customising_templates" class="heading  py-2"><a href="#" title="go to top of document">Customising templates</a><a class="raku-anchor" title="direct link" href="#Customising templates">§</a></h2>
 <p id="3a797bf">All output from <span class="important">Rakuast::RakuDoc::Render</span> modules is generated through templates. These templates can be added to, without overriding the previous templates, (<a href="Templates">see Templates for detail</a>). </p>
 <p id="42cfe59">If a file exists in the local directory called <span class="important">new-temp.raku</span> and conforms to the requirements described in <a href="Templates">Templates</a>, then the templates in it will be added to the generic Markdown templates as follows: </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">MORE_MARKDOWN</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-info);font-weight:600;">new</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-primary);font-weight:600;">temp</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">raku</span><span style="color:var(--bulma-black);font-weight:600;"> RAKUDO_RAKUAST</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">1 </span><span style="color:var(--bulma-info);font-weight:600;">raku</span> <span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">Markdown some</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">docs</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc </span><span style="color:var(--bulma-success);font-weight:600;">></span><span style="color:var(--bulma-black);font-weight:600;"> store</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">md</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    MORE_MARKDOWN=new-temp.raku RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.rakudoc > store.md
+    </pre>
 </div>
                 </div>
             <p id="1f0e4a3">For instance if the contents of <span class="important">new-temp.raku</span> is </p>
@@ -327,8 +327,8 @@ function swap_toc_index(activate) {
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
 <span style="color:var(--bulma-success);font-weight:600;">%</span><span style="color:var(--bulma-black);font-weight:600;">(
-        final </span><span style="color:var(--bulma-success);font-weight:600;">=></span> <span style="color:var(--bulma-primary);font-weight:600;">-></span> <span style="color:var(--bulma-link);font-weight:600;">%prm</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$tmpl</span><span style="color:var(--bulma-black);font-weight:600;"> { </span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;"># Customisation message</span><span style="color:var(--bulma-black);font-weight:600;">\n</span><span style="color:var(--bulma-black);font-weight:600;">\n</span><span style="color:var(--bulma-black);font-weight:600;">"</span> <span style="color:var(--bulma-success);font-weight:600;">~</span> <span style="color:var(--bulma-link);font-weight:600;">$tmpl</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">prev }
-    )</span>
+    final </span><span style="color:var(--bulma-success);font-weight:600;">=></span> <span style="color:var(--bulma-primary);font-weight:600;">-></span> <span style="color:var(--bulma-link);font-weight:600;">%prm</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-link);font-weight:600;">$tmpl</span><span style="color:var(--bulma-black);font-weight:600;"> { </span><span style="color:var(--bulma-black);font-weight:600;">"</span><span style="color:var(--bulma-warning);font-weight:600;"># Customisation message</span><span style="color:var(--bulma-black);font-weight:600;">\n</span><span style="color:var(--bulma-black);font-weight:600;">\n</span><span style="color:var(--bulma-black);font-weight:600;">"</span> <span style="color:var(--bulma-success);font-weight:600;">~</span> <span style="color:var(--bulma-link);font-weight:600;">$tmpl</span><span style="color:var(--bulma-black);font-weight:600;">.prev }
+)</span>
 </pre>
 </div>
                 </div>
@@ -343,26 +343,26 @@ function swap_toc_index(activate) {
 </li>
 </ul>
 
-<div class="id-target" id="RenderDocs_utility"></div><h2 id="RenderDocs_utility" class="heading  py-2"><a href="#" title="go to top of document">RenderDocs utility</a><a class="raku-anchor" title="direct link" href="#RenderDocs_utility">§</a></h2>
+<div class="id-target" id="RenderDocs utility"></div><h2 id="RenderDocs_utility" class="heading  py-2"><a href="#" title="go to top of document">RenderDocs utility</a><a class="raku-anchor" title="direct link" href="#RenderDocs utility">§</a></h2>
 <p id="a5ca521">A utility called <span class="basis">RenderDocs</span> accompanies the distribution. It is assumed that documentation sources in RakuDoc are contained in the sub-directory <span class="code">docs/</span> and that Markdown versions are required in the working directory. If any RakuDoc source has a modified date later than the current version of the Markdown output, then the Markdown file is updated. </p>
 <p id="773bcc7">Usage </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderDocs</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderDocs
+    </pre>
 </div>
                 </div>
             <p id="0e0a1f3">More granularity can be obtained by specifying a single file and a <span class="important">to</span> destination, eg. </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderDocs </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-info);font-weight:600;">to</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">README docs</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">README</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderDocs --to=README docs/README
+    </pre>
 </div>
                 </div>
             <p id="80dc67c">Here, there must be a file <span class="code">docs/README.rakudoc</span>, which is rendered to the current working directory as <span class="important">README.md</span>. </p>
@@ -373,7 +373,6 @@ Richard Hainsworth, aka finanalyst
 
 
 <div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
-v0.4.0
 
 
 
@@ -391,10 +390,10 @@ v0.4.0
                 Rendered from <span class="footer-field">docs/to/to/Markdown
             </div>
             <div class="level-item">
-                Rendered at 20:48 UTC on 2024-10-19
+                Rendered at 09:14 UTC on 2024-11-10
             </div>
             <div class="level-item">
-                Source last modified at 09:38 UTC on 2024-08-07
+                Source last modified at 22:11 UTC on 2024-11-05
             </div>
         </nav>
     </div>

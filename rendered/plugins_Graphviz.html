@@ -283,7 +283,7 @@ function swap_toc_index(activate) {
         <h2 id="Introduction" class="heading  py-2"><a href="#" title="go to top of document">Introduction</a><a class="raku-anchor" title="direct link" href="#Introduction">§</a></h2>
 <p id="f8d89da">The GraphViz block provides access to the <a href="https://graphviz.org">fabulous GraphViz software </a>. The contents of the block should be a figure/graph in the dot language. The contents are rendered into svg using the dot program, which must be installed into the environment. Since graph data are required, only the delimited form of the block (starting with =begin/=end) will be used. </p>
 
-<div class="id-target" id="Simple_example"></div><h2 id="Simple_example" class="heading  py-2"><a href="#" title="go to top of document">Simple example</a><a class="raku-anchor" title="direct link" href="#Simple_example">§</a></h2>
+<div class="id-target" id="Simple example"></div><h2 id="Simple_example" class="heading  py-2"><a href="#" title="go to top of document">Simple example</a><a class="raku-anchor" title="direct link" href="#Simple example">§</a></h2>
 <div class="graphviz"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -403,27 +403,27 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">=begin Graphviz</span><span style="color:var(--bulma-warning);font-weight:600;"> :headlevel(2) :captio</span><span style="color:var(--bulma-danger);font-weight:600;">n&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">Simple example</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    =begin Graphviz :headlevel(2) :caption&lt;Simple example&gt;
     digraph G {
-        main -</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> parse -</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> execute;
-        main -</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> init;
-        main -</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> cleanup;
-        execute -</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> make_string;
-        execute -</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> printf
-        init -</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> make_string;
-        main -</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> printf;
-        execute -</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> compare;
+        main -> parse -> execute;
+        main -> init;
+        main -> cleanup;
+        execute -> make_string;
+        execute -> printf
+        init -> make_string;
+        main -> printf;
+        execute -> compare;
     }
-=end Graphviz</span>
-</pre>
+=end Graphviz
+    </pre>
 </div>
                 </div>
             <h2 id="Gallery" class="heading  py-2"><a href="#" title="go to top of document">Gallery</a><a class="raku-anchor" title="direct link" href="#Gallery">§</a></h2>
 <p id="85addd8">The following are some great examples from <a href="https://graphviz.org/gallery">GraphViz.org's gallery </a>. They show the possibilities of GraphViz software without any post-processing. </p>
 
-<div class="id-target" id="Cluster_gradients"></div><h2 id="Cluster_gradients" class="heading  py-2"><a href="#" title="go to top of document">Cluster gradients</a><a class="raku-anchor" title="direct link" href="#Cluster_gradients">§</a></h2>
+<div class="id-target" id="Cluster gradients"></div><h2 id="Cluster_gradients" class="heading  py-2"><a href="#" title="go to top of document">Cluster gradients</a><a class="raku-anchor" title="direct link" href="#Cluster gradients">§</a></h2>
 <div class="graphviz"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -675,7 +675,7 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
+                    <label>RakuDoc</label>
                     <div><pre class="nohighlights">
 <span style="color:var(--bulma-danger);font-weight:600;">=begin Graphviz</span><span style="color:var(--bulma-warning);font-weight:600;"> :headlevel(2) :captio</span><span style="color:var(--bulma-danger);font-weight:600;">n&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">Cluster gradients</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
 digraph G {bgcolor="#0000FF44:#FF000044" gradientangle=90
@@ -733,7 +733,7 @@ digraph G {bgcolor="#0000FF44:#FF000044" gradientangle=90
 </div>
                 </div>
             
-<div class="id-target" id="Neural_network"></div><h2 id="Neural_network" class="heading  py-2"><a href="#" title="go to top of document">Neural network</a><a class="raku-anchor" title="direct link" href="#Neural_network">§</a></h2>
+<div class="id-target" id="Neural network"></div><h2 id="Neural_network" class="heading  py-2"><a href="#" title="go to top of document">Neural network</a><a class="raku-anchor" title="direct link" href="#Neural network">§</a></h2>
 <div class="graphviz"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -945,7 +945,7 @@ digraph G {bgcolor="#0000FF44:#FF000044" gradientangle=90
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
+                    <label>RakuDoc</label>
                     <div><pre class="nohighlights">
 <span style="color:var(--bulma-danger);font-weight:600;">=begin Graphviz</span><span style="color:var(--bulma-warning);font-weight:600;"> :captio</span><span style="color:var(--bulma-danger);font-weight:600;">n&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">Neural network</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> :headlevel(2)
 digraph G {
@@ -980,7 +980,7 @@ digraph G {
 </div>
                 </div>
             
-<div class="id-target" id="Color_wheel"></div><h2 id="Color_wheel" class="heading  py-2"><a href="#" title="go to top of document">Color wheel</a><a class="raku-anchor" title="direct link" href="#Color_wheel">§</a></h2>
+<div class="id-target" id="Color wheel"></div><h2 id="Color_wheel" class="heading  py-2"><a href="#" title="go to top of document">Color wheel</a><a class="raku-anchor" title="direct link" href="#Color wheel">§</a></h2>
 <div class="graphviz"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -2172,7 +2172,7 @@ digraph G {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
+                    <label>RakuDoc</label>
                     <div><pre class="nohighlights">
 <span style="color:var(--bulma-danger);font-weight:600;">=begin Graphviz</span><span style="color:var(--bulma-warning);font-weight:600;"> :captio</span><span style="color:var(--bulma-danger);font-weight:600;">n&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">Color wheel</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;"> :headlevel(2)
 graph Color_wheel {
@@ -2399,7 +2399,6 @@ graph Color_wheel {
 
 
 <div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
-v0.3.0
 
 
 
@@ -2417,10 +2416,10 @@ v0.3.0
                 Rendered from <span class="footer-field">docs/plugins/plugins/Graphviz
             </div>
             <div class="level-item">
-                Rendered at 20:48 UTC on 2024-10-19
+                Rendered at 09:14 UTC on 2024-11-10
             </div>
             <div class="level-item">
-                Source last modified at 11:44 UTC on 2024-08-14
+                Source last modified at 22:11 UTC on 2024-11-05
             </div>
         </nav>
     </div>

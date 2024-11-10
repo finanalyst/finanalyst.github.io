@@ -303,10 +303,10 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">RAKUDO_RAKUAST</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">1 </span><span style="color:var(--bulma-info);font-weight:600;">raku</span> <span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">Generic rakudociem</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">ipsum</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc </span><span style="color:var(--bulma-success);font-weight:600;">></span><span style="color:var(--bulma-black);font-weight:600;"> store</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">output</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    RAKUDO_RAKUAST=1 raku --rakudoc=Generic rakudociem-ipsum.rakudoc > store-output
+    </pre>
 </div>
                 </div>
             <p id="58b8f3d">Some <a href="#Wrapping">naive wrapping and width modification</a> is possible using environment variables. </p>
@@ -314,10 +314,10 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-info);font-weight:600;">get</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">compliance</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">document</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/get-compliance-document
+    </pre>
 </div>
                 </div>
             <p id="3cf5954">A copy of <span class="code">rakudociem-ipsum.rakudoc</span> is also contained in <span class="code">resources/compliance-rendering</span>, together with renderings of the file using the output renderers in this distribution. </p>
@@ -325,10 +325,10 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderTextify rakudociem</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">ipsum</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderTextify rakudociem-ipsum
+    </pre>
 </div>
                 </div>
             <p id="416d7d2">(the .rakudoc extension may be omitted if desired) </p>
@@ -336,10 +336,10 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderDocs README</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderDocs README
+    </pre>
 </div>
                 </div>
             <h2 id="Documentation" class="heading  py-2"><a href="#" title="go to top of document">Documentation</a><a class="raku-anchor" title="direct link" href="#Documentation">§</a></h2>
@@ -352,26 +352,26 @@ function swap_toc_index(activate) {
 </li>
 </ul>
 
-<div class="id-target" id="RenderTextify_utility"></div><h2 id="RenderTextify_utility" class="heading  py-2"><a href="#" title="go to top of document">RenderTextify utility</a><a class="raku-anchor" title="direct link" href="#RenderTextify_utility">§</a></h2>
+<div class="id-target" id="RenderTextify utility"></div><h2 id="RenderTextify_utility" class="heading  py-2"><a href="#" title="go to top of document">RenderTextify utility</a><a class="raku-anchor" title="direct link" href="#RenderTextify utility">§</a></h2>
 <p id="422ea35">The utility <span class="code">bin/RenderTexify</span> can be called with a RakuDoc source and it saves the result directly to a file, rather than to STDOUT. </p>
 <p id="c976c61">For example, </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderTextify rakudociem</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">ipsum</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderTextify rakudociem-ipsum
+    </pre>
 </div>
                 </div>
             <p id="6d462ae">will produce the file </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">rakudociem</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">ipsum</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">text</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    rakudociem-ipsum.rakudoc.text
+    </pre>
 </div>
                 </div>
             <p id="a1f873a">The executable <span class="code">bin/RenderTexify</span> can also be called with the flags <span class="code">test</span> and <span class="code">pretty</span> and the name of a file to render. The use case of these options is to see what templates receive from the rendering engine when developing new templates. </p>
@@ -380,20 +380,20 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderTextify </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">pretty rakudociem</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">ipsum</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderTextify --pretty rakudociem-ipsum
+    </pre>
 </div>
                 </div>
             <p id="6d462ae">will produce the file </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">rakudociem</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">ipsum</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">pretty</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">text</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    rakudociem-ipsum.rakudoc.pretty.text
+    </pre>
 </div>
                 </div>
             <h2 id="Wrapping" class="heading  py-2"><a href="#" title="go to top of document">Wrapping</a><a class="raku-anchor" title="direct link" href="#Wrapping">§</a></h2>
@@ -401,54 +401,54 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">POSTPROCESSING</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">1 RAKUDO_RAKUAST</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">1 </span><span style="color:var(--bulma-info);font-weight:600;">raku</span> <span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">Generic doc</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc </span><span style="color:var(--bulma-success);font-weight:600;">></span><span style="color:var(--bulma-black);font-weight:600;"> store</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">output</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    POSTPROCESSING=1 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc > store-output
+    </pre>
 </div>
                 </div>
             <p id="7fa2f84">or </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderTextify </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">post</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">processing doc</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderTextify --post-processing doc
+    </pre>
 </div>
                 </div>
             <p id="96f3270">If the environment variable WIDTH (--width) is also set, the text output will be wrapped to the value. WIDTH by default is set at 80 chars. To set at 70, use: </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">POSTPROCESSING</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">1 WIDTH</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">70 RAKUDO_RAKUAST</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">1 </span><span style="color:var(--bulma-info);font-weight:600;">raku</span> <span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">Generic doc</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">rakudoc </span><span style="color:var(--bulma-success);font-weight:600;">></span><span style="color:var(--bulma-black);font-weight:600;"> store</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">output</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    POSTPROCESSING=1 WIDTH=70 RAKUDO_RAKUAST=1 raku --rakudoc=Generic doc.rakudoc > store-output
+    </pre>
 </div>
                 </div>
             <p id="7fa2f84">or </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderTextify </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">post</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">processing </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">width</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">70 doc</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderTextify --post-processing --width=70 doc
+    </pre>
 </div>
                 </div>
             <p id="29350b2">The utility can also be used for debugging new templates. For more information, see the Render and Templates documents. To get all the debugging information, and information on the template for <span class="code">C-markup</span> try </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderTextify </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">debug</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">All</span><span style="color:var(--bulma-black);font-weight:600;">'</span> <span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">verbose</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">C-markup</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;"> doc</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderTextify --debug='All' --verbose='C-markup' doc
+    </pre>
 </div>
                 </div>
             
-<div class="id-target" id="RenderDocs_utility"></div><h2 id="RenderDocs_utility" class="heading  py-2"><a href="#" title="go to top of document">RenderDocs utility</a><a class="raku-anchor" title="direct link" href="#RenderDocs_utility">§</a></h2>
+<div class="id-target" id="RenderDocs utility"></div><h2 id="RenderDocs_utility" class="heading  py-2"><a href="#" title="go to top of document">RenderDocs utility</a><a class="raku-anchor" title="direct link" href="#RenderDocs utility">§</a></h2>
 <p id="acc9fb2"><span class="important">RenderDoc</span> is similar to RenderTextify, but uses the other formats in this distribution, namely </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> <p id="b952249"><span class="basis">.md</span> - Markdown (default) </p>
@@ -462,60 +462,60 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderDocs</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderDocs
+    </pre>
 </div>
                 </div>
             <p id="1cb6d95">In order to get the useage try </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderDocs </span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">h</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderDocs -h
+    </pre>
 </div>
                 </div>
             <p id="32734c6">In order to render a single file, put the basename without <span class="important">.rakudoc</span> as a string parameter, eg. </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderDocs README</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderDocs README
+    </pre>
 </div>
                 </div>
             <p id="daaff92">In order to override the source and output defaults use <span class="code">--src</span> and <span class="code">--to</span> options, eg. </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">RenderDocs </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">src</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">sources/</span><span style="color:var(--bulma-black);font-weight:600;">'</span> <span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-info);font-weight:600;">to</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">rendered/</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;"> some</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-info);font-weight:600;">file</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/RenderDocs --src='sources/' --to='rendered/' some-file
+    </pre>
 </div>
                 </div>
             <p id="21f9a8c">In order to get single file HTML, rather than markdown </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">Render </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-info);font-weight:600;">to</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">rendered</span><span style="color:var(--bulma-black);font-weight:600;">'</span> <span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">html </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">single README</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/Render --to='rendered' --html --single README
+    </pre>
 </div>
                 </div>
             <p id="36602c7">In order to get the possibilities offered by RakuDoc::To::HTML-Extra, including maps, graphs, themes and the Bulma CSS framework, use <span class="code">--html</span> and <span class="code">--extra</span>, eg. </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">Render </span><span style="color:var(--bulma-success);font-weight:600;">--</span><span style="color:var(--bulma-black);font-weight:600;">html Graphviz</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/Render --html Graphviz
+    </pre>
 </div>
                 </div>
             <p id="c5289bf">The <span class="basis">html</span> variants allow for <span class="code">--debug</span> and <span class="code">--verbose</span>, which are described in <a href="Render.txt">Render</a>. </p>
@@ -525,35 +525,35 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-success);font-weight:600;">===</span><span style="color:var(--bulma-black);font-weight:600;">SORRY</span><span style="color:var(--bulma-success);font-weight:600;">!=</span><span style="color:var(--bulma-success);font-weight:600;">==</span><span style="color:var(--bulma-black);font-weight:600;">
-    This element </span><span style="color:var(--bulma-primary);font-weight:600;">has</span> <span style="color:var(--bulma-success);font-weight:600;">not</span><span style="color:var(--bulma-black);font-weight:600;"> been resolved</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;"> Type</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;"> RakuAST</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">Type</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">Simple</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    ===SORRY!===
+This element has not been resolved. Type: RakuAST::Type::Simple
+    </pre>
 </div>
                 </div>
             <p id="7fa2f84">or </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">Out</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-primary);font-weight:600;">of</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">sync </span><span style="color:var(--bulma-info);font-weight:600;">package</span><span style="color:var(--bulma-black);font-weight:600;"> detected </span><span style="color:var(--bulma-info);font-weight:600;">in</span><span style="color:var(--bulma-black);font-weight:600;"> LANG1 </span><span style="color:var(--bulma-info);font-weight:600;">at</span> <span style="color:var(--bulma-info);font-weight:600;">r</span> <span style="color:var(--bulma-success);font-weight:600;">=></span> <span style="color:var(--bulma-danger);font-weight:600;">Str</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;">｢</span><span style="color:var(--bulma-warning);font-weight:600;">{ $!front-matter }</span><span style="color:var(--bulma-black);font-weight:600;">｣</span><span style="color:var(--bulma-black);font-weight:600;">
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    Out-of-sync package detected in LANG1 at r => Str=｢{ $!front-matter }｣
 
-  (</span><span style="color:var(--bulma-info);font-weight:600;">value</span> <span style="color:var(--bulma-info);font-weight:600;">in</span><span style="color:var(--bulma-black);font-weight:600;"> braid</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;"> RakuAST</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">Class</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-info);font-weight:600;">value</span> <span style="color:var(--bulma-info);font-weight:600;">in</span> <span style="color:var(--bulma-link);font-weight:600;">$*PACKAGE</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;"> RakuAST</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">Class)
-</span><span style="color:var(--bulma-success);font-weight:600;">===</span><span style="color:var(--bulma-black);font-weight:600;">SORRY</span><span style="color:var(--bulma-success);font-weight:600;">!=</span><span style="color:var(--bulma-success);font-weight:600;">==</span><span style="color:var(--bulma-black);font-weight:600;">
-No such </span><span style="color:var(--bulma-primary);font-weight:600;">method</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">IMPL-REGEX-QAST</span><span style="color:var(--bulma-black);font-weight:600;">'</span> <span style="color:var(--bulma-primary);font-weight:600;">for</span> <span style="color:var(--bulma-info);font-weight:600;">invocant</span> <span style="color:var(--bulma-primary);font-weight:600;">of</span> <span style="color:var(--bulma-info);font-weight:600;">type</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">RakuAST::Regex</span><span style="color:var(--bulma-black);font-weight:600;">'</span>
-</pre>
+  (value in braid: RakuAST::Class, value in $*PACKAGE: RakuAST::Class)
+===SORRY!===
+No such method 'IMPL-REGEX-QAST' for invocant of type 'RakuAST::Regex'
+    </pre>
 </div>
                 </div>
             <p id="347a187">then try </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>Raku highlighting</label>
-                    <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;">bin</span><span style="color:var(--bulma-success);font-weight:600;">/</span><span style="color:var(--bulma-black);font-weight:600;">force</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">compile</span>
-</pre>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    bin/force-compile
+    </pre>
 </div>
                 </div>
             <p id="4633367">This deletes the <span class="code">.precomp</span> files in the current directory, and runs <span class="code">prove6 -I.</span>, which causes a recompilation of all the modules. </p>
@@ -564,7 +564,6 @@ Richard Hainsworth aka finanalyst
 
 
 <div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
-v0.5.0
 
 
 
@@ -582,10 +581,10 @@ v0.5.0
                 Rendered from <span class="footer-field">docs/README
             </div>
             <div class="level-item">
-                Rendered at 20:45 UTC on 2024-10-19
+                Rendered at 09:13 UTC on 2024-11-10
             </div>
             <div class="level-item">
-                Source last modified at 21:00 UTC on 2024-10-16
+                Source last modified at 10:30 UTC on 2024-11-09
             </div>
         </nav>
     </div>

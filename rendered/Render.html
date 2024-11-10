@@ -317,12 +317,12 @@ function swap_toc_index(activate) {
 <h3 id="Customisability" class="heading  py-2"><a href="#" title="go to top of document">Customisability</a><a class="raku-anchor" title="direct link" href="#Customisability">§</a></h3>
 <p id="389c5ca">RakuDoc allows for customisability. This renderer handles customisability via the template mechanism. </p>
 
-<div class="id-target" id="Custom_blocks"></div><h4 id="Custom_blocks" class="heading  py-2"><a href="#" title="go to top of document">Custom blocks</a><a class="raku-anchor" title="direct link" href="#Custom_blocks">§</a></h4>
+<div class="id-target" id="Custom blocks"></div><h4 id="Custom_blocks" class="heading  py-2"><a href="#" title="go to top of document">Custom blocks</a><a class="raku-anchor" title="direct link" href="#Custom blocks">§</a></h4>
 <p id="f796cfc">When custom block is detected according to the RakuDoc v2 spelling rules, an <span class="basis">RPO</span> will check whether a template exists with that name. </p>
 <p id="9b11ca6">If a template has been attached to an <span class="basis">RPO</span>, then the rendered content of the block (including rendered embedded RakuDoc instructions) will be provided to the template as <span class="code">contents</span> and the verbatim contents with no renderering will be provided as <span class="code">raw</span>. </p>
 <p id="f97427a">So a new block can be created by attaching a template with the blockname to the <span class="basis">RPO</span>. </p>
 
-<div class="id-target" id="Custom_markup_codes"></div><h4 id="Custom_markup_codes" class="heading  py-2"><a href="#" title="go to top of document">Custom markup codes</a><a class="raku-anchor" title="direct link" href="#Custom_markup_codes">§</a></h4>
+<div class="id-target" id="Custom markup codes"></div><h4 id="Custom_markup_codes" class="heading  py-2"><a href="#" title="go to top of document">Custom markup codes</a><a class="raku-anchor" title="direct link" href="#Custom markup codes">§</a></h4>
 <p id="cc3389a">RakuDoc v2 allows for custom markup codes in two ways: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> <p id="b121c46">the <span class="code"> M< DISPLAY | FUNCTION ; list of comma delimited strings > </span> </p>
@@ -331,10 +331,10 @@ function swap_toc_index(activate) {
 </li>
 </ul>
 
-<div class="id-target" id="Markup_M"></div><h5 id="Markup_M" class="heading  py-2"><a href="#" title="go to top of document">Markup M</a><a class="raku-anchor" title="direct link" href="#Markup_M">§</a></h5>
+<div class="id-target" id="Markup M"></div><h5 id="Markup_M" class="heading  py-2"><a href="#" title="go to top of document">Markup M</a><a class="raku-anchor" title="direct link" href="#Markup M">§</a></h5>
 <p id="0d6e36d">When a <span class="code"> M< DISPLAY | FUNCTION ; LIST > </span> is encountered, the renderer will look for a template named in the <span class="replace">FUNCTION</span> position. If no such template exists, the text will be rendered verbatim and a warning logged. </p>
 
-<div class="id-target" id="Markup_UNICODE[upper]"></div><h5 id="Markup_UNICODE[upper]" class="heading  py-2"><a href="#" title="go to top of document">Markup UNICODE[upper]</a><a class="raku-anchor" title="direct link" href="#Markup_UNICODE[upper]">§</a></h5>
+<div class="id-target" id="Markup UNICODE[upper]"></div><h5 id="Markup_UNICODE[upper]" class="heading  py-2"><a href="#" title="go to top of document">Markup UNICODE[upper]</a><a class="raku-anchor" title="direct link" href="#Markup UNICODE[upper]">§</a></h5>
 <p id="d42c4d4">When some custom markup is encountered, the renderer will </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> <p id="22b3181">check that the character, eg Ɵ (Greek Capital Theta), has the unicode property <span class="important">Upper</span>; </p>
@@ -344,7 +344,7 @@ function swap_toc_index(activate) {
 </ul>
 <p id="0573f8a">Thus in order to create a new markup code, create an appropriately named template and add it to the <span class="basis">RPO</span>. </p>
 
-<div class="id-target" id="Global_data_accessible_in_templates"></div><h4 id="Global_data_accessible_in_templates" class="heading  py-2"><a href="#" title="go to top of document">Global data accessible in templates</a><a class="raku-anchor" title="direct link" href="#Global_data_accessible_in_templates">§</a></h4>
+<div class="id-target" id="Global data accessible in templates"></div><h4 id="Global_data_accessible_in_templates" class="heading  py-2"><a href="#" title="go to top of document">Global data accessible in templates</a><a class="raku-anchor" title="direct link" href="#Global data accessible in templates">§</a></h4>
 <p id="194c97a">More information is available in <a href="Templates">Templates</a>. </p>
 <p id="094f0a8">All templates can attach items to the Table of Contents, Index, Footnotes, and Warnings structures of the rendered source using the helper methods. </p>
 <p id="dee143f">The following helper methods are available: </p>
@@ -374,9 +374,9 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-    <span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> RakuDoc</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">Processor </span><span style="color:var(--bulma-link);font-weight:600;">$rdp</span> <span style="color:var(--bulma-success);font-weight:600;">.=</span><span style="color:var(--bulma-info);font-weight:600;">new</span><span style="color:var(--bulma-black);font-weight:600;">( </span><span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">test );
-    </span><span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">debug( AstBlock</span><span style="color:var(--bulma-success);font-weight:600;">,</span><span style="color:var(--bulma-black);font-weight:600;"> Templates);
-    </span><span style="color:var(--bulma-link);font-weight:600;">$ast</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-black);font-weight:600;">Q:to/QAST/</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-danger);font-weight:600;">AST</span><span style="color:var(--bulma-black);font-weight:600;">;
+<span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> RakuDoc::Processor </span><span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-black);font-weight:600;"> .=</span><span style="color:var(--bulma-info);font-weight:600;">new</span><span style="color:var(--bulma-black);font-weight:600;">( :test );
+    </span><span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-black);font-weight:600;">.debug( AstBlock</span><span style="color:var(--bulma-success);font-weight:600;">,</span><span style="color:var(--bulma-black);font-weight:600;"> Templates);
+    </span><span style="color:var(--bulma-link);font-weight:600;">$ast</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-black);font-weight:600;">Q:to/QAST/</span><span style="color:var(--bulma-black);font-weight:600;">.</span><span style="color:var(--bulma-danger);font-weight:600;">AST</span><span style="color:var(--bulma-black);font-weight:600;">;
 </span><span style="color:var(--bulma-warning);font-weight:600;">    =begin rakudoc
     =head This is a header
 
@@ -385,8 +385,8 @@ function swap_toc_index(activate) {
     =end rakudoc</span><span style="color:var(--bulma-black);font-weight:600;">
     QAST</span>
 
-    <span style="color:var(--bulma-link);font-weight:600;">$rv</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">render( </span><span style="color:var(--bulma-link);font-weight:600;">$ast</span><span style="color:var(--bulma-success);font-weight:600;">,</span> <span style="color:var(--bulma-success);font-weight:600;">:</span><span style="color:var(--bulma-black);font-weight:600;">pre</span><span style="color:var(--bulma-success);font-weight:600;">-</span><span style="color:var(--bulma-black);font-weight:600;">finalised );
-    </span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">myOutput</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-danger);font-weight:600;">IO</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-info);font-weight:600;">spurt</span><span style="color:var(--bulma-success);font-weight:600;">:</span> <span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-success);font-weight:600;">.</span><span style="color:var(--bulma-black);font-weight:600;">finalise</span>
+    <span style="color:var(--bulma-link);font-weight:600;">$rv</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-black);font-weight:600;">.render( </span><span style="color:var(--bulma-link);font-weight:600;">$ast</span><span style="color:var(--bulma-success);font-weight:600;">,</span><span style="color:var(--bulma-black);font-weight:600;"> :pre-finalised );
+    </span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">myOutput</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">.</span><span style="color:var(--bulma-danger);font-weight:600;">IO</span><span style="color:var(--bulma-black);font-weight:600;">.spurt: </span><span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-black);font-weight:600;">.finalise</span>
 </pre>
 </div>
                 </div>
@@ -402,7 +402,7 @@ function swap_toc_index(activate) {
 </li>
 </ul>
 
-<div class="id-target" id="Debug_options"></div><h4 id="Debug_options" class="heading  py-2"><a href="#" title="go to top of document">Debug options</a><a class="raku-anchor" title="direct link" href="#Debug_options">§</a></h4>
+<div class="id-target" id="Debug options"></div><h4 id="Debug_options" class="heading  py-2"><a href="#" title="go to top of document">Debug options</a><a class="raku-anchor" title="direct link" href="#Debug options">§</a></h4>
 <p id="bce5bad">The following options are available: </p>
 
 <ul><li class="item" data-bullet="•" style="--level:0;"> None removes all previous debugging</li>
@@ -418,28 +418,55 @@ function swap_toc_index(activate) {
 <p id="31b3c80">The Test and Pretty options described in <a href="Templates">the Templates documentation</a> can be set on an <span class="basis">RPO</span>, eg. $rdp.test( True ); $rdp.pretty( True ); </p>
 <p id="d33db3c">Bear in mind that the <span class="basis">pretty</span> flag overrides the <span class="basis">test</span> flag, and both override the <span class="basis">debug</span> and <span class="basis">verbose</span> flags. </p>
 
-<div class="id-target" id="Environment_variables"></div><h2 id="Environment_variables" class="heading  py-2"><a href="#" title="go to top of document">Environment variables</a><a class="raku-anchor" title="direct link" href="#Environment_variables">§</a></h2>
+<div class="id-target" id="Environment variables"></div><h2 id="Environment_variables" class="heading  py-2"><a href="#" title="go to top of document">Environment variables</a><a class="raku-anchor" title="direct link" href="#Environment variables">§</a></h2>
 <p id="aa34249">By setting the environment variable POSTPROCESSING=1 the text output will be naively wrapped. </p>
-<p id="189b0ff">For example, POSTPROCESSING=1 bin/RenderTextify --pretty rakudociem-ipsum </p>
-<p id="d0c9c25">If the environment variable WIDTH is also set, the text output will be wrapped to the value. </p>
-<p id="b2879cf">WIDTH by default is set at 80 chars. To set at 70, use: POSTPROCESSING=1 WIDTH=70 bin/RenderTextify rakudociem-ipsum </p>
+<p id="c976c61">For example, </p>
 
-<div class="id-target" id="Paragraph_id"></div><h2 id="Paragraph_id" class="heading  py-2"><a href="#" title="go to top of document">Paragraph id</a><a class="raku-anchor" title="direct link" href="#Paragraph_id">§</a></h2>
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    POSTPROCESSING=1 bin/RenderTextify --pretty rakudociem-ipsum
+    </pre>
+</div>
+                </div>
+            <p id="d0c9c25">If the environment variable WIDTH is also set, the text output will be wrapped to the value. </p>
+<p id="93e2b3d">WIDTH by default is set at 80 chars. To set at 70, use: </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    POSTPROCESSING=1 WIDTH=70 bin/RenderTextify rakudociem-ipsum
+    </pre>
+</div>
+                </div>
+            
+<div class="id-target" id="Paragraph id"></div><h2 id="Paragraph_id" class="heading  py-2"><a href="#" title="go to top of document">Paragraph id</a><a class="raku-anchor" title="direct link" href="#Paragraph id">§</a></h2>
 <p id="d37a747">Since sometimes it is necessary to target a specific paragraph, some paragraphs get an automated id based on the last Seven hex chars of the SHA1 encoding of its contents. </p>
 <p id="cea9f65">Seven chars should be adequate so long as the number of paragraphs in a single document is below 16,000. </p>
 <div class="nested"><p id="0fd5c2b">Based on the expectation that we would see collision in a repository with 2^(2N) objects when using object names shortened to first N bits <a href="https://stackoverflow.com/questions/18134627/how-much-of-a-git-sha-is-generally-considered-necessary-to-uniquely-identify-a">Stackoverflow question</a> </p>
 </div>
 <p id="f349f6f">Long texts or books will probably need more to avoid a conflict. This can be done by setting <span class="code">paragraph-id-length</span> in the %structure-data to the required number of hex digits. </p>
 
-<div class="id-target" id="Writing_a_new_Render"></div><h2 id="Writing_a_new_Render" class="heading  py-2"><a href="#" title="go to top of document">Writing a new Render</a><a class="raku-anchor" title="direct link" href="#Writing_a_new_Render">§</a></h2>
+<div class="id-target" id="Writing a new Render"></div><h2 id="Writing_a_new_Render" class="heading  py-2"><a href="#" title="go to top of document">Writing a new Render</a><a class="raku-anchor" title="direct link" href="#Writing a new Render">§</a></h2>
 <p id="cf1766c">Typically, it should only be necessary to change the templates of an existing renderer to alter the way output is formated. But for a new type of format, a new renderer will be needed. </p>
 <p id="2cf2224">It is best to look at the code for the HTML renderer to see how to write a renderer. The following are only very brief notes. </p>
 <p id="106878a">A new renderer for a new output format will need: </p>
 
 <ol><li class="item" data-bullet="1." style="--level:0;"> <p id="f6c19f7">A processor class, which is sub-classed from <span class="code">RakuDoc::Processor</span>. The <span class="code">escape</span> method will need to be over-ridden. </p>
 </li>
-<li class="item" data-bullet="2." style="--level:0;"> <p id="556f8f6">A Renderer class which must be called <span class="code">RakuDoc::To::NEWFORMAT</span>. This is required so that the code raku --rakudoc=NEWFORMAT input-file.rakudoc > output-filename.newformat </p>
-<p id="bfe4478">will work. </p>
+<li class="item" data-bullet="2." style="--level:0;"> <p id="f736188">A Renderer class which must be called <span class="code">RakuDoc::To::NEWFORMAT</span>. This is required so that the code </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>text</label>
+                    <div>    <pre class="nohighlights">
+    raku --rakudoc=NEWFORMAT input-file.rakudoc > output-filename.newformat
+    </pre>
+</div>
+                </div>
+            <p id="bfe4478">will work. </p>
 </li>
 <li class="item" data-bullet="3." style="--level:0;"> <p id="1f857a0">The Renderer class must contain the method <span class="code">render( $ast )</span>, which is needed by the raku compiler, as noted above. </p>
 </li>
@@ -452,7 +479,6 @@ Richard Hainsworth aka finanalyst
 
 
 <div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading  py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
-v0.3.0
 
 
 
@@ -470,10 +496,10 @@ v0.3.0
                 Rendered from <span class="footer-field">docs/Render
             </div>
             <div class="level-item">
-                Rendered at 20:45 UTC on 2024-10-19
+                Rendered at 09:13 UTC on 2024-11-10
             </div>
             <div class="level-item">
-                Source last modified at 21:00 UTC on 2024-10-16
+                Source last modified at 22:11 UTC on 2024-11-05
             </div>
         </nav>
     </div>
