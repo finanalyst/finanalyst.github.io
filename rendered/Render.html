@@ -325,14 +325,14 @@ function swap_toc_index(activate) {
 <div class="id-target" id="Custom markup codes"></div><h4 id="Custom_markup_codes" class="heading py-2"><a href="#" title="go to top of document">Custom markup codes</a><a class="raku-anchor" title="direct link" href="#Custom markup codes">§</a></h4>
 <p id="cc3389a">RakuDoc v2 allows for custom markup codes in two ways: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="b121c46">the <span class="code"> M< DISPLAY | FUNCTION ; list of comma delimited strings > </span> </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="50ca0f5">the <span class="code">M&lt; DISPLAY | FUNCTION ; list of comma delimited strings &gt;</span> </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="f33d7a5">a single Unicode (not ASCII ) character with the <span class="important">upper</span> property. </p>
 </li>
 </ul>
 
 <div class="id-target" id="Markup M"></div><h5 id="Markup_M" class="heading py-2"><a href="#" title="go to top of document">Markup M</a><a class="raku-anchor" title="direct link" href="#Markup M">§</a></h5>
-<p id="0d6e36d">When a <span class="code"> M< DISPLAY | FUNCTION ; LIST > </span> is encountered, the renderer will look for a template named in the <span class="replace">FUNCTION</span> position. If no such template exists, the text will be rendered verbatim and a warning logged. </p>
+<p id="598c853">When a <span class="code">M&lt; DISPLAY | FUNCTION ; LIST &gt;</span> is encountered, the renderer will look for a template named in the <span class="replace">FUNCTION</span> position. If no such template exists, the text will be rendered verbatim and a warning logged. </p>
 
 <div class="id-target" id="Markup UNICODE[upper]"></div><h5 id="Markup_UNICODE[upper]" class="heading py-2"><a href="#" title="go to top of document">Markup UNICODE[upper]</a><a class="raku-anchor" title="direct link" href="#Markup UNICODE[upper]">§</a></h5>
 <p id="d42c4d4">When some custom markup is encountered, the renderer will </p>
@@ -374,29 +374,29 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-primary);font-weight:600;">my</span><span style="color:var(--bulma-black);font-weight:600;"> RakuDoc::Processor </span><span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-black);font-weight:600;"> .=</span><span style="color:var(--bulma-info);font-weight:600;">new</span><span style="color:var(--bulma-black);font-weight:600;">( :test );
-    </span><span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-black);font-weight:600;">.debug( AstBlock</span><span style="color:var(--bulma-success);font-weight:600;">,</span><span style="color:var(--bulma-black);font-weight:600;"> Templates);
-    </span><span style="color:var(--bulma-link);font-weight:600;">$ast</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-black);font-weight:600;">Q:to/QAST/</span><span style="color:var(--bulma-black);font-weight:600;">.</span><span style="color:var(--bulma-danger);font-weight:600;">AST</span><span style="color:var(--bulma-black);font-weight:600;">;
-</span><span style="color:var(--bulma-warning);font-weight:600;">    =begin rakudoc
+<span style="color:var(--bulma-primary);font-weight:500;">my</span><span style="color:var(--bulma-black);font-weight:500;"> RakuDoc::Processor </span><span style="color:var(--bulma-link-40);font-weight:500;">$rdp</span><span style="color:var(--bulma-black);font-weight:500;"> .=</span><span style="color:var(--bulma-info-30);font-weight:500;">new</span><span style="color:var(--bulma-black);font-weight:500;">( :test );
+    </span><span style="color:var(--bulma-link-40);font-weight:500;">$rdp</span><span style="color:var(--bulma-black);font-weight:500;">.debug( AstBlock</span><span style="color:var(--bulma-success);font-weight:500;">,</span><span style="color:var(--bulma-black);font-weight:500;"> Templates);
+    </span><span style="color:var(--bulma-link-40);font-weight:500;">$ast</span> <span style="color:var(--bulma-success);font-weight:500;">=</span> <span style="color:var(--bulma-primary-40);font-weight:500;">Q:to/QAST/</span><span style="color:var(--bulma-black);font-weight:500;">.</span><span style="color:var(--bulma-danger);font-weight:500;">AST</span><span style="color:var(--bulma-black);font-weight:500;">;
+</span><span style="color:var(--bulma-info-40);font-weight:500;">    =begin rakudoc
     =head This is a header
 
     Some text
 
-    =end rakudoc</span><span style="color:var(--bulma-black);font-weight:600;">
+    =end rakudoc</span><span style="color:var(--bulma-primary-40);font-weight:500;">
     QAST</span>
 
-    <span style="color:var(--bulma-link);font-weight:600;">$rv</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-black);font-weight:600;">.render( </span><span style="color:var(--bulma-link);font-weight:600;">$ast</span><span style="color:var(--bulma-success);font-weight:600;">,</span><span style="color:var(--bulma-black);font-weight:600;"> :pre-finalised );
-    </span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">myOutput</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">.</span><span style="color:var(--bulma-danger);font-weight:600;">IO</span><span style="color:var(--bulma-black);font-weight:600;">.spurt: </span><span style="color:var(--bulma-link);font-weight:600;">$rdp</span><span style="color:var(--bulma-black);font-weight:600;">.finalise</span>
+    <span style="color:var(--bulma-link-40);font-weight:500;">$rv</span> <span style="color:var(--bulma-success);font-weight:500;">=</span> <span style="color:var(--bulma-link-40);font-weight:500;">$rdp</span><span style="color:var(--bulma-black);font-weight:500;">.render( </span><span style="color:var(--bulma-link-40);font-weight:500;">$ast</span><span style="color:var(--bulma-success);font-weight:500;">,</span><span style="color:var(--bulma-black);font-weight:500;"> :pre-finalised );
+    </span><span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-info-40);font-weight:500;">myOutput</span><span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-black);font-weight:500;">.</span><span style="color:var(--bulma-danger);font-weight:500;">IO</span><span style="color:var(--bulma-black);font-weight:500;">.spurt: </span><span style="color:var(--bulma-link-40);font-weight:500;">$rdp</span><span style="color:var(--bulma-black);font-weight:500;">.finalise</span>
 </pre>
 </div>
                 </div>
             <p id="a8b339d">Commentary on the code </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="784bea7"><span class="code"> new( :test )</span> this attaches the test templates to the <span class="basis">RPO</span> </p>
+<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="cd98af5"><span class="code">new( :test )</span> this attaches the test templates to the <span class="basis">RPO</span> </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> the list inside the debug method may contain several entities as described below</li>
 <li class="item" data-bullet="•" style="--level:0;"> creation of an AST from a string, or it can be slurped in from a file.</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="cfcf4bc"><span class="code"> :pre-finalised </span> returns the RakuDoc::Processed object </p>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="38c1f68"><span class="code">:pre-finalised</span> returns the RakuDoc::Processed object </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="cbc6d4c">if called with <span class="code">:pre-finalised</span>, calling <span class="code">finalise</span> returns a Str that can then be stored as a file. </p>
 </li>
@@ -496,7 +496,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Render
             </div>
             <div class="level-item">
-                Rendered at 22:54 UTC on 2024-11-10
+                Rendered at 23:13 UTC on 2024-11-11
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05

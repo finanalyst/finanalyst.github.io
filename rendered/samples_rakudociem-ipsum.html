@@ -397,7 +397,7 @@ function swap_toc_index(activate) {
 <p id="8b7807f">A paragraph to illustrate <span class="overstrike">Strikethrough type</span> formatting. </p>
 <p id="6c77298">A paragraph to illustrate <span class="high">Superscript type</span> formatting. (For text output, many terminals do not support superscript/subscript font positions, so consider using a colouration as well.) </p>
 <p id="b71b308">A paragraph to illustrate <span class="junior">Subscript type</span> formatting. </p>
-<p id="96d9528">A paragraph to illustrate <span class="code">Code type</span> formatting. It can contain other markup, eg. <span class="code">A<> markup</span>. </p>
+<p id="0eebf75">A paragraph to illustrate <span class="code">Code type</span> formatting. It can contain other markup, eg. <span class="code">A&lt;&gt; markup</span>. </p>
 <p id="e1dc119">A paragraph to illustrate Verbatim type formatting. It can contain other RakuDoc, eg. P&lt;defn:Happy&gt; without executing it. </p>
 <p id="bf63079">A paragraph to illustrate some >< formatting (in the source has Z&lt;Zero width&gt; between >< ). </p>
 <p id="a3a0780">A paragraph to illustrate <span class="keyboard">Keyboard</span> formatting. </p>
@@ -552,8 +552,8 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$x</span> <span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;"> 2;
-</span><span style="color:var(--bulma-black);font-weight:600;"># a brilliant program!</span>
+<span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link-40);font-weight:500;">$x</span> <span style="color:var(--bulma-success);font-weight:500;">=</span><span style="color:var(--bulma-black);font-weight:500;"> 2;
+</span><span style="color:var(--bulma-black);font-weight:500;"># a brilliant program!</span>
 </pre>
 </div>
                 </div>
@@ -573,8 +573,8 @@ my $x = 3;
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;"># indenting causes an implicit code block
-</span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$raku</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">fantastic</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+<span style="color:var(--bulma-black);font-weight:500;"># indenting causes an implicit code block
+</span><span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link-40);font-weight:500;">$raku</span> <span style="color:var(--bulma-success);font-weight:500;">=</span> <span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-info-40);font-weight:500;">fantastic</span><span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-black);font-weight:500;">;</span>
 </pre>
 </div>
                 </div>
@@ -648,11 +648,11 @@ Richard Hainsworth, aka finanalyst
 
 <div class="id-target" id="Scoping examples"></div><h2 id="Scoping_examples" class="heading py-2"><a href="#" title="go to top of document">Scoping examples</a><a class="raku-anchor" title="direct link" href="#Scoping examples">§</a></h2>
 <p id="6019325">Configuration and aliases are scoped. </p>
-<p id="27f38f5">Without configuration <span class="code">embedded B<markup> is rendered</span> verbatim. </p>
-<p id="0b14cdb">With configuration <span class="code">embedded <span class="basis">basis</span> markup</span> is rendered. </p>
+<p id="8673122">Without configuration <span class="code">embedded B&lt;markup&gt; is rendered</span> verbatim. </p>
+<p id="ceb6a85">With configuration <span class="code">embedded &lt;span class=&quot;basis&quot;&gt;basis&lt;/span&gt; markup</span> is rendered. </p>
 <p id="77125d7">How short the season when roses are red. </p>
 
-<p id="3fe2990">But configuration directives <span class="code">only B<apply> inside</span> a block scope. </p>
+<p id="642d6e6">But configuration directives <span class="code">only B&lt;apply&gt; inside</span> a block scope. </p>
 <p id="fda2c59">Did I mention before that: Do not consider this a disquisition of possible combinations. </p>
 <h2 id="Placements" class="heading py-2"><a href="#" title="go to top of document">Placements</a><a class="raku-anchor" title="direct link" href="#Placements">§</a></h2>
 <p id="bef1786">Renderers are required to place text and RakuDoc sources, but may fallback to text messages for other formats. </p>
@@ -748,7 +748,7 @@ Artistic-2.0
                 Rendered from <span class="footer-field">docs/samples/samples/rakudociem-ipsum
             </div>
             <div class="level-item">
-                Rendered at 22:54 UTC on 2024-11-10
+                Rendered at 23:13 UTC on 2024-11-11
             </div>
             <div class="level-item">
                 Source last modified at 09:38 UTC on 2024-08-07

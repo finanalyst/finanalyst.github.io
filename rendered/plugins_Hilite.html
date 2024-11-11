@@ -286,13 +286,13 @@ function swap_toc_index(activate) {
 <li class="item" data-bullet="•" style="--level:0;"> or @PatrickBoker's Rainbow highlighter (the default).</li>
 </ul>
 <p id="c8dffed">Since the <span class="important">Deparse</span> highlighter requires correct Raku code and generates an error when the code is not correct, while the <span class="important">Rainbow</span> highlighter is more forgiving, the latter is the default. </p>
-<p id="abab2a3">In order to select the <span class="important">Deparse</span> highlighter, use the option <span class="code">:highlighter<deparse> </span>, eg., </p>
+<p id="c929e41">In order to select the <span class="important">Deparse</span> highlighter, use the option <span class="code">:highlighter&lt;deparse&gt;</span>, eg., </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger);font-weight:600;">=begin code</span><span style="color:var(--bulma-warning);font-weight:600;"> :highlighte</span><span style="color:var(--bulma-danger);font-weight:600;">r&lt;</span&gt;<span style="color:var(--bulma-warning);font-weight:600;">deparse</span><span style="color:var(--bulma-danger);font-weight:600;">></span><span style="color:var(--bulma-warning);font-weight:600;">
+<span style="color:var(--bulma-danger-40);font-weight:500;">=begin code</span><span style="color:var(--bulma-success-40);font-weight:500;"> :highlighte</span><span style="color:var(--bulma-danger-40);font-weight:500;">r&lt;</span&gt;<span style="color:var(--bulma-success-40);font-weight:500;">deparse</span><span style="color:var(--bulma-danger-40);font-weight:500;">></span><span style="color:var(--bulma-success-40);font-weight:500;">
     ...
     =end code</span>
 </pre>
@@ -353,14 +353,14 @@ print(squares[4]())
                 </div>
             
 <div class="id-target" id="Raku examples"></div><h3 id="Raku_examples" class="heading py-2"><a href="#" title="go to top of document">Raku examples</a><a class="raku-anchor" title="direct link" href="#Raku examples">§</a></h3>
-<p id="7ed2edb">Inside a code block with no <span class="code">:lang</span> set, so Raku, <span class="code">:highlighter<deparse> </span> </p>
+<p id="d05c8b4">Inside a code block with no <span class="code">:lang</span> set, so Raku, <span class="code">:highlighter&lt;deparse&gt;</span> </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-success);font-weight:600;">my</span> <span style="color:var(--bulma-info);font-weight:600;">$x</span> <span style="color:var(--bulma-warning);font-weight:600;">=</span> <span style="color:var(--bulma-danger);font-weight:600;">2</span>;
-<span style="color:var(--bulma-link);font-weight:600;"># a brilliant program!</span>
+<span style="color:var(--bulma-success);font-weight:500;">my</span> <span style="color:var(--bulma-info);font-weight:500;">$x</span> <span style="color:var(--bulma-warning);font-weight:500;">=</span> <span style="color:var(--bulma-danger);font-weight:500;">2</span>;
+<span style="color:var(--bulma-link);font-weight:500;"># a brilliant program!</span>
 </pre>
 </div>
                 </div>
@@ -370,12 +370,12 @@ print(squares[4]())
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:600;"># indenting causes an implicit code block
-</span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$raku</span> <span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-warning);font-weight:600;">fantastic</span><span style="color:var(--bulma-black);font-weight:600;">'</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+<span style="color:var(--bulma-black);font-weight:500;"># indenting causes an implicit code block
+</span><span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link-40);font-weight:500;">$raku</span> <span style="color:var(--bulma-success);font-weight:500;">=</span> <span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-info-40);font-weight:500;">fantastic</span><span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-black);font-weight:500;">;</span>
 </pre>
 </div>
                 </div>
-            <p id="0345a8c">Code with <span class="code">:allow<B K> </span> so not highlighted </p>
+            <p id="442c367">Code with <span class="code">:allow&lt;B K&gt;</span> so not highlighted </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -393,15 +393,15 @@ my $x = 3;
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">@arr</span> <span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;"> [10</span><span style="color:var(--bulma-success);font-weight:600;">,</span><span style="color:var(--bulma-black);font-weight:600;"> 20</span><span style="color:var(--bulma-success);font-weight:600;">,</span><span style="color:var(--bulma-black);font-weight:600;"> 30];
-    </span><span style="color:var(--bulma-primary);font-weight:600;">my</span> <span style="color:var(--bulma-link);font-weight:600;">$i</span> <span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;"> 0;
+<span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link);font-weight:500;">@arr</span> <span style="color:var(--bulma-success);font-weight:500;">=</span><span style="color:var(--bulma-black);font-weight:500;"> [10</span><span style="color:var(--bulma-success);font-weight:500;">,</span><span style="color:var(--bulma-black);font-weight:500;"> 20</span><span style="color:var(--bulma-success);font-weight:500;">,</span><span style="color:var(--bulma-black);font-weight:500;"> 30];
+    </span><span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link-40);font-weight:500;">$i</span> <span style="color:var(--bulma-success);font-weight:500;">=</span><span style="color:var(--bulma-black);font-weight:500;"> 0;
 
-    </span><span style="color:var(--bulma-primary);font-weight:600;">if</span> <span style="color:var(--bulma-info);font-weight:600;">rand</span> <span style="color:var(--bulma-success);font-weight:600;">&lt;</span&gt;<span style="color:var(--bulma-black);font-weight:600;"> 1/2 {
-        </span><span style="color:var(--bulma-link);font-weight:600;">@arr</span><span style="color:var(--bulma-black);font-weight:600;">[</span><span style="color:var(--bulma-success);font-weight:600;">++</span><span style="color:var(--bulma-link);font-weight:600;">$i</span><span style="color:var(--bulma-black);font-weight:600;">] </span><span style="color:var(--bulma-success);font-weight:600;">+</span><span style="color:var(--bulma-success);font-weight:600;">=</span><span style="color:var(--bulma-black);font-weight:600;"> 1;                </span><span style="color:var(--bulma-black);font-weight:600;"># @arr = [10,21,30]
-</span><span style="color:var(--bulma-black);font-weight:600;">    } </span><span style="color:var(--bulma-primary);font-weight:600;">else</span><span style="color:var(--bulma-black);font-weight:600;"> {
-        </span><span style="color:var(--bulma-link);font-weight:600;">@arr</span><span style="color:var(--bulma-black);font-weight:600;">[</span><span style="color:var(--bulma-success);font-weight:600;">++</span><span style="color:var(--bulma-link);font-weight:600;">$i</span><span style="color:var(--bulma-black);font-weight:600;">] </span><span style="color:var(--bulma-success);font-weight:600;">=</span> <span style="color:var(--bulma-link);font-weight:600;">@arr</span><span style="color:var(--bulma-black);font-weight:600;">[</span><span style="color:var(--bulma-success);font-weight:600;">++</span><span style="color:var(--bulma-link);font-weight:600;">$i</span><span style="color:var(--bulma-black);font-weight:600;">] </span><span style="color:var(--bulma-success);font-weight:600;">+</span><span style="color:var(--bulma-black);font-weight:600;"> 1;    </span><span style="color:var(--bulma-black);font-weight:600;"># @arr = [10,31,30] (or [10,20,21]?)
-</span><span style="color:var(--bulma-black);font-weight:600;">    }                                   </span><span style="color:var(--bulma-black);font-weight:600;"># the result may be implementation-specific
-</span>    <span style="color:var(--bulma-info);font-weight:600;">say</span> <span style="color:var(--bulma-link);font-weight:600;">@arr</span><span style="color:var(--bulma-black);font-weight:600;">;</span>
+    </span><span style="color:var(--bulma-primary);font-weight:500;">if</span> <span style="color:var(--bulma-info-30);font-weight:500;">rand</span> <span style="color:var(--bulma-success);font-weight:500;">&lt;</span&gt;<span style="color:var(--bulma-black);font-weight:500;"> 1/2 {
+        </span><span style="color:var(--bulma-link);font-weight:500;">@arr</span><span style="color:var(--bulma-black);font-weight:500;">[</span><span style="color:var(--bulma-success);font-weight:500;">++</span><span style="color:var(--bulma-link-40);font-weight:500;">$i</span><span style="color:var(--bulma-black);font-weight:500;">] </span><span style="color:var(--bulma-success);font-weight:500;">+</span><span style="color:var(--bulma-success);font-weight:500;">=</span><span style="color:var(--bulma-black);font-weight:500;"> 1;                </span><span style="color:var(--bulma-black);font-weight:500;"># @arr = [10,21,30]
+</span><span style="color:var(--bulma-black);font-weight:500;">    } </span><span style="color:var(--bulma-primary);font-weight:500;">else</span><span style="color:var(--bulma-black);font-weight:500;"> {
+        </span><span style="color:var(--bulma-link);font-weight:500;">@arr</span><span style="color:var(--bulma-black);font-weight:500;">[</span><span style="color:var(--bulma-success);font-weight:500;">++</span><span style="color:var(--bulma-link-40);font-weight:500;">$i</span><span style="color:var(--bulma-black);font-weight:500;">] </span><span style="color:var(--bulma-success);font-weight:500;">=</span> <span style="color:var(--bulma-link);font-weight:500;">@arr</span><span style="color:var(--bulma-black);font-weight:500;">[</span><span style="color:var(--bulma-success);font-weight:500;">++</span><span style="color:var(--bulma-link-40);font-weight:500;">$i</span><span style="color:var(--bulma-black);font-weight:500;">] </span><span style="color:var(--bulma-success);font-weight:500;">+</span><span style="color:var(--bulma-black);font-weight:500;"> 1;    </span><span style="color:var(--bulma-black);font-weight:500;"># @arr = [10,31,30] (or [10,20,21]?)
+</span><span style="color:var(--bulma-black);font-weight:500;">    }                                   </span><span style="color:var(--bulma-black);font-weight:500;"># the result may be implementation-specific
+</span>    <span style="color:var(--bulma-info-30);font-weight:500;">say</span> <span style="color:var(--bulma-link);font-weight:500;">@arr</span><span style="color:var(--bulma-black);font-weight:500;">;</span>
 </pre>
 </div>
                 </div>
@@ -429,7 +429,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/plugins/plugins/Hilite
             </div>
             <div class="level-item">
-                Rendered at 22:54 UTC on 2024-11-10
+                Rendered at 23:14 UTC on 2024-11-11
             </div>
             <div class="level-item">
                 Source last modified at 22:23 UTC on 2024-09-18
