@@ -48,5 +48,6 @@ sub render-files (@to-be-rendered, $dir, $to ) {
         path => $ind.dirname,
     )));
     # prevent jekyll being invoked
-    "$to/.nojekyll".IO.spurt('')
+    "$to/.nojekyll".IO.spurt('');
+    ".nojekyll".IO.spurt('')
 }

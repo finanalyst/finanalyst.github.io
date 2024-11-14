@@ -17,7 +17,7 @@ label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyr
 div.graphviz{display:flex;justify-content:space-around;align-items:center}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
 </style>
 <style>/* hilite */
-.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}
+.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}.raku-code .rainbow-name_scalar{color:var(--bulma-link-40);font-weight:500}.raku-code .rainbow-name_array{color:var(--bulma-link);font-weight:500}.raku-code .rainbow-name_hash{color:var(--bulma-link-60);font-weight:500}.raku-code .rainbow-name_code{color:var(--bulma-info);font-weight:500}.raku-code .rainbow-keyword{color:var(--bulma-primary);font-weight:500}.raku-code .rainbow-operator{color:var(--bulma-success);font-weight:500}.raku-code .rainbow-type{color:var(--bulma-danger-60);font-weight:500}.raku-code .rainbow-routine{color:var(--bulma-info-30);font-weight:500}.raku-code .rainbow-string{color:var(--bulma-info-40);font-weight:500}.raku-code .rainbow-string_delimiter{color:var(--bulma-primary-40);font-weight:500}.raku-code .rainbow-escape{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-text{color:var(--bulma-black);font-weight:500}.raku-code .rainbow-comment{color:var(--bulma-success-30);font-weight:500}.raku-code .rainbow-regex_special{color:var(--bulma-success-60);font-weight:500}.raku-code .rainbow-regex_literal{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-regex_delimiter{color:var(--bulma-primary-60);font-weight:500}.raku-code .rainbow-pod_text{color:var(--bulma-success-40);font-weight:500}.raku-code .rainbow-pod_markup{color:var(--bulma-danger-40);font-weight:500}
 </style>
 <style>/* latexformula */
 div.latex-equation{display:flex;justify-content:space-around;align-items:center}div.latex-equation a.logo{align-self:flex-last}span.latex-formula{display:inline-block;cursor:crosshair}span.latex-formula a{display:none}span.latex-formula:hover>a{display:inline-block;position:absolute;transform:translate(-3rem, -2rem);background:#faebd7}.latex-render-error{color:red;font-weight:bold}
@@ -286,15 +286,13 @@ function swap_toc_index(activate) {
 <li class="item" data-bullet="•" style="--level:0;"> or @PatrickBoker's Rainbow highlighter (the default).</li>
 </ul>
 <p id="c8dffed">Since the <span class="important">Deparse</span> highlighter requires correct Raku code and generates an error when the code is not correct, while the <span class="important">Rainbow</span> highlighter is more forgiving, the latter is the default. </p>
-<p id="c929e41">In order to select the <span class="important">Deparse</span> highlighter, use the option <span class="code">:highlighter&lt;deparse&gt;</span>, eg., </p>
+<p id="261ab96">In order to select the <span class="important">Deparse</span> highlighter, use the option <span class="code">:highlighter&lt;deparse&gt; </span>, eg., </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-danger-40);font-weight:500;">=begin code</span><span style="color:var(--bulma-success-40);font-weight:500;"> :highlighte</span><span style="color:var(--bulma-danger-40);font-weight:500;">r&lt;</span&gt;<span style="color:var(--bulma-success-40);font-weight:500;">deparse</span><span style="color:var(--bulma-danger-40);font-weight:500;">></span><span style="color:var(--bulma-success-40);font-weight:500;">
-    ...
-    =end code</span>
+<span class="rainbow-pod_markup">    =begin code</span><span class="rainbow-pod_text"> :highlighte</span><span class="rainbow-pod_markup">r&lt;</span><span class="rainbow-pod_text">deparse</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>    ...<br>    =end code</span><span class="rainbow-pod_markup"></span>
 </pre>
 </div>
                 </div>
@@ -353,7 +351,7 @@ print(squares[4]())
                 </div>
             
 <div class="id-target" id="Raku examples"></div><h3 id="Raku_examples" class="heading py-2"><a href="#" title="go to top of document">Raku examples</a><a class="raku-anchor" title="direct link" href="#Raku examples">§</a></h3>
-<p id="d05c8b4">Inside a code block with no <span class="code">:lang</span> set, so Raku, <span class="code">:highlighter&lt;deparse&gt;</span> </p>
+<p id="72bd8e9">Inside a code block with no <span class="code">:lang</span> set, so Raku, <span class="code">:highlighter&lt;deparse&gt; </span> </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -370,12 +368,11 @@ print(squares[4]())
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:500;"># indenting causes an implicit code block
-</span><span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link-40);font-weight:500;">$raku</span> <span style="color:var(--bulma-success);font-weight:500;">=</span> <span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-info-40);font-weight:500;">fantastic</span><span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-black);font-weight:500;">;</span>
+<span class="rainbow-comment"># indenting causes an implicit code block<br></span><span class="rainbow-keyword">my</span>&nbsp;<span class="rainbow-name_scalar">$raku</span>&nbsp;<span class="rainbow-operator">=</span>&nbsp;<span class="rainbow-string_delimiter">'</span><span class="rainbow-string">fantastic</span><span class="rainbow-string_delimiter">'</span>;
 </pre>
 </div>
                 </div>
-            <p id="442c367">Code with <span class="code">:allow&lt;B K&gt;</span> so not highlighted </p>
+            <p id="f16b2f7">Code with <span class="code">:allow&lt;B K&gt; </span> so not highlighted </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -393,15 +390,7 @@ my $x = 3;
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link);font-weight:500;">@arr</span> <span style="color:var(--bulma-success);font-weight:500;">=</span><span style="color:var(--bulma-black);font-weight:500;"> [10</span><span style="color:var(--bulma-success);font-weight:500;">,</span><span style="color:var(--bulma-black);font-weight:500;"> 20</span><span style="color:var(--bulma-success);font-weight:500;">,</span><span style="color:var(--bulma-black);font-weight:500;"> 30];
-    </span><span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link-40);font-weight:500;">$i</span> <span style="color:var(--bulma-success);font-weight:500;">=</span><span style="color:var(--bulma-black);font-weight:500;"> 0;
-
-    </span><span style="color:var(--bulma-primary);font-weight:500;">if</span> <span style="color:var(--bulma-info-30);font-weight:500;">rand</span> <span style="color:var(--bulma-success);font-weight:500;">&lt;</span&gt;<span style="color:var(--bulma-black);font-weight:500;"> 1/2 {
-        </span><span style="color:var(--bulma-link);font-weight:500;">@arr</span><span style="color:var(--bulma-black);font-weight:500;">[</span><span style="color:var(--bulma-success);font-weight:500;">++</span><span style="color:var(--bulma-link-40);font-weight:500;">$i</span><span style="color:var(--bulma-black);font-weight:500;">] </span><span style="color:var(--bulma-success);font-weight:500;">+</span><span style="color:var(--bulma-success);font-weight:500;">=</span><span style="color:var(--bulma-black);font-weight:500;"> 1;                </span><span style="color:var(--bulma-black);font-weight:500;"># @arr = [10,21,30]
-</span><span style="color:var(--bulma-black);font-weight:500;">    } </span><span style="color:var(--bulma-primary);font-weight:500;">else</span><span style="color:var(--bulma-black);font-weight:500;"> {
-        </span><span style="color:var(--bulma-link);font-weight:500;">@arr</span><span style="color:var(--bulma-black);font-weight:500;">[</span><span style="color:var(--bulma-success);font-weight:500;">++</span><span style="color:var(--bulma-link-40);font-weight:500;">$i</span><span style="color:var(--bulma-black);font-weight:500;">] </span><span style="color:var(--bulma-success);font-weight:500;">=</span> <span style="color:var(--bulma-link);font-weight:500;">@arr</span><span style="color:var(--bulma-black);font-weight:500;">[</span><span style="color:var(--bulma-success);font-weight:500;">++</span><span style="color:var(--bulma-link-40);font-weight:500;">$i</span><span style="color:var(--bulma-black);font-weight:500;">] </span><span style="color:var(--bulma-success);font-weight:500;">+</span><span style="color:var(--bulma-black);font-weight:500;"> 1;    </span><span style="color:var(--bulma-black);font-weight:500;"># @arr = [10,31,30] (or [10,20,21]?)
-</span><span style="color:var(--bulma-black);font-weight:500;">    }                                   </span><span style="color:var(--bulma-black);font-weight:500;"># the result may be implementation-specific
-</span>    <span style="color:var(--bulma-info-30);font-weight:500;">say</span> <span style="color:var(--bulma-link);font-weight:500;">@arr</span><span style="color:var(--bulma-black);font-weight:500;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-keyword">my</span>&nbsp;<span class="rainbow-name_array">@arr</span>&nbsp;<span class="rainbow-operator">=</span>&nbsp;[10<span class="rainbow-operator">,</span>&nbsp;20<span class="rainbow-operator">,</span>&nbsp;30];<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-keyword">my</span>&nbsp;<span class="rainbow-name_scalar">$i</span>&nbsp;<span class="rainbow-operator">=</span>&nbsp;0;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-keyword">if</span>&nbsp;<span class="rainbow-routine">rand</span>&nbsp;<span class="rainbow-operator">&lt;</span>&nbsp;1/2&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-name_array">@arr</span>[<span class="rainbow-operator">++</span><span class="rainbow-name_scalar">$i</span>]&nbsp;<span class="rainbow-operator">+</span><span class="rainbow-operator">=</span>&nbsp;1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-comment"># @arr = [10,21,30]<br></span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="rainbow-keyword">else</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-name_array">@arr</span>[<span class="rainbow-operator">++</span><span class="rainbow-name_scalar">$i</span>]&nbsp;<span class="rainbow-operator">=</span>&nbsp;<span class="rainbow-name_array">@arr</span>[<span class="rainbow-operator">++</span><span class="rainbow-name_scalar">$i</span>]&nbsp;<span class="rainbow-operator">+</span>&nbsp;1;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-comment"># @arr = [10,31,30] (or [10,20,21]?)<br></span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-comment"># the result may be implementation-specific<br></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-routine">say</span>&nbsp;<span class="rainbow-name_array">@arr</span>;
 </pre>
 </div>
                 </div>
@@ -429,7 +418,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/plugins/plugins/Hilite
             </div>
             <div class="level-item">
-                Rendered at 23:14 UTC on 2024-11-11
+                Rendered at 12:51 UTC on 2024-11-14
             </div>
             <div class="level-item">
                 Source last modified at 22:23 UTC on 2024-09-18

@@ -17,7 +17,7 @@ label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyr
 div.graphviz{display:flex;justify-content:space-around;align-items:center}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
 </style>
 <style>/* hilite */
-.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}
+.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}.raku-code .rainbow-name_scalar{color:var(--bulma-link-40);font-weight:500}.raku-code .rainbow-name_array{color:var(--bulma-link);font-weight:500}.raku-code .rainbow-name_hash{color:var(--bulma-link-60);font-weight:500}.raku-code .rainbow-name_code{color:var(--bulma-info);font-weight:500}.raku-code .rainbow-keyword{color:var(--bulma-primary);font-weight:500}.raku-code .rainbow-operator{color:var(--bulma-success);font-weight:500}.raku-code .rainbow-type{color:var(--bulma-danger-60);font-weight:500}.raku-code .rainbow-routine{color:var(--bulma-info-30);font-weight:500}.raku-code .rainbow-string{color:var(--bulma-info-40);font-weight:500}.raku-code .rainbow-string_delimiter{color:var(--bulma-primary-40);font-weight:500}.raku-code .rainbow-escape{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-text{color:var(--bulma-black);font-weight:500}.raku-code .rainbow-comment{color:var(--bulma-success-30);font-weight:500}.raku-code .rainbow-regex_special{color:var(--bulma-success-60);font-weight:500}.raku-code .rainbow-regex_literal{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-regex_delimiter{color:var(--bulma-primary-60);font-weight:500}.raku-code .rainbow-pod_text{color:var(--bulma-success-40);font-weight:500}.raku-code .rainbow-pod_markup{color:var(--bulma-danger-40);font-weight:500}
 </style>
 <style>/* latexformula */
 div.latex-equation{display:flex;justify-content:space-around;align-items:center}div.latex-equation a.logo{align-self:flex-last}span.latex-formula{display:inline-block;cursor:crosshair}span.latex-formula a{display:none}span.latex-formula:hover>a{display:inline-block;position:absolute;transform:translate(-3rem, -2rem);background:#faebd7}.latex-render-error{color:red;font-weight:bold}
@@ -552,8 +552,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link-40);font-weight:500;">$x</span> <span style="color:var(--bulma-success);font-weight:500;">=</span><span style="color:var(--bulma-black);font-weight:500;"> 2;
-</span><span style="color:var(--bulma-black);font-weight:500;"># a brilliant program!</span>
+<span class="rainbow-keyword">my</span>&nbsp;<span class="rainbow-name_scalar">$x</span>&nbsp;<span class="rainbow-operator">=</span>&nbsp;2;<br><span class="rainbow-comment"># a brilliant program!</span>
 </pre>
 </div>
                 </div>
@@ -573,8 +572,7 @@ my $x = 3;
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span style="color:var(--bulma-black);font-weight:500;"># indenting causes an implicit code block
-</span><span style="color:var(--bulma-primary);font-weight:500;">my</span> <span style="color:var(--bulma-link-40);font-weight:500;">$raku</span> <span style="color:var(--bulma-success);font-weight:500;">=</span> <span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-info-40);font-weight:500;">fantastic</span><span style="color:var(--bulma-primary-40);font-weight:500;">'</span><span style="color:var(--bulma-black);font-weight:500;">;</span>
+<span class="rainbow-comment"># indenting causes an implicit code block<br></span><span class="rainbow-keyword">my</span>&nbsp;<span class="rainbow-name_scalar">$raku</span>&nbsp;<span class="rainbow-operator">=</span>&nbsp;<span class="rainbow-string_delimiter">'</span><span class="rainbow-string">fantastic</span><span class="rainbow-string_delimiter">'</span>;
 </pre>
 </div>
                 </div>
@@ -603,7 +601,7 @@ Richard Hainsworth, aka finanalyst
 <a class="logo" href="https://www.codecogs.com"><img src="https://www.codecogs.com/images/poweredbycodecogs.png" border="0" alt="CodeCogs - An Open Source Scientific Library"></a>
 </div>
 <div class="id-target" id="Unknown MyBlock"></div><h2 id="A_customised_block" class="heading py-2"><a href="#" title="go to top of document">Unknown MyBlock</a><a class="raku-anchor" title="direct link" href="#Unknown MyBlock">§</a></h2>
-=begin MyBlock :caption&lt;A customised block&gt; :headlevel(2)<br><br>Actually it fails because no customisation has been made.<br>It<br>should<br>be<br>rendered without spaces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;being chewed up.<br>=end MyBlock
+=begin MyBlock :caption&lt;A customised block&gt; :headlevel(2)<br><br>Actually it fails because no customisation has been made.<br>It<br>should<br>be<br>rendered without spaces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;being chewed up.<br>=end MyBlock<br><br>
 
 <p id="This_is_an_extraordinary_paragraph"><p id="4c10339">Some silly text which will have its own <span class="basis">extraordinary</span> ToC entry </p>
 </p>
@@ -748,7 +746,7 @@ Artistic-2.0
                 Rendered from <span class="footer-field">docs/samples/samples/rakudociem-ipsum
             </div>
             <div class="level-item">
-                Rendered at 23:13 UTC on 2024-11-11
+                Rendered at 12:51 UTC on 2024-11-14
             </div>
             <div class="level-item">
                 Source last modified at 09:38 UTC on 2024-08-07

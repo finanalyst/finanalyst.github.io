@@ -17,7 +17,7 @@ label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyr
 div.graphviz{display:flex;justify-content:space-around;align-items:center}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
 </style>
 <style>/* hilite */
-.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}
+.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}.raku-code .rainbow-name_scalar{color:var(--bulma-link-40);font-weight:500}.raku-code .rainbow-name_array{color:var(--bulma-link);font-weight:500}.raku-code .rainbow-name_hash{color:var(--bulma-link-60);font-weight:500}.raku-code .rainbow-name_code{color:var(--bulma-info);font-weight:500}.raku-code .rainbow-keyword{color:var(--bulma-primary);font-weight:500}.raku-code .rainbow-operator{color:var(--bulma-success);font-weight:500}.raku-code .rainbow-type{color:var(--bulma-danger-60);font-weight:500}.raku-code .rainbow-routine{color:var(--bulma-info-30);font-weight:500}.raku-code .rainbow-string{color:var(--bulma-info-40);font-weight:500}.raku-code .rainbow-string_delimiter{color:var(--bulma-primary-40);font-weight:500}.raku-code .rainbow-escape{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-text{color:var(--bulma-black);font-weight:500}.raku-code .rainbow-comment{color:var(--bulma-success-30);font-weight:500}.raku-code .rainbow-regex_special{color:var(--bulma-success-60);font-weight:500}.raku-code .rainbow-regex_literal{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-regex_delimiter{color:var(--bulma-primary-60);font-weight:500}.raku-code .rainbow-pod_text{color:var(--bulma-success-40);font-weight:500}.raku-code .rainbow-pod_markup{color:var(--bulma-danger-40);font-weight:500}
 </style>
 <style>/* latexformula */
 div.latex-equation{display:flex;justify-content:space-around;align-items:center}div.latex-equation a.logo{align-self:flex-last}span.latex-formula{display:inline-block;cursor:crosshair}span.latex-formula a{display:none}span.latex-formula:hover>a{display:inline-block;position:absolute;transform:translate(-3rem, -2rem);background:#faebd7}.latex-render-error{color:red;font-weight:bold}
@@ -253,56 +253,56 @@ function swap_toc_index(activate) {
     <aside id="toc-menu" class="panel-block">
     <div class="toc"><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Purpose">Purpose</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Attributes_of_ProcessedState_object">Attributes of ProcessedState object</a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;PStr_$.body_is_rw_&gt;">PStr $.body is rw 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;PStr_$.body_is_rw_&gt;">PStr $.body is rw  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;Hash_@.toc_&gt;">Hash @.toc 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;Hash_@.toc_&gt;">Hash @.toc  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;Array_@.head-numbering_&gt;">Array @.head-numbering 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;Array_@.head-numbering_&gt;">Array @.head-numbering  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;%.index_&gt;">%.index 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;%.index_&gt;">%.index  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.footnotes_&gt;">@.footnotes 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.footnotes_&gt;">@.footnotes  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;Array_%.semantics_&gt;">Array %.semantics 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;Array_%.semantics_&gt;">Array %.semantics  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.warnings_&gt;">@.warnings 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.warnings_&gt;">@.warnings  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.items_&gt;">@.items 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.items_&gt;">@.items  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.defns_&gt;">@.defns 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.defns_&gt;">@.defns  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.numitems_&gt;">@.numitems 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.numitems_&gt;">@.numitems  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.numdefns_&gt;">@.numdefns 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.numdefns_&gt;">@.numdefns  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;%.definitions_&gt;">%.definitions 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;%.definitions_&gt;">%.definitions  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.inline-defns_&gt;">@.inline-defns 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;@.inline-defns_&gt;">@.inline-defns  
 </a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Attributes_of_RakuDoc::Processed">Attributes of RakuDoc::Processed</a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_%.source-data_&gt;&gt;">%.source-data 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_%.source-data_&gt;&gt;"> %.source-data  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_$!output-format_=_'txt'_&gt;&gt;">$!output-format = 'txt' 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_$!output-format_=_'txt'_&gt;&gt;"> $!output-format = 'txt'  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.front-matter_is_rw_=_'preface'_&gt;&gt;">Str $.front-matter is rw = 'preface' 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.front-matter_is_rw_=_'preface'_&gt;&gt;"> Str $.front-matter is rw = 'preface'  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.name_is_rw_&gt;&gt;">Str $.name is rw 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.name_is_rw_&gt;&gt;"> Str $.name is rw  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.title_is_rw_=_'NO_TITLE'_&gt;&gt;">Str $.title is rw = 'NO_TITLE' 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.title_is_rw_=_'NO_TITLE'_&gt;&gt;"> Str $.title is rw = 'NO_TITLE'  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.title-target_is_rw_=_'___top'_&gt;&gt;">Str $.title-target is rw = '___top' 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.title-target_is_rw_=_'___top'_&gt;&gt;"> Str $.title-target is rw = '___top'  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.subtitle_is_rw_=_''_&gt;&gt;">Str $.subtitle is rw = '' 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.subtitle_is_rw_=_''_&gt;&gt;"> Str $.subtitle is rw = ''  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&gt;&gt;">Str $.modified is rw = now.DateTime.utc.truncated-to('seconds').Str 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.modified_is_rw_=_now.DateTime.utc.truncated-to('seconds').Str_&gt;&gt;"> Str $.modified is rw = now.DateTime.utc.truncated-to('seconds').Str  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_SetHash_$.targets_&gt;&gt;">SetHash $.targets 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_SetHash_$.targets_&gt;&gt;"> SetHash $.targets  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Hash_%.links_&gt;&gt;">Hash %.links 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Hash_%.links_&gt;&gt;"> Hash %.links  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.rendered-toc_is_rw_&gt;&gt;">Str $.rendered-toc is rw 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.rendered-toc_is_rw_&gt;&gt;"> Str $.rendered-toc is rw  
 </a></div>
-<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.rendered-index_is_rw_&gt;&gt;">Str $.rendered-index is rw 
+<div class="toc-item" style="--level:2;" data-bullet="‣"><a href="#C&lt;&lt;_Str_$.rendered-index_is_rw_&gt;&gt;"> Str $.rendered-index is rw  
 </a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
@@ -452,7 +452,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Processed
             </div>
             <div class="level-item">
-                Rendered at 23:13 UTC on 2024-11-11
+                Rendered at 12:51 UTC on 2024-11-14
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05
