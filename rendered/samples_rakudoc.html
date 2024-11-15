@@ -269,6 +269,7 @@ function swap_toc_index(activate) {
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Document_termination">Document termination</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Table_constructors">Table constructors</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Placement_from_external_sources">Placement from external sources</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Raku's_mascot">Raku's mascot</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Code-oriented_RakuDoc">Code-oriented RakuDoc</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Declarator_blocks">Declarator blocks</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Data_blocks">Data blocks</a></div>
@@ -508,9 +509,10 @@ function swap_toc_index(activate) {
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>RakuDoc</label>
+                    <label><b>allow</b> styling</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-pod_markup">    =place</span><span class="rainbow-pod_text"> </span><span class="rainbow-pod_markup">R&lt;</span><span class="rainbow-pod_text">URL</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> </span><span class="rainbow-pod_markup">R&lt;</span><span class="rainbow-pod_text">OPTIONS</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>    =             </span><span class="rainbow-pod_markup">R&lt;</span><span class="rainbow-pod_text">More Options if necessary</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_markup"></span>
+    =place <span class="replace">URL</span> <span class="replace">OPTIONS</span>
+    =             <span class="replace">More Options if necessary</span>
 </pre>
 </div>
                 </div></li>
@@ -679,18 +681,10 @@ And this is a <span class="basis">L&lt;link to the Raku Programming Language|htt
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-The&nbsp;<span class="rainbow-keyword">use</span>&nbsp;<span class="rainbow-keyword">of</span>&nbsp;Earl&nbsp;Irradiatem&nbsp;Evermore&nbsp;<span class="rainbow-keyword">is</span>&nbsp;subject&nbsp;<span class="rainbow-routine">to</span>&nbsp;the&nbsp;terms&nbsp;<span class="rainbow-operator">and</span><br>conditions&nbsp;laid&nbsp;out&nbsp;by&nbsp;4D&nbsp;Kingdoms&nbsp;Inc<span class="rainbow-operator">,</span>&nbsp;as&nbsp;specified&nbsp;at:
+The&nbsp;<span class="rainbow-keyword">use</span>&nbsp;<span class="rainbow-keyword">of</span>&nbsp;Earl&nbsp;Irradiatem&nbsp;Evermore&nbsp;<span class="rainbow-keyword">is</span>&nbsp;subject&nbsp;<span class="rainbow-routine">to</span>&nbsp;the&nbsp;terms&nbsp;<span class="rainbow-operator">and</span>&nbsp;conditions<br>laid&nbsp;out&nbsp;by&nbsp;4D&nbsp;Kingdoms<span class="rainbow-operator">,</span>&nbsp;as&nbsp;specified&nbsp;at:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-string_delimiter">&lt;</span><span class="rainbow-string">p id=&quot;1b76bb5&quot;</span><span class="rainbow-string_delimiter">&gt;</span>=<span class="rainbow-routine">item</span>&nbsp;&lt;a&nbsp;href=<span class="rainbow-string_delimiter">&quot;</span><span class="rainbow-string">http://www.4dk.com/eie</span><span class="rainbow-string_delimiter">&quot;</span>&gt;http:<span class="rainbow-regex_delimiter">/</span><span class="rainbow-regex_delimiter">/</span>www.4dk.com/eie&lt;/a&gt;&nbsp;=<span class="rainbow-routine">item</span>&nbsp;&lt;a&nbsp;href=<span class="rainbow-string_delimiter">&quot;</span><span class="rainbow-string">http://www.4dk.co.uk/eie.io/</span><span class="rainbow-string_delimiter">&quot;</span>&gt;http:<span class="rainbow-regex_delimiter">/</span><span class="rainbow-regex_delimiter">/</span>www.4dk.co.uk/eie.io/<span class="rainbow-operator">&lt;</span>/a&gt;&nbsp;=<span class="rainbow-routine">item</span>&nbsp;&lt;a&nbsp;href=<span class="rainbow-string_delimiter">&quot;</span><span class="rainbow-string">http://www.fordecay.ch/canttouchthis</span><span class="rainbow-string_delimiter">&quot;</span>&gt;http:<span class="rainbow-regex_delimiter">/</span><span class="rainbow-regex_delimiter">/</span>www.fordecay.ch/canttouchthis&lt;/a&gt;<span class="rainbow-operator">&lt;</span><span class="rainbow-regex_delimiter">/</span><span class="rainbow-regex_literal">p</span><span class="rainbow-regex_special">&gt;<br></span><span class="rainbow-regex_delimiter"></span>
 </pre>
 </div>
                 </div></div>
-
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="70bf44a"><a href="http://www.4dk.com/eie">http://www.4dk.com/eie</a> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="52b253d"><a href="http://www.4dk.co.uk/eie.io/">http://www.4dk.co.uk/eie.io/</a> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="869f63d"><a href="http://www.fordecay.ch/canttouchthis">http://www.fordecay.ch/canttouchthis</a> </p>
-</li>
-</ul>
 <p id="b92bc32">The advantage of using aliases is, obviously, that the same alias can be reused in multiple places in the documentation. Then, if the replacement text ever has to be changed, it need only be modified in a single place: </p>
 
                 <div class="raku-code">
@@ -714,7 +708,10 @@ The&nbsp;<span class="rainbow-keyword">use</span>&nbsp;<span class="rainbow-keyw
 </pre>
 </div>
                 </div>
-            
+            <p id="64ea2c2">produces ... </p>
+<div class="nested"><p id="ff79c44">The use of <span class="basis">this program is subject to the terms and conditions laid out by <span class="basis">our company, as specified at: <span class="basis">(Please visit our website) </p>
+</div>
+
 <div class="id-target" id="Block specifiers"></div><h3 id="Block_specifiers" class="heading py-2"><a href="#" title="go to top of document">Block specifiers</a><a class="raku-anchor" title="direct link" href="#Block specifiers">§</a></h3>
 <p id="cb1496d">The <span class="code">=begin</span>, <span class="code">=end</span>, and <span class="code">=for</span> directives all specify types of blocks. They have already been illustrated in multiple examples and will not be described further here. </p>
 <h3 id="Config" class="heading py-2"><a href="#" title="go to top of document">Config</a><a class="raku-anchor" title="direct link" href="#Config">§</a></h3>
@@ -850,7 +847,13 @@ The&nbsp;<span class="rainbow-keyword">use</span>&nbsp;<span class="rainbow-keyw
 </pre>
 </div>
                 </div>
-            
+            <p id="9677ca8">will produce ... </p>
+
+<div class="id-target" id="Raku's mascot"></div><h2 id="Raku's_mascot" class="heading py-2"><a href="#" title="go to top of document">Raku's mascot</a><a class="raku-anchor" title="direct link" href="#Raku's mascot">§</a></h2>
+<div class="rakudoc-image-placement">
+                            <img src="https://raku.org/camelia-logo.png" alt="A multicoloured butterfly" title="A multicoloured butterfly">Raku's mascot</img></div> 
+
+
 <div class="id-target" id="Code-oriented RakuDoc"></div><h2 id="Code-oriented_RakuDoc" class="heading py-2"><a href="#" title="go to top of document">Code-oriented RakuDoc</a><a class="raku-anchor" title="direct link" href="#Code-oriented RakuDoc">§</a></h2>
 <p id="9505b0f">The following RakuDoc components are primarily intended for use when editing within an editor. Standalone renderers may ignore them. </p>
 <p id="c42290c"><span class="indexed" id="index-entry-" data-index-text="⦃〚Syntax〛 〚#|〛⦄"></span><span class="indexed" id="index-entry-_0" data-index-text="⦃〚Syntax〛 〚#=〛⦄"></span> </p>
@@ -1508,23 +1511,25 @@ Abscond to the Bahamas with the cash
                 </div>
             <p id="e2c65ac">will yield something like: </p>
 
-                <div class="raku-code">
-                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label><b>allow</b> styling</label>
-                    <div><pre class="nohighlights">
-1. <span class="basis">AAA</span>
-  first letters
-2. <span class="basis">BBB</span>
-  second letters
-A normal paragraph
-1. <span class="basis">XXX</span>
-  ending letters
-2. <span class="basis">YYY</span>
-  finals
-</pre>
-</div>
-                </div>
-            <p id="1c81567">In order to continue a list, an explicit <span class="code">:continued</span> is needed, such as: </p>
+<div class="defn-term">1.&nbsp;AAA</div>
+
+<div class="defn-text">first letters </div>
+
+<div class="defn-term">2.&nbsp;BBB</div>
+
+<div class="defn-text">second letters </div>
+
+<p id="2ab2c5d">A normal para </p>
+
+<div class="defn-term">1.&nbsp;XXX</div>
+
+<div class="defn-text">ending letters </div>
+
+<div class="defn-term">2.&nbsp;YYY</div>
+
+<div class="defn-text">finals </div>
+
+<p id="1c81567">In order to continue a list, an explicit <span class="code">:continued</span> is needed, such as: </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -1549,23 +1554,25 @@ A normal paragraph
                 </div>
             <p id="8c6f099">will yield something like </p>
 
-                <div class="raku-code">
-                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label><b>allow</b> styling</label>
-                    <div><pre class="nohighlights">
-1. <span class="basis">AAA</span>
-  first letters
-2. <span class="basis">BBB</span>
-  second letters
-A normal paragraph
-3. <span class="basis">XXX</span>
-  ending letters
-4. <span class="basis">YYY</span>
-  finals
-</pre>
-</div>
-                </div>
-            <p id="656446e">Suppose a writer needs every numbered definition to form a single monotonic sequence within some block scope (e.g. for every definition within a document section, or every definition throughout the entire document). This would require every <span class="code">=numdefn</span> to be specified with a <span class="code">:continued</span> option. Or the writer could simply pre-configure every <span class="code">=numdefn</span> within the scope, as follows: </p>
+<div class="defn-term">1.&nbsp;AAA</div>
+
+<div class="defn-text">first letters </div>
+
+<div class="defn-term">2.&nbsp;BBB</div>
+
+<div class="defn-text">second letters </div>
+
+<p id="2ab2c5d">A normal para </p>
+
+<div class="defn-term">3.&nbsp;XXX</div>
+
+<div class="defn-text">ending letters </div>
+
+<div class="defn-term">4.&nbsp;YYY</div>
+
+<div class="defn-text">finals </div>
+
+<p id="656446e">Suppose a writer needs every numbered definition to form a single monotonic sequence within some block scope (e.g. for every definition within a document section, or every definition throughout the entire document). This would require every <span class="code">=numdefn</span> to be specified with a <span class="code">:continued</span> option. Or the writer could simply pre-configure every <span class="code">=numdefn</span> within the scope, as follows: </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
@@ -2575,20 +2582,27 @@ We will use: F&lt;
 <table class="table is-striped is-bordered">	<thead>
 		<tr><th>Inline markup</th><th>Instruction</th><th>Mnemonic</th><th>HTML equivalent</th><th>Markdown equivalent</th></tr>
 	</thead>	<tbody>
-		<tr><td>Basis</td><td><p id="6e01eb4"><span class="basis">text</span>     </p>
-</td><td>"B for Basis"</td><td><b>text</b></td><td>**text**</td></tr>
-		<tr><td>Important</td><td><p id="01fdc30"><span class="important">text</span>     </p>
-</td><td>"I for Important"</td><td><i>text</i></td><td>*text*</td></tr>
-		<tr><td>Unusual</td><td><p id="4de1266"><span class="unusual">text</span>     </p>
-</td><td>"U for Unusual"</td><td><u>text</u></td><td>__text__</td></tr>
-		<tr><td>Strikethrough</td><td><p id="b2cfb5e"><span class="overstrike">text</span>     </p>
-</td><td>"O for Overstrike"</td><td><s>text</s></td><td>~~text~~</td></tr>
-		<tr><td>Superscript</td><td><p id="fc94142"><span class="high">text</span>     </p>
-</td><td>"H for High text"</td><td><sup>text</sup></td><td>^text^</td></tr>
-		<tr><td>Subscript</td><td><p id="2e3d0df"><span class="junior">text</span>     </p>
-</td><td>"J for Junior text"</td><td><sub>text</sub></td><td>~text~</td></tr>
-		<tr><td>Code</td><td><p id="7c091d5"><span class="code">text</span>     </p>
-</td><td>"C for Code"</td><td><code>text</code></td><td>`text`</td></tr>
+		<tr><td>Basis</td><td><p id="97aaf21">B&lt;text&gt;     </p>
+</td><td>"B for Basis"</td><td><p id="f77cf62"><span class="code">&lt;b&gt;text&lt;/b&gt;</span>       </p>
+</td><td>**text**</td></tr>
+		<tr><td>Important</td><td><p id="ac90f13">I&lt;text&gt;     </p>
+</td><td>"I for Important"</td><td><p id="b22a9d2"><span class="code">&lt;i&gt;text&lt;/i&gt;</span>       </p>
+</td><td>*text*</td></tr>
+		<tr><td>Unusual</td><td><p id="2d9d3f8">U&lt;text&gt;     </p>
+</td><td>"U for Unusual"</td><td><p id="11d9493"><span class="code">&lt;u&gt;text&lt;/u&gt;</span>       </p>
+</td><td>__text__</td></tr>
+		<tr><td>Strikethrough</td><td><p id="3d8e4a8">O&lt;text&gt;     </p>
+</td><td>"O for Overstrike"</td><td><p id="645ee27"><span class="code">&lt;s&gt;text&lt;/s&gt;</span>       </p>
+</td><td>~~text~~</td></tr>
+		<tr><td>Superscript</td><td><p id="9384a2a">H&lt;text&gt;     </p>
+</td><td>"H for High text"</td><td><p id="7814569"><span class="code">&lt;sup&gt;text&lt;/sup&gt;</span>   </p>
+</td><td>^text^</td></tr>
+		<tr><td>Subscript</td><td><p id="72e2c2f">J&lt;text&gt;     </p>
+</td><td>"J for Junior text"</td><td><p id="9046aae"><span class="code">&lt;sub&gt;text&lt;/sub&gt;</span>   </p>
+</td><td>~text~</td></tr>
+		<tr><td>Code</td><td><p id="42a0dd0">C&lt;text&gt;     </p>
+</td><td>"C for Code"</td><td><p id="99ab851"><span class="code">&lt;code&gt;text&lt;/code&gt;</span> </p>
+</td><td>`text`</td></tr>
 			</tbody>
 </table>
 <p id="dfc0446">The table contains suggested HTML and Markdown equivalents; a renderer may choose other representations. </p>
@@ -3543,14 +3557,27 @@ Artistic-2.0
                 Rendered from <span class="footer-field">docs/samples/samples/rakudoc
             </div>
             <div class="level-item">
-                Rendered at 12:51 UTC on 2024-11-14
+                Rendered at 14:17 UTC on 2024-11-15
             </div>
             <div class="level-item">
-                Source last modified at 10:48 UTC on 2024-11-13
+                Source last modified at 13:48 UTC on 2024-11-15
             </div>
         </nav>
     </div>
-    
+    <div class="section"><div class="container px-4 warnings">    <div class="warnings">
+    <h2 class="warnings-caption">Warnings</h2>
+        <ol>
+        <li>Unknown or as yet undeclared alias ｢&lt;/span&gt; PROGNAME｣ in block ｢rakudoc｣ with heading ｢Aliases｣ over-riden by ｢&lt;span class=&quot;basis&quot;&gt;this program｣</li>
+<li>Unknown or as yet undeclared alias ｢&lt;/span&gt; VENDOR｣ in block ｢rakudoc｣ with heading ｢Aliases｣ over-riden by ｢&lt;span class=&quot;basis&quot;&gt;our company｣</li>
+<li>Unknown or as yet undeclared alias ｢&lt;/span&gt; TERMS_URLS｣ in block ｢rakudoc｣ with heading ｢Aliases｣ over-riden by ｢&lt;span class=&quot;basis&quot;&gt;(Please visit our website)｣</li>
+<li>Definition ｢AAA｣ has been redefined in block ｢rakudoc｣ with heading ｢Numbered definitions｣.</li>
+<li>Definition ｢BBB｣ has been redefined in block ｢rakudoc｣ with heading ｢Numbered definitions｣.</li>
+<li>Definition ｢XXX｣ has been redefined in block ｢rakudoc｣ with heading ｢Numbered definitions｣.</li>
+<li>Definition ｢YYY｣ has been redefined in block ｢rakudoc｣ with heading ｢Numbered definitions｣.</li>
+
+        </ol>
+    </div>
+</div></div>
 </footer>
 
 </body>
