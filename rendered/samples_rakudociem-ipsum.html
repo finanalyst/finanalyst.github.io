@@ -11,6 +11,9 @@
 #page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
+.content p+ul.item-list{margin-top:0}.content p:not(ul.item-list){margin-bottom:0}.content p+ol.item-list{margin-top:0}.content p:not(ol.item-list){margin-bottom:0}
+</style>
+<style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
 </style>
 <style>/* graphviz */
@@ -332,7 +335,7 @@ function swap_toc_index(activate) {
 <h2 id="Purpose" class="heading py-2"><a href="#" title="go to top of document">Purpose</a><a class="raku-anchor" title="direct link" href="#Purpose">§</a></h2>
 <p id="289b7b1">This file is intended to prove a RakuDoc v2 renderer. It can be used in several ways: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> to generate the AST representation of all the RakuDoc components in the specification</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> to generate the AST representation of all the RakuDoc components in the specification</li>
 <li class="item" data-bullet="•" style="--level:0;"> to prove a renderer that a new renderer should be able to process this file</li>
 <li class="item" data-bullet="•" style="--level:0;"> to visualise how the final output of a RakuDoc source will look after processing</li>
 </ul>
@@ -454,7 +457,7 @@ function swap_toc_index(activate) {
 <h2 id="Lists" class="heading py-2"><a href="#" title="go to top of document">Lists</a><a class="raku-anchor" title="direct link" href="#Lists">§</a></h2>
 <p id="55bb607">Unnumbered up to four levels of bulleting are required, a renderer can offer more. </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> The start of a unnumbered item list</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> The start of a unnumbered item list</li>
 <li class="item" data-bullet="•" style="--level:0;"> Next item</li>
 <li class="item" data-bullet="▹" style="--level:1;"> now next level</li>
 <li class="item" data-bullet="▹" style="--level:1;"> another at two</li>
@@ -471,7 +474,7 @@ function swap_toc_index(activate) {
 <p><p id="7831d5d">to put space between lists, probably a <span class="code">=para</span> without text is needed. </p>
 </p>
 
-<ol><li class="item" data-bullet="1." style="--level:0;"> The start of a numbered item list</li>
+<ol class="item-list"><li class="item" data-bullet="1." style="--level:0;"> The start of a numbered item list</li>
 <li class="item" data-bullet="2." style="--level:0;"> Next item</li>
 <li class="item" data-bullet="2.1." style="--level:1;"> now next level</li>
 <li class="item" data-bullet="2.2." style="--level:1;"> another at two</li>
@@ -480,10 +483,10 @@ function swap_toc_index(activate) {
 <li class="item" data-bullet="3.0.1." style="--level:2;"> jump levels</li>
 </ol>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> an unnumbered item</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> an unnumbered item</li>
 </ul>
 
-<ol><li class="item" data-bullet="3.1." style="--level:1;"> but we can resume after a break</li>
+<ol class="item-list"><li class="item" data-bullet="3.1." style="--level:1;"> but we can resume after a break</li>
 </ol>
 <p></p>
 
@@ -529,7 +532,7 @@ function swap_toc_index(activate) {
 <div class="id-target" id="Taking a bullet"></div><h3 id="Taking_a_bullet" class="heading py-2"><a href="#" title="go to top of document">Taking a bullet</a><a class="raku-anchor" title="direct link" href="#Taking a bullet">§</a></h3>
 <p id="93c18bc">The project originally consisted of five phases, of which two are already complete and two have been abandoned: </p>
 
-<ul><li class="item" data-bullet="☑" style="--level:0;"> Investigate existing solutions</li>
+<ul class="item-list"><li class="item" data-bullet="☑" style="--level:0;"> Investigate existing solutions</li>
 <li class="item" data-bullet="☑" style="--level:0;"> Define a minimal initial feature set</li>
 <li class="item" data-bullet="☐" style="--level:0;"> Implement this minimal set of features</li>
 <li class="item" data-bullet="☒" style="--level:0;"> Secure 100 million in venture capital</li>
@@ -537,7 +540,7 @@ function swap_toc_index(activate) {
 </ul>
 <p id="ff4b3ca">The major sources of sustainable energy are: </p>
 
-<ul><li class="item" data-bullet="🌍" style="--level:0;"> wind</li>
+<ul class="item-list"><li class="item" data-bullet="🌍" style="--level:0;"> wind</li>
 <li class="item" data-bullet="🌍" style="--level:0;"> hydroelectric</li>
 <li class="item" data-bullet="🌍" style="--level:0;"> solar</li>
 <li class="item" data-bullet="🌍" style="--level:0;"> geothermal</li>
@@ -746,7 +749,7 @@ Artistic-2.0
                 Rendered from <span class="footer-field">docs/samples/samples/rakudociem-ipsum
             </div>
             <div class="level-item">
-                Rendered at 14:17 UTC on 2024-11-15
+                Rendered at 12:02 UTC on 2024-11-17
             </div>
             <div class="level-item">
                 Source last modified at 09:38 UTC on 2024-08-07

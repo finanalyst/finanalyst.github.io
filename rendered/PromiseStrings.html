@@ -11,6 +11,9 @@
 #page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
+.content p+ul.item-list{margin-top:0}.content p:not(ul.item-list){margin-bottom:0}.content p+ol.item-list{margin-top:0}.content p:not(ol.item-list){margin-bottom:0}
+</style>
+<style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
 </style>
 <style>/* graphviz */
@@ -305,7 +308,7 @@ function swap_toc_index(activate) {
 <div class="id-target" id="Concatenation to PStr"></div><h3 id="Concatenation_to_PStr" class="heading py-2"><a href="#" title="go to top of document">Concatenation to PStr</a><a class="raku-anchor" title="direct link" href="#Concatenation to PStr">§</a></h3>
 <p id="ed12c32">A PStr is built up by concatenating using the infix operator <span class="code">~</span>. Assignment does not add to a PStr. Concatenation can be on the left or the right of the PStr and the result will depend on the type. </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> A PCell on the left or right is added to the start or end, respectively, of the PStr</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> A PCell on the left or right is added to the start or end, respectively, of the PStr</li>
 <li class="item" data-bullet="•" style="--level:0;"> Concatentating two PStr adds the right hand one to the left hand one, and returns the left hand one</li>
 <li class="item" data-bullet="•" style="--level:0;"> Any other type on the left or right is coerced to a Str and added to the start/end of the PStr</li>
 </ul>
@@ -381,7 +384,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/PromiseStrings
             </div>
             <div class="level-item">
-                Rendered at 14:17 UTC on 2024-11-15
+                Rendered at 12:02 UTC on 2024-11-17
             </div>
             <div class="level-item">
                 Source last modified at 09:38 UTC on 2024-08-07

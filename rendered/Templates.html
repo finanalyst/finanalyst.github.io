@@ -11,6 +11,9 @@
 #page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
+.content p+ul.item-list{margin-top:0}.content p:not(ul.item-list){margin-bottom:0}.content p+ol.item-list{margin-top:0}.content p:not(ol.item-list){margin-bottom:0}
+</style>
+<style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
 </style>
 <style>/* graphviz */
@@ -318,7 +321,7 @@ function swap_toc_index(activate) {
                 </div>
             <p id="0bef7be">where </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> key is a string and serves as the name of the template</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> key is a string and serves as the name of the template</li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="aec6e10"><span class="code">%prm</span> is an ordinary Hash of the parameters that are accessed inside the block </p>
 </li>
 <li class="item" data-bullet="▹" style="--level:1;"> <p id="0dc0eba">In order to access 'contents', the code inside the block would be <span class="code"> %prm&lt;contents&gt; </span> </p>
@@ -420,7 +423,7 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
 <div class="id-target" id="Template information and debugging"></div><h2 id="Template_information_and_debugging" class="heading py-2"><a href="#" title="go to top of document">Template information and debugging</a><a class="raku-anchor" title="direct link" href="#Template information and debugging">§</a></h2>
 <p id="f816244">Four attributes can be set on a <span class="code">Template-directory</span> object to aid with debugging templates, especially when templates have content that is derived from other templates: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="4c173e7"><span class="basis">debug</span> </p>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="4c173e7"><span class="basis">debug</span> </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="20b1233"><span class="basis">verbose</span> </p>
 </li>
@@ -522,7 +525,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Templates
             </div>
             <div class="level-item">
-                Rendered at 14:17 UTC on 2024-11-15
+                Rendered at 12:02 UTC on 2024-11-17
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05

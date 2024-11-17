@@ -11,6 +11,9 @@
 #page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
+.content p+ul.item-list{margin-top:0}.content p:not(ul.item-list){margin-bottom:0}.content p+ol.item-list{margin-top:0}.content p:not(ol.item-list){margin-bottom:0}
+</style>
+<style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
 </style>
 <style>/* graphviz */
@@ -342,7 +345,7 @@ RenderDocs --html --extra --src='.' --to='.' wp
             <p id="f0b0313">Each RP class must have a <span class="code">%.config</span> attribute containing the information needed for the plugin. These are divided into mandatory keys and plugin-specific. </p>
 <p id="ab374e8">The mandatory key-value Pairs are: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="f810a1b"><span class="basis">license</span>, typically Artistic-2.0 (same as Raku), but may need to change if the plugin relies on software that has another license. </p>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="f810a1b"><span class="basis">license</span>, typically Artistic-2.0 (same as Raku), but may need to change if the plugin relies on software that has another license. </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="d626e20"><span class="basis">credits</span>, a source for the software, and the license its developers use. </p>
 </li>
@@ -355,7 +358,7 @@ RenderDocs --html --extra --src='.' --to='.' wp
 </ul>
 <p id="55397fa">Some typical config fields are </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> block-name, the custom block that activates the plugin (a plugin may need only replace existing templates)</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> block-name, the custom block that activates the plugin (a plugin may need only replace existing templates)</li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="39468d3">js-link, a list of <span class="code">Str, Int $order</span> arrays. The string is placed in script tag in the head container of the web-page, the order is to ensure that when one js library must appear before another, that relation is created. Libraries with the same order appear in alphabetic order. </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="0997ea4">css-link, a list of <span class="code">Str, Int $order</span> arrays. As above, but for CSS. Typically, CSS files must appear before the JS files they are associated with. All CSS files appear in head before JS files. </p>
@@ -422,7 +425,7 @@ Richard Hainsworth, aka finanalyst
                 Rendered from <span class="footer-field">docs/to/to/HTML-Extra
             </div>
             <div class="level-item">
-                Rendered at 14:17 UTC on 2024-11-15
+                Rendered at 12:02 UTC on 2024-11-17
             </div>
             <div class="level-item">
                 Source last modified at 09:05 UTC on 2024-11-10

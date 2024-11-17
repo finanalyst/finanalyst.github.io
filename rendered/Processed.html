@@ -11,6 +11,9 @@
 #page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
+.content p+ul.item-list{margin-top:0}.content p:not(ul.item-list){margin-bottom:0}.content p+ol.item-list{margin-top:0}.content p:not(ol.item-list){margin-bottom:0}
+</style>
+<style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
 </style>
 <style>/* graphviz */
@@ -418,7 +421,7 @@ function swap_toc_index(activate) {
 <div class="nested"><p id="cc2d340">Links (from <a href="destination">link-label</a> markup) Hash of destination => :target, :type, :place, :link-label target = computed URL (for local files), place = anchor inside file type has following values: </p>
 </div>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> Internal are of the form '#this is a heading' and refer to anchors inside the file</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> Internal are of the form '#this is a heading' and refer to anchors inside the file</li>
 <li class="item" data-bullet="•" style="--level:0;"> Local are of the form 'some-type#a heading there', where 'some-type' is a file name in the same directory</li>
 <li class="item" data-bullet="•" style="--level:0;"> External is a fully qualified URL</li>
 </ul>
@@ -452,7 +455,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Processed
             </div>
             <div class="level-item">
-                Rendered at 14:17 UTC on 2024-11-15
+                Rendered at 12:02 UTC on 2024-11-17
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05

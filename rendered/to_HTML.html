@@ -11,6 +11,9 @@
 #page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
+.content p+ul.item-list{margin-top:0}.content p:not(ul.item-list){margin-bottom:0}.content p+ol.item-list{margin-top:0}.content p:not(ol.item-list){margin-bottom:0}
+</style>
+<style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
 </style>
 <style>/* graphviz */
@@ -294,7 +297,7 @@ bin/force-recompile
                 </div>
             <p id="915319d">Assuming (the assumptions are for clarity and can be changed): </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="17b880e">there is a RakuDoc source <span class="code">new-doc.rakudoc</span> in the current working directory, </p>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="17b880e">there is a RakuDoc source <span class="code">new-doc.rakudoc</span> in the current working directory, </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="9b8b17e">the current working directory is the root directory of the repo, <span class="code">/home/me/rakuast-rakudoc-render</span> </p>
 </li>
@@ -333,7 +336,7 @@ MORE_HTML=my_new_html.raku RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --rakudoc
             <p id="350ae20">will utilise the new templates. An example can be seen in <span class="code">xt/600-R-2-HTML.rakutest</span>. The intention of each template can be found in the comments within <span class="code">lib.RakuDoc/To/HTML.rakumod</span>. </p>
 <p id="4638f6f">To tweak the styling: </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="c9e7291">install <a href="https://sass-lang.com/guide/">sass is available</a> </p>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="c9e7291">install <a href="https://sass-lang.com/guide/">sass is available</a> </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="08f2a80">copy the file <span class="code">/home/me/rakuast-rakudoc-render/resources/scss/vanilla.scss</span> to a new file, eg. <span class="code">~/tweaks/strawberry.scss</span> </p>
 </li>
@@ -357,7 +360,7 @@ ALT_CSS=~/tweaks/strawberry.sss RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render --ra
             <p id="1384e9c">Both <span class="code">ALT_CSS</span> and <span class="code">MORE_HTML</span> can be used, adding new HTML tags, or changing class names, then including CSS definitions in the file accessed by <span class="code">ALT_CSS</span>. </p>
 <p id="818d78b">Note that there is a difference between how the CSS and Template files are used. </p>
 
-<ul><li class="item" data-bullet="•" style="--level:0;"> <p id="57c1a0e">By design, new Raku closure templates, eg, those defined in files given to <span class="code">MORE_HTML</span>, are placed at the head of a chain of templates, and so are <span class="important">in addition</span> to those previously defined. </p>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="57c1a0e">By design, new Raku closure templates, eg, those defined in files given to <span class="code">MORE_HTML</span>, are placed at the head of a chain of templates, and so are <span class="important">in addition</span> to those previously defined. </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="5c1ebaf">The alternate CSS file (eg ~/tweaks/strawberry.css) is used <span class="basis">instead</span> of the default <span class="code">vanilla.css</span>. </p>
 </li>
@@ -396,7 +399,7 @@ RAKURENDEROPTS='Templates BlockType' RAKUDO_RAKUAST=1 raku -I. -MRakuDoc::Render
                 Rendered from <span class="footer-field">docs/to/to/HTML
             </div>
             <div class="level-item">
-                Rendered at 14:17 UTC on 2024-11-15
+                Rendered at 12:02 UTC on 2024-11-17
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05
