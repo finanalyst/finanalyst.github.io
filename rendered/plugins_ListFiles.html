@@ -11,7 +11,7 @@
 #page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
-.content p+ul.item-list{margin-top:0}.content p:not(ul.item-list){margin-bottom:0}.content p+ol.item-list{margin-top:0}.content p:not(ol.item-list){margin-bottom:0}
+.content p+ul.item-list{margin-top:0}.content p+ol.item-list{margin-top:0}.delta:hover{border:var(--bulma-border-hover) 1px solid}
 </style>
 <style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
@@ -279,10 +279,10 @@ function swap_toc_index(activate) {
 </section>
 
         <div class="content px-4">
-        <h2 id="Overview" class="heading py-2"><a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h2>
+        <a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h2>
 <p id="99c1f37">When a group of Rakudoc files are rendered using a <span class="code">RakuDoc::Processor</span> object (RPO), the data from the processing can be collected before the final output is stored. </p>
 <p id="7ba2c85">If this processed file meta data is injected back into the RPO before a RakuDoc source with a <span class="code">=ListFiles</span> block, then the block will output the files in the meta data cache according to selector criteria. </p>
-<h2 id="Selectors" class="heading py-2"><a href="#" title="go to top of document">Selectors</a><a class="raku-anchor" title="direct link" href="#Selectors">§</a></h2>
+<a href="#" title="go to top of document">Selectors</a><a class="raku-anchor" title="direct link" href="#Selectors">§</a></h2>
 <p id="5bd0169">At the start of a RakuDoc source is a <span class="code">=begin rakudoc</span> instruction. It can be given metadata options, which describe the file. </p>
 <p id="ec804db">For example, the documentation files for the <span class="code">RakuAST::RakuDoc::Render</span> distribution all contain the option <span class="code">:type</span>, eg. </p>
 
@@ -290,7 +290,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-pod_markup">    =begin rakudoc</span><span class="rainbow-pod_text"> :typ</span><span class="rainbow-pod_markup">e&lt;</span><span class="rainbow-pod_text">plugin</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_markup"></span>
+<span class="rainbow-pod_markup">    =begin rakudoc</span><span class="rainbow-pod_text"> :typ</span><span class="rainbow-pod_markup">e&lt;</span><span class="rainbow-pod_text">plugin</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br></span><span class="rainbow-pod_markup"></span>
 </pre>
 </div>
                 </div>
@@ -301,19 +301,18 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-The&nbsp;documentation&nbsp;<span class="rainbow-routine">can</span>&nbsp;be&nbsp;<span class="rainbow-routine">split</span>&nbsp;as&nbsp;follows:<br><span class="rainbow-pod_markup">=for ListFiles</span><span class="rainbow-pod_text"> :selec</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">type=fundamental</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :captio</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">Fundamental</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>Sources containing key concepts and information</span><span class="rainbow-pod_markup"></span><br><span class="rainbow-pod_markup"><br>=for ListFiles</span><span class="rainbow-pod_text"> :selec</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">type=renderer</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :captio</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">Renderers in distribution</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>Descriptions of the Renderer classes</span><span class="rainbow-pod_markup"></span><br><br><span class="rainbow-operator">...</span><br><span class="rainbow-pod_markup"><br>=for ListFiles</span><span class="rainbow-pod_text"> :selec</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">type=!</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :captio</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">Files without type options</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>File from other sources or automatically generated</span><span class="rainbow-pod_markup"></span>
+The&nbsp;documentation&nbsp;<span class="rainbow-routine">can</span>&nbsp;be&nbsp;<span class="rainbow-routine">split</span>&nbsp;as&nbsp;follows:<br><span class="rainbow-pod_markup">=for ListFiles</span><span class="rainbow-pod_text"> :selec</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">type=fundamental</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :captio</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">Fundamental</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>Sources containing key concepts and information</span><span class="rainbow-pod_markup"></span><br><span class="rainbow-pod_markup"><br>=for ListFiles</span><span class="rainbow-pod_text"> :selec</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">type=renderer</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :captio</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">Renderers in distribution</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>Descriptions of the Renderer classes</span><span class="rainbow-pod_markup"></span><br><br><span class="rainbow-operator">...</span><br><span class="rainbow-pod_markup"><br>=for ListFiles</span><span class="rainbow-pod_text"> :selec</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">type=!</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :captio</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">Files without type options</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>File from other sources or automatically generated<br></span><span class="rainbow-pod_markup"></span>
 </pre>
 </div>
                 </div>
             <p id="a946455">The last example shows how to capture files that do not have a type option. A file not matching any of the select criteria are not listed, so having a catchall syntax ensures all the RakuDoc source files in a collection are listed. </p>
 <p id="75c2cf3">When more meta options are available, for example the Raku documentation suite, with about 700 source files, has three metadata options for each file. </p>
-<h2 id="Credits" class="heading py-2"><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
+<a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
 Richard Hainsworth, aka finanalyst
 
 
 
-
-<div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading py-2"><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
+<a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
 
 
 
@@ -331,7 +330,7 @@ Richard Hainsworth, aka finanalyst
                 Rendered from <span class="footer-field">docs/plugins/plugins/ListFiles
             </div>
             <div class="level-item">
-                Rendered at 12:02 UTC on 2024-11-17
+                Rendered at 13:27 UTC on 2024-11-22
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05
