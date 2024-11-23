@@ -20,7 +20,7 @@ label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyr
 div.graphviz{display:flex;justify-content:space-around;align-items:center}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
 </style>
 <style>/* hilite */
-.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}.raku-code .rainbow-name_scalar{color:var(--bulma-link-40);font-weight:500}.raku-code .rainbow-name_array{color:var(--bulma-link);font-weight:500}.raku-code .rainbow-name_hash{color:var(--bulma-link-60);font-weight:500}.raku-code .rainbow-name_code{color:var(--bulma-info);font-weight:500}.raku-code .rainbow-keyword{color:var(--bulma-primary);font-weight:500}.raku-code .rainbow-operator{color:var(--bulma-success);font-weight:500}.raku-code .rainbow-type{color:var(--bulma-danger-60);font-weight:500}.raku-code .rainbow-routine{color:var(--bulma-info-30);font-weight:500}.raku-code .rainbow-string{color:var(--bulma-info-40);font-weight:500}.raku-code .rainbow-string_delimiter{color:var(--bulma-primary-40);font-weight:500}.raku-code .rainbow-escape{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-text{color:var(--bulma-black);font-weight:500}.raku-code .rainbow-comment{color:var(--bulma-success-30);font-weight:500}.raku-code .rainbow-regex_special{color:var(--bulma-success-60);font-weight:500}.raku-code .rainbow-regex_literal{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-regex_delimiter{color:var(--bulma-primary-60);font-weight:500}.raku-code .rainbow-pod_text{color:var(--bulma-success-40);font-weight:500}.raku-code .rainbow-pod_markup{color:var(--bulma-danger-40);font-weight:500}
+.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}.raku-code .rainbow-name_scalar{color:var(--bulma-link-40);font-weight:500}.raku-code .rainbow-name_array{color:var(--bulma-link);font-weight:500}.raku-code .rainbow-name_hash{color:var(--bulma-link-60);font-weight:500}.raku-code .rainbow-name_code{color:var(--bulma-info);font-weight:500}.raku-code .rainbow-keyword{color:var(--bulma-primary);font-weight:500}.raku-code .rainbow-operator{color:var(--bulma-success);font-weight:500}.raku-code .rainbow-type{color:var(--bulma-danger-60);font-weight:500}.raku-code .rainbow-routine{color:var(--bulma-info-30);font-weight:500}.raku-code .rainbow-string{color:var(--bulma-info-40);font-weight:500}.raku-code .rainbow-string_delimiter{color:var(--bulma-primary-40);font-weight:500}.raku-code .rainbow-escape{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-text{color:var(--bulma-black);font-weight:500}.raku-code .rainbow-comment{color:var(--bulma-success-30);font-weight:500}.raku-code .rainbow-regex_special{color:var(--bulma-success-60);font-weight:500}.raku-code .rainbow-regex_literal{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-regex_delimiter{color:var(--bulma-primary-60);font-weight:500}.raku-code .rainbow-rakudoc_text{color:var(--bulma-success-40);font-weight:500}.raku-code .rainbow-rakudoc_markup{color:var(--bulma-danger-40);font-weight:500}
 </style>
 <style>/* latexformula */
 div.latex-equation{display:flex;justify-content:space-around;align-items:center}div.latex-equation a.logo{align-self:flex-last}span.latex-formula{display:inline-block;cursor:crosshair}span.latex-formula a{display:none}span.latex-formula:hover>a{display:inline-block;position:absolute;transform:translate(-3rem, -2rem);background:#faebd7}.latex-render-error{color:red;font-weight:bold}
@@ -281,18 +281,19 @@ function swap_toc_index(activate) {
 </section>
 
         <div class="content px-4">
-        <a href="#" title="go to top of document">Introduction</a><a class="raku-anchor" title="direct link" href="#Introduction">§</a></h2>
+        <h2 id="Introduction" class="heading py-2 "><a href="#" title="go to top of document">Introduction</a><a class="raku-anchor" title="direct link" href="#Introduction">§</a></h2>
 <p id="1beb487">This plugin block sends the Latex-style markup to the <a href="https://editor.codecogs.com/">CodeCogs online equation editor</a>. For example, </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-pod_markup">=for LatexFormula</span><span class="rainbow-pod_text"> :headlevel(2) :captio</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">Simple formula</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>\begin{align*}<br>\sum_{i=1}^{k+1} i^{3}<br>&amp;= \biggl(\sum_{i=1}^{n} i^{3}\biggr) +  i^3\\<br>&amp;= \frac{k^{2}(k+1)^{2}}{4} + (k+1)^3 \\<br>&amp;= \frac{k^{2}(k+1)^{2} + 4(k+1)^3}{4}\\<br>&amp;= \frac{(k+1)^{2}(k^{2} + 4k + 4)}{4}\\<br>&amp;= \frac{(k+1)^{2}(k+2)^{2}}{4}<br>\end{align*}<br></span><span class="rainbow-pod_markup"></span>
+<span class="rainbow-rakudoc_markup">=for LatexFormula</span><span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">headlevel</span>(2)<span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">caption</span>&lt;Simple&nbsp;formula&gt;<span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">\begin{align*}<br>\sum_{i=1}^{k+1} i^{3}<br>&amp;= \biggl(\sum_{i=1}^{n} i^{3}\biggr) +  i^3\\<br>&amp;= \frac{k^{2}(k+1)^{2}}{4} + (k+1)^3 \\<br>&amp;= \frac{k^{2}(k+1)^{2} + 4(k+1)^3}{4}\\<br>&amp;= \frac{(k+1)^{2}(k^{2} + 4k + 4)}{4}\\<br>&amp;= \frac{(k+1)^{2}(k+2)^{2}}{4}<br>\end{align*}<br></span><span class="rainbow-rakudoc_markup"></span>
 </pre>
 </div>
                 </div>
-            <a href="#" title="go to top of document">Simple formula</a><a class="raku-anchor" title="direct link" href="#Simple formula">§</a></h2>
+            
+<div class="id-target" id="Simple formula"></div><h2 id="Simple_formula" class="heading py-2 "><a href="#" title="go to top of document">Simple formula</a><a class="raku-anchor" title="direct link" href="#Simple formula">§</a></h2>
 <div class="latex-equation"><img src="https://latex.codecogs.com/svg.image?\begin{align*}
 \sum_{i=1}^{k+1} i^{3}
 &= \biggl(\sum_{i=1}^{n} i^{3}\biggr) +  i^3\\
@@ -304,29 +305,32 @@ function swap_toc_index(activate) {
 
 " />
 <a class="logo" href="https://www.codecogs.com"><img src="https://www.codecogs.com/images/poweredbycodecogs.png" border="0" alt="CodeCogs - An Open Source Scientific Library"></a>
-</div><a href="#" title="go to top of document">RakuDoc v2</a><a class="raku-anchor" title="direct link" href="#RakuDoc v2">§</a></h2>
+</div>
+<div class="id-target" id="RakuDoc v2"></div><h2 id="RakuDoc_v2" class="heading py-2 "><a href="#" title="go to top of document">RakuDoc v2</a><a class="raku-anchor" title="direct link" href="#RakuDoc v2">§</a></h2>
 <p id="2b5b8d5">The RakuDoc v2 specification has a builtin block <span class="code">=formula</span> and the recommended formula markup is Latex. This plugin overrides the formula template, effectively aliasing it to LatexFormula. So the following will work too: </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-pod_markup">    =for formula</span><span class="rainbow-pod_text"> :captio</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">Fabulous identity</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>    e^{i\pi}+1=0<br></span><span class="rainbow-pod_markup"></span>
+<span class="rainbow-rakudoc_markup">    =for formula</span><span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">caption</span>&lt;Fabulous&nbsp;identity&gt;<span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">    e^{i\pi}+1=0<br></span><span class="rainbow-rakudoc_markup"></span>
 </pre>
 </div>
                 </div>
-            <a href="#" title="go to top of document">Fabulous identity</a><a class="raku-anchor" title="direct link" href="#Fabulous identity">§</a></h2>
+            
+<div class="id-target" id="Fabulous identity"></div><h2 id="Formula_cannot_be_rendered" class="heading py-2 "><a href="#" title="go to top of document">Fabulous identity</a><a class="raku-anchor" title="direct link" href="#Fabulous identity">§</a></h2>
 <div class="latex-equation"><img src="https://latex.codecogs.com/svg.image?e^{i\pi}+1=0
 
 
 " />
 <a class="logo" href="https://www.codecogs.com"><img src="https://www.codecogs.com/images/poweredbycodecogs.png" border="0" alt="CodeCogs - An Open Source Scientific Library"></a>
-</div><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
+</div><h2 id="Credits" class="heading py-2 "><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
-<a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
+
+<div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading py-2 "><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
 
 
 
@@ -344,7 +348,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/plugins/plugins/Latex
             </div>
             <div class="level-item">
-                Rendered at 13:27 UTC on 2024-11-22
+                Rendered at 11:18 UTC on 2024-11-23
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05

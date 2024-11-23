@@ -20,7 +20,7 @@ label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyr
 div.graphviz{display:flex;justify-content:space-around;align-items:center}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
 </style>
 <style>/* hilite */
-.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}.raku-code .rainbow-name_scalar{color:var(--bulma-link-40);font-weight:500}.raku-code .rainbow-name_array{color:var(--bulma-link);font-weight:500}.raku-code .rainbow-name_hash{color:var(--bulma-link-60);font-weight:500}.raku-code .rainbow-name_code{color:var(--bulma-info);font-weight:500}.raku-code .rainbow-keyword{color:var(--bulma-primary);font-weight:500}.raku-code .rainbow-operator{color:var(--bulma-success);font-weight:500}.raku-code .rainbow-type{color:var(--bulma-danger-60);font-weight:500}.raku-code .rainbow-routine{color:var(--bulma-info-30);font-weight:500}.raku-code .rainbow-string{color:var(--bulma-info-40);font-weight:500}.raku-code .rainbow-string_delimiter{color:var(--bulma-primary-40);font-weight:500}.raku-code .rainbow-escape{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-text{color:var(--bulma-black);font-weight:500}.raku-code .rainbow-comment{color:var(--bulma-success-30);font-weight:500}.raku-code .rainbow-regex_special{color:var(--bulma-success-60);font-weight:500}.raku-code .rainbow-regex_literal{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-regex_delimiter{color:var(--bulma-primary-60);font-weight:500}.raku-code .rainbow-pod_text{color:var(--bulma-success-40);font-weight:500}.raku-code .rainbow-pod_markup{color:var(--bulma-danger-40);font-weight:500}
+.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}.raku-code .rainbow-name_scalar{color:var(--bulma-link-40);font-weight:500}.raku-code .rainbow-name_array{color:var(--bulma-link);font-weight:500}.raku-code .rainbow-name_hash{color:var(--bulma-link-60);font-weight:500}.raku-code .rainbow-name_code{color:var(--bulma-info);font-weight:500}.raku-code .rainbow-keyword{color:var(--bulma-primary);font-weight:500}.raku-code .rainbow-operator{color:var(--bulma-success);font-weight:500}.raku-code .rainbow-type{color:var(--bulma-danger-60);font-weight:500}.raku-code .rainbow-routine{color:var(--bulma-info-30);font-weight:500}.raku-code .rainbow-string{color:var(--bulma-info-40);font-weight:500}.raku-code .rainbow-string_delimiter{color:var(--bulma-primary-40);font-weight:500}.raku-code .rainbow-escape{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-text{color:var(--bulma-black);font-weight:500}.raku-code .rainbow-comment{color:var(--bulma-success-30);font-weight:500}.raku-code .rainbow-regex_special{color:var(--bulma-success-60);font-weight:500}.raku-code .rainbow-regex_literal{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-regex_delimiter{color:var(--bulma-primary-60);font-weight:500}.raku-code .rainbow-rakudoc_text{color:var(--bulma-success-40);font-weight:500}.raku-code .rainbow-rakudoc_markup{color:var(--bulma-danger-40);font-weight:500}
 </style>
 <style>/* latexformula */
 div.latex-equation{display:flex;justify-content:space-around;align-items:center}div.latex-equation a.logo{align-self:flex-last}span.latex-formula{display:inline-block;cursor:crosshair}span.latex-formula a{display:none}span.latex-formula:hover>a{display:inline-block;position:absolute;transform:translate(-3rem, -2rem);background:#faebd7}.latex-render-error{color:red;font-weight:bold}
@@ -286,7 +286,7 @@ function swap_toc_index(activate) {
 </section>
 
         <div class="content px-4">
-        <a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h2>
+        <h2 id="Overview" class="heading py-2 "><a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h2>
 <p id="097eb5a">The plugin uses the fabulous <a href="https://leafletjs.com">Leaflet JS library</a>. The map MUST have a fixed height, so this is specified in the config attribute. </p>
 <p id="dba22e5">By default, the map will point at Cardiff Castle in Cardiff, Wales with a 200px height and 16 unit magnification, using OpenStreetMap as the tile provider. So </p>
 
@@ -294,7 +294,7 @@ function swap_toc_index(activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-pod_markup">=LeafletMap</span><span class="rainbow-pod_text"><br></span><span class="rainbow-pod_markup"></span>
+<span class="rainbow-rakudoc_markup">=LeafletMap</span><span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_markup"></span>
 </pre>
 </div>
                 </div>
@@ -313,7 +313,7 @@ style="height: 200px; "
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-pod_markup">=for LeafletMap</span><span class="rainbow-pod_text"><br>=  :la</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">55.948595</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :lon</span><span class="rainbow-pod_markup">g&lt;</span><span class="rainbow-pod_text">-3.199913</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=  :zoom(13) :heigh</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">300px</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=  :map-i</span><span class="rainbow-pod_markup">d&lt;</span><span class="rainbow-pod_text">new-map</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=  :headlevel(2)<br>=  :widt</span><span class="rainbow-pod_markup">h&lt;</span><span class="rainbow-pod_text">50vw</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>Edinburgh Castle<br></span><span class="rainbow-pod_markup"></span>
+<span class="rainbow-rakudoc_markup">=for LeafletMap</span><span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">=  :lat&lt;55.948595&gt; :long&lt;-3.199913&gt;<br>=  :zoom(13) :height&lt;300px&gt;<br>=  :map-id&lt;new-map&gt;<br>=  :headlevel(2)<br>=  :width&lt;50vw&gt;<br>Edinburgh Castle<br></span><span class="rainbow-rakudoc_markup"></span>
 </pre>
 </div>
                 </div>
@@ -334,7 +334,7 @@ style="height: 300px; width: 50vw;"
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-pod_markup">=for LeafletMap</span><span class="rainbow-pod_text"> :provide</span><span class="rainbow-pod_markup">r&lt;</span><span class="rainbow-pod_text">Esri.WorldImagery</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :map-i</span><span class="rainbow-pod_markup">d&lt;</span><span class="rainbow-pod_text">third-map</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :widt</span><span class="rainbow-pod_markup">h&lt;</span><span class="rainbow-pod_text">50vw</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br></span><span class="rainbow-pod_markup"></span>
+<span class="rainbow-rakudoc_markup">=for LeafletMap</span><span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">provider</span>&lt;Esri.WorldImagery&gt;<span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">map-id</span>&lt;third-map&gt;<span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">width</span>&lt;50vw&gt;<span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_markup"></span>
 </pre>
 </div>
                 </div>
@@ -357,7 +357,7 @@ style="height: 200px; width: 50vw;"
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label>RakuDoc</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-pod_markup">=for LeafletMap</span><span class="rainbow-pod_text"> :map-i</span><span class="rainbow-pod_markup">d&lt;</span><span class="rainbow-pod_text">map-four</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :heigh</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">600px</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :zoom(12) :widt</span><span class="rainbow-pod_markup">h&lt;</span><span class="rainbow-pod_text">50vw</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_markup"></span><br><span class="rainbow-pod_markup"><br>=for LeafMarker</span><span class="rainbow-pod_text"><br>=    :map-i</span><span class="rainbow-pod_markup">d&lt;</span><span class="rainbow-pod_text">map-four</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :nam</span><span class="rainbow-pod_markup">e&lt;</span><span class="rainbow-pod_text">mk1</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=    :la</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">51.48160</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :lon</span><span class="rainbow-pod_markup">g&lt;</span><span class="rainbow-pod_text">-3.18070</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=    :headlevel(0)<br>=    :titl</span><span class="rainbow-pod_markup">e&lt;</span><span class="rainbow-pod_text">Cardiff Castle</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_markup"></span><br><span class="rainbow-pod_markup"><br>=for LeafMarker</span><span class="rainbow-pod_text"><br>=    :map-i</span><span class="rainbow-pod_markup">d&lt;</span><span class="rainbow-pod_text">map-four</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=    :la</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">51.529269</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :lon</span><span class="rainbow-pod_markup">g&lt;</span><span class="rainbow-pod_text">-3.188109</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=    :fa-ico</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">fas fa-cutlery fa-spin fa-3x fa-fw</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=    :headlevel(0)<br>=    :titl</span><span class="rainbow-pod_markup">e&lt;</span><span class="rainbow-pod_text">Fintans Fish &amp; Chip Co</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_markup"></span><br><span class="rainbow-pod_markup"><br>=for LeafMarker</span><span class="rainbow-pod_text"><br>=    :map-i</span><span class="rainbow-pod_markup">d&lt;</span><span class="rainbow-pod_text">map-four</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=    :la</span><span class="rainbow-pod_markup">t&lt;</span><span class="rainbow-pod_text">51.502576</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"> :lon</span><span class="rainbow-pod_markup">g&lt;</span><span class="rainbow-pod_text">-3.190222</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=    :fa-ico</span><span class="rainbow-pod_markup">n&lt;</span><span class="rainbow-pod_text">fas fa-cutlery</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_text"><br>=    :headlevel(0)<br>=    :popu</span><span class="rainbow-pod_markup">p&lt;</span><span class="rainbow-pod_text">Yan’s Fish Bar</span><span class="rainbow-pod_markup">&gt;</span><span class="rainbow-pod_markup"></span>
+<span class="rainbow-rakudoc_markup">=for LeafletMap</span><span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">map-id</span>&lt;map-four&gt;<span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">height</span>&lt;600px&gt;<span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">zoom</span>(12)<span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">width</span>&lt;50vw&gt;<span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text"><br></span><span class="rainbow-rakudoc_markup"></span><span class="rainbow-rakudoc_markup">=for LeafMarker</span><span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">=    :map-id&lt;map-four&gt; :name&lt;mk1&gt;<br>=    :lat&lt;51.48160&gt; :long&lt;-3.18070&gt;<br>=    :headlevel(0)<br>=    :title&lt;Cardiff Castle&gt;<br><br></span><span class="rainbow-rakudoc_markup"></span><span class="rainbow-rakudoc_markup">=for LeafMarker</span><span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">=    :map-id&lt;map-four&gt;<br>=    :lat&lt;51.529269&gt; :long&lt;-3.188109&gt;<br>=    :fa-icon&lt;fas fa-cutlery fa-spin fa-3x fa-fw&gt;<br>=    :headlevel(0)<br>=    :title&lt;Fintans Fish &amp; Chip Co&gt;<br><br></span><span class="rainbow-rakudoc_markup"></span><span class="rainbow-rakudoc_markup">=for LeafMarker</span><span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">=    :map-id&lt;map-four&gt;<br>=    :lat&lt;51.502576&gt; :long&lt;-3.190222&gt;<br>=    :fa-icon&lt;fas fa-cutlery&gt;<br>=    :headlevel(0)<br>=    :popup&lt;Yan’s Fish Bar&gt;<br><br></span><span class="rainbow-rakudoc_markup"></span>
 </pre>
 </div>
                 </div>
@@ -377,33 +377,34 @@ L.marker([51.4816, -3.1807], { title: 'Cardiff Castle' }).addTo(vmap_four)
 
 </script>
 <script>
-const tfrxnmudc = L.divIcon({
+const ghrbjxpvq = L.divIcon({
     html: '<span class="fa fa-solid fa-utensils fa-spin fa-3x fa-fw"></span>',
     iconSize: [20, 20],
     className: 'myDivIcon'
 });
 
 
-L.marker([51.529269, -3.188109], { icon: tfrxnmudc,title: 'Fintans Fish & Chip Co, Llanishen' }).addTo(vmap_four)
+L.marker([51.529269, -3.188109], { icon: ghrbjxpvq,title: 'Fintans Fish & Chip Co, Llanishen' }).addTo(vmap_four)
 
 </script>
 <script>
-const qbwrxpnfk = L.divIcon({
+const blysfpuno = L.divIcon({
     html: '<span class="fa fa-solid fa-utensils"></span>',
     iconSize: [20, 20],
     className: 'myDivIcon'
 });
 
 
-L.marker([51.502576, -3.190222], { icon: qbwrxpnfk }).addTo(vmap_four)
+L.marker([51.502576, -3.190222], { icon: blysfpuno }).addTo(vmap_four)
 .bindPopup('Yan’s Fish Bar')
 </script>
-<a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
+<h2 id="Credits" class="heading py-2 "><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
-<a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
+
+<div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading py-2 "><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
 
 
 
@@ -421,7 +422,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/plugins/plugins/LeafletMaps
             </div>
             <div class="level-item">
-                Rendered at 13:27 UTC on 2024-11-22
+                Rendered at 11:18 UTC on 2024-11-23
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05

@@ -20,7 +20,7 @@ label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyr
 div.graphviz{display:flex;justify-content:space-around;align-items:center}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
 </style>
 <style>/* hilite */
-.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}.raku-code .rainbow-name_scalar{color:var(--bulma-link-40);font-weight:500}.raku-code .rainbow-name_array{color:var(--bulma-link);font-weight:500}.raku-code .rainbow-name_hash{color:var(--bulma-link-60);font-weight:500}.raku-code .rainbow-name_code{color:var(--bulma-info);font-weight:500}.raku-code .rainbow-keyword{color:var(--bulma-primary);font-weight:500}.raku-code .rainbow-operator{color:var(--bulma-success);font-weight:500}.raku-code .rainbow-type{color:var(--bulma-danger-60);font-weight:500}.raku-code .rainbow-routine{color:var(--bulma-info-30);font-weight:500}.raku-code .rainbow-string{color:var(--bulma-info-40);font-weight:500}.raku-code .rainbow-string_delimiter{color:var(--bulma-primary-40);font-weight:500}.raku-code .rainbow-escape{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-text{color:var(--bulma-black);font-weight:500}.raku-code .rainbow-comment{color:var(--bulma-success-30);font-weight:500}.raku-code .rainbow-regex_special{color:var(--bulma-success-60);font-weight:500}.raku-code .rainbow-regex_literal{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-regex_delimiter{color:var(--bulma-primary-60);font-weight:500}.raku-code .rainbow-pod_text{color:var(--bulma-success-40);font-weight:500}.raku-code .rainbow-pod_markup{color:var(--bulma-danger-40);font-weight:500}
+.raku-code{position:relative;margin:1rem 0}.raku-code button.copy-code{cursor:pointer;opacity:0;padding:0 .25rem .25rem .25rem;position:absolute}.raku-code:hover button.copy-code{opacity:.5}.raku-code label{float:right;font-size:xx-small;font-style:italic;height:auto;padding-right:50px}.raku-code pre.browser-hl{padding:7px}.raku-code .code-name{padding-top:.75rem;padding-left:1.25rem;font-weight:500}.raku-code pre{display:inline-block;overflow:scroll;width:96%}.raku-code .rakudoc-in-code{padding:1.25rem 1.5rem}.raku-code .section{padding:0rem}.raku-code .rainbow-name_scalar{color:var(--bulma-link-40);font-weight:500}.raku-code .rainbow-name_array{color:var(--bulma-link);font-weight:500}.raku-code .rainbow-name_hash{color:var(--bulma-link-60);font-weight:500}.raku-code .rainbow-name_code{color:var(--bulma-info);font-weight:500}.raku-code .rainbow-keyword{color:var(--bulma-primary);font-weight:500}.raku-code .rainbow-operator{color:var(--bulma-success);font-weight:500}.raku-code .rainbow-type{color:var(--bulma-danger-60);font-weight:500}.raku-code .rainbow-routine{color:var(--bulma-info-30);font-weight:500}.raku-code .rainbow-string{color:var(--bulma-info-40);font-weight:500}.raku-code .rainbow-string_delimiter{color:var(--bulma-primary-40);font-weight:500}.raku-code .rainbow-escape{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-text{color:var(--bulma-black);font-weight:500}.raku-code .rainbow-comment{color:var(--bulma-success-30);font-weight:500}.raku-code .rainbow-regex_special{color:var(--bulma-success-60);font-weight:500}.raku-code .rainbow-regex_literal{color:var(--bulma-black-60);font-weight:500}.raku-code .rainbow-regex_delimiter{color:var(--bulma-primary-60);font-weight:500}.raku-code .rainbow-rakudoc_text{color:var(--bulma-success-40);font-weight:500}.raku-code .rainbow-rakudoc_markup{color:var(--bulma-danger-40);font-weight:500}
 </style>
 <style>/* latexformula */
 div.latex-equation{display:flex;justify-content:space-around;align-items:center}div.latex-equation a.logo{align-self:flex-last}span.latex-formula{display:inline-block;cursor:crosshair}span.latex-formula a{display:none}span.latex-formula:hover>a{display:inline-block;position:absolute;transform:translate(-3rem, -2rem);background:#faebd7}.latex-render-error{color:red;font-weight:bold}
@@ -294,7 +294,7 @@ function swap_toc_index(activate) {
 </section>
 
         <div class="content px-4">
-        <a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h2>
+        <h2 id="Overview" class="heading py-2 "><a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h2>
 <p id="17cb3e9">RakuDoc-Render (RR) uses <span class="important">plugins</span> to customise blocks. A plugin will add custom data and templates to an instance of an RR <span class="basis">processor</span>. </p>
 <p id="88a1fe3">The templates are added to an instance of the <span class="basis">Template-directory</span> class held within the <span class="important">processor</span>. </p>
 <p id="3339168">The custom data is also added to the <span class="important">processor</span>'s <span class="basis">Template-directory</span> object. </p>
@@ -304,7 +304,7 @@ function swap_toc_index(activate) {
 <p id="9b51c08">A generic RakuDoc::Processor will populate the <span class="important">Template-directory</span> with text templates that then served as the generic defaults. </p>
 <p id="c226cee">When a template is added to the directory, the <span class="code">source</span> attribute on the <span class="basis">Template-directory</span> is set, and copied into each template. In this way, the origin of a template can be traced. </p>
 <p id="3bd93ca">When the <span class="code">debug</span> attribute on the <span class="basis">Template-directory</span> is True, the name and origin of each Template is reported whenever a Template is called. </p>
-<a href="#" title="go to top of document">Templates</a><a class="raku-anchor" title="direct link" href="#Templates">§</a></h2>
+<h2 id="Templates" class="heading py-2 "><a href="#" title="go to top of document">Templates</a><a class="raku-anchor" title="direct link" href="#Templates">§</a></h2>
 <p id="3a66272">A <span class="important">Template-directory</span> object is an extended Hash structure. </p>
 <p id="4b68c2d">Templates are specified as a list of Pairs of the form </p>
 
@@ -346,7 +346,8 @@ function swap_toc_index(activate) {
 </pre>
 </div>
                 </div>
-            <a href="#" title="go to top of document">Custom data</a><a class="raku-anchor" title="direct link" href="#Custom data">§</a></h2>
+            
+<div class="id-target" id="Custom data"></div><h2 id="Custom_data" class="heading py-2 "><a href="#" title="go to top of document">Custom data</a><a class="raku-anchor" title="direct link" href="#Custom data">§</a></h2>
 <p id="cf29437">A <span class="important">Template-directory</span> object also has a <span class="code"> %.data </span> structure, which is intended for use by plugins that need to make extra data available for templates. </p>
 <p id="ebf1501">For example, suppose a custom block is written to include data about all the documents in a website, and the information is collected into a structure called <span class="code">%files</span>, which is to be available to the template <span class="code">listfiles</span>, then we could have </p>
 
@@ -359,10 +360,12 @@ function swap_toc_index(activate) {
 </div>
                 </div>
             <p id="ca1657d">The <span class="code">%temp-dir</span> object, which is an instance of the <span class="important">Template-directory</span> class, provides access to the data through the <span class="code">.globals</span> attribute of the <span class="important">Template</span> object. </p>
-<a href="#" title="go to top of document">Template object</a><a class="raku-anchor" title="direct link" href="#Template object">§</a></h2>
+
+<div class="id-target" id="Template object"></div><h2 id="Template_object" class="heading py-2 "><a href="#" title="go to top of document">Template object</a><a class="raku-anchor" title="direct link" href="#Template object">§</a></h2>
 <p id="7392f1d">The Template object contains a reference to the Template-directory object, so all the templates registered with the RakuDoc processor, and all the data attached to it, can be accessed. </p>
 <p id="dff0e6d">Inside the Raku block of a new template, the following methods can be used on the <span class="code">$tmpl</span> object. </p>
-<a href="#" title="go to top of document">method $tmpl.prev</a><a class="raku-anchor" title="direct link" href="#method $tmpl.prev">§</a></h3>
+
+<div class="id-target" id="method $tmpl.prev"></div><h3 id="method_B&lt;$tmpl.prev&gt;" class="heading py-2 "><a href="#" title="go to top of document">method $tmpl.prev</a><a class="raku-anchor" title="direct link" href="#method $tmpl.prev">§</a></h3>
 <p id="87631bf">This calls the previously defined block of the template with the same name, with the same parameters provided to current block. The use case is to allow some pre- and (limited) post- processing of the parameters while keeping the previous template. </p>
 <p id="aead65e"><span class="basis">Pre-processing</span> Suppose a new template is required that merely adds the word 'Chapter' to the contents of a <span class="code">=Chapter</span> block. So the parameter needs to be preprocessed and the previous template called. Assuming %prm<contents> is a Str. </p>
 
@@ -385,7 +388,8 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
 </div>
                 </div>
             <p id="aa2d5ac">This assumes that the return object from both templates <span class="important">chapter</span> and <span class="important">table</span> is a Str, which it could be. But generically, it is best not to assume this. A fuller example is given below. </p>
-<a href="#" title="go to top of document">Calling a helper callable</a><a class="raku-anchor" title="direct link" href="#Calling a helper callable">§</a></h3>
+
+<div class="id-target" id="Calling a helper callable"></div><h3 id="Calling_a_helper_callable" class="heading py-2 "><a href="#" title="go to top of document">Calling a helper callable</a><a class="raku-anchor" title="direct link" href="#Calling a helper callable">§</a></h3>
 <p id="4b3a0a2">Suppose a template generates objects that need to be added to the Table of Contents (ToC). The ToC structure is collected by the Renderer leaf by leaf, and the order of the leaf data is constructed because the order of the ToC is important. </p>
 <p id="e30c0a1">So the code in the template block can call </p>
 
@@ -397,10 +401,12 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
 </pre>
 </div>
                 </div>
-            <a href="#" title="go to top of document">Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )</a><a class="raku-anchor" title="direct link" href="#Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )">§</a></h3>
+            
+<div class="id-target" id="Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )"></div><h3 id="Calling_the_escape_method_Each_output_(eg_HTML_or_MarkDown)_may_have_its_own_escape_method._The_escape_method_can_be_called_within_a_template_as_follows:_____$tmpl.globals.escape.(_$string-to-be-escaped_)" class="heading py-2 "><a href="#" title="go to top of document">Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )</a><a class="raku-anchor" title="direct link" href="#Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )">§</a></h3>
 <div class="nested"><p id="4d0deac">Note the <span class="code">.</span> after <span class="code">escape</span>. This is to ensure the string is passed to the block. </p>
 </div>
-<a href="#" title="go to top of document">Calling another defined template</a><a class="raku-anchor" title="direct link" href="#Calling another defined template">§</a></h3>
+
+<div class="id-target" id="Calling another defined template"></div><h3 id="Calling_another_defined_template" class="heading py-2 "><a href="#" title="go to top of document">Calling another defined template</a><a class="raku-anchor" title="direct link" href="#Calling another defined template">§</a></h3>
 <p id="5b159ef">The block registered with key <span class="code">aaa</span> can be called inside another template block, with or without parameters. </p>
 <p id="0f2fed4"><span class="important">Without parameters</span>, eg <span class="code">$tmpl&lt;aaa&gt;</span> or <span class="basis">$tmpl('aaa')</span> the other template block is called with the same parameters, eg </p>
 
@@ -414,7 +420,8 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
                 </div>
             <p id="3d89892">where <span class="code">header</span>, <span class="code">body</span>, and <span class="code">footer</span> are all registered in the <span class="important">RR</span> processor. </p>
 <p id="6cf87b5"><span class="important">With parameters</span>, eg. <span class="code">$tmpl('aaa', %( :attr(1), :new-attr&lt;some string&gt; ) )</span>, the block registered with the key <span class="code">aaa</span> is called with the new set of parameters specified in the Hash. It can be used to provide a subset of parameters, or to rename the parameters for a different template. </p>
-<a href="#" title="go to top of document">Template information and debugging</a><a class="raku-anchor" title="direct link" href="#Template information and debugging">§</a></h2>
+
+<div class="id-target" id="Template information and debugging"></div><h2 id="Template_information_and_debugging" class="heading py-2 "><a href="#" title="go to top of document">Template information and debugging</a><a class="raku-anchor" title="direct link" href="#Template information and debugging">§</a></h2>
 <p id="f816244">Four attributes can be set on a <span class="code">Template-directory</span> object to aid with debugging templates, especially when templates have content that is derived from other templates: </p>
 
 <ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="4c173e7"><span class="basis">debug</span> </p>
@@ -426,12 +433,14 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
 <li class="item" data-bullet="•" style="--level:0;"> <p id="f8787de"><span class="basis">pretty</span> </p>
 </li>
 </ul>
-<a href="#" title="go to top of document">.debug attribute</a><a class="raku-anchor" title="direct link" href="#.debug attribute">§</a></h3>
+
+<div class="id-target" id=".debug attribute"></div><h3 id="C&lt;.debug&gt;_attribute" class="heading py-2 "><a href="#" title="go to top of document">.debug attribute</a><a class="raku-anchor" title="direct link" href="#.debug attribute">§</a></h3>
 <p id="6df5498">When set to True, eg </p>
 <div class="nested">my Template-directory %template-dir; # assign some templates to %template-dir %template-dir.debug = True;</div>
 <p id="efbe98c">information about the name of the template being used, and the source of the template is sent to STDOUT via <span class="code">say</span>. This is used by the <span class="code">debug(Templates)</span> command in a <span class="code">Rakudoc::Processor</span> object. </p>
 <p id="d22fa87">The information generated is for the registered template, not to be confused with the <span class="code">.test</span> or <span class="code">.pretty</span> attributes. </p>
-<a href="#" title="go to top of document">Verbose output of one template</a><a class="raku-anchor" title="direct link" href="#Verbose output of one template">§</a></h3>
+
+<div class="id-target" id="Verbose output of one template"></div><h3 id="Verbose_output_of_one_template" class="heading py-2 "><a href="#" title="go to top of document">Verbose output of one template</a><a class="raku-anchor" title="direct link" href="#Verbose output of one template">§</a></h3>
 <p id="e8ecdfc">The <span class="code">Template-directory</span> class has a <span class="code">.verbose</span> attribute. When set to a string corresponding to the name of a template, eg. </p>
 
                 <div class="raku-code">
@@ -444,7 +453,8 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
                 </div>
             <p id="be138da">the verbose result of that template (eg. 'one') will be sent to STDOUT via <span class="code">say</span>. </p>
 <p id="7467f30">The output of only one template at a time is supported at the moment. </p>
-<a href="#" title="go to top of document">The .test attribute</a><a class="raku-anchor" title="direct link" href="#The .test attribute">§</a></h3>
+
+<div class="id-target" id="The .test attribute"></div><h3 id="The_C&lt;.test&gt;_attribute" class="heading py-2 "><a href="#" title="go to top of document">The .test attribute</a><a class="raku-anchor" title="direct link" href="#The .test attribute">§</a></h3>
 <p id="7428fee">When this attribute is set for the Template-directory object, eg. </p>
 
                 <div class="raku-code">
@@ -469,7 +479,8 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
 </div>
                 </div>
             <p id="2db3738">It does not matter <span class="important">how</span> the templates were defined, but it does matter that they <span class="basis">were</span> defined. Calling a template that is not registered in the <span class="basis">Templated-directory</span> object will cause an error. </p>
-<a href="#" title="go to top of document">The .pretty attribute</a><a class="raku-anchor" title="direct link" href="#The .pretty attribute">§</a></h3>
+
+<div class="id-target" id="The .pretty attribute"></div><h3 id="The_C&lt;.pretty&gt;_attribute" class="heading py-2 "><a href="#" title="go to top of document">The .pretty attribute</a><a class="raku-anchor" title="direct link" href="#The .pretty attribute">§</a></h3>
 <p id="7428fee">When this attribute is set for the Template-directory object, eg. </p>
 
                 <div class="raku-code">
@@ -491,12 +502,13 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
 </pre>
 </div>
                 </div>
-            <a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
+            <h2 id="Credits" class="heading py-2 "><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
 Richard Hainsworth aka finanalyst
 
 
 
-<a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
+
+<div class="id-target" id="VERSION"></div><h2 id="VERSION_0" class="heading py-2 "><a href="#" title="go to top of document">VERSION</a><a class="raku-anchor" title="direct link" href="#VERSION">§</a></h2>
 
 
 
@@ -514,7 +526,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Templates
             </div>
             <div class="level-item">
-                Rendered at 13:27 UTC on 2024-11-22
+                Rendered at 11:18 UTC on 2024-11-23
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05
