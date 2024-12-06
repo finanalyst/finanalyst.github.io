@@ -328,14 +328,14 @@ function swap_toc_index(activate) {
 <div class="id-target" id="Custom markup codes"></div><h4 id="Custom_markup_codes" class="heading py-2 "><a href="#" title="go to top of document">Custom markup codes</a><a class="raku-anchor" title="direct link" href="#Custom markup codes">§</a></h4>
 <p id="cc3389a">RakuDoc v2 allows for custom markup codes in two ways: </p>
 
-<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="afaa858">the <span class="code"> M&lt; DISPLAY &gt; </span> </p>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="be84a58">the <span class="code"> M&lt; DISPLAY | FUNCTION ; list of comma delimited strings &gt; </span> </p>
 </li>
 <li class="item" data-bullet="•" style="--level:0;"> <p id="f33d7a5">a single Unicode (not ASCII ) character with the <span class="important">upper</span> property. </p>
 </li>
 </ul>
 
 <div class="id-target" id="Markup M"></div><h5 id="Markup_M" class="heading py-2 "><a href="#" title="go to top of document">Markup M</a><a class="raku-anchor" title="direct link" href="#Markup M">§</a></h5>
-<p id="6a70ab5">When a <span class="code"> M&lt; DISPLAY &gt; </span> is encountered, the renderer will look for a template named in the <span class="replace">FUNCTION</span> position. If no such template exists, the text will be rendered verbatim and a warning logged. </p>
+<p id="2c22669">When a <span class="code"> M&lt; DISPLAY | FUNCTION ; LIST &gt; </span> is encountered, the renderer will look for a template named in the <span class="replace">FUNCTION</span> position. If no such template exists, the text will be rendered verbatim and a warning logged. </p>
 
 <div class="id-target" id="Markup UNICODE[upper]"></div><h5 id="Markup_UNICODE[upper]" class="heading py-2 "><a href="#" title="go to top of document">Markup UNICODE[upper]</a><a class="raku-anchor" title="direct link" href="#Markup UNICODE[upper]">§</a></h5>
 <p id="d42c4d4">When some custom markup is encountered, the renderer will </p>
@@ -418,8 +418,6 @@ function swap_toc_index(activate) {
                     <label>text</label>
                     <div><pre class="nohighlights">
 POSTPROCESSING=1 bin/RenderTextify --pretty rakudociem-ipsum
-
-
 </pre>
 </div>
                 </div>
@@ -431,8 +429,6 @@ POSTPROCESSING=1 bin/RenderTextify --pretty rakudociem-ipsum
                     <label>text</label>
                     <div><pre class="nohighlights">
 POSTPROCESSING=1 WIDTH=70 bin/RenderTextify rakudociem-ipsum
-
-
 </pre>
 </div>
                 </div>
@@ -458,8 +454,6 @@ POSTPROCESSING=1 WIDTH=70 bin/RenderTextify rakudociem-ipsum
                     <label>text</label>
                     <div><pre class="nohighlights">
 raku --rakudoc=NEWFORMAT input-file.rakudoc &gt; output-filename.newformat
-
-
 </pre>
 </div>
                 </div>
@@ -493,7 +487,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Render
             </div>
             <div class="level-item">
-                Rendered at 22:30 UTC on 2024-11-25
+                Rendered at 23:05 UTC on 2024-12-06
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05
