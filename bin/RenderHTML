@@ -5,40 +5,53 @@ use File::Directory::Tree;
 
 my $rdp;
 multi sub MAIN(:$docs = 'docs', :$to = 'rendered') {
-    my @to-be-rendered;
+    my %sources;
     my @todo = $docs.IO;
     while @todo {
         for @todo.pop.dir -> $path {
-            @to-be-rendered.push: $path unless $path.d;
-            @todo.push: $path if $path.d;
+            if $path.d { @todo.push: $path }
+            else {
+                %sources{$path.relative($docs).IO.extension('')} = %(
+                    :$path,
+                    modified => $path.modified
+                )
+            }
         }
     }
-    exit note "No sources found in ｢$docs｣" unless +@to-be-rendered;
-    rmtree $to if $to.IO ~~ :e & :d;
-    mktree $to;
+    exit note "No sources found in ｢$docs｣" unless +%sources;
+    mktree $to unless $to.IO ~~ :e & :d;
     $rdp = RakuDoc::To::HTML-Extra.new.rdp;
-    render-files(@to-be-rendered, $docs, $to)
+    render-files(%sources, $to)
 }
-sub render-files (@to-be-rendered, $dir, $to ) {
+sub render-files (%sources, $to) {
     my %file-data;
-    for @to-be-rendered {
-        my $short = .relative($dir).IO.extension('');
-        say "rendering $_ to $to/$short";
-        #topic of with not for
-        my $ast = .slurp.AST;
-        my $processed = $rdp.render($ast, :source-data(%(
-            name => $short,
-            modified => .modified,
-            path => .dirname,
-        )), :pre-finalised);
-        $short .= subst( / \/ /, '_', :g);
-        "$to/$short.html".IO.spurt($rdp.finalise);
-        %file-data{$short} = %(
-            title => $processed.title,
-            subtitle => $processed.subtitle ?? $processed.subtitle !! 'No description',
-            config => $processed.source-data<rakudoc-config>,
-        );
+    %file-data = EVALFILE 'file-data.rakuon' if 'file-data.rakuon'.IO ~~ :e & :f;
+    my $changes = False;
+    for %sources.kv -> $short, %info {
+        my $processed;
+        my $rendered-io = "$to/$short\.html".IO;
+        my $path := %info<path>;
+        if %file-data{$short}:!exists
+                or $rendered-io !~~ :e & :f
+                or %info<modified> > $rendered-io.modified
+        {
+            say "rendering { %info<path> } to $rendered-io";
+            $changes = True;
+            $processed = $rdp.render($path.slurp.AST, :source-data(%(
+                name => $short,
+                modified => %info<modified>,
+                :$path,
+            )), :pre-finalised);
+            with $short.IO.dirname { mktree "$to/$_" unless "$to/$_".IO ~~ :e & :d }
+            $rendered-io.spurt($rdp.finalise);
+            %file-data{$short} = %(
+                title => $processed.title,
+                subtitle => $processed.subtitle ?? $processed.subtitle !! 'No description',
+                config => $processed.source-data<rakudoc-config>,
+            );
+        }
     }
+    exit say('Nothing changed') unless $changes;
     my %listf := $rdp.templates.data<listfiles>;
     %listf<meta> = %file-data;
     my $ind = 'index.rakudoc'.IO;
@@ -47,6 +60,7 @@ sub render-files (@to-be-rendered, $dir, $to ) {
         modified => $ind.modified,
         path => $ind.dirname,
     )));
+    'file-data.rakuon'.IO.spurt: %file-data.raku;
     # prevent jekyll being invoked
     "$to/.nojekyll".IO.spurt('');
     ".nojekyll".IO.spurt('')

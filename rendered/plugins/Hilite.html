@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LeafletMap</title>
+    <title>Hilite plugin</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
 <style>span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.indexed:hover::before{content:attr(data-index-text);translate:0 -1.5em;position:absolute}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}.procedural-cell-left{text-align:left}.procedural-cell-centre{text-align:center}.procedural-cell-center{text-align:center}.procedural-cell-right{text-align:right}.procedural-cell-top{vertical-align:text-top}.procedural-cell-middle{vertical-align:baseline}.procedural-cell-bottom{vertical-align:text-bottom}.procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;justify-content:space-around;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}.raku-anchor{font-size:.9em;text-decoration:none;visibility:hidden}.heading:hover .raku-anchor{visibility:visible;padding-left:5px}
 </style>
@@ -254,14 +254,10 @@ function swap_toc_index(activate) {
     <a id="index-tab">Index</a>
   </p>
     <aside id="toc-menu" class="panel-block">
-    <div class="toc"><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Overview">Overview</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#LeafletMap_0">LeafletMap</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#LeafletMap_0">LeafletMap</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#LeafletMap_0">LeafletMap</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#LeafletMap_0">LeafletMap</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#LeafMarker">LeafMarker</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#LeafMarker_0">LeafMarker</a></div>
-<div class="toc-item" style="--level:0;" data-bullet=""><a href="#LeafMarker_0">LeafMarker</a></div>
+    <div class="toc"><div class="toc-item" style="--level:0;" data-bullet=""><a href="#Introduction">Introduction</a></div>
+<div class="toc-item" style="--level:0;" data-bullet=""><a href="#Examples">Examples</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Other_languages_(via_highlight-js)">Other languages (via highlight-js)</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Raku_examples">Raku examples</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
 
@@ -278,127 +274,130 @@ function swap_toc_index(activate) {
     <div id="MainText" class="column">
         <section class="section">
   <div class="container">
-<div id="LeafletMap"></div><h1 class="title is-centered">LeafletMap</h1>
+<div id="Hilite_plugin"></div><h1 class="title is-centered">Hilite plugin</h1>
 
-<p class="subtitle"><p id="39d6a23">The leafletmap plugin inserts a map in place of a custom <span class="code">=LeafletMap</span>. </p>
-</p>
+<p class="subtitle">Using highlight-js and Deparse-syntax highlighter to highlight Raku</p>
   </div>
 </section>
 
         <div class="content px-4">
-        <h2 id="Overview" class="heading py-2 "><a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h2>
-<p id="097eb5a">The plugin uses the fabulous <a href="https://leafletjs.com">Leaflet JS library</a>. The map MUST have a fixed height, so this is specified in the config attribute. </p>
-<p id="dba22e5">By default, the map will point at Cardiff Castle in Cardiff, Wales with a 200px height and 16 unit magnification, using OpenStreetMap as the tile provider. So </p>
+        <h2 id="Introduction" class="heading py-2 "><a href="#" title="go to top of document">Introduction</a><a class="raku-anchor" title="direct link" href="#Introduction">§</a></h2>
+<p id="8579f15">This plugin replaces the code-block template so that the highlight-js library is included to highlight code according to the <span class="code">:lang</span> attribute. </p>
+<p id="cbc1d20">Raku and RakuDoc code is highlighted using either: </p>
+
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> @Lizmat's Deparse highlighter,</li>
+<li class="item" data-bullet="•" style="--level:0;"> or @PatrickBoker's Rainbow highlighter (the default).</li>
+</ul>
+<p id="c8dffed">Since the <span class="important">Deparse</span> highlighter requires correct Raku code and generates an error when the code is not correct, while the <span class="important">Rainbow</span> highlighter is more forgiving, the latter is the default. </p>
+<p id="261ab96">In order to select the <span class="important">Deparse</span> highlighter, use the option <span class="code">:highlighter&lt;deparse&gt; </span>, eg., </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>RakuDoc</label>
+                    <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-rakudoc_text">=LeafletMap</span>
+<span class="rainbow-rakudoc_markup">    =begin code</span><span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">highlighter</span>&lt;deparse&gt;<span class="rainbow-rakudoc_markup"><br></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-operator">...</span><br>&nbsp;&nbsp;&nbsp;&nbsp;=<span class="rainbow-routine">end</span>&nbsp;<span class="rainbow-routine">code</span><span class="rainbow-rakudoc_markup"></span>
 </pre>
 </div>
                 </div>
-            <p id="3387465">produces: </p>
-<div id="html-extra-leaflet-map"
-style="height: 200px; "
->
-</div>
-<script>
-    var vhtml_extra_leaflet_map = L.map('html-extra-leaflet-map').setView([51.4816, -3.1807], 16);
-      L.tileLayer.provider('OpenStreetMap' ).addTo(vhtml_extra_leaflet_map);
-</script>
-<p id="4638a8f">The simplest customisation is to centre the map by specifying the lattitude and longitude, and to change the starting zoom level (smaller numbers are larger views). It is also possible to change the height of the map. Each map on a page must have its own id. Additionally, when developing a page, not setting a width is tiresome. Note another very underutilised feature of Rakudoc, the ability to spread meta-data accross lines. The first virtual column must start in a <span class="code">=</span> and there must be at least one horizontal whitespace character. Thus </p>
+            <h2 id="Examples" class="heading py-2 "><a href="#" title="go to top of document">Examples</a><a class="raku-anchor" title="direct link" href="#Examples">§</a></h2>
+<p id="9c5b6b5">The following are examples of code blocks that are highlighted. </p>
+<p id="4e29319">Highlighting status (working/not working and why) is given below the example. Hover for more info. </p>
+
+<div class="id-target" id="Other languages (via highlight-js)"></div><h3 id="Other_languages_(via_highlight-js)" class="heading py-2 "><a href="#" title="go to top of document">Other languages (via highlight-js)</a><a class="raku-anchor" title="direct link" href="#Other languages (via highlight-js)">§</a></h3>
+<p id="431a10b">Code in Haskell </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>RakuDoc</label>
-                    <div><pre class="nohighlights">
-<span class="rainbow-rakudoc_markup">=for LeafletMap</span><span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">=  :lat&lt;55.948595&gt; :long&lt;-3.199913&gt;<br>=  :zoom(13) :height&lt;300px&gt;<br>=  :map-id&lt;new-map&gt;<br>=  :headlevel(2)<br>=  :width&lt;50vw&gt;<br>Edinburgh Castle</span><span class="rainbow-rakudoc_markup"></span>
-</pre>
+                    <label>haskell highlighting by highlight-js</label>
+                    <div><pre class="browser-hl">
+<code class="language-haskell">
+greeting :: String -&gt; String
+greeting  &quot;&quot;   = &quot;Hello, World!&quot;
+greeting &quot;bub&quot; = &quot;Hey bub.&quot;
+greeting  name = &quot;Hello, &quot; ++ name ++ &quot;!&quot;
+</code></pre>
 </div>
                 </div>
-            <p id="fe333e1">will produce </p>
-<div id="new-map"
-style="height: 300px; width: 50vw;"
->
-</div>
-<script>
-    var vnew_map = L.map('new-map').setView([55.948595, -3.199913], 13);
-      L.tileLayer.provider('OpenStreetMap' ).addTo(vnew_map);
-</script>
-<p id="fc22346">Maps are generated from tiles and the information can be rendered in many ways. There are multiple tile providers, collected in a github resource <a href="https://github.com/leaflet-extras/leaflet-providers">leaflet-extras</a>. "Leaflet-providers provides tile layers from different providers, including OpenStreetMap, Stamen, Esri and OpenWeatherMap. The full listing of free to use layers can be previewed." (from README of leaflet-providers) </p>
-<p id="3f5b22a">Some providers have map types that do not need registration, most types need registration. <a href="http://leaflet-extras.github.io/leaflet-providers/preview/index.html">Here are all</a> the providers and variants. </p>
-<p id="5e7d725">For example, this is a map with the Esri.WorldImagery provider[.variant] string. </p>
+            <p id="7185e5b">Code in Ruby </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>RakuDoc</label>
-                    <div><pre class="nohighlights">
-<span class="rainbow-rakudoc_text">=for LeafletMap :provider&lt;Esri.WorldImagery&gt; :map-id&lt;third-map&gt; :width&lt;50vw&gt;</span>
-</pre>
+                    <label>ruby highlighting by highlight-js</label>
+                    <div><pre class="browser-hl">
+<code class="language-ruby">
+# Ruby
+if x &gt; 5
+    puts &quot;Bigger!&quot;
+elsif x == 5
+    puts &quot;The same!&quot;
+else
+    puts &quot;Smaller!&quot;
+end
+</code></pre>
 </div>
                 </div>
-            <div id="third-map"
-style="height: 200px; width: 50vw;"
->
-</div>
-<script>
-    var vthird_map = L.map('third-map').setView([51.4816, -3.1807], 16);
-      L.tileLayer.provider('Esri.WorldImagery' ).addTo(vthird_map);
-</script>
-<p id="6a206e2">Registration offers more variety and more complex maps, but goes beyond this simple RakuDoc::Plugin. However, the Plugin can itself be subclassed and more data included in the config attribute. </p>
-<p id="ae8ea04">Another common need is to put markers on a map. This can be done using <span class="code">=LeafMarker</span> blocks. The map-id of the map the markers are to be associated with has to be supplied if there are more than one maps on a page, otherwise the default map id is used. </p>
-<p id="8279216"><span class="code">:popup&lt;text&gt;</span> associated the <span class="important">text</span> with the marker but the user needs to click in it to see. </p>
-<p id="237d6be"><span class="code">:title&lt;text&gt;</span> allows for the <span class="important">text</span> to be visible with a mouseover. </p>
-<p id="ebf5eb3"><span class="code">:fa-icon</span> will work if the <span class="code">FontAwesome</span> plugin has been configured for rendering (see above for detail on extra commands). </p>
-<p id="ca50b52"><span class="code">:headlevel(0)</span> is set so that the Table of Contents is not affected. </p>
+            <p id="29b0cdc">Code in Python </p>
 
                 <div class="raku-code">
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
-                    <label>RakuDoc</label>
+                    <label>python highlighting by highlight-js</label>
+                    <div><pre class="browser-hl">
+<code class="language-python">
+squares = []
+for x in range(5):
+    squares.append(lambda: x ** 2)
+print(squares[2]())
+print(squares[4]())
+# both 16 since there is only one x
+</code></pre>
+</div>
+                </div>
+            
+<div class="id-target" id="Raku examples"></div><h3 id="Raku_examples" class="heading py-2 "><a href="#" title="go to top of document">Raku examples</a><a class="raku-anchor" title="direct link" href="#Raku examples">§</a></h3>
+<p id="72bd8e9">Inside a code block with no <span class="code">:lang</span> set, so Raku, <span class="code">:highlighter&lt;deparse&gt; </span> </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
                     <div><pre class="nohighlights">
-<span class="rainbow-rakudoc_markup">=for LeafletMap</span><span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">map-id</span>&lt;map-four&gt;<span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">height</span>&lt;600px&gt;<span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">zoom</span>(12)<span class="rainbow-rakudoc_markup"> </span><span class="rainbow-rakudoc_markup">:</span><span class="rainbow-keyword"></span><span class="rainbow-rakudoc_markup">width</span>&lt;50vw&gt;<span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text"><br></span><span class="rainbow-rakudoc_markup"></span><span class="rainbow-rakudoc_markup">=for LeafMarker</span><span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">=    :map-id&lt;map-four&gt; :name&lt;mk1&gt;<br>=    :lat&lt;51.48160&gt; :long&lt;-3.18070&gt;<br>=    :headlevel(0)<br>=    :title&lt;Cardiff Castle&gt;<br><br></span><span class="rainbow-rakudoc_markup"></span><span class="rainbow-rakudoc_markup">=for LeafMarker</span><span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">=    :map-id&lt;map-four&gt;<br>=    :lat&lt;51.529269&gt; :long&lt;-3.188109&gt;<br>=    :fa-icon&lt;fas fa-cutlery fa-spin fa-3x fa-fw&gt;<br>=    :headlevel(0)<br>=    :title&lt;Fintans Fish &amp; Chip Co&gt;<br><br></span><span class="rainbow-rakudoc_markup"></span><span class="rainbow-rakudoc_markup">=for LeafMarker</span><span class="rainbow-rakudoc_markup"><br></span><span class="rainbow-rakudoc_text">=    :map-id&lt;map-four&gt;<br>=    :lat&lt;51.502576&gt; :long&lt;-3.190222&gt;<br>=    :fa-icon&lt;fas fa-cutlery&gt;<br>=    :headlevel(0)<br>=    :popup&lt;Yan’s Fish Bar&gt;</span><span class="rainbow-rakudoc_markup"></span>
+<span style="color:var(--bulma-success);font-weight:500;">my</span> <span style="color:var(--bulma-info);font-weight:500;">$x</span> <span style="color:var(--bulma-warning);font-weight:500;">=</span> <span style="color:var(--bulma-danger);font-weight:500;">2</span>;
+<span style="color:var(--bulma-link);font-weight:500;"># a brilliant program!</span>
 </pre>
 </div>
                 </div>
-            <p id="70bd7ad">Thus for two chippies judged the best in Cardiff at the time of writing: </p>
-<div id="map-four"
-style="height: 600px; width: 50vw;"
->
+            <p id="16a5ba3">Code from indented para </p>
+
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+<span class="rainbow-comment"># indenting causes an implicit code block<br></span><span class="rainbow-keyword">my</span>&nbsp;<span class="rainbow-name_scalar">$raku</span>&nbsp;<span class="rainbow-operator">=</span>&nbsp;<span class="rainbow-string_delimiter">'</span><span class="rainbow-string">fantastic</span><span class="rainbow-string_delimiter">'</span>;
+</pre>
 </div>
-<script>
-    var vmap_four = L.map('map-four').setView([51.4816, -3.1807], 12);
-      L.tileLayer.provider('OpenStreetMap' ).addTo(vmap_four);
-</script>
-<script>
+                </div>
+            <p id="f16b2f7">Code with <span class="code">:allow&lt;B K&gt; </span> so not highlighted </p>
 
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label><b>allow</b> styling</label>
+                    <div><pre class="nohighlights">
+# a renderer <span class="basis">should</span> observe the basis markup
+# and the <span class="keyboard">markup</span> but render R&lt;markup&gt; verbatim
+my $x = 3;
+</pre>
+</div>
+                </div>
+            <p id="74b9be2">Code from operators, using Rainbow </p>
 
-L.marker([51.4816, -3.1807], { title: 'Cardiff Castle' }).addTo(vmap_four)
-
-</script>
-<script>
-const nzbrdwetm = L.divIcon({
-    html: '<span class="fa fa-solid fa-utensils fa-spin fa-3x fa-fw"></span>',
-    iconSize: [20, 20],
-    className: 'myDivIcon'
-});
-
-
-L.marker([51.529269, -3.188109], { icon: nzbrdwetm,title: 'Fintans Fish & Chip Co, Llanishen' }).addTo(vmap_four)
-
-</script>
-<script>
-const exqmspwrh = L.divIcon({
-    html: '<span class="fa fa-solid fa-utensils"></span>',
-    iconSize: [20, 20],
-    className: 'myDivIcon'
-});
-
-
-L.marker([51.502576, -3.190222], { icon: exqmspwrh }).addTo(vmap_four)
-.bindPopup('Yan’s Fish Bar')
-</script>
-<h2 id="Credits" class="heading py-2 "><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
+                <div class="raku-code">
+                    <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
+                    <label>Raku highlighting</label>
+                    <div><pre class="nohighlights">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-keyword">my</span>&nbsp;<span class="rainbow-name_array">@arr</span>&nbsp;<span class="rainbow-operator">=</span>&nbsp;[10<span class="rainbow-operator">,</span>&nbsp;20<span class="rainbow-operator">,</span>&nbsp;30];<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-keyword">my</span>&nbsp;<span class="rainbow-name_scalar">$i</span>&nbsp;<span class="rainbow-operator">=</span>&nbsp;0;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-keyword">if</span>&nbsp;<span class="rainbow-routine">rand</span>&nbsp;<span class="rainbow-operator">&lt;</span>&nbsp;1/2&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-name_array">@arr</span>[<span class="rainbow-operator">++</span><span class="rainbow-name_scalar">$i</span>]&nbsp;<span class="rainbow-operator">+</span><span class="rainbow-operator">=</span>&nbsp;1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-comment"># @arr = [10,21,30]<br></span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="rainbow-keyword">else</span>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-name_array">@arr</span>[<span class="rainbow-operator">++</span><span class="rainbow-name_scalar">$i</span>]&nbsp;<span class="rainbow-operator">=</span>&nbsp;<span class="rainbow-name_array">@arr</span>[<span class="rainbow-operator">++</span><span class="rainbow-name_scalar">$i</span>]&nbsp;<span class="rainbow-operator">+</span>&nbsp;1;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-comment"># @arr = [10,31,30] (or [10,20,21]?)<br></span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-comment"># the result may be implementation-specific<br></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="rainbow-routine">say</span>&nbsp;<span class="rainbow-name_array">@arr</span>;
+</pre>
+</div>
+                </div>
+            <h2 id="Credits" class="heading py-2 "><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h2>
 Richard Hainsworth aka finanalyst
 
 
@@ -419,13 +418,13 @@ Richard Hainsworth aka finanalyst
     <div class="container px-4">
         <nav class="level">
             <div class="level-item">
-                Rendered from <span class="footer-field">docs/plugins/plugins/LeafletMaps
+                Rendered from <span class="footer-field">docs/plugins/Hilite.rakudoc/plugins/Hilite
             </div>
             <div class="level-item">
-                Rendered at 23:06 UTC on 2024-12-06
+                Rendered at 13:54 UTC on 2024-12-08
             </div>
             <div class="level-item">
-                Source last modified at 22:11 UTC on 2024-11-05
+                Source last modified at 22:23 UTC on 2024-09-18
             </div>
         </nav>
     </div>
