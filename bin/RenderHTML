@@ -4,7 +4,7 @@ use RakuDoc::To::HTML-Extra;
 use File::Directory::Tree;
 
 my $rdp;
-multi sub MAIN(:$docs = 'docs', :$to = 'rendered') {
+multi sub MAIN(:$docs = 'docs', :$to = 'rendered', :force(:$f) = False ) {
     my %sources;
     my @todo = $docs.IO;
     while @todo {
@@ -21,9 +21,9 @@ multi sub MAIN(:$docs = 'docs', :$to = 'rendered') {
     exit note "No sources found in ｢$docs｣" unless +%sources;
     mktree $to unless $to.IO ~~ :e & :d;
     $rdp = RakuDoc::To::HTML-Extra.new.rdp;
-    render-files(%sources, $to)
+    render-files(%sources, $to, $f)
 }
-sub render-files (%sources, $to) {
+sub render-files (%sources, $to, $f) {
     my %file-data;
     %file-data = EVALFILE 'file-data.rakuon' if 'file-data.rakuon'.IO ~~ :e & :f;
     my $changes = False;
@@ -31,7 +31,7 @@ sub render-files (%sources, $to) {
         my $processed;
         my $rendered-io = "$to/$short\.html".IO;
         my $path := %info<path>;
-        if %file-data{$short}:!exists
+        if $f or %file-data{$short}:!exists
                 or $rendered-io !~~ :e & :f
                 or %info<modified> > $rendered-io.modified
         {
