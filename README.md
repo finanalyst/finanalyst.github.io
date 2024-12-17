@@ -10,7 +10,6 @@
 &= \frac{(k+1)^{2}(k^{2} + 4k + 4)}{4}\\
 &= \frac{(k+1)^{2}(k+2)^{2}}{4}
 \end{align*}
-
 " />
 <a class="logo" href="https://www.codecogs.com"><img src="https://www.codecogs.com/images/poweredbycodecogs.png" border="0" alt="CodeCogs - An Open Source Scientific Library"></a>
 </div>
