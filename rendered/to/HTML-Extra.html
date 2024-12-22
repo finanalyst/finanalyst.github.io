@@ -309,7 +309,6 @@ RenderDocs --html --extra --src='.' --to='.' wp
             <p id="3d5fa56">Both will cause the file <span class="code">wp.html</span> to be generated in the current working directory from <span class="code">wp.rakudoc</span> in CWD. </p>
 <p id="26d4ba3">To view this file (adapt according to browser), open <span class="code">file://&lt;home-path-to&gt;/wp.html</span>. All the JS and CSS are packaged in the HTML file, or downloaded from a CDN. </p>
 
-
 <h1 id="Overview" class="heading py-2 "><a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h1>
 <p id="9591399">This renderer allows for more customisability than the <a href="RakuDoc-To-HMTL">minimal HTML renderer</a> in this distribution. </p>
 <p id="fca51f7">By default, the following plugins are provided, and more can be added by the user (see <a href="Extra-HTML-Plugins">Plugins</a>). </p>
@@ -317,21 +316,12 @@ RenderDocs --html --extra --src='.' --to='.' wp
 <div class="id-target" id="Plugins and their sources"></div><h2 id="Plugins_and_their_sources" class="heading py-2 "><a href="#" title="go to top of document">Plugins and their sources</a><a class="raku-anchor" title="direct link" href="#Plugins and their sources">§</a></h2>
 <table class="table is-striped is-bordered">
 <tr><th class="">Plugin</th><th class="">Source</th><th class="">Use</th><th class="">License</th></tr>
-<tr><td class="">Bulma</td><td class=""><p id="22db035"><a href="https://bulma.io">Bulma Home</a> </p>
-</td><td class="">Use the Bulma CSS for the page, which is styled into panels, is responsive, has themes</td><td class="">MIT</td></tr>
-<tr><td class="">LeafletMaps</td><td class=""><p id="e06fe72"><a href="https://leafletjs.com/">Home page</a> and <a href="https://github.com/leaflet-extras/leaflet-providers">Github repo</a> </p>
-</td><td class="">Puts a map in a web page, with tiles from multiple providers</td><td class="">2-clause BSD</td></tr>
-<tr><td class="">Latex</td><td class=""><p id="aa0f518"><a href="https://editor.codecogs.com/">CodeCogs editor page</a> </p>
-</td><td class="">Uses CodeCogs online equation editor to render formulae</td><td class="">see website</td></tr>
-<tr><td class="">Graphviz</td><td class=""><p id="512d76e"><a href="https://graphviz.org">GraphViz software </a> </p>
-</td><td class=""><p id="60453e5">Allows for figures/diagrams to be described in the <span class="code">dot</span> language </p>
-</td><td class="">see website</td></tr>
-<tr><td class="">FontAwesome</td><td class=""><p id="c3282c8"><a href="https://docs.fontawesome.com/v5/web/setup/get-started/">FontAwesome v5-15-4</a> </p>
-</td><td class=""><p id="9e4abe4">Include FontAwesome icons using ℱ<&gt; markup, where ℱ is U+2131 </p>
-</td><td class="">see website</td></tr>
-<tr><td class="">ListFiles</td><td class=""><p id="0d215d5"><a href="plugins/ListFiles.html">Local documentation</a> </p>
-</td><td class=""><p id="f3c719e">Provides <span class="code">=ListFiles</span> custom block </p>
-</td><td class="">Artistic-2.0</td></tr></table>
+<tr><td class="">Bulma</td><td class=""><p id="22db035"><a href="https://bulma.io">Bulma Home</a> </p></td><td class="">Use the Bulma CSS for the page, which is styled into panels, is responsive, has themes</td><td class="">MIT</td></tr>
+<tr><td class="">LeafletMaps</td><td class=""><p id="e06fe72"><a href="https://leafletjs.com/">Home page</a> and <a href="https://github.com/leaflet-extras/leaflet-providers">Github repo</a> </p></td><td class="">Puts a map in a web page, with tiles from multiple providers</td><td class="">2-clause BSD</td></tr>
+<tr><td class="">Latex</td><td class=""><p id="aa0f518"><a href="https://editor.codecogs.com/">CodeCogs editor page</a> </p></td><td class="">Uses CodeCogs online equation editor to render formulae</td><td class="">see website</td></tr>
+<tr><td class="">Graphviz</td><td class=""><p id="512d76e"><a href="https://graphviz.org">GraphViz software </a> </p></td><td class=""><p id="60453e5">Allows for figures/diagrams to be described in the <span class="code">dot</span> language </p></td><td class="">see website</td></tr>
+<tr><td class="">FontAwesome</td><td class=""><p id="c3282c8"><a href="https://docs.fontawesome.com/v5/web/setup/get-started/">FontAwesome v5-15-4</a> </p></td><td class=""><p id="9e4abe4">Include FontAwesome icons using ℱ<&gt; markup, where ℱ is U+2131 </p></td><td class="">see website</td></tr>
+<tr><td class="">ListFiles</td><td class=""><p id="0d215d5"><a href="plugins/ListFiles.html">Local documentation</a> </p></td><td class=""><p id="f3c719e">Provides <span class="code">=ListFiles</span> custom block </p></td><td class="">Artistic-2.0</td></tr></table>
 
 <div class="id-target" id="RakuDoc::Render plugins"></div><h1 id="RakuDoc::Render_plugins" class="heading py-2 "><a href="#" title="go to top of document">RakuDoc::Render plugins</a><a class="raku-anchor" title="direct link" href="#RakuDoc::Render plugins">§</a></h1>
 <p id="0bcd561">Customisation is provided by plugins. These are essentially classes of the form <span class="code">RakuDoc::Plugins::XXX</span>, where <span class="basis">XXX</span> is the name of a plugin. </p>
@@ -348,24 +338,17 @@ RenderDocs --html --extra --src='.' --to='.' wp
             <p id="f0b0313">Each RP class must have a <span class="code">%.config</span> attribute containing the information needed for the plugin. These are divided into mandatory keys and plugin-specific. </p>
 <p id="ab374e8">The mandatory key-value Pairs are: </p>
 
-<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="f810a1b"><span class="basis">license</span>, typically Artistic-2.0 (same as Raku), but may need to change if the plugin relies on software that has another license. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="d626e20"><span class="basis">credits</span>, a source for the software, and the license its developers use. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="20e1ee3"><span class="basis">version</span>, a version number for the plugin. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="54aee4c"><span class="basis">authors</span>, the author(s) of the plugin. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="1ff4e57"><span class="basis">name-space</span>, the name of the plugin's name-space within the RakuDoc-Processor instance. </p>
-</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="f810a1b"><span class="basis">license</span>, typically Artistic-2.0 (same as Raku), but may need to change if the plugin relies on software that has another license. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="d626e20"><span class="basis">credits</span>, a source for the software, and the license its developers use. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="20e1ee3"><span class="basis">version</span>, a version number for the plugin. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="54aee4c"><span class="basis">authors</span>, the author(s) of the plugin. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="1ff4e57"><span class="basis">name-space</span>, the name of the plugin's name-space within the RakuDoc-Processor instance. </p></li>
 </ul>
 <p id="55397fa">Some typical config fields are </p>
 
 <ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> block-name, the custom block that activates the plugin (a plugin may need only replace existing templates)</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="39468d3">js-link, a list of <span class="code">Str, Int $order</span> arrays. The string is placed in script tag in the head container of the web-page, the order is to ensure that when one js library must appear before another, that relation is created. Libraries with the same order appear in alphabetic order. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="0997ea4">css-link, a list of <span class="code">Str, Int $order</span> arrays. As above, but for CSS. Typically, CSS files must appear before the JS files they are associated with. All CSS files appear in head before JS files. </p>
-</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="39468d3">js-link, a list of <span class="code">Str, Int $order</span> arrays. The string is placed in script tag in the head container of the web-page, the order is to ensure that when one js library must appear before another, that relation is created. Libraries with the same order appear in alphabetic order. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="0997ea4">css-link, a list of <span class="code">Str, Int $order</span> arrays. As above, but for CSS. Typically, CSS files must appear before the JS files they are associated with. All CSS files appear in head before JS files. </p></li>
 </ul>
 <p id="5fc3fe3">All the elements of %.config are transferred to the RakuDoc::Processor object, and can be accessed in a template or callable, as <span class="code">$tmpl.globals.data&lt;plugin-name-space&gt; </span> (assuming that the plugin's config has <span class="code">namespace =</span> plugin-name-space&gt;). </p>
 <p id="2f6ef3c">The <span class="code">enable</span> method is mandatory. It is used to add data and templates to the <span class="code">RakuDoc::Processor</span> object created by the <span class="code">RakuDoc::To::HTML-Extra</span> renderer. </p>
@@ -427,7 +410,7 @@ Richard Hainsworth, aka finanalyst
                 Rendered from <span class="footer-field">docs/to/HTML-Extra.rakudoc/to/HTML-Extra
             </div>
             <div class="level-item">
-                Rendered at 14:10 UTC on 2024-12-20
+                Rendered at 17:02 UTC on 2024-12-22
             </div>
             <div class="level-item">
                 Source last modified at 09:05 UTC on 2024-11-10

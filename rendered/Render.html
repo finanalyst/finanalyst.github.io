@@ -331,10 +331,8 @@ function swap_toc_index(activate) {
 <div class="id-target" id="Custom markup codes"></div><h3 id="Custom_markup_codes" class="heading py-2 "><a href="#" title="go to top of document">Custom markup codes</a><a class="raku-anchor" title="direct link" href="#Custom markup codes">§</a></h3>
 <p id="cc3389a">RakuDoc v2 allows for custom markup codes in two ways: </p>
 
-<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="be84a58">the <span class="code"> M&lt; DISPLAY | FUNCTION ; list of comma delimited strings &gt; </span> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="f33d7a5">a single Unicode (not ASCII ) character with the <span class="important">upper</span> property. </p>
-</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="be84a58">the <span class="code"> M&lt; DISPLAY | FUNCTION ; list of comma delimited strings &gt; </span> </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="f33d7a5">a single Unicode (not ASCII ) character with the <span class="important">upper</span> property. </p></li>
 </ul>
 
 <div class="id-target" id="Markup M"></div><h4 id="Markup_M" class="heading py-2 "><a href="#" title="go to top of document">Markup M</a><a class="raku-anchor" title="direct link" href="#Markup M">§</a></h4>
@@ -343,10 +341,8 @@ function swap_toc_index(activate) {
 <div class="id-target" id="Markup UNICODE[upper]"></div><h4 id="Markup_UNICODE[upper]" class="heading py-2 "><a href="#" title="go to top of document">Markup UNICODE[upper]</a><a class="raku-anchor" title="direct link" href="#Markup UNICODE[upper]">§</a></h4>
 <p id="d42c4d4">When some custom markup is encountered, the renderer will </p>
 
-<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="22b3181">check that the character, eg Ɵ (Greek Capital Theta), has the unicode property <span class="important">Upper</span>; </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="a592cd4">look for a template called (eg) <span class="basis">markup-Ɵ</span>. For clarity, the Unicode character chosen for the markup code is prefixed by <span class="basis">markup-</span> in order to name the template. </p>
-</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="22b3181">check that the character, eg Ɵ (Greek Capital Theta), has the unicode property <span class="important">Upper</span>; </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="a592cd4">look for a template called (eg) <span class="basis">markup-Ɵ</span>. For clarity, the Unicode character chosen for the markup code is prefixed by <span class="basis">markup-</span> in order to name the template. </p></li>
 </ul>
 <p id="0573f8a">Thus in order to create a new markup code, create an appropriately named template and add it to the <span class="basis">RPO</span>. </p>
 
@@ -367,8 +363,7 @@ function swap_toc_index(activate) {
 <li class="item" data-bullet="▹" style="--level:1;"> :retTarget(Str)</li>
 <li class="item" data-bullet="▹" style="--level:1;"> :fnTarget(Str)</li>
 <li class="item" data-bullet="▹" style="--level:1;"> :fnNumber(Str}</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="e7fb745">escape.($s), where <span class="code">$s</span> is a string. <span class="basis">Note</span> the <span class="code">.</span> after <span class="code">escape</span> </p>
-</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="e7fb745">escape.($s), where <span class="code">$s</span> is a string. <span class="basis">Note</span> the <span class="code">.</span> after <span class="code">escape</span> </p></li>
 <li class="item" data-bullet="•" style="--level:0;"> add-to-warnings( $warning )</li>
 </ul>
 <p id="d3c6895">In addition, within a template, it is possible to attach data to globals, and to retrieve the data in another template. </p>
@@ -386,14 +381,11 @@ function swap_toc_index(activate) {
                 </div>
             <p id="a8b339d">Commentary on the code </p>
 
-<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="784bea7"><span class="code"> new( :test )</span> this attaches the test templates to the <span class="basis">RPO</span> </p>
-</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="784bea7"><span class="code"> new( :test )</span> this attaches the test templates to the <span class="basis">RPO</span> </p></li>
 <li class="item" data-bullet="•" style="--level:0;"> the list inside the debug method may contain several entities as described below</li>
 <li class="item" data-bullet="•" style="--level:0;"> creation of an AST from a string, or it can be slurped in from a file.</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="cfcf4bc"><span class="code"> :pre-finalised </span> returns the RakuDoc::Processed object </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="cbc6d4c">if called with <span class="code">:pre-finalised</span>, calling <span class="code">finalise</span> returns a Str that can then be stored as a file. </p>
-</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="cfcf4bc"><span class="code"> :pre-finalised </span> returns the RakuDoc::Processed object </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="cbc6d4c">if called with <span class="code">:pre-finalised</span>, calling <span class="code">finalise</span> returns a Str that can then be stored as a file. </p></li>
 </ul>
 
 <div class="id-target" id="Debug options"></div><h3 id="Debug_options" class="heading py-2 "><a href="#" title="go to top of document">Debug options</a><a class="raku-anchor" title="direct link" href="#Debug options">§</a></h3>
@@ -402,8 +394,7 @@ function swap_toc_index(activate) {
 <ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> None removes all previous debugging</li>
 <li class="item" data-bullet="•" style="--level:0;"> All adds all debugging options</li>
 <li class="item" data-bullet="•" style="--level:0;"> AstBlock diagnostic whenever a new Block is called</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="d0b5457">BlockType information about which <span class="code">RakuAST::Doc::Block</span> is being processed </p>
-</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="d0b5457">BlockType information about which <span class="code">RakuAST::Doc::Block</span> is being processed </p></li>
 <li class="item" data-bullet="•" style="--level:0;"> Scoping produces scope level diagnostics when a new level is started/ended</li>
 <li class="item" data-bullet="•" style="--level:0;"> Templates indicates which templates are called and the params they are called with</li>
 <li class="item" data-bullet="•" style="--level:0;"> MarkUp like BlockType but gives the MarkUp letter</li>
@@ -439,8 +430,7 @@ POSTPROCESSING=1 WIDTH=70 bin/RenderTextify rakudociem-ipsum
 <div class="id-target" id="Paragraph id"></div><h1 id="Paragraph_id" class="heading py-2 "><a href="#" title="go to top of document">Paragraph id</a><a class="raku-anchor" title="direct link" href="#Paragraph id">§</a></h1>
 <p id="d37a747">Since sometimes it is necessary to target a specific paragraph, some paragraphs get an automated id based on the last Seven hex chars of the SHA1 encoding of its contents. </p>
 <p id="cea9f65">Seven chars should be adequate so long as the number of paragraphs in a single document is below 16,000. </p>
-<div class="nested"><p id="0fd5c2b">Based on the expectation that we would see collision in a repository with 2^(2N) objects when using object names shortened to first N bits <a href="https://stackoverflow.com/questions/18134627/how-much-of-a-git-sha-is-generally-considered-necessary-to-uniquely-identify-a">Stackoverflow question</a> </p>
-</div>
+<div class="nested"><p id="0fd5c2b">Based on the expectation that we would see collision in a repository with 2^(2N) objects when using object names shortened to first N bits <a href="https://stackoverflow.com/questions/18134627/how-much-of-a-git-sha-is-generally-considered-necessary-to-uniquely-identify-a">Stackoverflow question</a> </p></div>
 <p id="f349f6f">Long texts or books will probably need more to avoid a conflict. This can be done by setting <span class="code">paragraph-id-length</span> in the %structure-data to the required number of hex digits. </p>
 
 <div class="id-target" id="Writing a new Render"></div><h1 id="Writing_a_new_Render" class="heading py-2 "><a href="#" title="go to top of document">Writing a new Render</a><a class="raku-anchor" title="direct link" href="#Writing a new Render">§</a></h1>
@@ -448,8 +438,7 @@ POSTPROCESSING=1 WIDTH=70 bin/RenderTextify rakudociem-ipsum
 <p id="2cf2224">It is best to look at the code for the HTML renderer to see how to write a renderer. The following are only very brief notes. </p>
 <p id="106878a">A new renderer for a new output format will need: </p>
 
-<ol class="item-list"><li class="item" data-bullet="1." style="--level:0;"> <p id="f6c19f7">A processor class, which is sub-classed from <span class="code">RakuDoc::Processor</span>. The <span class="code">escape</span> method will need to be over-ridden. </p>
-</li>
+<ol class="item-list"><li class="item" data-bullet="1." style="--level:0;"> <p id="f6c19f7">A processor class, which is sub-classed from <span class="code">RakuDoc::Processor</span>. The <span class="code">escape</span> method will need to be over-ridden. </p></li>
 <li class="item" data-bullet="2." style="--level:0;"> <p id="f736188">A Renderer class which must be called <span class="code">RakuDoc::To::NEWFORMAT</span>. This is required so that the code </p>
 
                 <div class="raku-code">
@@ -460,10 +449,8 @@ raku --rakudoc=NEWFORMAT input-file.rakudoc &gt; output-filename.newformat
 </pre>
 </div>
                 </div>
-            <p id="bfe4478">will work. </p>
-</li>
-<li class="item" data-bullet="3." style="--level:0;"> <p id="1f857a0">The Renderer class must contain the method <span class="code">render( $ast )</span>, which is needed by the raku compiler, as noted above. </p>
-</li>
+            <p id="bfe4478">will work. </p></li>
+<li class="item" data-bullet="3." style="--level:0;"> <p id="1f857a0">The Renderer class must contain the method <span class="code">render( $ast )</span>, which is needed by the raku compiler, as noted above. </p></li>
 <li class="item" data-bullet="4." style="--level:0;"> The class should also define and attach templates. Note that if any needed templates are not included, then the default 'text' templates will be used.</li>
 </ol>
 <h1 id="Credits" class="heading py-2 "><a href="#" title="go to top of document">Credits</a><a class="raku-anchor" title="direct link" href="#Credits">§</a></h1>
@@ -489,7 +476,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Render.rakudoc/Render
             </div>
             <div class="level-item">
-                Rendered at 14:10 UTC on 2024-12-20
+                Rendered at 17:02 UTC on 2024-12-22
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05

@@ -308,7 +308,6 @@ bin/RenderDocs some-docs
                 </div>
             <p id="1c6d680">There is a section on Troubleshooting in the <a href="README">general README file</a> if this fails. </p>
 
-
 <h1 id="Overview" class="heading py-2 "><a href="#" title="go to top of document">Overview</a><a class="raku-anchor" title="direct link" href="#Overview">§</a></h1>
 <p id="5324901">Markdown representation of documentation is widespread, so a simple conversion (rendering) of the RakuDoc v2 into Markdown is useful, even though Markdown is intended to be viewed as HTML. </p>
 <p id="695990d">The module can be customised by setting an Environment variable to a template file. <a href="Customising templates">More detail on customising</a>. </p>
@@ -319,14 +318,10 @@ bin/RenderDocs some-docs
 <p id="a283da3">The Markdown renderer comes with one custom block for generating Graphs. More information can be found about the <a href="plugins/Graphviz.html">Graphviz plugin</a> </p>
 <p id="2db186e">Some caveats: </p>
 
-<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="483f8b5">Since a widespread use of Markdown is for <span class="important">Github</span> and cross-server sources are forbidden, diagrams have to be in an asset file within the <span class="important">Github</span> repository. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="7ff4753">The diagrams are generated using <span class="code">dot</span>, which must exist in the environment </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="051f3c9">Each diagram given in a single source whose name is (eg) <span class="replace">my-document.rakudoc</span> is stored in the file <span class="basis">my-document-this_is_a_diagram.svg</span>, where the <span class="code"> :caption&lt;this is a diagram&gt; </span> is in the metadata options of the custom block. For more detail see <a href="plugins/Graphviz.html">the Graphviz documentation</a>. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="d67248c">The diagram files will be stored in the same directory as the main output file <span class="basis">my-document.md</span>. </p>
-</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="483f8b5">Since a widespread use of Markdown is for <span class="important">Github</span> and cross-server sources are forbidden, diagrams have to be in an asset file within the <span class="important">Github</span> repository. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="7ff4753">The diagrams are generated using <span class="code">dot</span>, which must exist in the environment </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="051f3c9">Each diagram given in a single source whose name is (eg) <span class="replace">my-document.rakudoc</span> is stored in the file <span class="basis">my-document-this_is_a_diagram.svg</span>, where the <span class="code"> :caption&lt;this is a diagram&gt; </span> is in the metadata options of the custom block. For more detail see <a href="plugins/Graphviz.html">the Graphviz documentation</a>. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="d67248c">The diagram files will be stored in the same directory as the main output file <span class="basis">my-document.md</span>. </p></li>
 </ul>
 
 <div class="id-target" id="Customising templates"></div><h1 id="Customising_templates" class="heading py-2 "><a href="#" title="go to top of document">Customising templates</a><a class="raku-anchor" title="direct link" href="#Customising templates">§</a></h1>
@@ -354,12 +349,9 @@ MORE_MARKDOWN=new-temp.raku RAKUDO_RAKUAST=1 raku --rakudoc=Markdown some-docs.r
             <p id="1e4a7a3">Then after running the command above, <span class="basis">store.md</span> will contain a new title at the top, followed by the remainder of the Markdown as rendered before the new template was added. </p>
 <p id="d4da3b3">Some notes: </p>
 
-<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="62232db">The template <span class="code">final</span> is the last one that <span class="important">glues</span> all the documentation together into a string. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="bec43d4"><span class="code">$tmpl.prev</span> is call to the previous version of <span class="code">final</span> with all the parameters passed on. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="6a4c4dc">All the generic templates are <a href="default-text-templates">tabulated with comments</a>. </p>
-</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="62232db">The template <span class="code">final</span> is the last one that <span class="important">glues</span> all the documentation together into a string. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="bec43d4"><span class="code">$tmpl.prev</span> is call to the previous version of <span class="code">final</span> with all the parameters passed on. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="6a4c4dc">All the generic templates are <a href="default-text-templates">tabulated with comments</a>. </p></li>
 </ul>
 
 <div class="id-target" id="RenderDocs utility"></div><h1 id="RenderDocs_utility" class="heading py-2 "><a href="#" title="go to top of document">RenderDocs utility</a><a class="raku-anchor" title="direct link" href="#RenderDocs utility">§</a></h1>
@@ -408,7 +400,7 @@ Richard Hainsworth, aka finanalyst
                 Rendered from <span class="footer-field">docs/to/Markdown.rakudoc/to/Markdown
             </div>
             <div class="level-item">
-                Rendered at 14:09 UTC on 2024-12-20
+                Rendered at 17:02 UTC on 2024-12-22
             </div>
             <div class="level-item">
                 Source last modified at 19:42 UTC on 2024-12-19

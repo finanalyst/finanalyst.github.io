@@ -261,19 +261,15 @@ function swap_toc_index(activate) {
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Templates">Templates</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Custom_data">Custom data</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Template_object">Template object</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#method_B&lt;$tmpl.prev&gt;">method $tmpl.prev 
-</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#method_B&lt;$tmpl.prev&gt;">method $tmpl.prev </a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_a_helper_callable">Calling a helper callable</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_the_escape_method_Each_output_(eg_HTML_or_MarkDown)_may_have_its_own_escape_method._The_escape_method_can_be_called_within_a_template_as_follows:_____$tmpl.globals.escape.(_$string-to-be-escaped_)">Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_another_defined_template">Calling another defined template</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Template_information_and_debugging">Template information and debugging</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;.debug&gt;_attribute">.debug attribute 
-</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;.debug&gt;_attribute">.debug attribute </a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Verbose_output_of_one_template">Verbose output of one template</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#The_C&lt;.test&gt;_attribute">The .test attribute 
-</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#The_C&lt;.pretty&gt;_attribute">The .pretty attribute 
-</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#The_C&lt;.test&gt;_attribute">The .test attribute </a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#The_C&lt;.pretty&gt;_attribute">The .pretty attribute </a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Credits">Credits</a></div>
 </div>
 
@@ -325,19 +321,13 @@ function swap_toc_index(activate) {
             <p id="0bef7be">where </p>
 
 <ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> key is a string and serves as the name of the template</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="aec6e10"><span class="code">%prm</span> is an ordinary Hash of the parameters that are accessed inside the block </p>
-</li>
-<li class="item" data-bullet="▹" style="--level:1;"> <p id="0dc0eba">In order to access 'contents', the code inside the block would be <span class="code"> %prm&lt;contents&gt; </span> </p>
-</li>
-<li class="item" data-bullet="▹" style="--level:1;"> <p id="a07bd10">The name of the Hash parameter is arbitrary, but conventionally is called <span class="code">%prm</span>. </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="0c0bcc0"><span class="code">$tmpl</span> is a <span class="important">Template</span> object, see below, and conventionally is called <span class="code">$tmpl</span>. </p>
-</li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="aec6e10"><span class="code">%prm</span> is an ordinary Hash of the parameters that are accessed inside the block </p></li>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="0dc0eba">In order to access 'contents', the code inside the block would be <span class="code"> %prm&lt;contents&gt; </span> </p></li>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="a07bd10">The name of the Hash parameter is arbitrary, but conventionally is called <span class="code">%prm</span>. </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="0c0bcc0"><span class="code">$tmpl</span> is a <span class="important">Template</span> object, see below, and conventionally is called <span class="code">$tmpl</span>. </p></li>
 <li class="item" data-bullet="•" style="--level:0;"> The contents of the block is a normal Raku program and should return a Str or PStr (see below).</li>
-<li class="item" data-bullet="▹" style="--level:1;"> <p id="f5fc985">The block shown above is the <span class="important">pointy</span> form, so the object returned is the value of the last statement </p>
-</li>
-<li class="item" data-bullet="▹" style="--level:1;"> <p id="dc0abb4">If the Raku program in the block is more easily written using a <span class="code">return</span> statement, then a <span class="code">sub</span> form should be used, eg. </p>
-</li>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="f5fc985">The block shown above is the <span class="important">pointy</span> form, so the object returned is the value of the last statement </p></li>
+<li class="item" data-bullet="▹" style="--level:1;"> <p id="dc0abb4">If the Raku program in the block is more easily written using a <span class="code">return</span> statement, then a <span class="code">sub</span> form should be used, eg. </p></li>
 </ul>
 
                 <div class="raku-code">
@@ -405,8 +395,7 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
                 </div>
             
 <div class="id-target" id="Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )"></div><h2 id="Calling_the_escape_method_Each_output_(eg_HTML_or_MarkDown)_may_have_its_own_escape_method._The_escape_method_can_be_called_within_a_template_as_follows:_____$tmpl.globals.escape.(_$string-to-be-escaped_)" class="heading py-2 "><a href="#" title="go to top of document">Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )</a><a class="raku-anchor" title="direct link" href="#Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )">§</a></h2>
-<div class="nested"><p id="4d0deac">Note the <span class="code">.</span> after <span class="code">escape</span>. This is to ensure the string is passed to the block. </p>
-</div>
+<div class="nested"><p id="4d0deac">Note the <span class="code">.</span> after <span class="code">escape</span>. This is to ensure the string is passed to the block. </p></div>
 
 <div class="id-target" id="Calling another defined template"></div><h2 id="Calling_another_defined_template" class="heading py-2 "><a href="#" title="go to top of document">Calling another defined template</a><a class="raku-anchor" title="direct link" href="#Calling another defined template">§</a></h2>
 <p id="5b159ef">The block registered with key <span class="code">aaa</span> can be called inside another template block, with or without parameters. </p>
@@ -426,14 +415,10 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
 <div class="id-target" id="Template information and debugging"></div><h1 id="Template_information_and_debugging" class="heading py-2 "><a href="#" title="go to top of document">Template information and debugging</a><a class="raku-anchor" title="direct link" href="#Template information and debugging">§</a></h1>
 <p id="f816244">Four attributes can be set on a <span class="code">Template-directory</span> object to aid with debugging templates, especially when templates have content that is derived from other templates: </p>
 
-<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="4c173e7"><span class="basis">debug</span> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="20b1233"><span class="basis">verbose</span> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="38ac0a3"><span class="basis">test</span> </p>
-</li>
-<li class="item" data-bullet="•" style="--level:0;"> <p id="f8787de"><span class="basis">pretty</span> </p>
-</li>
+<ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> <p id="4c173e7"><span class="basis">debug</span> </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="20b1233"><span class="basis">verbose</span> </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="38ac0a3"><span class="basis">test</span> </p></li>
+<li class="item" data-bullet="•" style="--level:0;"> <p id="f8787de"><span class="basis">pretty</span> </p></li>
 </ul>
 
 <div class="id-target" id=".debug attribute"></div><h2 id="C&lt;.debug&gt;_attribute" class="heading py-2 "><a href="#" title="go to top of document">.debug attribute</a><a class="raku-anchor" title="direct link" href="#.debug attribute">§</a></h2>
@@ -527,7 +512,7 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Templates.rakudoc/Templates
             </div>
             <div class="level-item">
-                Rendered at 14:09 UTC on 2024-12-20
+                Rendered at 17:02 UTC on 2024-12-22
             </div>
             <div class="level-item">
                 Source last modified at 22:11 UTC on 2024-11-05
