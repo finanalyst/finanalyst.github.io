@@ -14,7 +14,7 @@
 .content p+ul.item-list{margin-top:0}.content p+ol.item-list{margin-top:0}.delta:hover{border:var(--bulma-border-hover) 1px solid}.navbar-start{margin-bottom:1rem}
 </style>
 <style>/* bulma */
-label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
+label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem;width:3rem;display:inline-block}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
 </style>
 <style>/* graphviz */
 div.graphviz{display:flex;justify-content:space-around;align-items:center;margin:auto;margin-bottom:1rem}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
@@ -426,6 +426,7 @@ function swap_toc_index(div, activate) {
 <div class="id-target" id="Global data accessible in templates"></div><h1 id="Global_data_accessible_in_templates" class="heading py-2 "><a href="#" title="go to top of document">Global data accessible in templates</a><a class="raku-anchor" title="direct link" href="#Global data accessible in templates">§</a></h1>
 <p id="194c97a">More information is available in <a href="Templates">Templates</a>. </p>
 <p id="094f0a8">All templates can attach items to the Table of Contents, Index, Footnotes, and Warnings structures of the rendered source using the helper methods. </p>
+<p id="743e6fb">Currently, templates can <span class="important">add</span> but not <span class="basis">substitute</span> or <span class="basis">remove</span> items from structures. For example, within a template with a custom block, the ToC structure has been changed when the block is specified, so adding to the ToC within the custom block's templates will add information to the ToC structure immediately under the heading for the block. It is necessary, therefore to add a <span class="important">:caption</span> to the custom block in order to over-ride the default ToC behaviour. </p>
 <p id="dee143f">The following helper methods are available: </p>
 
 <ul class="item-list"><li class="item" data-bullet="•" style="--level:0;"> add-to-toc( %h ), where %h is a hash with the following keys:</li>
@@ -558,10 +559,10 @@ Artistic-2.0
                 Rendered from <span class="footer-field">docs/Render.rakudoc/Render
             </div>
             <div class="level-item">
-                Rendered at 17:32 UTC on 2024-12-31
+                Rendered at 10:45 UTC on 2025-01-09
             </div>
             <div class="level-item">
-                Source last modified at 00:13 UTC on 2024-12-31
+                Source last modified at 15:52 UTC on 2025-01-05
             </div>
         </nav>
     </div>

@@ -14,7 +14,7 @@
 .content p+ul.item-list{margin-top:0}.content p+ol.item-list{margin-top:0}.delta:hover{border:var(--bulma-border-hover) 1px solid}.navbar-start{margin-bottom:1rem}
 </style>
 <style>/* bulma */
-label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
+label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem;width:3rem;display:inline-block}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
 </style>
 <style>/* graphviz */
 div.graphviz{display:flex;justify-content:space-around;align-items:center;margin:auto;margin-bottom:1rem}.graphviz-error{display:flex;justify-content:space-around;align-items:center;color:red;font-weight:bold}.graphviz-error span.data{color:green}
@@ -274,7 +274,7 @@ function swap_toc_index(div, activate) {
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Template_object">Template object</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#method_B&lt;$tmpl.prev&gt;">method $tmpl.prev </a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_a_helper_callable">Calling a helper callable</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_the_escape_method_Each_output_(eg_HTML_or_MarkDown)_may_have_its_own_escape_method._The_escape_method_can_be_called_within_a_template_as_follows:_____$tmpl.globals.escape.(_$string-to-be-escaped_)">Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_the_escape_method">Calling the escape method</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_another_defined_template">Calling another defined template</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Template_information_and_debugging">Template information and debugging</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;.debug&gt;_attribute">.debug attribute </a></div>
@@ -311,7 +311,7 @@ function swap_toc_index(div, activate) {
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Template_object">Template object</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#method_B&lt;$tmpl.prev&gt;">method $tmpl.prev </a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_a_helper_callable">Calling a helper callable</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_the_escape_method_Each_output_(eg_HTML_or_MarkDown)_may_have_its_own_escape_method._The_escape_method_can_be_called_within_a_template_as_follows:_____$tmpl.globals.escape.(_$string-to-be-escaped_)">Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )</a></div>
+<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_the_escape_method">Calling the escape method</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#Calling_another_defined_template">Calling another defined template</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Template_information_and_debugging">Template information and debugging</a></div>
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#C&lt;.debug&gt;_attribute">.debug attribute </a></div>
@@ -442,7 +442,8 @@ chapter&nbsp;<span class="rainbow-operator">=&gt;</span>&nbsp;<span class="rainb
 </div>
                 </div>
             
-<div class="id-target" id="Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )"></div><h2 id="Calling_the_escape_method_Each_output_(eg_HTML_or_MarkDown)_may_have_its_own_escape_method._The_escape_method_can_be_called_within_a_template_as_follows:_____$tmpl.globals.escape.(_$string-to-be-escaped_)" class="heading py-2 "><a href="#" title="go to top of document">Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )</a><a class="raku-anchor" title="direct link" href="#Calling the escape method Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped )">§</a></h2>
+<div class="id-target" id="Calling the escape method"></div><h2 id="Calling_the_escape_method" class="heading py-2 "><a href="#" title="go to top of document">Calling the escape method</a><a class="raku-anchor" title="direct link" href="#Calling the escape method">§</a></h2>
+<p id="75f4da3">Each output (eg HTML or MarkDown) may have its own escape method. The escape method can be called within a template as follows: $tmpl.globals.escape.( $string-to-be-escaped ) </p>
 <div class="nested"><p id="4d0deac">Note the <span class="code">.</span> after <span class="code">escape</span>. This is to ensure the string is passed to the block. </p></div>
 
 <div class="id-target" id="Calling another defined template"></div><h2 id="Calling_another_defined_template" class="heading py-2 "><a href="#" title="go to top of document">Calling another defined template</a><a class="raku-anchor" title="direct link" href="#Calling another defined template">§</a></h2>
@@ -560,10 +561,10 @@ Richard Hainsworth aka finanalyst
                 Rendered from <span class="footer-field">docs/Templates.rakudoc/Templates
             </div>
             <div class="level-item">
-                Rendered at 17:32 UTC on 2024-12-31
+                Rendered at 10:45 UTC on 2025-01-09
             </div>
             <div class="level-item">
-                Source last modified at 22:11 UTC on 2024-11-05
+                Source last modified at 10:43 UTC on 2025-01-09
             </div>
         </nav>
     </div>
