@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Proving a renderer</title>
 <link rel="icon" href="https://irclogs.raku.org/favicon.ico">
-<style>/*! Vanilla CSS */span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.indexed:hover::before{content:attr(data-index-text);translate:0 -1.5em;position:absolute;opacity:75%;background-color:#40e0d0;color:indigo}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold;font-style:italic}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{white-space:nowrap;display:inline-block;width:1em}div.index-section>a.index-ref+span{display:none;width:0}div.index-section>a.index-ref:hover+span{display:inline-block;position:absolute;width:auto;z-index:5;background-color:#fff5ee}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}tbody.procedural tr.procedural .procedural-cell-left{text-align:left}tbody.procedural tr.procedural .procedural-cell-centre{text-align:center}tbody.procedural tr.procedural .procedural-cell-center{text-align:center}tbody.procedural tr.procedural .procedural-cell-right{text-align:right}tbody.procedural tr.procedural .procedural-cell-top{vertical-align:text-top}tbody.procedural tr.procedural .procedural-cell-middle{vertical-align:baseline}tbody.procedural tr.procedural .procedural-cell-bottom{vertical-align:text-bottom}tbody.procedural tr.procedural .procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;flex-direction:column;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}.raku-anchor{font-size:.9em;text-decoration:none;visibility:hidden}.heading:hover .raku-anchor{visibility:visible;padding-left:5px}
+<style>/*! Vanilla CSS */span.basis{font-weight:800}span.important{font-style:italic}span.unusual{text-decoration:underline}span.code{font-weight:500;background-color:linen;display:inline-block;margin:2px;padding:2px}span.overstrike{text-decoration:line-through}span.high{vertical-align:super}span.junior{vertical-align:sub}span.replace{font-style:small-caps;text-shadow:-1px 1px}span.indexed{text-shadow:1px 1px orange}span.indexed:hover::before{content:attr(data-index-text);translate:0 -1.5em;position:absolute;opacity:75%;background-color:#40e0d0;color:indigo}span.keyboard{text-shadow:1px 1px}span.terminal{text-decoration:overline underline}span.footnote{vertical-align:super}span.developer-version{display:none;color:red}span.developer-version span.developer-note{font-family:"Brush Script MT",cursive}span.developer-version:hover{display:inline-block;transform:translate(50px, 100px);z-index:5}span.bad-markdown{text-shadow:1px 1px red}pre.code-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.input-block::before{content:"--- input ---";display:block;text-shadow:-2px -2px 4px #000;color:#fff;padding-bottom:1rem}pre.output-block{background-color:#eee;margin:1rem;padding:0 1rem 1rem 1rem}pre.output-block::before{content:"--- output ---";display:block;text-shadow:2px 2px 4px #000;color:#fff;padding-bottom:1rem}div.defn-text{margin-left:1rem}div.defn-term{font-weight:bold;font-style:italic}div.id-target{display:none}div.nested{margin-left:5rem}div.toc .toc-item{margin-left:calc(var(--level)*1rem)}div.toc .toc-item::before{content:attr(data-bullet)}div.toc .toc-item a{padding-left:.4rem}div.index-section{margin-left:calc((var(--level) - 1)*1rem)}div.index-section[data-index-level="1"]{text-shadow:1px 1px orange}div.index-section>a.index-ref{margin-left:calc(var(--level)*1rem);display:block;width:auto;white-space:normal}span.developer-note{display:none;width:0;color:blue;text-shadow:2px 2px 5px green}span.developer-version{display:none;width:0;color:red;text-shadow:2px 2px 5px green}.delta::before,span.developer-text::before{content:"ℹ";vertical-align:super}.delta:hover .developer-version,span.developer-text:hover .developer-version{display:inline-block;position:absolute;width:100%;z-index:5;transform:translate(0.5rem, -1rem)}.delta:hover .developer-note,span.developer-text:hover .developer-note{display:inline-block;position:absolute;width:auto;z-index:5;margin-left:1rem}span.developer-text:hover{text-decoration:overline}div.footer{border-top:2px dashed;margin:1rem 0;padding:2rem}div.footer .footer-field{display:inline-block}div.footer .footer-line{display:block}.heading>a{color:maroon;text-decoration:none}h.title{font-size:larger}table,th,td{border:1px solid;border-collapse:collapse}tbody.procedural tr.procedural .procedural-cell-left{text-align:left}tbody.procedural tr.procedural .procedural-cell-centre{text-align:center}tbody.procedural tr.procedural .procedural-cell-center{text-align:center}tbody.procedural tr.procedural .procedural-cell-right{text-align:right}tbody.procedural tr.procedural .procedural-cell-top{vertical-align:text-top}tbody.procedural tr.procedural .procedural-cell-middle{vertical-align:baseline}tbody.procedural tr.procedural .procedural-cell-bottom{vertical-align:text-bottom}tbody.procedural tr.procedural .procedural-cell-label{font-weight:bold}li.item{padding-left:.4rem;margin-left:calc(var(--level)*1rem)}li.item::marker{content:attr(data-bullet)}div.rakudoc-image-placement{display:flex;flex-direction:column;align-items:center}.rakudoc-placement-error{display:flex;justify-content:sapace-around;align-items:center;color:red;font-weight:bold}.raku-anchor{font-size:.9em;text-decoration:none;visibility:hidden}.heading:hover .raku-anchor{visibility:visible;padding-left:5px}
 </style>
 <style>/* bulma */
 #page-nav{width:25%;position:fixed}#page-nav .panel-block .toc{overflow-y:scroll;height:65vh}#page-nav .panel-block .index{overflow-y:scroll;height:65vh}.main-footer{z-index:1;position:relative}.toc-item:hover{background:var(--bulma-background)}.toc-item a{text-decoration:none;color:var(--bulma-text)}
 </style>
 <style>/* bulma */
-.content p+ul.item-list{margin-top:0}.content p+ol.item-list{margin-top:0}.delta:hover{border:var(--bulma-border-hover) 1px solid}.navbar-start{margin-bottom:1rem}
+.content p+ul.item-list{margin-top:0}.content p+ol.item-list{margin-top:0}.delta:hover{border:var(--bulma-border-hover) 1px solid}.navbar-start{margin-bottom:1rem}table{width:fit-content;margin:auto}table caption{font-weight:bold}
 </style>
 <style>/* bulma */
 label.chyronToggle input#navbar-toc-toggle{opacity:0;height:0;width:0}label.chyronToggle span.checkmark{top:1rem;position:relative;cursor:pointer}label.chyronToggle input[type=checkbox]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}label.chyronToggle span.checkmark::before{content:"[⇨";color:gray;font-weight:800;line-height:.5rem;font-size:1.75rem;margin-right:.25rem;width:3rem;display:inline-block}label.chyronToggle:hover span.checkmark::before{content:"[ ⇨"}label.chyronToggle input[type=checkbox]:checked+.checkmark::before{content:"[ ⇦"}label.chyronToggle:hover input[type=checkbox]:checked+.checkmark::before{content:"[⇦"}
@@ -290,9 +290,6 @@ function swap_toc_index(div, activate) {
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#A_customised_block">A customised block</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#This_is_an_extraordinary_paragraph">This is an extraordinary paragraph</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Some_tables">Some tables</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#A_visual_table">A visual table</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#A_visual_table_with_a_stupendously_long_caption">A visual table with a stupendously long caption</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#A_procedural_table">A procedural table</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Adding_index_entries_to_your_text">Adding index entries to your text</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Scoping_examples">Scoping examples</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Placements">Placements</a></div>
@@ -311,16 +308,34 @@ function swap_toc_index(div, activate) {
             <aside id="mindex-menu" class="panel-block is-hidden">
             <div class="index">
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">elements to be placed</span>: <a class="index-ref" href="#index-entry-elements_to_be_placed">&nbsp;§&nbsp;</a><span>This is third level heading</span>
+<span class="index-entry">elements to be placed</span><a class="index-ref" href="#index-entry-elements_to_be_placed">This is third level heading</a>
 </div>
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">formatting code</span>: <a class="index-ref" href="#index-entry-formatting_code">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>
+<span class="index-entry">formatting code</span><a class="index-ref" href="#index-entry-formatting_code">Adding index entries to your text</a>
 </div>
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">index</span>: <a class="index-ref" href="#index-entry-index_entry">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-Index_entries">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-subentries">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-multilevel_subentries">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-first_level">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>
+<span class="index-entry">index</span><a class="index-ref" href="#index-entry-index">Adding index entries to your text</a><a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="2" style="--level:2">
+<span class="index-entry">entry</span><a class="index-ref" href="#index-entry-index_entry">Adding index entries to your text</a><a class="index-ref" href="#index-entry-Index_entries">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="3" style="--level:3">
+<span class="index-entry">nested</span><a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="2" style="--level:2">
+<span class="index-entry">multiple entries</span><a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="2" style="--level:2">
+<span class="index-entry">subentry</span><a class="index-ref" href="#index-entry-subentries">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="3" style="--level:3">
+<span class="index-entry">multilevel</span><a class="index-ref" href="#index-entry-multilevel_subentries">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="3" style="--level:3">
+<span class="index-entry">rendering</span><a class="index-ref" href="#index-entry-first_level">Adding index entries to your text</a>
 </div>
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">inline formatting</span>: <a class="index-ref" href="#index-entry-formatting_code">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>
+<span class="index-entry">inline formatting</span><a class="index-ref" href="#index-entry-formatting_code">Adding index entries to your text</a>
 </div>
 </div>
 
@@ -364,9 +379,6 @@ function swap_toc_index(div, activate) {
 <div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#A_customised_block">A customised block</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#This_is_an_extraordinary_paragraph">This is an extraordinary paragraph</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Some_tables">Some tables</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#A_visual_table">A visual table</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#A_visual_table_with_a_stupendously_long_caption">A visual table with a stupendously long caption</a></div>
-<div class="toc-item" style="--level:1;" data-bullet="▹"><a href="#A_procedural_table">A procedural table</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Adding_index_entries_to_your_text">Adding index entries to your text</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Scoping_examples">Scoping examples</a></div>
 <div class="toc-item" style="--level:0;" data-bullet=""><a href="#Placements">Placements</a></div>
@@ -385,16 +397,34 @@ function swap_toc_index(div, activate) {
     <aside id="index-menu" class="panel-block is-hidden">
     <div class="index">
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">elements to be placed</span>: <a class="index-ref" href="#index-entry-elements_to_be_placed">&nbsp;§&nbsp;</a><span>This is third level heading</span>
+<span class="index-entry">elements to be placed</span><a class="index-ref" href="#index-entry-elements_to_be_placed">This is third level heading</a>
 </div>
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">formatting code</span>: <a class="index-ref" href="#index-entry-formatting_code">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>
+<span class="index-entry">formatting code</span><a class="index-ref" href="#index-entry-formatting_code">Adding index entries to your text</a>
 </div>
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">index</span>: <a class="index-ref" href="#index-entry-index_entry">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-Index_entries">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-subentries">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-multilevel_subentries">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-first_level">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>
+<span class="index-entry">index</span><a class="index-ref" href="#index-entry-index">Adding index entries to your text</a><a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="2" style="--level:2">
+<span class="index-entry">entry</span><a class="index-ref" href="#index-entry-index_entry">Adding index entries to your text</a><a class="index-ref" href="#index-entry-Index_entries">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="3" style="--level:3">
+<span class="index-entry">nested</span><a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="2" style="--level:2">
+<span class="index-entry">multiple entries</span><a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="2" style="--level:2">
+<span class="index-entry">subentry</span><a class="index-ref" href="#index-entry-subentries">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="3" style="--level:3">
+<span class="index-entry">multilevel</span><a class="index-ref" href="#index-entry-multilevel_subentries">Adding index entries to your text</a>
+</div>
+<div class="index-section" data-index-level="3" style="--level:3">
+<span class="index-entry">rendering</span><a class="index-ref" href="#index-entry-first_level">Adding index entries to your text</a>
 </div>
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">inline formatting</span>: <a class="index-ref" href="#index-entry-formatting_code">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>
+<span class="index-entry">inline formatting</span><a class="index-ref" href="#index-entry-formatting_code">Adding index entries to your text</a>
 </div>
 </div>
 
@@ -455,16 +485,16 @@ function swap_toc_index(div, activate) {
 <div class="id-target" id="A short index"></div><h1 id="A_short_index" class="heading py-2 "><a href="#" title="go to top of document">A short index</a><a class="raku-anchor" title="direct link" href="#A short index">§</a></h1>
 <div class="index">
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">elements to be placed</span>: <a class="index-ref" href="#index-entry-elements_to_be_placed">&nbsp;§&nbsp;</a><span>This is third level heading</span>
+<span class="index-entry">elements to be placed</span><a class="index-ref" href="#index-entry-elements_to_be_placed">This is third level heading</a>
 </div>
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">formatting code</span>: <a class="index-ref" href="#index-entry-formatting_code">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>
+<span class="index-entry">formatting code</span><a class="index-ref" href="#index-entry-formatting_code">Adding index entries to your text</a>
 </div>
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">index</span>: <a class="index-ref" href="#index-entry-index_entry">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-Index_entries">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-subentries">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-multilevel_subentries">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-first_level">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>, <a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>
+<span class="index-entry">index</span><a class="index-ref" href="#index-entry-index">Adding index entries to your text</a><a class="index-ref" href="#index-entry-two_or_more_separate_entries_in_the_index">Adding index entries to your text</a>
 </div>
 <div class="index-section" data-index-level="1" style="--level:1">
-<span class="index-entry">inline formatting</span>: <a class="index-ref" href="#index-entry-formatting_code">&nbsp;§&nbsp;</a><span>Adding index entries to your text</span>
+<span class="index-entry">inline formatting</span><a class="index-ref" href="#index-entry-formatting_code">Adding index entries to your text</a>
 </div>
 </div>
 
@@ -517,7 +547,7 @@ function swap_toc_index(div, activate) {
 </div>
 &#x2998; defined using a <span class="code">=defn</span> block. </p>
 <p id="839cb63">Normally extra spaces are removed with paragraphs, but sometimes we truly dot dot dot&nbsp;&nbsp; dash dash dash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; want them. </p>
-<p id="26cf8e9">Good text will contain <span class="indexed" id="index-entry-elements_to_be_placed" data-index-text="〚〛">elements to be placed</span> in an index. The index has already been placed at the start of the document, although content is generated here. </p>
+<p id="b553c84">Good text will contain <span class="indexed" id="index-entry-elements_to_be_placed">elements to be placed</span> in an index. The index has already been placed at the start of the document, although content is generated here. </p>
 
 <div class="id-target" id="｢heading_This_is_a_numbered_heading,_level_1 UNAVAILABLE｣ This is a numbered heading, level 1"></div><h1 id="This_is_a_numbered_heading,_level_1" class="heading py-2 "><a href="#" title="go to top of document">1. This is a numbered heading, level 1</a><a class="raku-anchor" title="direct link" href="#｢heading_This_is_a_numbered_heading,_level_1 UNAVAILABLE｣ This is a numbered heading, level 1">§</a></h1>
 <p id="170d167">text </p>
@@ -693,9 +723,8 @@ Richard Hainsworth, aka finanalyst
 <p id="b660fd8">You are reminded that: Do not consider this a disquisition of possible combinations. </p>
 
 <div class="id-target" id="Some tables"></div><h1 id="Some_tables" class="heading py-2 "><a href="#" title="go to top of document">Some tables</a><a class="raku-anchor" title="direct link" href="#Some tables">§</a></h1>
-
-<div class="id-target" id="A visual table"></div><h2 id="A_visual_table" class="heading py-2 "><a href="#" title="go to top of document">A visual table</a><a class="raku-anchor" title="direct link" href="#A visual table">§</a></h2>
-<table class="table is-striped is-bordered">	<thead>
+<div id="A_visual_table"></div>
+<table class="table is-striped is-bordered"><caption>A visual table</caption>	<thead>
 		<tr><th>Animal</th><th>Legs</th><th>Eats</th></tr>
 	</thead>	<tbody>
 		<tr><td>Zebra</td><td>4</td><td>Cookies</td></tr>
@@ -703,9 +732,8 @@ Richard Hainsworth, aka finanalyst
 		<tr><td>Shark</td><td>0</td><td>Fish</td></tr>
 			</tbody>
 </table>
-
-<div class="id-target" id="A visual table with a stupendously long caption"></div><h2 id="A_visual_table_with_a_stupendously_long_caption" class="heading py-2 "><a href="#" title="go to top of document">A visual table with a stupendously long caption</a><a class="raku-anchor" title="direct link" href="#A visual table with a stupendously long caption">§</a></h2>
-<table class="table is-striped is-bordered">	<thead>
+<div id="A_visual_table_with_a_stupendously_long_caption"></div>
+<table class="table is-striped is-bordered"><caption>A visual table with a stupendously long caption</caption>	<thead>
 		<tr><th>Animal</th><th>Legs</th><th>Eats</th></tr>
 	</thead>	<tbody>
 		<tr><td>Zebra</td><td>4</td><td>Cookies</td></tr>
@@ -713,9 +741,8 @@ Richard Hainsworth, aka finanalyst
 		<tr><td>Shark</td><td>0</td><td>Fish</td></tr>
 			</tbody>
 </table>
-
-<div class="id-target" id="A procedural table"></div><h2 id="A_procedural_table" class="heading py-2 "><a href="#" title="go to top of document">A procedural table</a><a class="raku-anchor" title="direct link" href="#A procedural table">§</a></h2>
-<table class="table is-striped is-bordered"><tbody class="procedural">
+<div id="A_procedural_table"></div>
+<table class="table is-striped is-bordered"><caption>A procedural table</caption><tbody class="procedural">
 <tr class="procedural"><th rowspan="2" class="">Date</th><th colspan="3" class="">Samples</th><th rowspan="2" class="">Mean</th></tr>
 <tr class="procedural"><th class=""><p id="be4f23a"><span class="important">Sample 1</span> </p></th><th class=""><p id="ea75ec8"><span class="important">Sample 2</span> </p></th><th class=""><p id="7932f80"><span class="important">Sample 3</span> </p></th></tr>
 <tr class="procedural"><td class="">2023-03-08</td><td class="">0.4</td><td class="">0.1</td><td class="">0.3</td><td class="">0.26667</td></tr>
@@ -725,7 +752,7 @@ Richard Hainsworth, aka finanalyst
 </tbody></table>
 
 <div class="id-target" id="Adding index entries to your text"></div><h1 id="Adding_index_entries_to_your_text" class="heading py-2 "><a href="#" title="go to top of document">Adding index entries to your text</a><a class="raku-anchor" title="direct link" href="#Adding index entries to your text">§</a></h1>
-<p id="aabf8be">An <span class="indexed" id="index-entry-index_entry" data-index-text="⦃〚index〛 〚entry〛⦄">index entry</span> is an inline <span class="indexed" id="index-entry-formatting_code" data-index-text="⦃〚formatting code〛⦄ ⦃〚inline formatting〛⦄">formatting code</span> that is rendered normally (i.e. with no special identifying styling) within the text, but which is also added to the <span class="indexed" id="index-entry-index" data-index-text="〚〛">index</span>. <span class="indexed" id="index-entry-Index_entries" data-index-text="⦃〚index〛 〚entry〛⦄">Index entries</span> may be specified with <span class="indexed" id="index-entry-subentries" data-index-text="⦃〚index〛 〚subentry〛⦄">subentries</span>, including <span class="indexed" id="index-entry-multilevel_subentries" data-index-text="⦃〚index〛 〚subentry〛 〚multilevel〛⦄">multilevel subentries</span>, though a renderer is not required to represent anything more than the <span class="indexed" id="index-entry-first_level" data-index-text="⦃〚index〛 〚subentry〛 〚rendering〛⦄">first level</span>. A single index entry can specify <span class="indexed" id="index-entry-two_or_more_separate_entries_in_the_index" data-index-text="⦃〚index〛⦄ ⦃〚index〛 〚multiple entries〛⦄ ⦃〚index〛 〚entry〛 〚nested〛⦄">two or more separate entries in the index</span>, all of which will refer back to the same point in the text. </p>
+<p id="77c7fc4">An <span class="indexed" id="index-entry-index_entry">index entry</span> is an inline <span class="indexed" id="index-entry-formatting_code">formatting code</span> that is rendered normally (i.e. with no special identifying styling) within the text, but which is also added to the <span class="indexed" id="index-entry-index">index</span>. <span class="indexed" id="index-entry-Index_entries">Index entries</span> may be specified with <span class="indexed" id="index-entry-subentries">subentries</span>, including <span class="indexed" id="index-entry-multilevel_subentries">multilevel subentries</span>, though a renderer is not required to represent anything more than the <span class="indexed" id="index-entry-first_level">first level</span>. A single index entry can specify <span class="indexed" id="index-entry-two_or_more_separate_entries_in_the_index">two or more separate entries in the index</span>, all of which will refer back to the same point in the text. </p>
 
 <div class="id-target" id="Scoping examples"></div><h1 id="Scoping_examples" class="heading py-2 "><a href="#" title="go to top of document">Scoping examples</a><a class="raku-anchor" title="direct link" href="#Scoping examples">§</a></h1>
 <p id="6019325">Configuration and aliases are scoped. </p>
@@ -827,7 +854,7 @@ Artistic-2.0
                 Rendered from <span class="footer-field">docs/samples/rakudociem-ipsum.rakudoc/samples/rakudociem-ipsum
             </div>
             <div class="level-item">
-                Rendered at 18:02 UTC on 2025-01-13
+                Rendered at 15:17 UTC on 2025-01-19
             </div>
             <div class="level-item">
                 Source last modified at 21:59 UTC on 2024-11-25
