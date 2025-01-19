@@ -634,7 +634,7 @@ function swap_toc_index(div, activate) {
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
                     <div><pre class="nohighlights">
-=config <span class="basis">C</span> :allow<B I>
+=config <span class="basis">C</span> :allow&lt;B I&gt;
 </pre>
 </div>
                 </div>
@@ -945,7 +945,7 @@ And this is a <span class="basis">L&lt;link to the Raku Programming Language|htt
     # more lines of code
 
     <span class="basis">=finish
-    { "key1": "a string value", "key2": "another value" }</span>
+    { &quot;key1&quot;: &quot;a string value&quot;, &quot;key2&quot;: &quot;another value&quot; }</span>
 </pre>
 </div>
                 </div>
@@ -1359,9 +1359,9 @@ And this is a <span class="basis">L&lt;link to the Raku Programming Language|htt
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
                     <div><pre class="nohighlights">
-    =begin code <span class="basis">:allow< B R ></span> :lang<RakuDoc>
+    =begin code <span class="basis">:allow&lt; B R &gt;</span> :lang&lt;RakuDoc&gt;
     sub demo {
-        B<say> 'Hello R&lt;name&gt;';
+        B&lt;say&gt; 'Hello R&lt;name&gt;';
         I&lt;note&gt; 'The I format is not recognised';
     }
     =end code
@@ -2790,7 +2790,7 @@ We will use: F&lt;
 
     =defn lexiphania
     An unfortunate proclivity for
-    employing grandiloquisms (for example, words such as "proclivity", "grandiloquism", and indeed "lexiphania").
+    employing grandiloquisms (for example, words such as &quot;proclivity&quot;, &quot;grandiloquism&quot;, and indeed &quot;lexiphania&quot;).
 
     =defn glossoligation
     Restraint of the tongue (voluntary or otherwise)
@@ -2926,7 +2926,7 @@ P&lt;<span class="basis">NO WARRANTY. NONE. NIL. NADA. </span>| http://www.MegaG
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
                     <div><pre class="nohighlights">
-...a <span class="basis"><dfn id="term being defined">term being defined</dfn></span> would be...
+...a <span class="basis">&lt;dfn id=&quot;term being defined&quot;&gt;term being defined&lt;/dfn&gt;</span> would be...
 </pre>
 </div>
                 </div>
@@ -2936,7 +2936,7 @@ P&lt;<span class="basis">NO WARRANTY. NONE. NIL. NADA. </span>| http://www.MegaG
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
                     <div><pre class="nohighlights">
-...a <span class="basis"><a href="#term being defined">term being defined</a></span> link would be...
+...a <span class="basis">&lt;a href=&quot;#term being defined&quot;&gt;term being defined&lt;/a&gt;</span> link would be...
 </pre>
 </div>
                 </div>
@@ -3215,8 +3215,8 @@ associated string key.
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
                     <div><pre class="nohighlights">
-<span class="basis">X&lt;|puns, deliberate&gt;</span>This is called the "Orcish Maneuver"
-because you "OR" the "cache".
+<span class="basis">X&lt;|puns, deliberate&gt;</span>This is called the &quot;Orcish Maneuver&quot;
+because you &quot;OR&quot; the &quot;cache&quot;.
 </pre>
 </div>
                 </div>
@@ -3286,15 +3286,15 @@ V&lt;  <span class="important">DISPLAY-TEXT</span>  &gt;
                     <button class="copy-code" title="Copy code"><i class="far fa-clipboard"></i></button>
                     <label><b>allow</b> styling</label>
                     <div><pre class="nohighlights">
-A&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">ALIAS-NAME</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;
-D&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">SYNONYMS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;
-Δ&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">VERSION-ETC</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;
+A&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">ALIAS-NAME</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&gt;
+D&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">SYNONYMS</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&gt;
+Δ&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">VERSION-ETC</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &gt;
 E&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">HTML/UNICODE-ENTITIES</span> &gt;
-F&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">LATEX-FORM</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;
-L&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">TARGET-URI</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;
-M&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">WHATEVER</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;
-P&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">REPLACEMENT-URI</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;
-X&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">INDEX-ENTRY</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &gt;
+F&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">LATEX-FORM</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&gt;
+L&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">TARGET-URI</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&gt;
+M&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">WHATEVER</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&gt;
+P&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">REPLACEMENT-URI</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &gt;
+X&lt;  <span class="important">DISPLAY-TEXT </span>  |  METADATA=<span class="basis">INDEX-ENTRY</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &gt;
 </pre>
 </div>
                 </div></div>
@@ -3494,7 +3494,7 @@ Artistic-2.0
                 Rendered from <span class="footer-field">docs/samples/rakudoc.rakudoc/samples/rakudoc
             </div>
             <div class="level-item">
-                Rendered at 15:17 UTC on 2025-01-19
+                Rendered at 16:18 UTC on 2025-01-19
             </div>
             <div class="level-item">
                 Source last modified at 17:34 UTC on 2025-01-15
